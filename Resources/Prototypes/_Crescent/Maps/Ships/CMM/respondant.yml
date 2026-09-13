@@ -2,7 +2,7 @@
 # Discord: the_inbetwixt
 
 - type: vessel
-  id: respondant
+  id: Respondant
   name: TS Respondant
   description: |
     A compact corvette. Called either a heavy fighter, or heavy brawler.
@@ -15,12 +15,12 @@
   path: /Maps/_Crescent/Shuttles/CMM/respondant.yml
 
 - type: gameMap
-  id: respondant
+  id: Respondant
   mapName: 'TS Respondant'
   mapPath: /Maps/_Crescent/Shuttles/CMM/respondant.yml
   minPlayers: 0
   stations:
-    respondant:
+    Respondant:
       stationProto: StandardCrescentExpeditionVessel
       components:
         - type: VesselIcon

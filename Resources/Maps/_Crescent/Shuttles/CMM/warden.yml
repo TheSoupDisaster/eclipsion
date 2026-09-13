@@ -2158,7 +2158,7 @@ entities:
       startingCharge: 18203.213
     - type: ApcPowerReceiverBattery
       enabled: True
-- proto: WallShuttle
+- proto: WallShuttleCMM
   entities:
   - uid: 267
     components:
@@ -2472,7 +2472,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,4.5
       parent: 1
-- proto: WallShuttleDiagonalCurved
+- proto: WallShuttleCMMDiagonalCurved
   entities:
   - uid: 319
     components:

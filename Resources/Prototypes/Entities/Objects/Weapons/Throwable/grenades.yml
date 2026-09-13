@@ -39,12 +39,10 @@
 - type: entity
   parent: SHIHG17SmartHandgrenade
   id: ExGrenade
-  suffix: DO NOT MAP
 
 - type: entity
   parent: SHIHG7FlashbangHandgrenade
   id: GrenadeFlashBang
-  suffix: DO NOT MAP
 
 - type: entity
   id: GrenadeFlashEffect
@@ -65,7 +63,6 @@
 - type: entity
   parent: DSMG4TwistcapHandgrenade
   id: SyndieMiniBomb
-  suffix: DO NOT MAP
 
 - type: entity
   name: Self Destruct
@@ -278,7 +275,6 @@
 - type: entity
   parent: SHIHG32EMPHandgrenade
   id: EmpGrenade
-  suffix: DO NOT MAP
 
 - type: entity
   name: holy hand grenade
@@ -308,7 +304,6 @@
 - type: entity
   parent: M18SmokeHandgrenade
   id: SmokeGrenade
-  suffix: DO NOT MAP
 
 - type: entity
   parent: SmokeGrenade
@@ -347,7 +342,6 @@
 - type: entity
   parent: SHIHG3TearGasHandgrenade
   id: TearGasGrenade
-  suffix: DO NOT MAP
 
 # Non-explosive "dummy" grenades to use as a distraction.
 

@@ -1061,7 +1061,7 @@ entities:
     - type: Transform
       pos: 3.5,3.5
       parent: 1
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTAP
   entities:
   - uid: 71
     components:

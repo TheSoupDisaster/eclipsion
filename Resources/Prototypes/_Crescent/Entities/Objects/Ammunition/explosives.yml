@@ -447,7 +447,6 @@
 - type: entity
   id: Cartridge84mmLAM17
   name: 84mm rocket
-  suffix: DO NOT MAP
   parent: BaseItem
   description: A 84mm rocket from a LAM-17, youre not even supposed to have this.. how did you get this?????????
   components:
@@ -492,7 +491,6 @@
 - type: entity
   id: Cartridge44mmCommando
   name: 44mm rocket
-  suffix: DO NOT MAP
   parent: BaseItem
   description: A 44mm rocket from a M-32 commando, youre not even supposed to have this.. how did you get this?????????
   components:

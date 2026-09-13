@@ -611,7 +611,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -0.5022656,2.5540142
-- proto: WallPlastitanium
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 71
     components:

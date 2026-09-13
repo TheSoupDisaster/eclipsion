@@ -582,7 +582,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 2.5,3.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumNCWL
   entities:
   - uid: 51
     components:

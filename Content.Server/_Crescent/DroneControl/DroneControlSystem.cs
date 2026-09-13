@@ -193,6 +193,8 @@ public sealed class DroneControlSystem : EntitySystem
             carrier?.ProducedCount ?? 0,
             drones.Count,
             carrier?.MaxDrones ?? 0,
+            carrier != null ? _autoDrone.GetLostDrones(carrier) : 0,
+            carrier != null ? _autoDrone.GetHangarCount(carrier) : 0,
             BuildSpawnList(console, carrier),
             GetTreasury(console, carrier)));
     }

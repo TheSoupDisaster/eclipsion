@@ -74,6 +74,16 @@ public sealed class ShipRepairStationUiState : BoundUserInterfaceState
     public int Restocks;
 
     /// <summary>
+    /// Drones a carrier has lost and the slip will restock into its hangar.
+    /// </summary>
+    public int DroneRestocks;
+
+    /// <summary>
+    /// Flat fee for the drone restock, already part of <see cref="Quote"/> and not marked up.
+    /// </summary>
+    public int DroneRestockCost;
+
+    /// <summary>
     /// Quoted price with the yard's markup already applied.
     /// </summary>
     public int Quote;

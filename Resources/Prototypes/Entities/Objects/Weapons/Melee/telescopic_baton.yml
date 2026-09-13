@@ -62,7 +62,7 @@
   id: TelescopicBatonAdmeme
   name: robust telescopic baton
   description: A compact and HARMFUL personal defense weapon. Sturdy enough to break legs of the attackers, making them unable to walk again.
-  suffix: admeme, DO NOT MAP
+  suffix: admeme
   components:
   - type: TelescopicBaton
     attackTimeframe: 300 # one minute after activation

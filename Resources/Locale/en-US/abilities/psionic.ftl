@@ -93,7 +93,7 @@ action-name-assay = Assay
 action-description-assay = Probe an entity at close range to glean metaphorical information about any powers they may have
 
 action-name-psionic-stasis-field = Stasis Field
-action-description-psionic-stasis-field = Hang a pocket of slowed time in front of you for eight seconds. Anything moving through it crawls, and burning fuses crawl with it.
+action-description-psionic-stasis-field = Hang a pocket of slowed time in front of you for five seconds. Anything moving through it crawls, and burning fuses crawl with it.
 action-name-psionic-armor-reweave = Reweave
 action-description-psionic-armor-reweave = Wind your worn armour back to the condition it was made in. Rarely, a piece comes apart instead.
 action-name-psionic-recurrence-pulse = Recurrence Pulse

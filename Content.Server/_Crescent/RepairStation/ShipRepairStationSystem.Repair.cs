@@ -48,11 +48,6 @@ public sealed partial class ShipRepairStationSystem
         // No blueprint stops a crew slip dead. The override console goes ahead with the half of the
         // survey that needs no file - the damage, the spills, the wreckage, the empty magazines.
         var data = CompOrNull<ShipRepairDataComponent>(ship);
-        if (data == null && !comp.RepairUnregistered)
-        {
-            Deny(station, args.Actor, "ship-repair-station-popup-no-blueprint");
-            return;
-        }
 
         if (IsShipBusyElsewhere(station, ship))
         {
@@ -60,7 +55,14 @@ public sealed partial class ShipRepairStationSystem
             return;
         }
 
+        // Without a file a crew slip only restocks a carrier's hangar; Survey leaves everything else out.
         var survey = Survey(station, ship, data);
+        if (data == null && !comp.RepairUnregistered && survey.Jobs.Count == 0)
+        {
+            Deny(station, args.Actor, "ship-repair-station-popup-no-blueprint");
+            return;
+        }
+
         if (survey.Jobs.Count == 0)
         {
             Deny(station, args.Actor, "ship-repair-station-popup-intact");
@@ -248,6 +250,10 @@ public sealed partial class ShipRepairStationSystem
 
             case ShipRepairJobKind.Restock:
                 Restock(ship, job.Target);
+                break;
+
+            case ShipRepairJobKind.DroneRestock:
+                _autoDrone.RestockHangars(ship);
                 break;
         }
 
@@ -538,13 +544,14 @@ public sealed partial class ShipRepairStationSystem
         // fee back to a customer who has already had his guns and his hull plating welded on.
         if (refund && comp.Jobs.Count > 0)
         {
-            var outstanding = 0L;
+            var outstanding = 0f;
             foreach (var job in comp.Jobs)
             {
-                outstanding += job.Cost;
+                // The drone restock was billed flat, so it is handed back flat too.
+                outstanding += job.Kind == ShipRepairJobKind.DroneRestock ? job.Cost : job.Cost * comp.PriceMarkup;
             }
 
-            Refund(station, (int) Math.Min(comp.AmountPaid, MathF.Ceiling(outstanding * comp.PriceMarkup)));
+            Refund(station, (int) Math.Min(comp.AmountPaid, MathF.Ceiling(outstanding)));
         }
 
         ClearJob(comp);

@@ -599,7 +599,6 @@
   id: BoxFolderCentCom
   name: CentCom folder
   parent: BoxFolderBase
-  suffix: DO NOT MAP
   description: CentCom's miserable little pile of secrets!
   components:
   - type: Sprite

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Recruitment screen adapted from Structures/Machines/computers.rsi/id.png, originally taken from tgstation at https://github.com/tgstation/tgstation/commit/bd6873fd4dd6a61d7e46f1d75cd4d90f64c40894.",
+  "copyright": "Recruitment screen redesigned by Taleryn for Hullrot:Eclipsion; original screen adapted from Structures/Machines/computers.rsi/id.png, originally taken from tgstation at https://github.com/tgstation/tgstation/commit/bd6873fd4dd6a61d7e46f1d75cd4d90f64c40894.",
   "size": {
     "x": 32,
     "y": 32
@@ -11,10 +11,10 @@
       "name": "recruitment",
       "directions": 4,
       "delays": [
-        [0.2, 0.2],
-        [0.2, 0.2],
-        [0.2, 0.2],
-        [0.2, 0.2]
+        [1.5, 0.5],
+        [1.5, 0.5],
+        [1.5, 0.5],
+        [1.5, 0.5]
       ]
     }
   ]

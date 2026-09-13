@@ -1,8 +1,10 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+using Robust.Shared.Player;
 
 namespace Content.Server.Psionics;
 
@@ -47,6 +49,16 @@ public sealed class GrantPsionicPointsCommand : IConsoleCommand
             ("amount", amount),
             ("target", entityManager.ToPrettyString(uid)),
             ("points", psionic.SkillPoints)));
+    }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => PsionicCommandHelper.TargetCompletion(),
+            2 => CompletionResult.FromHint("[amount]"),
+            _ => CompletionResult.Empty,
+        };
     }
 }
 
@@ -97,13 +109,18 @@ public sealed class ResetPsionicCooldownsCommand : IConsoleCommand
             ("count", cleared),
             ("target", entityManager.ToPrettyString(uid))));
     }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length == 1 ? PsionicCommandHelper.TargetCompletion() : CompletionResult.Empty;
+    }
 }
 
 internal static class PsionicCommandHelper
 {
     /// <summary>
-    /// Reads the optional first argument as the target entity, falling back to the caller's own
-    /// body, and confirms it is psionic.
+    /// Reads the optional first argument as the target, falling back to the caller's own body, and
+    /// confirms it is psionic.
     /// </summary>
     public static bool TryResolveTarget(
         IConsoleShell shell,
@@ -125,12 +142,8 @@ internal static class PsionicCommandHelper
 
             uid = self;
         }
-        else if (!NetEntity.TryParse(args[0], out var netEntity)
-                 || !entityManager.TryGetEntity(netEntity, out var resolved))
+        else if (!TryResolveEntity(shell, args[0], entityManager, out var resolved))
         {
-            // Admins read the *net* id off the client (VV, entity menu, Copy UID). Parsing it as a
-            // raw server-side EntityUid silently lands on an unrelated entity.
-            shell.WriteError(Loc.GetString("command-psionic-invalid-entity"));
             return false;
         }
         else
@@ -148,5 +161,45 @@ internal static class PsionicCommandHelper
 
         psionic = component;
         return true;
+    }
+
+    /// <summary>
+    /// Resolves an argument naming either a connected player (their current body) or a net entity id.
+    /// </summary>
+    public static bool TryResolveEntity(
+        IConsoleShell shell,
+        string arg,
+        IEntityManager entityManager,
+        [NotNullWhen(true)] out EntityUid? uid)
+    {
+        uid = null;
+
+        // Player names first: that is what admins actually know about the person they are helping.
+        if (IoCManager.Resolve<ISharedPlayerManager>().TryGetSessionByUsername(arg, out var session))
+        {
+            if (session.AttachedEntity is not { } body)
+            {
+                shell.WriteError(Loc.GetString("command-psionic-player-no-body", ("player", session.Name)));
+                return false;
+            }
+
+            uid = body;
+            return true;
+        }
+
+        // Admins read the *net* id off the client (VV, entity menu, Copy UID). Parsing it as a raw
+        // server-side EntityUid silently lands on an unrelated entity.
+        if (NetEntity.TryParse(arg, out var netEntity) && entityManager.TryGetEntity(netEntity, out uid))
+            return true;
+
+        shell.WriteError(Loc.GetString("command-psionic-invalid-entity", ("arg", arg)));
+        return false;
+    }
+
+    public static CompletionResult TargetCompletion()
+    {
+        return CompletionResult.FromHintOptions(
+            CompletionHelper.SessionNames(),
+            Loc.GetString("command-psionic-target-hint"));
     }
 }

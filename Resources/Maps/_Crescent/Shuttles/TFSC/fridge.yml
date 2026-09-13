@@ -2884,7 +2884,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 334
     components:

@@ -98,6 +98,21 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallCurved, WallPlastitanium]
@@ -114,6 +129,21 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 # shuttle
 
@@ -175,13 +205,13 @@
     sprite: Structures/Walls/solid_diagonalhollow.rsi
     state: state0
 
-# jackal
+# capital
 
 - type: entity
-  parent: [BaseWallCurved, WallJackal]
-  id: WallJackalDiagonalCurved
-  name: jackal hull
-  suffix: curved
+  parent: [BaseWallCurved, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalCurved
+  name: reinforced wall
+  suffix: Capital, curved
   components:
   - type: Sprite
     drawdepth: Walls
@@ -192,10 +222,10 @@
     state: state0
 
 - type: entity
-  parent: [BaseWallCurved, WallJackal]
-  id: WallJackalDiagonalHollow
-  name: jackal hull
-  suffix: hollow
+  parent: [BaseWallCurved, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalHollow
+  name: reinforced wall
+  suffix: Capital, hollow
   components:
   - type: Sprite
     drawdepth: Walls
@@ -205,13 +235,12 @@
     sprite: Structures/Walls/solid_diagonalhollow.rsi
     state: state0
 
-# DO NOT USE ANY OF THE BELOW PROTOTYPES; INCLUDED FOR BACKWARDS COMPATIBILITY ONLY
+# Legacy per-direction prototypes, kept for backwards compatibility.
 
 - type: entity
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalHollowNortheast
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -233,7 +262,6 @@
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalHollowNorthwest
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -255,7 +283,6 @@
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalHollowSoutheast
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -277,7 +304,6 @@
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalHollowSouthwest
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -299,7 +325,6 @@
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalCurvedNortheast
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -321,7 +346,6 @@
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalCurvedNorthwest
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -343,7 +367,6 @@
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalCurvedSouthwest
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -365,7 +388,6 @@
   parent: [BaseWallDiagonal, WallMining]
   id: WallMiningDiagonalCurvedSoutheast
   name: wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -388,7 +410,6 @@
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalNortheastHollow
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -407,12 +428,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalNorthwestHollow
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -431,12 +466,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalSouthwestHollow
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -455,12 +504,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalSoutheastHollow
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -479,12 +542,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalSouthwestCurved
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -503,12 +580,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalSoutheastCurved
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -527,12 +618,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalNortheastCurved
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -551,12 +656,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallPlastitanium]
   id: WallPlastitaniumDiagonalNorthwestCurved
   name: plastitanium wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -575,12 +694,26 @@
     state: state0
   - type: Reflect
     reflectProb: 0.15
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 1000
+        behaviors:
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              TitaniumScrap1:
+                min: 4
+                max: 6
+          - !type:ChangeConstructionNodeBehavior
+            node: girder
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalNortheastCurved
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -602,7 +735,6 @@
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalNorthwestCurved
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -624,7 +756,6 @@
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalSouthwestCurved
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -646,7 +777,6 @@
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalSoutheastCurved
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -668,7 +798,6 @@
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalSoutheastHollow
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -690,7 +819,6 @@
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalSouthwestHollow
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -712,7 +840,6 @@
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalNorthwestHollow
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -734,7 +861,6 @@
   parent: [BaseWallDiagonal, WallShuttle]
   id: WallShuttleDiagonalNortheastHollow
   name: shuttle wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -758,7 +884,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalNortheastCurved
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -780,7 +905,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalNorthwestCurved
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -802,7 +926,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalSouthwestCurved
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -824,7 +947,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalSoutheastCurved
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -846,7 +968,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalNortheastHollow
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -868,7 +989,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalNorthwestHollow
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -890,7 +1010,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalSouthwestHollow
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -912,7 +1031,6 @@
   parent: [BaseWallDiagonal, WallSolid]
   id: WallSolidDiagonalSoutheastHollow
   name: solid wall
-  suffix: DO NOT MAP
   placement:
     mode: SnapgridCenter
     snap:
@@ -930,13 +1048,13 @@
     sprite: Structures/Walls/solid_diagonalsoutheasthollow.rsi
     state: state0
 
-#jackal
+# capital
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalNortheastCurved
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalNortheastCurved
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -953,25 +1071,12 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalnortheastcurved.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalNorthwestCurved
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalNorthwestCurved
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -988,25 +1093,12 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalnorthwestcurved.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalSouthwestCurved
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalSouthwestCurved
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -1023,25 +1115,12 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalsouthwestcurved.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalSoutheastCurved
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalSoutheastCurved
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -1058,25 +1137,12 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalsoutheastcurved.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalNortheastHollow
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalNortheastHollow
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -1093,25 +1159,12 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalnortheasthollow.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalNorthwestHollow
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalNorthwestHollow
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -1128,25 +1181,12 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalnorthwesthollow.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalSouthwestHollow
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalSouthwestHollow
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -1163,25 +1203,12 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalsouthwesthollow.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
-  parent: [BaseWallDiagonal, WallJackal]
-  id: WallJackalDiagonalSoutheastHollow
-  name: jackal hull
-  suffix: DO NOT MAP
+  parent: [BaseWallDiagonal, WallReinforcedCapital]
+  id: WallReinforcedCapitalDiagonalSoutheastHollow
+  name: reinforced wall
+  suffix: Capital
   placement:
     mode: SnapgridCenter
     snap:
@@ -1198,17 +1225,4 @@
   - type: Icon
     sprite: Structures/Walls/solid_diagonalsoutheasthollow.rsi
     state: state0
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 1600
-        behaviors:
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              Girder:
-                min: 1
-                max: 1
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 

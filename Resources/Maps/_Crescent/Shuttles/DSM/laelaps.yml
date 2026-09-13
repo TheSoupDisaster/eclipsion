@@ -8336,7 +8336,7 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: -3.5,24.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 955
     components:
@@ -8537,7 +8537,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 2.5,35.5
-- proto: WallReinforced
+- proto: WallReinforcedDSM
   entities:
   - uid: 990
     components:
@@ -9455,6 +9455,78 @@ entities:
     - type: Transform
       parent: 1
       pos: -5.5,17.5
+  - uid: 859
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 6.5,15.5
+  - uid: 861
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -5.5,15.5
+  - uid: 862
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -5.5,23.5
+  - uid: 867
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 7.5,15.5
+  - uid: 870
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 6.5,23.5
+  - uid: 872
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 5.5,23.5
+  - uid: 873
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -4.5,23.5
+  - uid: 874
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -6.5,15.5
+  - uid: 1186
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 5.5,24.5
+  - uid: 1187
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -3.5,32.5
+  - uid: 1188
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 4.5,32.5
+  - uid: 1189
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -4.5,24.5
 - proto: WallReinforcedDiagonalCurved
   entities:
   - uid: 1168
@@ -9564,80 +9636,6 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 9.5,8.5
-- proto: WallReinforcedDSM
-  entities:
-  - uid: 859
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 6.5,15.5
-  - uid: 861
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -5.5,15.5
-  - uid: 862
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -5.5,23.5
-  - uid: 867
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 7.5,15.5
-  - uid: 870
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 6.5,23.5
-  - uid: 872
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 5.5,23.5
-  - uid: 873
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -4.5,23.5
-  - uid: 874
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -6.5,15.5
-  - uid: 1186
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 5.5,24.5
-  - uid: 1187
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -3.5,32.5
-  - uid: 1188
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 4.5,32.5
-  - uid: 1189
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -4.5,24.5
 - proto: WarpPointShip
   entities:
   - uid: 1190

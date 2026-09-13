@@ -310,7 +310,8 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             return;
         }
 
-        if (_codes.hasKey(captainCodes, dynIdComp))
+        // Crescent - admin master key swipes in as captain on any ship.
+        if (HasComp<DynamicCodeMasterKeyComponent>(args.Used) || _codes.hasKey(captainCodes, dynIdComp))
         {
             if (component.accesState != ShuttleConsoleAccesState.NoAcces)
             {

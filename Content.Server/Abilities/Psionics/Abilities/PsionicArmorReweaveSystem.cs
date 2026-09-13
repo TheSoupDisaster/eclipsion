@@ -23,7 +23,7 @@ public sealed class PsionicArmorReweaveSystem : EntitySystem
     /// <summary>
     /// Per piece of armour, not per cast. Wearing a full rig is more to reweave and more to lose.
     /// </summary>
-    private const float UnravelChance = 0.01f;
+    private const float UnravelChance = 0.02f;
 
     /// <summary>
     /// How many plates a destroyed piece leaves behind.

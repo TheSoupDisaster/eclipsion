@@ -1402,7 +1402,7 @@ entities:
     - type: Transform
       pos: -0.5082855,-2.5147638
       parent: 1
-- proto: WallReinforced
+- proto: WallReinforcedTAP
   entities:
   - uid: 2
     components:

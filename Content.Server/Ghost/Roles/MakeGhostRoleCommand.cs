@@ -58,6 +58,7 @@ namespace Content.Server.Ghost.Roles
                 return;
             }
 
+            _entManager.EnsureComponent<AdminGhostRoleComponent>(uid.Value); // Eclipsion: must precede GhostRole, it registers on startup
             ghostRole = _entManager.AddComponent<GhostRoleComponent>(uid.Value);
             _entManager.AddComponent<GhostTakeoverAvailableComponent>(uid.Value);
             ghostRole.RoleName = name;

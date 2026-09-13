@@ -842,7 +842,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WallPlastitanium
+- proto: WallPlastitaniumSHI
   entities:
   - uid: 91
     components:

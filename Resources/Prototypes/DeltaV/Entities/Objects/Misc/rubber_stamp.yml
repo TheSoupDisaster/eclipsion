@@ -2,7 +2,6 @@
   name: psychologist's rubber stamp
   parent: RubberStampBase
   id: RubberStampPsychologist
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-psychologist
@@ -16,7 +15,6 @@
   name: lawyer's rubber stamp
   parent: RubberStampBase
   id: RubberStampLawyer
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-lawyer
@@ -59,7 +57,6 @@
   name: administrative assistant rubber stamp
   parent: RubberStampBase
   id: RubberStampAdminAssistant
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-admin-assistant
@@ -73,7 +70,6 @@
   name: Liaison's rubber stamp
   parent: RubberStampBase
   id: RubberStampCorporateLiaison
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampState: "paper_stamp-corporate"

@@ -3616,7 +3616,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -2.5,8.5
-- proto: WallPlastitaniumNCWL
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 353
     components:
@@ -3703,7 +3703,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 4.5,5.5
-- proto: WallReinforced
+- proto: WallReinforcedDSM
   entities:
   - uid: 370
     components:

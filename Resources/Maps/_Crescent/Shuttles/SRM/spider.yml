@@ -2301,7 +2301,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WallReinforced
+- proto: WallReinforcedSRM
   entities:
   - uid: 197
     components:

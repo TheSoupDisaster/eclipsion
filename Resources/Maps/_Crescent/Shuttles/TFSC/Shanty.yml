@@ -2133,7 +2133,7 @@ entities:
     - type: Transform
       pos: 4.075571,-1.0202328
       parent: 1
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 176
     components:

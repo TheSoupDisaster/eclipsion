@@ -66,7 +66,6 @@
   name: abductor eye
   description: The abductor's viewer.
   categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
   components:
   - type: NoFTL
   - type: WarpPoint

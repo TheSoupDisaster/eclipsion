@@ -172,7 +172,6 @@
   id: ClothingHeadHatCatEars
   name: cat ears
   description: "NYAH!"
-  suffix: DO NOT MAP
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
@@ -186,7 +185,7 @@
 - type: entity
   parent: [ClothingHeadHatCatEars, BaseToggleClothing]
   id: ClothingHeadHatCatEarsValid
-  suffix: Valid, DO NOT MAP
+  suffix: Valid
   components:
   - type: ToggleClothing
     action: ActionBecomeValid
@@ -218,7 +217,6 @@
   id: ClothingHeadHatDogEars
   name: doggy ears
   description: Only for good boys.
-  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/dogears.rsi

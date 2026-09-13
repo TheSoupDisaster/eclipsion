@@ -4571,7 +4571,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 8.5,-1.5
-- proto: WallReinforced
+- proto: WallReinforcedDSM
   entities:
   - uid: 524
     components:

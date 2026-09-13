@@ -1438,8 +1438,6 @@ entities:
     - type: Transform
       pos: 5.5,1.5
       parent: 1
-- proto: Poweredlight
-  entities:
   - uid: 180
     components:
     - type: Transform
@@ -1691,7 +1689,7 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 1
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTFSC
   entities:
   - uid: 212
     components:

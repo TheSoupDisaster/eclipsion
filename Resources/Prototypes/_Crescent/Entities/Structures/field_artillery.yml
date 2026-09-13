@@ -1,0 +1,166 @@
+- type: Tag
+  id: Cartridge75mmArtillery
+
+- type: entity
+  id: WeaponFieldArtillery75mm
+  parent: BaseStructure
+  name: 75mm field gun
+  description: A crew-served 75mm field gun. Wrench it down facing the enemy, put a gunner at the breech to aim, and keep a second crewman on hand to feed it shells.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        density: 400
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Sprite
+    sprite: _Crescent/Structures/field_artillery_75mm.rsi
+    noRot: false
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Icon
+    sprite: _Crescent/Structures/field_artillery_75mm.rsi
+    state: icon
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,0.45"
+  - type: FieldArtillery
+    firingArc: 99
+    maxRange: 10
+    minRange: 3
+  - type: Gun
+    fireRate: 0.25
+    projectileSpeed: 15
+    minAngle: 0
+    maxAngle: 0
+    angleIncrease: 0
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    cameraRecoilScalar: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/artillery.ogg
+  - type: GunIgnorePrediction
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Cartridge75mmArtillery
+    capacity: 1
+    fillWithDoAfter: true
+    fillDelay: 2
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 5
+            max: 10
+  - type: StaticPrice
+    price: 4000
+
+# Admin-spawn only for now: no lathe recipe or research unlock.
+- type: entity
+  parent: BaseFlatpack
+  id: WeaponFieldArtillery75mmFlatpack
+  name: 75mm field gun flatpack
+  description: Parts used to build a crew-served 75mm field gun. Activate with a multitool to deploy.
+  components:
+  - type: Flatpack
+    entity: WeaponFieldArtillery75mm
+  - type: Sprite
+    layers:
+    - state: emitter
+  - type: StaticPrice
+    price: 4000
+
+- type: entity
+  id: Cartridge75mmArtilleryHE
+  parent: BaseItem
+  name: 75mm HE artillery shell
+  description: A high-explosive 75mm shell for field guns.
+  components:
+  - type: Tag
+    tags:
+    - Cartridge75mmArtillery
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,0,2
+  - type: CartridgeAmmo
+    proto: Projectile75mmArtilleryHE
+    deleteOnSpawn: true
+  - type: Sprite
+    sprite: _Crescent/Objects/Weapons/Ammunition/Casings/75mm_artillery.rsi
+    state: base
+  - type: StaticPrice
+    price: 60
+
+# Never touches anything in flight; FieldArtilleryShellSystem detonates it at the aim point.
+- type: entity
+  id: Projectile75mmArtilleryHE
+  parent: BaseBullet
+  name: 75mm HE shell
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Crescent/Objects/Weapons/Ammunition/Casings/75mm_artillery.rsi
+    layers:
+    - state: projectile
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        layer: []
+        mask: []
+  - type: FieldArtilleryShell
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 25
+    intensitySlope: 6
+    totalIntensity: 300
+    maxTileBreak: 1
+  - type: TimedDespawn
+    lifetime: 3
+  - type: PointLight
+    radius: 2
+    color: orange
+    energy: 0.8

@@ -8177,7 +8177,7 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: -0.5,-7.5
-- proto: WallPlastitanium
+- proto: WallShuttleCMM
   entities:
   - uid: 888
     components:
@@ -8411,8 +8411,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 3.5,0.5
-- proto: WallShuttle
-  entities:
   - uid: 49
     components:
     - type: Transform
@@ -8797,7 +8795,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 1.5,1.5
-- proto: WallShuttleDiagonalCurved
+- proto: WallShuttleCMMDiagonalCurved
   entities:
   - uid: 996
     components:

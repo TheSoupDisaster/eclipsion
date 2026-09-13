@@ -5241,7 +5241,7 @@ entities:
           - Reverse
         - - Middle
           - Off
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 115
     components:

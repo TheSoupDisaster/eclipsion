@@ -15647,7 +15647,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 2.5,-9.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 129
     components:
@@ -17450,7 +17450,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 14.5,-20.5
-- proto: WallReinforced
+- proto: WallReinforcedDSM
   entities:
   - uid: 142
     components:

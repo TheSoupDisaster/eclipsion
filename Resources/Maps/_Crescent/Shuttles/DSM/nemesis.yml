@@ -15419,7 +15419,7 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: -8.5,-20.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 1661
     components:
@@ -17005,6 +17005,30 @@ entities:
     - type: Transform
       parent: 1
       pos: 6.5,-23.5
+  - uid: 1968
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -10.5,-26.5
+  - uid: 1969
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -8.5,-27.5
+  - uid: 1970
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -9.5,-27.5
+  - uid: 1971
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -8.5,-28.5
 - proto: WallPlastitaniumDiagonalCurved
   entities:
   - uid: 1937
@@ -17187,32 +17211,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 10.5,-26.5
-- proto: WallPlastitaniumDSM
-  entities:
-  - uid: 1968
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -10.5,-26.5
-  - uid: 1969
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -8.5,-27.5
-  - uid: 1970
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -9.5,-27.5
-  - uid: 1971
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -8.5,-28.5
 - proto: WardrobePrisonFilled
   entities:
   - uid: 1972

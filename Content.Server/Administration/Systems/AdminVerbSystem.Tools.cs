@@ -875,11 +875,14 @@ public sealed partial class AdminVerbSystem
             .Select(p => new ProtoId<AccessLevelPrototype>(p.ID)).ToArray();
 
         _accessSystem.TrySetTags(entity, allAccess);
+        // Crescent - player ship doors check dynamic codes instead of tags; the master key covers those too.
+        EnsureComp<Content.Shared._Crescent.DynamicCodeMasterKeyComponent>(entity);
     }
 
     private void RevokeAllAccess(EntityUid entity)
     {
         _accessSystem.TrySetTags(entity, new List<ProtoId<AccessLevelPrototype>>());
+        RemComp<Content.Shared._Crescent.DynamicCodeMasterKeyComponent>(entity);
     }
 
     public enum TricksVerbPriorities

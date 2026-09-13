@@ -202,7 +202,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticAmmoProvider
-    #proto: IdnaTorpedo - on being rebuilt from destruction this gives it free ammo
+    proto: IdnaTorpedo
     whitelist:
       tags:
         - Torpedo
@@ -296,7 +296,7 @@
     class: Missile
     size: Small
   - type: BallisticAmmoProvider
-    #proto: CartridgeRocketLowYield - on being rebuilt from destruction this gives it free ammo
+    proto: CartridgeRocketLowYield
     whitelist:
       tags:
         - Rocket48mm
@@ -392,7 +392,7 @@
       gun_magazine:
         name: Magazine
         priority: 2
-        #startingItem: MagazineRocketLowYield - on being rebuilt from destruction this gives it free ammo
+        startingItem: MagazineRocketLowYield
         whitelist:
           tags:
           - MagazineRocket48mm
@@ -489,7 +489,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        #startingItem: MagazineLightRifleBoxSlug - on being rebuilt from destruction this gives it free ammo
+        startingItem: MagazineLightRifleBoxSlug
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
@@ -584,6 +584,7 @@
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: PowerCageHardliner
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -676,7 +677,7 @@
     fillDelay: 0.2
     cycleable: true
     capacity: 2
-    #proto: CartridgeShellArmorPiercing - on being rebuilt from destruction this gives it free ammo
+    proto: CartridgeShellArmorPiercing
     whitelist:
       tags:
       - CartridgeShell
@@ -757,7 +758,7 @@
   - type: BallisticAmmoProvider
     cycleable: false
     capacity: 5
-    #proto: CartridgeRailHighExplosive - on being rebuilt from destruction this gives it free ammo
+    proto: CartridgeRailHighExplosive
     whitelist:
       tags:
       - Cartridge
@@ -853,7 +854,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        #startingItem: MagazineVulcan - on being rebuilt from destruction this gives it free ammo
+        startingItem: MagazineVulcan
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
@@ -959,7 +960,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        #startingItem: MagazineVulcan - on being rebuilt from destruction this gives it free ammo
+        startingItem: MagazineVulcan
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
@@ -1067,7 +1068,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        #startingItem: SwarmrocketClip - on being rebuilt from destruction this gives it free ammo
+        startingItem: SwarmrocketClip
         priority: 2
         whitelist:
           tags:

@@ -39,6 +39,8 @@
       state: recruitment
     - map: ["computerLayerKeys"]
       state: id_key
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
   - type: LitOnPowered
   - type: PointLight
     radius: 1.5
@@ -51,6 +53,21 @@
   name: Mandate recruitment terminal
   suffix: DSM
   components:
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded, color: "#bd7aff" }
+          False: { visible: false }
+        computerLayerKeys:
+          True: { visible: true, shader: unshaded }
+          False: { visible: true, shader: shaded }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: PointLight
+    color: "#bd7aff"
   - type: AccessReader
     access: [["EmpireNoble"], ["EmpireAdjutant"], ["EmpireGovernor"]]
   - type: FactionRecruitmentConsole
@@ -76,6 +93,21 @@
   name: League recruitment terminal
   suffix: NCWL
   components:
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded, color: "#ff9944" }
+          False: { visible: false }
+        computerLayerKeys:
+          True: { visible: true, shader: unshaded }
+          False: { visible: true, shader: shaded }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: PointLight
+    color: "#ff9944"
   - type: AccessReader
     access: [["NCWLCommand"], ["NCWLKommissar"]]
   - type: FactionRecruitmentConsole
@@ -94,6 +126,21 @@
   name: Shinohara recruitment terminal
   suffix: SHI
   components:
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded, color: "#d4d4d4" }
+          False: { visible: false }
+        computerLayerKeys:
+          True: { visible: true, shader: unshaded }
+          False: { visible: true, shader: shaded }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: PointLight
+    color: "#d4d4d4"
   - type: AccessReader
     access: [["ShinoharaOfficer"], ["ShinoharaExecutive"]]
   - type: FactionRecruitmentConsole
@@ -112,6 +159,21 @@
   name: TFCF recruitment terminal
   suffix: TFCF
   components:
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded, color: "#ff5555" }
+          False: { visible: false }
+        computerLayerKeys:
+          True: { visible: true, shader: unshaded }
+          False: { visible: true, shader: shaded }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: PointLight
+    color: "#ff5555"
   - type: AccessReader
     access: [["SyndicateCommand"], ["SyndicateRingleader"]]
   - type: FactionRecruitmentConsole
@@ -131,6 +193,21 @@
   name: Gliess recruitment terminal
   suffix: GS
   components:
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded, color: "#78b7ff" }
+          False: { visible: false }
+        computerLayerKeys:
+          True: { visible: true, shader: unshaded }
+          False: { visible: true, shader: shaded }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: PointLight
+    color: "#78b7ff"
   - type: AccessReader
     access: [["GliessSheriff", "GliessDockmaster"]]
   - type: FactionRecruitmentConsole
@@ -147,6 +224,21 @@
   name: TAP recruitment terminal
   suffix: TAP
   components:
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded, color: "#72cf8c" }
+          False: { visible: false }
+        computerLayerKeys:
+          True: { visible: true, shader: unshaded }
+          False: { visible: true, shader: shaded }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: PointLight
+    color: "#72cf8c"
   - type: AccessReader
     # Only the Prophet carries all three family authority tags; individual family representatives
     # cannot unilaterally enlist personnel for the Pact.

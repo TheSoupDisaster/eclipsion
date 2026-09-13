@@ -9619,7 +9619,7 @@ entities:
     - type: Transform
       pos: -10.5,8.5
       parent: 1
-- proto: WallShuttle
+- proto: WallShuttleTFSC
   entities:
   - uid: 1181
     components:

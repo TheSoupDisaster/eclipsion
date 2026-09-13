@@ -1,0 +1,107 @@
+# Sold by the TFCF grill vendor. Every item carries a few units of JackalSecretSauce for a slow, weak heal.
+
+- type: entity
+  parent: FoodBurgerBase
+  id: FoodBurgerTFCFMystery
+  name: Federation mystery burger
+  description: A thick, glistening patty between two soft buns. The wrapper lists the filling as "protein (certified)". It is inexplicably delicious.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bun
+    - meaty
+    - compressed-meat
+  - type: Sprite
+    state: bigbite
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: JackalSecretSauce
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodTFCFJackalDog
+  name: jackal dog
+  description: A sausage of uniform pinkness in a sweet bun. Asking the vendor what animal it came from only makes it play a jingle.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bun
+    - meaty
+    - cheap
+  - type: Sprite
+    state: hotdog
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 16
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: JackalSecretSauce
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodTFCFGreyMeatNuggets
+  name: grey-meat nuggets
+  description: Crunchy breaded nuggets of a meat that is grey all the way through. Nobody has complained twice.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - oily
+    - falsemeat
+  - type: Sprite
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: chicken-fried
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: JackalSecretSauce
+          Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  parent: FoodMealFries
+  id: FoodTFCFFries
+  name: Federation fries
+  description: Golden fries cut from something vaguely tuber-shaped, dusted with a red seasoning the carton calls "flavor".
+  components:
+  - type: FlavorProfile
+    flavors:
+    - potatoes
+    - salty
+    - cheap
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: JackalSecretSauce
+          Quantity: 2

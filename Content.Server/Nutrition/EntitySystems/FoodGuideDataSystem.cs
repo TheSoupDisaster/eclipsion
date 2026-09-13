@@ -30,7 +30,7 @@ public sealed class FoodGuideDataSystem : SharedFoodGuideDataSystem
 
     public static readonly string[] ComponentNamesBlacklist = ["HumanoidAppearance",];
 
-    public static readonly string[] SuffixBlacklist = ["debug", "do not map", "admeme",];
+    public static readonly string[] SuffixBlacklist = ["debug", "admeme",];
 
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;

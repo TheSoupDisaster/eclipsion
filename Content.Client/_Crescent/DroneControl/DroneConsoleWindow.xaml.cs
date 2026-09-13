@@ -129,12 +129,19 @@ public sealed partial class DroneConsoleWindow : FancyWindow
         CarrierPanel.Visible = state.IsCarrier;
         if (state.IsCarrier)
         {
-            // Alive and built are different numbers: production is capped over the console's lifetime, so a
-            // squadron that has taken losses can read 0 active with the cap already spent.
-            DeployedLabel.Text = $"Active: {state.AliveCount}   Built: {state.ProducedCount}/{state.MaxDrones}";
+            // Lost drones don't return to the hangar, so the squadron reads short (3/4, 2/4) until a repair
+            // station restocks it.
+            DeployedLabel.Text = $"Drones: {state.AliveCount}/{state.MaxDrones}";
 
-            TreasuryLabel.Text = state.Treasury is { } treasury ? $"Treasury: {treasury} cr" : "Production: free";
-            TreasuryLabel.Visible = state.SpawnableDrones.Count > 0;
+            HangarLabel.Text = state.HangarCount > 0 ? $"Hangar: {state.HangarCount} ready" : "Hangar empty - no drones left";
+            HangarLabel.FontColorOverride = state.HangarCount > 0 ? Color.DarkGray : HullCritical;
+
+            LostLabel.Visible = state.LostCount > 0;
+            LostLabel.Text = $"Lost: {state.LostCount} - restock at a repair station";
+            LostLabel.FontColorOverride = HullWorn;
+
+            TreasuryLabel.Text = state.Treasury is { } treasury ? $"Treasury: {treasury} cr" : string.Empty;
+            TreasuryLabel.Visible = state.Treasury != null && state.SpawnableDrones.Count > 0;
 
             StanceAttackBtn.Pressed = state.Stance == DroneStance.Attack;
             StanceDefendBtn.Pressed = state.Stance == DroneStance.Defend;

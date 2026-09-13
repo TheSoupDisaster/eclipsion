@@ -1617,7 +1617,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WallReinforced
+- proto: WallReinforcedSHI
   entities:
   - uid: 144
     components:

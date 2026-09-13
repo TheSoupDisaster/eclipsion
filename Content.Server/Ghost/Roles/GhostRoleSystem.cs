@@ -22,6 +22,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
+using Robust.Shared.Placement;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -80,6 +81,7 @@ namespace Content.Server.Ghost.Roles
             SubscribeLocalEvent<GhostTakeoverAvailableComponent, TakeGhostRoleEvent>(OnTakeoverTakeRole);
             SubscribeLocalEvent<GhostRoleMobSpawnerComponent, GetVerbsEvent<Verb>>(OnVerb);
             SubscribeLocalEvent<GhostRoleCharacterSpawnerComponent, TakeGhostRoleEvent>(OnSpawnerTakeCharacter);
+            SubscribeLocalEvent<PlacementEntityEvent>(OnPlacementEntity); // Eclipsion: admin-only ghost roles
             _playerManager.PlayerStatusChanged += PlayerStatusChanged;
         }
 
@@ -178,6 +180,9 @@ namespace Content.Server.Ghost.Roles
 
             UpdateGhostRoleCount();
             UpdateRaffles(frameTime);
+
+            // Eclipsion: a placement that never reached its spawn must not leak admin status to later ghost roles.
+            _adminPlacementScope = false;
         }
 
         /// <summary>
@@ -304,6 +309,10 @@ namespace Content.Server.Ghost.Roles
         public void RegisterGhostRole(Entity<GhostRoleComponent> role)
         {
             if (_ghostRoles.ContainsValue(role))
+                return;
+
+            // Eclipsion: world-sourced ghost roles are never listed, only admin-sourced ones.
+            if (!IsAdminGhostRole(role.Owner))
                 return;
 
             _ghostRoles[role.Comp.Identifier = GetNextRoleIdentifier()] = role;

@@ -1,0 +1,23 @@
+# Seasoning in the TFCF grill vendor's food. A slow, weak heal while the eater is conscious; eating more
+# stretches the duration, not the rate.
+- type: reagent
+  id: JackalSecretSauce
+  name: reagent-name-jackal-secret-sauce
+  group: Foods
+  desc: reagent-desc-jackal-secret-sauce
+  physicalDesc: reagent-physical-desc-oily
+  flavor: compressed-meat
+  color: "#8a3b24"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Alive
+        damage:
+          groups:
+            Brute: -0.9
+            Burn: -0.45
+  pricePerUnit: 4

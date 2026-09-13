@@ -1419,7 +1419,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -0.5,1.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTFSC
   entities:
   - uid: 94
     components:

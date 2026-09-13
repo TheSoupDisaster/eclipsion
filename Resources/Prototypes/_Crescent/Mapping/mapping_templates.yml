@@ -71,19 +71,31 @@
         - !type:MappingTemplatePrototype
           id: WallPlastitaniumTFSC
         - !type:MappingTemplatePrototype
+          id: WallPlastitaniumSRM
+        - !type:MappingTemplatePrototype
+          id: WallPlastitaniumCMM
+        - !type:MappingTemplatePrototype
+          id: WallPlastitaniumTAP
+        - !type:MappingTemplatePrototype
           id: WallReinforcedNCWL
+        - !type:MappingTemplatePrototype
+          id: WallReinforcedDSM
         - !type:MappingTemplatePrototype
           id: WallReinforcedTFSC
         - !type:MappingTemplatePrototype
           id: WallReinforcedSHI
         - !type:MappingTemplatePrototype
-          id: ReinforcedShuttleWallCMM
+          id: WallReinforcedSRM
+        - !type:MappingTemplatePrototype
+          id: WallReinforcedCMM
+        - !type:MappingTemplatePrototype
+          id: WallReinforcedTAP
         - !type:MappingTemplatePrototype
           id: WallShuttleCMM
         - !type:MappingTemplatePrototype
-          id: UnionfallVladWall
+          id: WallShuttleCyberdawn
         - !type:MappingTemplatePrototype
-          id: WallJackal
+          id: UnionfallVladWall
         - !type:MappingTemplatePrototype
           id: WallMining
         - !type:MappingTemplatePrototype

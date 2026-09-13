@@ -1212,7 +1212,7 @@ entities:
     - type: Transform
       pos: 7.5,4.5
       parent: 1
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTFSC
   entities:
   - uid: 7
     components:

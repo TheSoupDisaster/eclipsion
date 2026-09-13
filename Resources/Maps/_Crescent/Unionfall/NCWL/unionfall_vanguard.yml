@@ -1639,7 +1639,7 @@ entities:
     - type: Physics
       linearDamping: 0
       angularDamping: 0
-- proto: WallPlastitanium
+- proto: WallPlastitaniumNCWL
   entities:
   - uid: 148
     components:

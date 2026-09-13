@@ -9895,7 +9895,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -6.5,10.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTFSC
   entities:
   - uid: 1273
     components:

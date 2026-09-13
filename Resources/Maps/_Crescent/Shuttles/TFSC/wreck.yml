@@ -1182,7 +1182,7 @@ entities:
     - type: Transform
       pos: 5.5,3.5
       parent: 1
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 144
     components:

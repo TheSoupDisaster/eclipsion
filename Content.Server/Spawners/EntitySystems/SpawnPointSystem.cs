@@ -14,6 +14,7 @@ public sealed class SpawnPointSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
+    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
 
     private readonly HashSet<string> _defeatedFactions = new();
 
@@ -33,6 +34,17 @@ public sealed class SpawnPointSystem : EntitySystem
         {
             if (spawnPoint.Faction == ev.Faction)
                 spawnPoint.Enabled = false;
+        }
+
+        // Most conquest stations only carry generic late-join points, and some (Gliess) have jobs with no faction
+        // requirement, so neither the faction points above nor the faction job lock closes them. Close the fallen
+        // station's own slots so nobody can join onto it at all.
+        if (_stationSystem.GetOwningStation(ev.Station) is not { } station)
+            return;
+
+        foreach (var job in _stationJobs.GetJobs(station).Keys.ToList())
+        {
+            _stationJobs.TrySetJobSlot(station, job, 0);
         }
     }
 

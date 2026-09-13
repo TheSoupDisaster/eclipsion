@@ -4181,7 +4181,7 @@ entities:
     - type: Transform
       pos: -2.5,-5.5
       parent: 1
-- proto: WallShuttle
+- proto: WallShuttleCMM
   entities:
   - uid: 2
     components:
@@ -4668,8 +4668,6 @@ entities:
     - type: Transform
       pos: -4.5,15.5
       parent: 1
-- proto: WallShuttleCMM
-  entities:
   - uid: 260
     components:
     - type: Transform
@@ -4790,7 +4788,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 5.5,10.5
       parent: 1
-- proto: WallShuttleDiagonalNortheastCurved
+- proto: WallShuttleCMMDiagonalNortheastCurved
   entities:
   - uid: 148
     components:
@@ -4802,7 +4800,7 @@ entities:
     - type: Transform
       pos: -4.5,16.5
       parent: 1
-- proto: WallShuttleDiagonalNorthwestCurved
+- proto: WallShuttleCMMDiagonalNorthwestCurved
   entities:
   - uid: 74
     components:
@@ -4814,7 +4812,7 @@ entities:
     - type: Transform
       pos: 7.5,5.5
       parent: 1
-- proto: WallShuttleDiagonalSoutheastCurved
+- proto: WallShuttleCMMDiagonalSoutheastCurved
   entities:
   - uid: 116
     components:
@@ -4836,7 +4834,7 @@ entities:
     - type: Transform
       pos: -4.5,-4.5
       parent: 1
-- proto: WallShuttleDiagonalSouthwestCurved
+- proto: WallShuttleCMMDiagonalSouthwestCurved
   entities:
   - uid: 140
     components:

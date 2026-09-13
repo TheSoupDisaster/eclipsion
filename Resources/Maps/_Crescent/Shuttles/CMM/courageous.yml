@@ -5932,7 +5932,7 @@ entities:
     - type: Transform
       pos: 6.5,-20.5
       parent: 1
-- proto: WallShuttle
+- proto: WallShuttleCMM
   entities:
   - uid: 825
     components:
@@ -6888,7 +6888,7 @@ entities:
     - type: Transform
       pos: 11.5,-7.5
       parent: 1
-- proto: WallShuttleDiagonalNortheastCurved
+- proto: WallShuttleCMMDiagonalNortheastCurved
   entities:
   - uid: 1007
     components:
@@ -6915,7 +6915,7 @@ entities:
     - type: Transform
       pos: -5.5,-3.5
       parent: 1
-- proto: WallShuttleDiagonalNorthwestCurved
+- proto: WallShuttleCMMDiagonalNorthwestCurved
   entities:
   - uid: 1012
     components:
@@ -6962,14 +6962,14 @@ entities:
     - type: Transform
       pos: 11.5,-20.5
       parent: 1
-- proto: WallShuttleDiagonalNorthwestHollow
+- proto: WallShuttleCMMDiagonalNorthwestHollow
   entities:
   - uid: 1021
     components:
     - type: Transform
       pos: 12.5,-6.5
       parent: 1
-- proto: WallShuttleDiagonalSoutheastCurved
+- proto: WallShuttleCMMDiagonalSoutheastCurved
   entities:
   - uid: 1022
     components:
@@ -6991,14 +6991,14 @@ entities:
     - type: Transform
       pos: -7.5,-27.5
       parent: 1
-- proto: WallShuttleDiagonalSoutheastHollow
+- proto: WallShuttleCMMDiagonalSoutheastHollow
   entities:
   - uid: 1026
     components:
     - type: Transform
       pos: -6.5,-13.5
       parent: 1
-- proto: WallShuttleDiagonalSouthwestCurved
+- proto: WallShuttleCMMDiagonalSouthwestCurved
   entities:
   - uid: 1027
     components:
@@ -7025,7 +7025,7 @@ entities:
     - type: Transform
       pos: 11.5,-27.5
       parent: 1
-- proto: WallShuttleDiagonalSouthwestHollow
+- proto: WallShuttleCMMDiagonalSouthwestHollow
   entities:
   - uid: 1032
     components:

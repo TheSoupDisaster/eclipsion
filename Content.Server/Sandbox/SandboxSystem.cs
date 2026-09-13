@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.GameTicking;
+using Content.Server.Ghost.Roles;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -29,6 +30,7 @@ namespace Content.Server.Sandbox
         [Dependency] private readonly ItemSlotsSystem _slots = default!;
         [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private readonly GhostRoleSystem _ghostRoles = default!; // Eclipsion
 
         private bool _isSandboxEnabled;
 
@@ -57,20 +59,15 @@ namespace Content.Server.Sandbox
 
             _placementManager.AllowPlacementFunc = placement =>
             {
-                if (IsSandboxEnabled)
-                {
-                    return true;
-                }
-
                 var channel = placement.MsgChannel;
                 var player = _playerManager.GetSessionByChannel(channel);
 
-                if (_conGroupController.CanAdminPlace(player))
-                {
-                    return true;
-                }
+                if (!IsSandboxEnabled && !_conGroupController.CanAdminPlace(player))
+                    return false;
 
-                return false;
+                // Eclipsion: ghost roles spawned by this placement count as admin-spawned
+                _ghostRoles.BeginAdminPlacement(placement);
+                return true;
             };
         }
 

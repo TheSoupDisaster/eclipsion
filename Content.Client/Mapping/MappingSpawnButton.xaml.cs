@@ -48,13 +48,22 @@ public sealed partial class MappingSpawnButton : Control
         FavoriteButton.Visible = false;
     }
 
-    public void SetTextures(List<Texture> textures)
+    /// <summary>
+    ///     Lays the button out as if it already had textures, so the row doesn't jump sideways when they arrive
+    ///     a few frames later.
+    /// </summary>
+    public void ReserveTexture()
     {
         Button.RemoveStyleClass("OpenBoth");
         Button.AddStyleClass("OpenLeft");
         CollapseButton.RemoveStyleClass("OpenRight");
         CollapseButton.AddStyleClass("ButtonSquare");
         Texture.Visible = true;
+    }
+
+    public void SetTextures(List<Texture> textures)
+    {
+        ReserveTexture();
         Texture.Textures.AddRange(textures);
 
         foreach (var texture in textures)

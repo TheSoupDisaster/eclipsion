@@ -5779,7 +5779,7 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: -3.5,5.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTFSC
   entities:
   - uid: 7
     components:
@@ -6757,129 +6757,6 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 9.5,-11.5
-- proto: WallPlastitaniumDiagonalCurved
-  entities:
-  - uid: 902
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 4.5,-11.5
-  - uid: 903
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 11.5,1.5
-  - uid: 904
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 6.5,-13.5
-  - uid: 905
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -4.5,-13.5
-  - uid: 906
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -2.5,-11.5
-  - uid: 907
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -8.5,-0.5
-  - uid: 908
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 10.5,0.5
-- proto: WallPlastitaniumDiagonalHollow
-  entities:
-  - uid: 909
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 4.5,10.5
-  - uid: 910
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 3.5,12.5
-  - uid: 911
-    components:
-    - type: Transform
-      parent: 1
-      pos: -5.5,11.5
-  - uid: 912
-    components:
-    - type: Transform
-      parent: 1
-      pos: -2.5,15.5
-  - uid: 913
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 0.5,15.5
-  - uid: 914
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 1.5,-10.5
-  - uid: 915
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 0.5,-10.5
-  - uid: 916
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 9.5,-0.5
-- proto: WallPlastitaniumDiagonalNortheastCurved
-  entities:
-  - uid: 917
-    components:
-    - type: Transform
-      parent: 1
-      pos: -4.5,14.5
-- proto: WallPlastitaniumDiagonalNorthwestCurved
-  entities:
-  - uid: 918
-    components:
-    - type: Transform
-      parent: 1
-      pos: 10.5,8.5
-  - uid: 919
-    components:
-    - type: Transform
-      parent: 1
-      pos: 6.5,10.5
-  - uid: 920
-    components:
-    - type: Transform
-      parent: 1
-      pos: 8.5,9.5
-  - uid: 921
-    components:
-    - type: Transform
-      parent: 1
-      pos: 2.5,14.5
-- proto: WallPlastitaniumTFSC
-  entities:
   - uid: 922
     components:
     - type: Transform
@@ -7078,6 +6955,127 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -1.5,15.5
+- proto: WallPlastitaniumDiagonalCurved
+  entities:
+  - uid: 902
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-11.5
+  - uid: 903
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 11.5,1.5
+  - uid: 904
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-13.5
+  - uid: 905
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -4.5,-13.5
+  - uid: 906
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -2.5,-11.5
+  - uid: 907
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -8.5,-0.5
+  - uid: 908
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 10.5,0.5
+- proto: WallPlastitaniumDiagonalHollow
+  entities:
+  - uid: 909
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 4.5,10.5
+  - uid: 910
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 3.5,12.5
+  - uid: 911
+    components:
+    - type: Transform
+      parent: 1
+      pos: -5.5,11.5
+  - uid: 912
+    components:
+    - type: Transform
+      parent: 1
+      pos: -2.5,15.5
+  - uid: 913
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 0.5,15.5
+  - uid: 914
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 1.5,-10.5
+  - uid: 915
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 0.5,-10.5
+  - uid: 916
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 9.5,-0.5
+- proto: WallPlastitaniumDiagonalNortheastCurved
+  entities:
+  - uid: 917
+    components:
+    - type: Transform
+      parent: 1
+      pos: -4.5,14.5
+- proto: WallPlastitaniumDiagonalNorthwestCurved
+  entities:
+  - uid: 918
+    components:
+    - type: Transform
+      parent: 1
+      pos: 10.5,8.5
+  - uid: 919
+    components:
+    - type: Transform
+      parent: 1
+      pos: 6.5,10.5
+  - uid: 920
+    components:
+    - type: Transform
+      parent: 1
+      pos: 8.5,9.5
+  - uid: 921
+    components:
+    - type: Transform
+      parent: 1
+      pos: 2.5,14.5
 - proto: WallReinforcedTFSC
   entities:
   - uid: 955

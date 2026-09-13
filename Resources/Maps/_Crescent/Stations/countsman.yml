@@ -75444,7 +75444,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: AmeJar
+- proto: AmeJarT3
   entities:
   - uid: 224
     components:
@@ -75454,6 +75454,8 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
+- proto: AmeJar
+  entities:
   - uid: 250
     components:
     - type: Transform

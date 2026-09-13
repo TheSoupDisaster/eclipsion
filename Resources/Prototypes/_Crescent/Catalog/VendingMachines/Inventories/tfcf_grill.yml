@@ -1,0 +1,9 @@
+- type: vendingMachineInventory
+  id: TFCFGrillInventory
+  startingInventory:
+    FoodBurgerTFCFMystery: 12
+    FoodTFCFJackalDog: 12
+    FoodTFCFGreyMeatNuggets: 12
+    FoodTFCFFries: 12
+  emaggedInventory:
+    FoodBurgerRat: 3

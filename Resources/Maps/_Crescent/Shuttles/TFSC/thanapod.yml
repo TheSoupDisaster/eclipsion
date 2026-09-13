@@ -5923,7 +5923,7 @@ entities:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 620
     components:

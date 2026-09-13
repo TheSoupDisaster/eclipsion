@@ -5412,7 +5412,7 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 1.5,12.5
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 7
     components:

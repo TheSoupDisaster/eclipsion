@@ -34,7 +34,7 @@ public sealed partial class RecurrenceFieldComponent : Component
     /// with, so a projectile that crosses the field leaves as fast as it arrived.
     /// </summary>
     /// <remarks>
-    /// At this scale a rifle round takes the better part of four seconds to cross, which is the
+    /// At this scale a rifle round takes the better part of two seconds to cross, which is the
     /// point: you are meant to be able to stand and watch it hang there. Objects that carry
     /// friction - thrown items, grenades - will come to a stop inside instead, because friction
     /// keeps acting while their momentum does not; projectiles fly frictionless and are unaffected.
@@ -46,21 +46,21 @@ public sealed partial class RecurrenceFieldComponent : Component
     /// bullet everyone else watches end up in different places.
     /// </remarks>
     [DataField, AutoNetworkedField]
-    public float TimeScale = 0.03f;
+    public float TimeScale = 0.06f;
 
     /// <summary>
     /// Fraction of their walk and sprint speed a captured mob keeps. Deliberately far gentler than
     /// <see cref="TimeScale"/> - a field that pinned people in place would be a stunlock.
     /// </summary>
     [DataField]
-    public float MobTimeScale = 0.25f;
+    public float MobTimeScale = 0.5f;
 
     /// <summary>
     /// Speed multiplier applied to whatever the pulse throws back, relative to the speed the object
     /// was travelling at when it was caught.
     /// </summary>
     [DataField]
-    public float PulseSpeedMultiplier = 1.35f;
+    public float PulseSpeedMultiplier = 1f;
 
     /// <summary>
     /// Floor speed for pulsed objects, so something that rolled in and stopped still gets launched.
@@ -72,7 +72,7 @@ public sealed partial class RecurrenceFieldComponent : Component
     /// How long the field stands before it unwinds on its own.
     /// </summary>
     [DataField]
-    public TimeSpan Lifetime = TimeSpan.FromSeconds(8);
+    public TimeSpan Lifetime = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Filled in at map init from <see cref="Lifetime"/>, so a field spawned by any route - the

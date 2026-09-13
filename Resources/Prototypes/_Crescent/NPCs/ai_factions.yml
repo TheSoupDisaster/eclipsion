@@ -111,3 +111,8 @@
   hostile:
     - TFSCWarship
     - SRMWarship
+
+# Eclipsion - only flags TAP faction walls for now; nothing lists it as hostile yet.
+- type: npcFaction
+  id: TAPWarship
+  hostile: []

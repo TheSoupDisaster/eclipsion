@@ -91,7 +91,7 @@
 - type: entity
   id: StationAiBrainCS
   parent: StationAiBrain
-  categories: [ HideSpawnMenu, DoNotMap ]
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
   - type: SiliconLawProvider

@@ -97,20 +97,18 @@
   description: A wheeled drill rig that pumps fuel from a seep into its tank or a container in its cradle.
   components:
   - type: Sprite
-    sprite: _Crescent/Structures/purifier.rsi
+    sprite: _Crescent/Structures/Machines/fuel_extractor.rsi
     snapCardinals: true
     layers:
-    - state: base_machine
+    - state: idle
       map: [ "enum.FuelExtractorVisualLayers.Body" ]
-    - state: buttons_on
-      shader: unshaded
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.FuelExtractorVisuals.Running:
         enum.FuelExtractorVisualLayers.Body:
-          True: { state: base_machine_processing }
-          False: { state: base_machine }
+          True: { state: running }
+          False: { state: idle }
   - type: Transform
     anchored: false
   - type: Physics

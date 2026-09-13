@@ -83,33 +83,35 @@ psionic-skill-kinetic-slam-name = Kinetic Slam
 psionic-skill-kinetic-slam-description = Exhaust and violently throw a single target away from you.
 
 psionic-skill-self-shield-name = Energy Aegis
-psionic-skill-self-shield-description = Surround yourself with a 15-second shield against heat and explosions.
+psionic-skill-self-shield-description = Surround yourself with a 10-second shield against heat and explosions.
 psionic-skill-armor-upgrade-name = Reinforced Aegis
-psionic-skill-armor-upgrade-description = Permanently improve your worn armor's effective protection by 10 percent.
+psionic-skill-armor-upgrade-description = Permanently improve your worn armor's effective protection by 7 percent.
 psionic-skill-aegis-dome-name = Aegis Dome
-psionic-skill-aegis-dome-description = Raise a barrier that travels with you and shelters everyone under it, not just one person. Bullets and thrown objects from outside stop dead at its edge, it soaks part of every other hit anyone inside takes, and it shatters once it has taken enough. Lasts 20 seconds.
+psionic-skill-aegis-dome-description = Raise a barrier that travels with you and shelters everyone under it, not just one person. Bullets and thrown objects from outside stop dead at its edge, it soaks part of every other hit anyone inside takes, and it shatters once it has taken enough. Lasts 12 seconds.
 
 psionic-skill-stasis-field-name = Stasis Field
-psionic-skill-stasis-field-description = Hang a colourless pocket of slowed time a few tiles away. Bullets, thrown objects and burning fuses crawl inside it, and anyone walking through wades. Lasts 8 seconds.
+psionic-skill-stasis-field-description = Hang a colourless pocket of slowed time a few tiles away. Bullets, thrown objects and burning fuses crawl inside it, and anyone walking through wades. Lasts 5 seconds.
 psionic-skill-armor-reweave-name = Reweave
-psionic-skill-armor-reweave-description = Wind your worn armour back to the condition it was made in - no welder, no taking it off. One piece in a hundred does not survive the memory and comes apart into the plate it was pressed from.
+psionic-skill-armor-reweave-description = Wind your worn armour back to the condition it was made in - no welder, no taking it off. One piece in fifty does not survive the memory and comes apart into the plate it was pressed from.
 psionic-skill-recurrence-pulse-name = Recurrence Pulse
 psionic-skill-recurrence-pulse-description = Collapse your stasis fields and give back every moment they held at once. Anything caught is hurled back down the path it arrived on, and returned rounds answer to you.
 
 command-grant-psionic-level-description = Grants one or more psionic levels and development points.
-command-grant-psionic-level-help = Usage: grantpsioniclevel [entityUid] [amount]. With no arguments, grants one level to yourself.
+command-grant-psionic-level-help = Usage: grantpsioniclevel [player name or entity id] [amount]. With no arguments, grants one level to yourself.
 command-grant-psionic-level-invalid-amount = The amount must be a positive integer.
 command-grant-psionic-level-granted = Granted {$amount} level(s) to {$target}. They are now level {$level} with {$points} point(s).
 
 command-grant-psionic-points-description = Grants spendable psionic development points without raising the psionic level.
-command-grant-psionic-points-help = Usage: grantpsionicpoints [entityUid] [amount]. With no arguments, grants one point to yourself.
+command-grant-psionic-points-help = Usage: grantpsionicpoints [player name or entity id] [amount]. With no arguments, grants one point to yourself.
 command-grant-psionic-points-invalid-amount = The amount must be a positive integer.
 command-grant-psionic-points-granted = Granted {$amount} point(s) to {$target}. They now have {$points}.
 
 command-reset-psionic-cooldowns-description = Clears the use delay on every action granted by a psionic power.
-command-reset-psionic-cooldowns-help = Usage: resetpsioniccooldowns [entityUid]. With no arguments, resets your own psionic cooldowns.
+command-reset-psionic-cooldowns-help = Usage: resetpsioniccooldowns [player name or entity id]. With no arguments, resets your own psionic cooldowns.
 command-reset-psionic-cooldowns-cleared = Cleared {$count} psionic cooldown(s) on {$target}.
 
-command-psionic-no-self = You have no body to target. Pass an entity UID instead.
-command-psionic-invalid-entity = The first argument must be a valid entity UID.
-command-psionic-not-psionic = {$target} is not psionic.
+command-psionic-no-self = You have no body to target. Pass a player name or entity id instead.
+command-psionic-invalid-entity = "{$arg}" is neither a connected player nor a valid entity id.
+command-psionic-player-no-body = {$player} is not controlling a body.
+command-psionic-not-psionic = {$target} is not psionic. Give them a power first with addpsionicpower or addrandompsionicpower.
+command-psionic-target-hint = <player name or entity id>

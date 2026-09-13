@@ -44,4 +44,14 @@ public sealed class GrantPsionicLevelCommand : IConsoleCommand
             ("level", psionic.PsionicLevel),
             ("points", psionic.SkillPoints)));
     }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => PsionicCommandHelper.TargetCompletion(),
+            2 => CompletionResult.FromHint("[amount]"),
+            _ => CompletionResult.Empty,
+        };
+    }
 }

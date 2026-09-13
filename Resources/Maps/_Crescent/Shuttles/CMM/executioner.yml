@@ -6286,7 +6286,7 @@ entities:
     - type: Transform
       pos: -2.5,-2.5
       parent: 1
-- proto: WallShuttleDiagonalCurved
+- proto: WallShuttleCMMDiagonalCurved
   entities:
   - uid: 495
     components:

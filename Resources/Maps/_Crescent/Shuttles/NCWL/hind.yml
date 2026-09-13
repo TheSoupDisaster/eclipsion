@@ -4368,7 +4368,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -8.5,4.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumNCWL
   entities:
   - uid: 474
     components:
@@ -4526,105 +4526,6 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 4.5,-2.5
-- proto: WallPlastitaniumDiagonalCurved
-  entities:
-  - uid: 500
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -6.5,-4.5
-  - uid: 501
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 7.5,-4.5
-  - uid: 502
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 7.5,7.5
-  - uid: 503
-    components:
-    - type: Transform
-      parent: 1
-      pos: -6.5,7.5
-  - uid: 504
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 10.5,3.5
-  - uid: 505
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -2.5,-9.5
-  - uid: 506
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -1.5,-10.5
-  - uid: 507
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -3.5,-6.5
-  - uid: 508
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 3.5,-9.5
-  - uid: 509
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 2.5,-10.5
-  - uid: 510
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 4.5,-6.5
-  - uid: 511
-    components:
-    - type: Transform
-      parent: 1
-      pos: -3.5,8.5
-  - uid: 512
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 4.5,8.5
-  - uid: 513
-    components:
-    - type: Transform
-      parent: 1
-      pos: -9.5,3.5
-- proto: WallPlastitaniumDiagonalNortheastCurved
-  entities:
-  - uid: 514
-    components:
-    - type: Transform
-      parent: 1
-      pos: -0.5,13.5
-- proto: WallPlastitaniumDiagonalNorthwestCurved
-  entities:
-  - uid: 515
-    components:
-    - type: Transform
-      parent: 1
-      pos: 1.5,13.5
-- proto: WallPlastitaniumNCWL
-  entities:
   - uid: 516
     components:
     - type: Transform
@@ -4803,7 +4704,104 @@ entities:
     - type: Transform
       parent: 1
       pos: 1.5,12.5
-- proto: WallReinforced
+- proto: WallPlastitaniumDiagonalCurved
+  entities:
+  - uid: 500
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -6.5,-4.5
+  - uid: 501
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 7.5,-4.5
+  - uid: 502
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 7.5,7.5
+  - uid: 503
+    components:
+    - type: Transform
+      parent: 1
+      pos: -6.5,7.5
+  - uid: 504
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 10.5,3.5
+  - uid: 505
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-9.5
+  - uid: 506
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -1.5,-10.5
+  - uid: 507
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-6.5
+  - uid: 508
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 3.5,-9.5
+  - uid: 509
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 2.5,-10.5
+  - uid: 510
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 4.5,-6.5
+  - uid: 511
+    components:
+    - type: Transform
+      parent: 1
+      pos: -3.5,8.5
+  - uid: 512
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 4.5,8.5
+  - uid: 513
+    components:
+    - type: Transform
+      parent: 1
+      pos: -9.5,3.5
+- proto: WallPlastitaniumDiagonalNortheastCurved
+  entities:
+  - uid: 514
+    components:
+    - type: Transform
+      parent: 1
+      pos: -0.5,13.5
+- proto: WallPlastitaniumDiagonalNorthwestCurved
+  entities:
+  - uid: 515
+    components:
+    - type: Transform
+      parent: 1
+      pos: 1.5,13.5
+- proto: WallReinforcedNCWL
   entities:
   - uid: 550
     components:
@@ -4811,34 +4809,6 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: 10.5,-1.5
-- proto: WallReinforcedCapital
-  entities:
-  - uid: 551
-    components:
-    - type: Transform
-      parent: 1
-      pos: -8.5,-0.5
-  - uid: 552
-    components:
-    - type: Transform
-      parent: 1
-      pos: 9.5,-0.5
-- proto: WallReinforcedDiagonalCurved
-  entities:
-  - uid: 553
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -9.5,-2.5
-  - uid: 554
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 10.5,-2.5
-- proto: WallReinforcedNCWL
-  entities:
   - uid: 555
     components:
     - type: Transform
@@ -5143,6 +5113,32 @@ entities:
     - type: Transform
       parent: 1
       pos: 2.5,-3.5
+- proto: WallReinforcedCapital
+  entities:
+  - uid: 551
+    components:
+    - type: Transform
+      parent: 1
+      pos: -8.5,-0.5
+  - uid: 552
+    components:
+    - type: Transform
+      parent: 1
+      pos: 9.5,-0.5
+- proto: WallReinforcedDiagonalCurved
+  entities:
+  - uid: 553
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -9.5,-2.5
+  - uid: 554
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 10.5,-2.5
 - proto: WarpPointShip
   entities:
   - uid: 615

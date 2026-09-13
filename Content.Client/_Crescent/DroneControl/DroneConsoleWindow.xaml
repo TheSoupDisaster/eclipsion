@@ -36,6 +36,8 @@
                 </controls:StripeBack>
 
                 <Label Name="DeployedLabel" Text="Drones: 0/0" HorizontalAlignment="Center"/>
+                <Label Name="HangarLabel" Text="" HorizontalAlignment="Center"/>
+                <Label Name="LostLabel" Text="" HorizontalAlignment="Center" Visible="False"/>
                 <Label Name="TreasuryLabel" Text="" HorizontalAlignment="Center" FontColorOverride="DarkGray"/>
 
                 <BoxContainer Name="SpawnRow" Orientation="Horizontal" HorizontalExpand="True">

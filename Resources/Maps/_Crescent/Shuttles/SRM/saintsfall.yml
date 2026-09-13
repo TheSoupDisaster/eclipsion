@@ -1450,7 +1450,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WallPlastitanium
+- proto: WallPlastitaniumSRM
   entities:
   - uid: 126
     components:

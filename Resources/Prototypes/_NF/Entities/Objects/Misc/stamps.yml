@@ -26,7 +26,6 @@
   name: sheriff's rubber stamp
   parent: RubberStampBaseNF
   id: RubberStampSheriff
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-hos

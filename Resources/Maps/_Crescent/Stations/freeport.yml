@@ -25985,7 +25985,7 @@ entities:
           ent: 155
           showEnts: False
           occludes: True
-- proto: AmeJar
+- proto: AmeJarT3
   entities:
   - uid: 155
     components:
@@ -25993,6 +25993,8 @@ entities:
       parent: 154
     - type: Physics
       canCollide: False
+- proto: AmeJar
+  entities:
   - uid: 156
     components:
     - type: Transform

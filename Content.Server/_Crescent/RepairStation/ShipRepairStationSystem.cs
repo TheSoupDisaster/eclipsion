@@ -1,3 +1,4 @@
+using Content.Server._Crescent.DroneControl;
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bank;
@@ -32,6 +33,7 @@ namespace Content.Server._Crescent.RepairStation;
 public sealed partial class ShipRepairStationSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly AutoDroneSystem _autoDrone = default!;
     [Dependency] private readonly BankSystem _bank = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -216,15 +218,18 @@ public sealed partial class ShipRepairStationSystem : EntitySystem
             // rather than bought - is refused outright by a crew slip. The override console works it
             // anyway, on the part of the survey that is judged by looking at the hull itself.
             var data = CompOrNull<ShipRepairDataComponent>(selected.Value);
-            state.BlueprintMissing = data == null;
 
-            if (data == null && !comp.RepairUnregistered)
+            // A crew slip still restocks a carrier's hangar without a blueprint, since that reads nothing
+            // off the file - so only a hull with nothing else to do is turned away as unfiled.
+            var survey = Survey(station, selected.Value, data);
+            state.BlueprintMissing = data == null && (comp.RepairUnregistered || survey.Jobs.Count == 0);
+
+            if (data == null && !comp.RepairUnregistered && survey.Jobs.Count == 0)
             {
                 state.Status = ShipRepairStatus.NoBlueprint;
             }
             else
             {
-                var survey = Survey(station, selected.Value, data);
                 state.MissingTiles = survey.MissingTiles;
                 state.StrippedTiles = survey.StrippedTiles;
                 state.MissingParts = survey.MissingParts;
@@ -233,6 +238,8 @@ public sealed partial class ShipRepairStationSystem : EntitySystem
                 state.Spills = survey.Spills;
                 state.Debris = survey.Debris;
                 state.Restocks = survey.Restocks;
+                state.DroneRestocks = survey.DroneRestocks;
+                state.DroneRestockCost = survey.DroneRestockCost;
                 state.Quote = survey.Quote;
                 state.Status = survey.Jobs.Count == 0 ? ShipRepairStatus.Intact : ShipRepairStatus.Quoted;
             }

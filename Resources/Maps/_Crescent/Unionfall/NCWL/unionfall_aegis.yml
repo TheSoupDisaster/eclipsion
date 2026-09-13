@@ -1862,7 +1862,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -0.5,-4.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumNCWL
   entities:
   - uid: 195
     components:
@@ -2186,7 +2186,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -1.5,6.5
-- proto: WallReinforced
+- proto: WallReinforcedNCWL
   entities:
   - uid: 251
     components:

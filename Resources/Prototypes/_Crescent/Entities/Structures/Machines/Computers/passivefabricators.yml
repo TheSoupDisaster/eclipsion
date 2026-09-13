@@ -10,7 +10,7 @@
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: PassiveSpawnerDebugPrototype
   name: Excelsior Material Drop-In Uplink
-  suffix: DEBUG, DO NOT MAP
+  suffix: DEBUG
   description: An advanced machine used by the Excelsior revolutionary group to bring material support to violent revolutions at points of interest.
   components:
   - type: Sprite
@@ -129,7 +129,7 @@
   description: An antique NanoTrasen mining drill that cuts into the asteroid floor below. Looks like you could get it back in working order with some effort.
   components:
   - type: Sprite
-    sprite: _Crescent/Structures/purifier.rsi
+    sprite: _Crescent/Structures/Automining/mixed.rsi
     snapCardinals: true
     layers:
     - state: base_machine
@@ -212,6 +212,8 @@
   name: antique NT-AD-2 tungsten automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only tungsten ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/tungsten.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerTungstenDropTable
 
@@ -221,6 +223,8 @@
   name: antique NT-AD-2 coal automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only coal. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/coal.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerCoalDropTable
 
@@ -230,6 +234,8 @@
   name: antique NT-AD-2 uranium automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only uranium ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/uranium.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerUraniumDropTable
 
@@ -239,6 +245,8 @@
   name: antique NT-AD-2 silver automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only silver ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/silver.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerSilverDropTable
 
@@ -248,6 +256,8 @@
   name: antique NT-AD-2 plasma automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only plasma ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/plasma.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerPlasmaDropTable
 
@@ -257,6 +267,8 @@
   name: antique NT-AD-2 gold automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only gold ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/gold.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerGoldDropTable
 
@@ -266,6 +278,8 @@
   name: antique NT-AD-2 copper automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only copper ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/copper.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerCopperDropTable
 
@@ -275,6 +289,8 @@
   name: antique NT-AD-2 steel automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only steel ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/steel.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerSteelDropTable
 
@@ -284,6 +300,8 @@
   name: antique NT-AD-2 quartz automated drill
   description: An antique NanoTrasen mining drill calibrated to extract only quartz ore. Looks like you could get it back in working order with some effort.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Automining/quartz.rsi
   - type: PassiveSpawningMachine
     entityListProto: autominerQuartzDropTable
 #AUTOFOUNDRY

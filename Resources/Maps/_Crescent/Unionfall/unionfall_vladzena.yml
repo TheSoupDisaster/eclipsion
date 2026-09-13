@@ -20589,6 +20589,12 @@ entities:
       parent: 1
     - type: AmeController
       injectionAmount: 8
+    - type: ContainerContainer
+      containers:
+        fuelSlot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 7071
 - proto: AmeControllerUnanchoredFlatpack
   entities:
   - uid: 139
@@ -20609,6 +20615,14 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
+- proto: AmeJarT3
+  entities:
+  - uid: 7071
+    components:
+    - type: Transform
+      parent: 138
+    - type: Physics
+      canCollide: False
 - proto: AmeJar
   entities:
   - uid: 141

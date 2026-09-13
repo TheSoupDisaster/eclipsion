@@ -77,6 +77,13 @@ public sealed class DroneConsoleBoundUserInterfaceState : BoundUserInterfaceStat
     public int AliveCount;
 
     public int MaxDrones;
+
+    /// <summary>Drones produced and since destroyed or written off, waiting on a repair station restock.</summary>
+    public int LostCount;
+
+    /// <summary>Drones still available to produce before the hangar runs dry.</summary>
+    public int HangarCount;
+
     public List<DroneSpawnEntry> SpawnableDrones;
 
     /// <summary>Funds the console can draw on to produce drones, or null if production is free.</summary>
@@ -93,9 +100,13 @@ public sealed class DroneConsoleBoundUserInterfaceState : BoundUserInterfaceStat
         int producedCount,
         int aliveCount,
         int maxDrones,
+        int lostCount,
+        int hangarCount,
         List<DroneSpawnEntry> spawnableDrones,
         int? treasury)
     {
+        LostCount = lostCount;
+        HangarCount = hangarCount;
         NavState = navState;
         IFFState = iffState;
         Drones = drones;

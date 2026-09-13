@@ -129,7 +129,7 @@ public sealed class RecurrenceFieldCaptureTest
             var lifetime = entMan.GetComponent<TimedDespawnComponent>(
                 entMan.SpawnEntity("BulletRifle", new EntityCoordinates(map.Grid, new Vector2(20.5f, 0.5f)))).Lifetime;
 
-            // Two seconds of holding at 3% gives back all but a sliver of the two seconds. Comparing
+            // Two seconds of holding at 6% gives back all but a sliver of the two seconds. Comparing
             // against a fresh round rather than a literal keeps this honest if the prototype changes.
             Assert.That(despawn.Lifetime, Is.GreaterThan(lifetime - 0.5f),
                 "The held round's despawn timer ran at full speed inside the field.");

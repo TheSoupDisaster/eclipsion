@@ -2,7 +2,6 @@
   name: NCWL command stamp
   parent: RubberStampBase
   id: RubberStampNCWLCommand
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-ncwl
@@ -16,7 +15,6 @@
   name: imperial rubber stamp
   parent: RubberStampBase
   id: RubberStampEmpire
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-empire
@@ -30,7 +28,6 @@
   name: overseer's rubber stamp
   parent: RubberStampBase
   id: RubberStampHunters
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-hunters
@@ -44,7 +41,6 @@
   name: executive's rubber stamp
   parent: RubberStampBase
   id: RubberStampShinohara
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-shinohara
@@ -60,7 +56,6 @@
   parent: RubberStampBase
   id: RatRubberStampEmpireVestmar
   name: imperial vetsmar rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-empire-vestmar
@@ -74,7 +69,6 @@
   parent: RubberStampBase
   id: RatRubberStampEmpireCargo
   name: imperial cargo rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-empire-cargo
@@ -89,7 +83,6 @@
   parent: RubberStampBase
   id: RatRubberStampNCWLGeneral
   name: league general rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-ncwl-general
@@ -103,7 +96,6 @@
   parent: RubberStampBase
   id: RatRubberStampNCWLComissar
   name: league comissar rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-ncwl-comissar
@@ -117,7 +109,6 @@
   parent: RubberStampBase
   id: RatRubberStampNCWLStaffhead
   name: league staffhead rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-ncwl-staffhead
@@ -131,7 +122,6 @@
   parent: RubberStampBase
   id: RatRubberStampNCWLResearch
   name: league research rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-ncwl-research
@@ -145,7 +135,6 @@
   parent: RubberStampBase
   id: RatRubberStampNCWLMedical
   name: league medical rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-ncwl-medical
@@ -159,7 +148,6 @@
   parent: RubberStampBase
   id: RatRubberStampNCWLCargo
   name: league cargo rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-ncwl-cargo
@@ -174,7 +162,6 @@
   parent: RubberStampBase
   id: RatRubberStampTFSCGorlex
   name: TFCF GSC rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-tsfc-gorlex
@@ -188,7 +175,6 @@
   parent: RubberStampBase
   id: RatRubberStampTFSCInterdyne
   name: TFCF Interdyne rubber stamp
-  suffix: DoNotMapstamp-syndicate
   components:
   - type: Stamp
     stampedName: rat-stamp-name-tsfc-interdyne
@@ -202,7 +188,6 @@
   parent: RubberStampBase
   id: RatRubberStampTFSCCyberDawn
   name: TFCF Cyberdawn rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-tsfc-cyberdawn
@@ -216,7 +201,6 @@
   parent: RubberStampBase
   id: RatRubberStampTFSCSAW
   name: TFCF Shipbreaker rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-tsfc-shipwrekers
@@ -231,7 +215,6 @@
   parent: RubberStampBase
   id: RatRubberStampShinoharaAlt
   name: Shinohara rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-shinohara
@@ -245,7 +228,6 @@
   parent: RubberStampBase
   id: RatRubberStampShinoharaCorps
   name: SHI CorpSec rubber stamp
-  suffix: DoNotMap
   components:
   - type: Stamp
     stampedName: rat-stamp-name-shinohara-corpsec
@@ -260,7 +242,6 @@
   name: colonial marshal rubber stamp
   parent: RubberStampBase
   id: RatRubberStampCMMMarshal
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: rat-stamp-name-tsfc-colonial-marshal
@@ -273,7 +254,6 @@
   name: minuteman command rubber stamp
   parent: RubberStampBase
   id: RatRubberStampCMM
-  suffix: DO NOT MAP
   components:
   - type: Stamp
     stampedName: rat-stamp-name-tsfc-minutemen-command

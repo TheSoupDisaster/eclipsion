@@ -1,10 +1,12 @@
 """Generates the Hullrot faction vendor RSIs.
 
-Two chassis, drawn from scratch rather than reskinned from the RMC ColMarTech racks:
+Vendor chassis, drawn from scratch rather than reskinned from the RMC ColMarTech racks:
   armory -- caged gun locker in the vein of Crescent's own armory.rsi: overhanging hood, sprayed unit
             markings, barred window with the racked stock behind it, keypad column, dispensing tray.
   supply -- slimmer requisitions rack: lit emblem sign, glass front with folded stock on shelves, tray.
   sustenance -- Shinohara's ration vendor: broad lit header, tall window of boxed rations, keypad column.
+  budget -- Shinohara's public gun shop: compact sign, colourful pistols and ammunition behind glass.
+  grill -- the TFCF fast-food vendor: "???" marquee, striped awning, heat-lamp window of burgers and fries.
 
 Every faction gets the armory and supply chassis. The sustenance chassis is Shinohara's alone -- SHI
 supplies compact rations to the whole sector, so there is no per-faction variant of it. Beyond the colours, each faction varies the silhouette of the cap, the
@@ -86,6 +88,11 @@ FACTIONS = {
 # requisitions racks wear, keeping the accent, the dome cap and the "S" so it still reads as Shinohara.
 SUSTENANCE = dict(chassis="#3F4E52", accent="#6FB0A6", cap="dome", emblem="s", trim="solid", pillar="stripe")
 
+BUDGET = dict(FACTIONS["shi"], chassis="#626F72", pillar="bolts")
+
+# The Federation grill wears the TFCF armoury paint and chamfered cap, but swaps the diamonds for a burger.
+GRILL = dict(FACTIONS["tfsc"], emblem="burger")
+
 EMBLEMS = {
     "square": [".......", ".#####.", ".#...#.", ".#.#.#.", ".#...#.", ".#####.", "......."],
     "sun": ["#..#..#", ".#####.", ".##.##.", "###.###", ".##.##.", ".#####.", "#..#..#"],
@@ -96,6 +103,7 @@ EMBLEMS = {
     "cross": ["..###..", "...#...", "#..#..#", "#######", "#..#..#", "...#...", "..###.."],
     "crown": ["#..#..#", "#..#..#", "##.#.##", "#######", "#######", ".......", "#######"],
     "shield": ["#######", "#.....#", "#..#..#", "#.###.#", "#..#..#", ".#...#.", "..###.."],
+    "burger": ["..###..", ".#####.", "#######", ".......", "#######", ".......", ".#####."],
 }
 
 
@@ -196,6 +204,14 @@ class Canvas:
 
 # Geometry. Bodies are odd-width so the emblem centres on a pixel column.
 GEO = {
+    "budget": dict(
+        bx0=3, bx1=29, bt=4,
+        sign=(4, 4, 28, 12), plate=(5, 4, 13, 12),
+        glass=(7, 14, 20, 26), glass_frame=(6, 13, 21, 27),
+        screen=(24, 15, 27, 17), screen_frame=(23, 14, 28, 18),
+        keys=(24, 20, 27, 23), led=(28, 20), slot=(24, 26, 27, 26),
+        hatch=(7, 29, 20, 29), console=(23, 13, 28, 27),
+    ),
     "armory": dict(
         bx0=2, bx1=29, hood=(1, 1, 30, 3),
         band=(2, 4, 29, 10), plate=(4, 4, 10, 10), label=(12, 4, 27, 10),
@@ -219,6 +235,14 @@ GEO = {
         screen=(24, 18, 27, 20), screen_frame=(23, 17, 28, 21),
         keys=(24, 23, 27, 24), led=(28, 23), slot=(24, 26, 27, 26),
         hatch=(8, 29, 21, 29), console=(23, 16, 28, 27),
+    ),
+    "grill": dict(
+        bx0=3, bx1=29, bt=4,
+        sign=(4, 5, 28, 14), plate=(6, 5, 14, 13), awning=(4, 15, 28, 16),
+        glass=(8, 19, 21, 26), glass_frame=(7, 18, 22, 27),
+        screen=(24, 19, 27, 21), screen_frame=(23, 18, 28, 22),
+        keys=(24, 24, 27, 25), led=(28, 24), slot=(24, 27, 27, 27),
+        hatch=(8, 29, 21, 29), console=(23, 18, 28, 27),
     ),
 }
 
@@ -275,7 +299,8 @@ def draw_body(kind, fac, p):
         if any((x + dx, y + dy) not in mask for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
             c.put(x, y, p["out"])
 
-    (draw_supply if kind == "supply" else draw_sustenance)(c, g, fac, p)
+    {"supply": draw_supply, "sustenance": draw_sustenance,
+     "grill": draw_grill, "budget": draw_budget}[kind](c, g, fac, p)
     return c
 
 
@@ -379,6 +404,48 @@ def draw_supply(c, g, fac, p):
         c.put(x, hy, p["lt"])
 
 
+# ---------------------------------------------------------------- budget gun shop
+
+BUDGET_LETTERS = (["##.", "#.#", "##.", "#.#", "##."],
+                  [".#.", "#.#", "###", "#.#", "#.#"])
+BUDGET_PISTOL = ["hhhhh", "ccccb", ".gg..", ".g..."]
+BUDGET_COLORS = [(190, 66, 63), (81, 137, 181), (169, 126, 186), (186, 157, 77)]
+
+
+def draw_budget(c, g, fac, p):
+    # A retail display with a short BA sign leaves room for two rows of cheap sidearms.
+    c.frame(*g["sign"], p["out"])
+    c.rect(14, 5, 27, 11, p["acc_dim"])
+    draw_plate(c, g, fac, p, p["acc_dim"])
+    for x, letter in zip((17, 22), BUDGET_LETTERS):
+        c.glyph(letter, x, 6, p["acc_dk"])
+    for y in range(13, 29):
+        c.put(4, y, p["lt"])
+        c.put(5, y, p["seam"])
+        c.put(22, y, p["seam"])
+    for y in (15, 24):
+        c.put(4, y, p["hi"])
+        c.put(4, y + 1, p["out"])
+    draw_glass(c, g, p)
+    for i, (x0, y0) in enumerate(((8, 14), (15, 14), (8, 20), (15, 20))):
+        colour = BUDGET_COLORS[i]
+        cols = {"h": mix(colour, WHITE, 0.35), "c": colour,
+                "b": METAL_DK, "g": (51, 46, 43)}
+        for dy, row in enumerate(BUDGET_PISTOL):
+            for dx, ch in enumerate(row):
+                if ch != ".":
+                    c.put(x0 + dx, y0 + dy, cols[ch])
+    for y in (18, 24):
+        c.rect(7, y, 20, y, METAL_DK)
+    for x in (9, 16):
+        c.rect(x, 19, x + 2, 19, (193, 176, 120))
+    for x, colour in ((8, p["acc_dk"]), (12, (157, 126, 65)), (17, METAL_DK)):
+        c.rect(x, 25, x + 2, 26, colour)
+        c.put(x + 1, 25, mix(colour, WHITE, 0.4))
+    draw_console(c, g, p)
+    draw_recess(c, g, p)
+
+
 # ---------------------------------------------------------------- sustenance chassis
 #
 # Shinohara's compact-ration vendor. It shares the supply rack's silhouette machinery -- heightmap cap,
@@ -445,8 +512,11 @@ def draw_sustenance(c, g, fac, p):
     c.put(gx0 + 1, gy0, GLASS_HI)
 
     draw_console(c, g, p)
+    draw_recess(c, g, p)
 
-    # Deep dispensing recess in the kick plate.
+
+def draw_recess(c, g, p):
+    """Deep dispensing recess in the kick plate."""
     for y in range(28, 31):
         for x in range(g["bx0"] + 1, g["bx1"]):
             c.blend(x, y, p["out"], 0.4 if y == 28 else 0.25)
@@ -457,6 +527,104 @@ def draw_sustenance(c, g, fac, p):
         c.put(x, hy + 1, mix(p["dk"], p["lt"], 0.35))
     c.put(hx0, hy, p["seam"])
     c.put(hx1, hy, p["seam"])
+
+
+# ---------------------------------------------------------------- grill chassis
+#
+# The TFCF fast-food vendor. Same heightmap body as the sustenance machine, but it sells to the hungry
+# rather than the provisioned: the header is a "???" marquee (nobody will say what is in the patties),
+# a striped awning hangs under it, and the window is a heat-lamp warmer with burgers on the top shelf and
+# foil wraps and fry cartons below.
+
+QMARK = ["##.", "..#", ".#.", "...", ".#."]
+QMARK_X = (17, 21, 25)
+QMARK_Y = 6
+HEAT = (255, 150, 60)
+BUN = (178, 120, 62)
+BUN_HI = (222, 170, 98)
+PATTY = (84, 50, 36)
+FOIL = (150, 152, 160)
+FOIL_HI = (196, 198, 204)
+FRY = (230, 190, 86)
+
+
+def grill_lamps(g):
+    x0, _, x1, _ = g["glass"]
+    return tuple(range(x0 + 2, x1, 4))
+
+
+def grill_items(g, p):
+    """(x, y) -> colour for the food kept warm behind the grill glass."""
+    px = {}
+    x0, y0, x1, _ = g["glass"]
+    for i, x in enumerate(range(x0 + 1, x1 - 1, 4)):           # top shelf: burgers
+        for dx in range(3):
+            px[(x + dx, y0 + 1)] = BUN_HI if dx == 1 else BUN
+            px[(x + dx, y0 + 2)] = PATTY
+            px[(x + dx, y0 + 3)] = scale(BUN, 0.8)
+        px[(x + 2 - 2 * (i % 2), y0 + 2)] = p["acc"]           # sauce dripping out one side
+    for i, x in enumerate(range(x0 + 1, x1 - 1, 4)):           # bottom shelf: wraps and fry cartons
+        if i % 2 == 0:
+            for dx in range(3):
+                px[(x + dx, y0 + 6)] = FOIL_HI
+                px[(x + dx, y0 + 7)] = FOIL
+            px[(x + 1, y0 + 7)] = p["acc_dk"]
+        else:
+            px[(x, y0 + 5)] = FRY
+            px[(x + 2, y0 + 5)] = FRY
+            px[(x + 1, y0 + 5)] = scale(FRY, 0.8)
+            for dx in range(3):
+                px[(x + dx, y0 + 6)] = p["acc"]
+                px[(x + dx, y0 + 7)] = p["acc_dk"]
+    return px
+
+
+def draw_grill(c, g, fac, p):
+    bt = g["bt"]
+    gx0, gy0, gx1, gy1 = g["glass"]
+    fx0 = g["glass_frame"][0]
+    cx0 = g["console"][0]
+
+    draw_pillar(c, fx0 - 3, bt + 2, 29, fac, p, False)
+    for y in range(bt + 1, 30):
+        c.put(cx0 - 1, y, p["seam"])
+
+    # Header marquee: burger plate on the left, three unlit question marks and a dash rail beside it.
+    sx0, sy0, sx1, sy1 = g["sign"]
+    px1 = g["plate"][2]
+    c.frame(sx0, sy0, sx1, sy1, p["out"])
+    for y in range(sy0 + 1, sy1):
+        for x in range(sx0 + 1, sx1):
+            c.put(x, y, p["acc_dim"] if x <= px1 + 1 else scale(p["dk"], 0.6))
+    draw_plate(c, g, fac, p, p["acc_dim"])
+    for x in QMARK_X:
+        c.glyph(QMARK, x, QMARK_Y, p["acc_dim"])
+    for x in range(px1 + 2, sx1):
+        c.put(x, sy1 - 2, scale(trim_color(fac["trim"], x, 0, -1, 1, p), 0.6))
+
+    # Striped awning with a scalloped lower edge.
+    ax0, ay0, ax1, ay1 = g["awning"]
+    stripe_lt = mix(p["acc"], WHITE, 0.7)
+    for x in range(ax0, ax1 + 1):
+        lit = (x // 2) % 2 == 0
+        c.put(x, ay0, p["acc"] if lit else stripe_lt)
+        if lit:
+            c.put(x, ay1, p["acc_dk"])
+        else:
+            c.put(x, ay1, scale(stripe_lt, 0.7))
+            c.put(x, ay1 + 1, p["out"])
+
+    # Warmer window: lamp housings along the top, burgers above a rail, wraps and fries below.
+    draw_glass(c, g, p)
+    for (x, y), col in grill_items(g, p).items():
+        c.put(x, y, col)
+    for x in range(gx0, gx1 + 1):
+        c.put(x, gy0 + 4, METAL_DK)
+    for x in grill_lamps(g):
+        c.put(x, gy0, METAL_DK)
+
+    draw_console(c, g, p)
+    draw_recess(c, g, p)
 
 
 # ---------------------------------------------------------------- armory chassis
@@ -739,6 +907,14 @@ def paint_ambient(c, kind, g, fac, p):
     if kind == "armory":
         armory_ambient(c, g, fac, p)
         return
+    if kind == "budget":
+        px0, py0, _, _ = g["plate"]
+        c.glyph(EMBLEMS[fac["emblem"]], px0 + 1, py0 + 1, p["acc_lt"])
+        for x, letter in zip((17, 22), BUDGET_LETTERS):
+            c.glyph(letter, x, 6, p["acc_lt"])
+        for x in range(7, 21):
+            c.put(x, 14, p["acc_lt"], 45)
+        return
     if kind == "sustenance":
         # Sustenance: the ration band lights up beside the crest; the window gets a shelf lamp at the top.
         px0, py0, px1, py1 = g["plate"]
@@ -755,6 +931,27 @@ def paint_ambient(c, kind, g, fac, p):
         for x in range(gx0, gx1 + 1):
             c.put(x, gy0, p["acc_lt"], 90)
             c.put(x, gy0 + 1, p["acc_lt"], 30)
+        return
+    if kind == "grill":
+        # Grill: the marquee and dash rail light up, and the heat lamps wash the food in orange.
+        px0, py0, px1, _ = g["plate"]
+        sx1, sy1 = g["sign"][2], g["sign"][3]
+        for x in QMARK_X:
+            c.glyph(QMARK, x, QMARK_Y, p["acc_lt"])
+        for x in range(px1 + 2, sx1):
+            c.put(x, sy1 - 2, trim_color(fac["trim"], x, 0, -1, 1, p))
+        c.glyph(EMBLEMS[fac["emblem"]], px0 + 1, py0 + 1, p["acc_lt"])
+        gx0, gy0, gx1, _ = g["glass"]
+        food = grill_items(g, p)
+        lamps = grill_lamps(g)
+        for y, a in ((gy0, 110), (gy0 + 1, 55), (gy0 + 2, 25)):
+            for x in range(gx0, gx1 + 1):
+                if y == gy0 and x in lamps:
+                    c.put(x, y, mix(HEAT, WHITE, 0.45))
+                elif (x, y) in food:
+                    c.put(x, y, mix(food[(x, y)], HEAT, 0.3))
+                else:
+                    c.put(x, y, HEAT, a)
         return
     # Supply: the trim pattern lights up rather than washing out into a flat block; the plate stays dark.
     px0, py0, px1, _ = g["plate"]
@@ -962,6 +1159,8 @@ def main():
         for name, fac in FACTIONS.items():
             rendered[(kind, name)] = write_rsi(kind, name, fac)
     rendered[("sustenance", "shi")] = write_rsi("sustenance", "shi", SUSTENANCE)
+    rendered[("budget", "shi")] = write_rsi("budget", "shi", BUDGET)
+    rendered[("grill", "tfsc")] = write_rsi("grill", "tfsc", GRILL)
     print(f"wrote {len(rendered)} RSIs to {os.path.normpath(OUT)}")
 
     screens = {name: write_screen(name, fac) for name, fac in FACTIONS.items() if name != "neutral"}
@@ -972,7 +1171,7 @@ def main():
         z, pad = 4, 4
         names = list(FACTIONS)
         cell = S * z + pad
-        kinds = ("armory", "supply", "sustenance")
+        kinds = ("armory", "supply", "sustenance", "budget", "grill")
         out = Image.new("RGBA", (3 * len(kinds) * cell + pad, len(names) * cell + pad), (40, 44, 50, 255))
         for r, name in enumerate(names):
             for k, kind in enumerate(kinds):

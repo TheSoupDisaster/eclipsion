@@ -19,6 +19,11 @@ public sealed partial class RequirementsSelector : BoxContainer
     private readonly StripeBack _lockStripe;
     private List<ProtoId<GuideEntryPrototype>>? _guides;
 
+    // Eclipsion - BaseButton.ExitedTree() nulls Group, and the profile editor is re-parented on every save and
+    //   character switch. Without re-grouping on entry the buttons latch independently and several stay lit.
+    private readonly ButtonGroup _group = new();
+    private readonly List<Button> _buttons = new();
+
     public event Action<int>? OnSelected;
     public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
@@ -120,12 +125,28 @@ public sealed partial class RequirementsSelector : BoxContainer
 
     private Button GenerateButton(string text, int value)
     {
-        return new Button
+        var button = new Button
         {
             Text = text,
             MinWidth = 90,
             HorizontalExpand = true,
         };
+        _buttons.Add(button);
+        return button;
+    }
+
+    protected override void EnteredTree()
+    {
+        base.EnteredTree();
+
+        if (_options.ItemCount == 0)
+            return;
+
+        foreach (var button in _buttons)
+            button.Group = _group;
+
+        // Select() may have run while out of the tree with no group, leaving stale buttons pressed.
+        _options.SelectedButton.Pressed = true;
     }
 
     public void Select(int id)

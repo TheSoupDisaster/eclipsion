@@ -16,6 +16,7 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly GhostRoleSystem _ghostRoles = default!; // Eclipsion
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -45,6 +46,14 @@ public sealed class ToggleableGhostRoleSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString(component.ExamineTextMindSearching), uid, args.User);
             return;
         }
+
+        // Eclipsion: only admin-spawned devices can call in a ghost; everything else stays empty.
+        if (!_ghostRoles.IsAdminGhostRole(uid))
+        {
+            _popup.PopupEntity(Loc.GetString(component.ExamineTextNoMind), uid, args.User);
+            return;
+        }
+
         _popup.PopupEntity(Loc.GetString(component.BeginSearchingText), uid, args.User);
 
         UpdateAppearance(uid, ToggleableGhostRoleStatus.Searching);

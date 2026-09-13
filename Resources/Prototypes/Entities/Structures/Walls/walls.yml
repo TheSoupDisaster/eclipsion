@@ -735,6 +735,7 @@
   parent: WallReinforced #Nyano, basically Reinforced Wall (shuttle variant)
   id: WallShuttle
   name: shuttle wall
+  description: Standard shuttle hull plating. CMM vessels use a heavier police-grade version.
   components:
   - type: Tag
     tags:
@@ -747,11 +748,13 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  # Eclipsion - the lower threshold is the wall's real health; the upper one only decides whether an overkill hit
+  # leaves a girder behind. Faction shuttle walls inherit this.
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 500
+          damage: 900
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -760,13 +763,11 @@
               collection: MetalSlam
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 450
         behaviors:
         - !type:PlaySoundBehavior
           sound:
             collection: MetalSlam
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
         - !type:ChangeConstructionNodeBehavior
           node: girder
         - !type:SpawnEntitiesBehavior
@@ -807,7 +808,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 900
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -816,7 +817,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 450
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -1035,12 +1036,18 @@
     sprite: Structures/Walls/mining.rsi
   - type: Icon
     sprite: Structures/Walls/mining.rsi
+  # Eclipsion - leave a girder behind like the other hull walls.
+  - type: Construction
+    graph: Girder
+    node: miningWall
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 700
       behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
@@ -1280,29 +1287,6 @@
   - type: IconSmooth
     key: cobblebricks
     base: cobblebrick
-
-- type: entity
-  parent: WallReinforced
-  id: WallJackal
-  name: jackal hull
-  suffix: ""
-  components:
-    - type: Tag
-      tags:
-        - Wall
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 1600
-          behaviors:
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                Girder:
-                  min: 1
-                  max: 1
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
 
 - type: entity
   parent: BaseWall

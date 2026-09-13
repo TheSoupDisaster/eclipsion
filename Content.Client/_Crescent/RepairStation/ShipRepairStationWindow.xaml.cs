@@ -194,7 +194,7 @@ public sealed partial class ShipRepairStationWindow : FancyWindow
                 Math.Max(state.MissingParts,
                     Math.Max(state.DamagedParts,
                         Math.Max(state.Decals,
-                            Math.Max(cleaning, state.Restocks))))));
+                            Math.Max(cleaning, Math.Max(state.Restocks, state.DroneRestocks)))))));
 
         // Decking open to space is the one line worth alarming over; the rest is work, not danger.
         TilesRow.SetValue(state.MissingTiles, worst, ConsolePalette.Bad);
@@ -207,9 +207,14 @@ public sealed partial class ShipRepairStationWindow : FancyWindow
         // the two the yard spent its time on.
         CleaningRow.SetValue(cleaning, worst);
         RestockRow.SetValue(state.Restocks, worst);
+        DronesRow.SetValue(state.DroneRestocks, worst);
+
+        // The drone restock is a flat fee on top of the marked-up quote, so it is spelled out on the bill.
+        DroneFeeRow.Visible = state.DroneRestockCost > 0 && !state.Free;
+        DroneFeeLabel.SetTextIfChanged(Loc.GetString("ship-repair-station-credits", ("amount", state.DroneRestockCost)));
 
         var total = state.MissingTiles + state.StrippedTiles + state.MissingParts + state.DamagedParts
-                    + state.Decals + cleaning + state.Restocks;
+                    + state.Decals + cleaning + state.Restocks + state.DroneRestocks;
 
         WorkItemsLabel.SetTextIfChanged(total.ToString());
 

@@ -2845,7 +2845,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 5.4772058,6.7566757
-- proto: WallPlastitanium
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 255
     components:
@@ -2857,7 +2857,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 5.5,1.5
-- proto: WallReinforced
+- proto: WallReinforcedDSM
   entities:
   - uid: 257
     components:

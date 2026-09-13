@@ -23,6 +23,7 @@
     Nemesis:
       stationProto: StandardCrescentStation
       components:
+        - type: StationRenameWarps # Eclipsion - StandardCrescentStation lacks it; without it the ship warp shows as a bare "warp point"
         - type: VesselIcon
           iffIcon:
             sprite: _Crescent/ShipIcons/ifficons.rsi

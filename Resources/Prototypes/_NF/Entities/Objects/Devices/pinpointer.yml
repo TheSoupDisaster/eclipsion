@@ -1,6 +1,6 @@
 - type: entity
   id: PinpointerUniversalDebug
   parent: PinpointerUniversal
-  suffix: DEBUG, DO NOT MAP
+  suffix: DEBUG
   components:
   - type: Pinpointer

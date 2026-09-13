@@ -3158,7 +3158,7 @@ entities:
     - type: Transform
       pos: -1.5,9.5
       parent: 1
-- proto: WallShuttle
+- proto: WallShuttleTFSC
   entities:
   - uid: 20
     components:

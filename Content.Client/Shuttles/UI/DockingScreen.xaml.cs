@@ -120,6 +120,9 @@ public sealed partial class DockingScreen : BoxContainer
             };
 
             button.Label.Margin = new Thickness(3f);
+            // The side panel is a fixed 256px; a long docked-grid name must clip instead of
+            // widening the row past it. The full name stays on the tooltip.
+            button.Label.ClipText = true;
 
             if (currentDock == dock.Entity)
             {
@@ -132,9 +135,11 @@ public sealed partial class DockingScreen : BoxContainer
                 OnDockPress(dock);
             };
 
+            // Stacked vertically: side by side, a long dock label squeezed the undock button
+            // down to a sliver at the panel's right edge.
             var row = new BoxContainer
             {
-                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
                 HorizontalExpand = true,
             };
 
@@ -143,11 +148,13 @@ public sealed partial class DockingScreen : BoxContainer
 
             if (dock.Connected)
             {
+                button.Margin = new Thickness(0f, 3f, 0f, 0f);
+
                 var undockButton = new Button
                 {
                     Text = Loc.GetString("shuttle-console-undock"),
-                    Margin = new Thickness(4f, 3f, 0f, 3f),
-                    VerticalAlignment = VAlignment.Stretch,
+                    Margin = new Thickness(0f, 2f, 0f, 3f),
+                    HorizontalExpand = true,
                 };
 
                 undockButton.OnPressed += _ =>

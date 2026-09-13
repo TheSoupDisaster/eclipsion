@@ -7212,7 +7212,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 18.5,4.5
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 614
     components:

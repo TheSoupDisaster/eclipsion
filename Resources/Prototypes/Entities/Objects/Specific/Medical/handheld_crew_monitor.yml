@@ -1,6 +1,5 @@
 - type: entity
   name: handheld crew monitor
-  suffix: DO NOT MAP
   parent: BaseHandheldComputer
   # CMO-only bud, don't add more.
   id: HandheldCrewMonitor

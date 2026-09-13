@@ -59,7 +59,8 @@ public sealed class SpaceBiomeSystem : EntitySystem
             if (session.AttachedEntity == null)
                 continue;
 
-            Vector2 playerPos = _formSys.GetWorldPosition(Transform(session.AttachedEntity.Value));
+            var playerXform = Transform(session.AttachedEntity.Value);
+            Vector2 playerPos = _formSys.GetWorldPosition(playerXform);
             SpaceBiomeTrackerComponent tracker = EnsureComp<SpaceBiomeTrackerComponent>(session.AttachedEntity.Value);
 
             HashSet<EntityUid> sourceUids = new();
@@ -69,6 +70,11 @@ public sealed class SpaceBiomeSystem : EntitySystem
             SpaceBiomeSourceComponent? newSource = null;
             foreach (EntityUid sourceUid in sourceUids)
             {
+                // Chunks are keyed by world position only; a source on another map shares
+                // coordinates but must not leak its biome (e.g. Gliess's planet on a loadgrid map).
+                if (Transform(sourceUid).MapID != playerXform.MapID)
+                    continue;
+
                 SpaceBiomeSourceComponent source = Comp<SpaceBiomeSourceComponent>(sourceUid);
 
                 if (PreciseRange && (_formSys.GetWorldPosition(sourceUid) - playerPos).Length() > source.SwapDistance)

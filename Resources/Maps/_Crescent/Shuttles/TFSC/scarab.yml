@@ -4483,7 +4483,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,-1.5
       parent: 1
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 427
     components:
@@ -4547,32 +4547,6 @@ entities:
     - type: Transform
       pos: 8.5,3.5
       parent: 1
-- proto: WallReinforcedDiagonalCurved
-  entities:
-  - uid: 438
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.5,-2.5
-      parent: 1
-  - uid: 439
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -3.5,-3.5
-      parent: 1
-  - uid: 440
-    components:
-    - type: Transform
-      pos: 4.5,-3.5
-      parent: 1
-  - uid: 441
-    components:
-    - type: Transform
-      pos: 5.5,-2.5
-      parent: 1
-- proto: WallReinforcedTFSC
-  entities:
   - uid: 442
     components:
     - type: Transform
@@ -4948,6 +4922,30 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-5.5
+      parent: 1
+- proto: WallReinforcedDiagonalCurved
+  entities:
+  - uid: 438
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,-2.5
+      parent: 1
+  - uid: 439
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-3.5
+      parent: 1
+  - uid: 440
+    components:
+    - type: Transform
+      pos: 4.5,-3.5
+      parent: 1
+  - uid: 441
+    components:
+    - type: Transform
+      pos: 5.5,-2.5
       parent: 1
 - proto: WarpPointShip
   entities:

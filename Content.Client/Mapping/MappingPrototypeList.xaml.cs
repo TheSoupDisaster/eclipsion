@@ -6,6 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.Mapping;
@@ -32,7 +33,20 @@ public sealed partial class MappingPrototypeList : Control
     /// </summary>
     public Color? TexturesModulate { get; set; }
 
-    public Action<IPrototype, List<Texture>>? GetPrototypeData;
+    /// <summary>
+    ///     Fills in a prototype's textures. With <paramref name="allowSlow"/> false it may refuse (return false,
+    ///     fill nothing) when that would be expensive; the button then gets them once it scrolls into view.
+    /// </summary>
+    public delegate bool PrototypeDataGetter(IPrototype prototype, List<Texture> textures, bool allowSlow);
+
+    public PrototypeDataGetter? GetPrototypeData;
+
+    /// <summary>
+    ///     Buttons whose textures were refused on insert. Worked off in <see cref="FrameUpdate"/>, on-screen only.
+    /// </summary>
+    private readonly List<MappingSpawnButton> _pendingTextures = new();
+    private readonly System.Diagnostics.Stopwatch _textureStopwatch = new();
+    private const double TextureBudgetMs = 4;
     public event Action<MappingPrototypeList, MappingSpawnButton, IPrototype?>? SelectionChanged;
 
     public MappingPrototypeList()
@@ -59,6 +73,7 @@ public sealed partial class MappingPrototypeList : Control
     public void UpdateVisible(List<MappingPrototype> prototypes, List<MappingPrototype> allPrototypes)
     {
         _allPrototypes.Clear();
+        _pendingTextures.Clear();
         PrototypeList.DisposeAllChildren();
         _allPrototypes.AddRange(allPrototypes);
 
@@ -81,20 +96,23 @@ public sealed partial class MappingPrototypeList : Control
     {
         var prototype = mapping.Prototype;
 
-        _insertTextures.Clear();
-
-        if (prototype != null)
-            GetPrototypeData?.Invoke(prototype, _insertTextures);
-
         var button = new MappingSpawnButton { Prototype = mapping };
         button.Label.Text = mapping.Name;
         button.Button.ToolTip = button.Label.Text;
 
-        if (_insertTextures.Count > 0)
+        if (prototype != null && GetPrototypeData != null)
         {
-            button.SetTextures(_insertTextures);
-            if (TexturesModulate is { } modulate)
-                button.Texture.Modulate = modulate;
+            _insertTextures.Clear();
+
+            if (GetPrototypeData(prototype, _insertTextures, false))
+            {
+                ApplyTextures(button, _insertTextures);
+            }
+            else
+            {
+                button.ReserveTexture();
+                _pendingTextures.Add(button);
+            }
         }
 
         if (prototype != null && button.Prototype == Selected?.Prototype)
@@ -122,6 +140,53 @@ public sealed partial class MappingPrototypeList : Control
         }
 
         return button;
+    }
+
+    private void ApplyTextures(MappingSpawnButton button, List<Texture> textures)
+    {
+        if (textures.Count == 0)
+            return;
+
+        button.SetTextures(textures);
+        if (TexturesModulate is { } modulate)
+            button.Texture.Modulate = modulate;
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (_pendingTextures.Count == 0 || GetPrototypeData == null)
+            return;
+
+        var view = ScrollContainer.GlobalRect;
+        _textureStopwatch.Restart();
+
+        for (var i = _pendingTextures.Count - 1; i >= 0; i--)
+        {
+            var button = _pendingTextures[i];
+
+            // Collapsed away, or scrolled out of the search list (which removes rows without disposing them).
+            if (button.Disposed || button.Parent == null)
+            {
+                _pendingTextures.RemoveAt(i);
+                continue;
+            }
+
+            if (_textureStopwatch.Elapsed.TotalMilliseconds >= TextureBudgetMs ||
+                !button.VisibleInTree ||
+                !view.Intersects(button.GlobalRect))
+                continue;
+
+            _pendingTextures.RemoveAt(i);
+
+            if (button.Prototype?.Prototype is not { } prototype)
+                continue;
+
+            _insertTextures.Clear();
+            GetPrototypeData(prototype, _insertTextures, true);
+            ApplyTextures(button, _insertTextures);
+        }
     }
 
     private void Search(List<MappingPrototype> prototypes)
@@ -235,7 +300,12 @@ public sealed partial class MappingPrototypeList : Control
         }
 
         button.UnCollapse();
-        if (button.Prototype?.Children == null)
+
+        // Picking an entity walks its parent chain and "expands" every step, including ones already open:
+        // inserting again duplicated the whole branch, and the "Entities" root alone is hundreds of rows.
+        if (button.Prototype?.Children == null ||
+            button.ChildrenPrototypes.ChildCount > 0 ||
+            button.ChildrenPrototypesGallery.ChildCount > 0)
             return;
 
         foreach (var child in button.Prototype.Children)

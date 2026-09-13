@@ -488,7 +488,7 @@ entities:
       parent: 1
     - type: Thruster
       originalPowerLoad: 1500
-- proto: WallPlastitanium
+- proto: WallPlastitaniumNCWL
   entities:
   - uid: 23
     components:

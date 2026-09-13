@@ -559,3 +559,11 @@
           steps:
             - tool: Welding
               doAfter: 5
+
+    # Eclipsion - destruction-only nodes. These walls have no deconstruction path, but they need a node so
+    # ChangeConstructionNodeBehavior can swap them for a girder anchored on their own tile when destroyed.
+    - node: plastitaniumWall
+      entity: WallPlastitanium
+
+    - node: miningWall
+      entity: WallMining

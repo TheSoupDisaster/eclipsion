@@ -13159,7 +13159,7 @@ entities:
     - type: Transform
       pos: -2.5,22.5
       parent: 1
-- proto: WallPlastitanium
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 1358
     components:

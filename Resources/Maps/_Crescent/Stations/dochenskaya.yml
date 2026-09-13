@@ -38435,7 +38435,7 @@ entities:
           showEnts: False
           occludes: True
           ent: 77
-- proto: AmeJar
+- proto: AmeJarT3
   entities:
   - uid: 77
     components:
@@ -38443,6 +38443,8 @@ entities:
       parent: 76
     - type: Physics
       canCollide: False
+- proto: AmeJar
+  entities:
   - uid: 78
     components:
     - type: Transform
@@ -53458,7 +53460,7 @@ entities:
     - type: Transform
       pos: 10.5,22.5
       parent: 1
-- proto: WallJackalDiagonalCurved
+- proto: WallReinforcedCapitalDiagonalCurved
   entities:
   - uid: 2604
     components:
@@ -53471,7 +53473,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -14.5,38.5
       parent: 1
-- proto: WallJackalDiagonalHollow
+- proto: WallReinforcedCapitalDiagonalHollow
   entities:
   - uid: 2606
     components:

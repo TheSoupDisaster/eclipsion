@@ -5392,7 +5392,7 @@ entities:
     - type: Transform
       pos: 3.5,31.5
       parent: 1
-- proto: WallPlastitanium
+- proto: WallPlastitaniumNCWL
   entities:
   - uid: 765
     components:
@@ -5830,8 +5830,6 @@ entities:
     - type: Transform
       pos: 3.5,8.5
       parent: 1
-- proto: WallPlastitaniumCMM
-  entities:
   - uid: 852
     components:
     - type: Transform

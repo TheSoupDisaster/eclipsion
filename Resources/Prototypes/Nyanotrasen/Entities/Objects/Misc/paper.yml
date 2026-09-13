@@ -2,7 +2,6 @@
   name: mantis' seal
   parent: RubberStampBase
   id: RubberStampMantis
-  suffix: DO NOT MAP
   description: An old-fashioned seal for marking important documents, made of polished bronze.
   components:
   - type: Stamp

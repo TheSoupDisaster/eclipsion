@@ -262,6 +262,9 @@ public enum ShipRepairJobKind : byte
 
     /// <summary>Put ammunition or fuel back into something that is running short.</summary>
     Restock,
+
+    /// <summary>Refill a drone carrier's hangar with the drones it has lost. Billed flat, no markup.</summary>
+    DroneRestock,
 }
 
 /// <summary>

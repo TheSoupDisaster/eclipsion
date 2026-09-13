@@ -1785,7 +1785,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WallShuttle
+- proto: WallShuttleDSM
   entities:
   - uid: 170
     components:

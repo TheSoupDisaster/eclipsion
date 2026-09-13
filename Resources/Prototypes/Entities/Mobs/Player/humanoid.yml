@@ -111,16 +111,17 @@
     jumpsuit: ClothingUniformJumpsuitHunter
     neck: ClothingNeckMantleSr
     shoes: ClothingShoesBootsImperialJackboots
-    outerClothing: ClothingOuterArmorClarizianTrooperArmor
+    outerClothing: ClothingOuterHardsuitHunterElite
     gloves: ClothingHandsGlovesHunter
     suitstorage: WeaponRifleHunter
-    head: ClothingHeadHatHunter
     pocket1: RomaineBible
     pocket2: KaiserAutoinjector
     back: ClothingBackpackSRM
     belt: ClothingBeltSheathKhopeshFilled
   storage:
     back:
+      - DoubleEmergencyOxygenTankFilled
+      - ClothingHeadHatHunter # carried, not worn - a hat blocks the hardsuit helmet
       - MedkitCombatFilled
       - MagazineRifle
       - MagazineRifle
@@ -187,8 +188,7 @@
     eyes: ClothingEyesGlassesSunglasses
     jumpsuit: ClothingUniformJumpsuitHunter
     shoes: ClothingShoesBootsImperialJackboots
-    head: ClothingHeadHatHunterOverseer
-    outerClothing: ClothingOuterArmorClarizianTrooperArmor
+    outerClothing: ClothingOuterHardsuitHunterElite
     gloves: ClothingHandsGlovesHunter
     suitstorage: WeaponSniperImperator
     pocket1: RomaineBible
@@ -197,6 +197,8 @@
     belt: ClothingBeltSheathKhopeshFilled
   storage:
     back:
+      - DoubleEmergencyOxygenTankFilled
+      - ClothingHeadHatHunterOverseer # carried, not worn - a hat blocks the hardsuit helmet
       - MedkitCombatFilled
       - MagazineRifle
       - MagazineRifle

@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Abilities.Psionics;
 
 /// <summary>
-/// Passive ten-percent reinforcement granted by the defense skill tree.
+/// Passive seven-percent reinforcement granted by the defense skill tree.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PsionicArmorUpgradeComponent : Component;
@@ -15,10 +15,10 @@ public sealed partial class PsionicArmorUpgradeComponent : Component;
 public sealed partial class PsionicEnergyShieldComponent : Component
 {
     [DataField]
-    public float HeatCoefficient = 0.35f;
+    public float HeatCoefficient = 0.5f;
 
     [DataField]
-    public float ExplosionCoefficient = 0.35f;
+    public float ExplosionCoefficient = 0.5f;
 
     [DataField, AutoNetworkedField, AutoPausedField]
     public TimeSpan ExpiresAt;

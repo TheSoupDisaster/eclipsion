@@ -48,6 +48,12 @@ public sealed partial class ShipRepairStationSystem
         public int Spills;
         public int Debris;
         public int Restocks;
+        public int DroneRestocks;
+
+        /// <summary>
+        /// Flat drone restock fee, included in <see cref="Quote"/> outside the markup.
+        /// </summary>
+        public int DroneRestockCost;
 
         /// <summary>
         /// Price with the yard's markup already applied.
@@ -75,6 +81,15 @@ public sealed partial class ShipRepairStationSystem
         _protoPrices.Clear();
         _protoSurcharges.Clear();
         _healed.Clear();
+
+        // A crew slip does no work on a hull with no blueprint - except restocking a drone carrier's
+        // hangar, which reads nothing off the file.
+        if (data == null && !station.Comp.RepairUnregistered)
+        {
+            SurveyDroneHangar(ship, gridComp, ref survey);
+            survey.Quote = survey.DroneRestockCost;
+            return survey;
+        }
 
         var standing = BuildOccupancy(ship);
         var raw = 0L;
@@ -135,6 +150,7 @@ public sealed partial class ShipRepairStationSystem
         // outside it (fitted since, or never captured) would go unquoted on a hull nobody filed a blueprint
         // for. AddHealJob dedupes on _healed, so the overlap between the two passes costs the customer nothing.
         SurveyAboard(station, ship, gridComp, data == null, ref survey, ref raw);
+        SurveyDroneHangar(ship, gridComp, ref survey);
 
         // Descending, because the job list is popped from the back. That makes the yard work its way
         // up the hull instead of jumping about, and settles the order within a tile: the plating, then
@@ -142,8 +158,30 @@ public sealed partial class ShipRepairStationSystem
         // spawns, so putting the gun back first would leave it sitting on nothing.
         survey.Jobs.Sort(static (a, b) => JobOrder(b).CompareTo(JobOrder(a)));
 
-        survey.Quote = (int) Math.Min(int.MaxValue, MathF.Ceiling(raw * station.Comp.PriceMarkup));
+        survey.Quote = (int) Math.Min(int.MaxValue, MathF.Ceiling(raw * station.Comp.PriceMarkup) + survey.DroneRestockCost);
         return survey;
+    }
+
+    /// <summary>
+    /// Quotes restocking the hangar of any drone carrier console aboard, for the drones it has lost. A flat
+    /// fee that the markup does not touch.
+    /// </summary>
+    private void SurveyDroneHangar(EntityUid ship, MapGridComponent gridComp, ref ShipRepairSurvey survey)
+    {
+        var (lost, cost) = _autoDrone.GetHangarRestock(ship, out var console);
+        if (lost <= 0 || console is not { } consoleUid)
+            return;
+
+        survey.Jobs.Add(new ShipRepairJob
+        {
+            Kind = ShipRepairJobKind.DroneRestock,
+            Indices = _map.LocalToTile(ship, gridComp, Transform(consoleUid).Coordinates),
+            Target = consoleUid,
+            Cost = cost,
+        });
+
+        survey.DroneRestocks = lost;
+        survey.DroneRestockCost = cost;
     }
 
     /// <summary>

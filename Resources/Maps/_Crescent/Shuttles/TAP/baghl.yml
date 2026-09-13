@@ -933,7 +933,7 @@ entities:
           - Reverse
         - - Middle
           - Off
-- proto: WallReinforced
+- proto: WallReinforcedTAP
   entities:
   - uid: 98
     components:

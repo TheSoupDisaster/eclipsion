@@ -298,9 +298,6 @@ desktop.ini
 # Images generated using the MapRenderer
 Resources/MapImages
 
-# Temporary image-generation working files
-/tmp/imagegen/
-
 # Local passport validation databases
 /tmp/passport-validation-data/
 

@@ -23,23 +23,23 @@ public sealed partial class AegisDomeComponent : Component
     /// lands - a dome is cover, not immunity.
     /// </summary>
     [DataField]
-    public float Absorption = 0.6f;
+    public float Absorption = 0.4f;
 
     [DataField]
-    public float MaxIntegrity = 250f;
+    public float MaxIntegrity = 150f;
 
     /// <summary>
     /// Damage the dome can still absorb. Networked so the client can shade the barrier by how close
     /// it is to failing.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Integrity = 250f;
+    public float Integrity = 150f;
 
     /// <summary>
     /// How long the dome stands if nothing brings it down first.
     /// </summary>
     [DataField]
-    public TimeSpan Lifetime = TimeSpan.FromSeconds(20);
+    public TimeSpan Lifetime = TimeSpan.FromSeconds(12);
 
     /// <summary>
     /// Filled in at map init from <see cref="Lifetime"/>, so a dome spawned by any route expires

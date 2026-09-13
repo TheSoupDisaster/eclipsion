@@ -1,0 +1,15 @@
+- type: messagePack
+  id: TFCFGrillAds
+  messages:
+  - advertisement-tfcf-grill-1
+  - advertisement-tfcf-grill-2
+  - advertisement-tfcf-grill-3
+  - advertisement-tfcf-grill-4
+  - advertisement-tfcf-grill-5
+
+- type: messagePack
+  id: TFCFGrillGoodbyes
+  messages:
+  - thankyou-tfcf-grill-1
+  - thankyou-tfcf-grill-2
+  - thankyou-tfcf-grill-3

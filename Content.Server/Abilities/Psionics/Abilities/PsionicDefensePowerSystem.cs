@@ -17,19 +17,19 @@ public sealed class PsionicDefensePowerSystem : EntitySystem
     {
         Coefficients =
         {
-            ["Blunt"] = 0.9f,
-            ["Slash"] = 0.9f,
-            ["Piercing"] = 0.9f,
-            ["Heat"] = 0.9f,
-            ["Cold"] = 0.9f,
-            ["Shock"] = 0.9f,
-            ["Caustic"] = 0.9f,
-            ["Poison"] = 0.9f,
-            ["Radiation"] = 0.9f,
+            ["Blunt"] = 0.93f,
+            ["Slash"] = 0.93f,
+            ["Piercing"] = 0.93f,
+            ["Heat"] = 0.93f,
+            ["Cold"] = 0.93f,
+            ["Shock"] = 0.93f,
+            ["Caustic"] = 0.93f,
+            ["Poison"] = 0.93f,
+            ["Radiation"] = 0.93f,
         },
     };
 
-    private static readonly TimeSpan ShieldDuration = TimeSpan.FromSeconds(15);
+    private static readonly TimeSpan ShieldDuration = TimeSpan.FromSeconds(10);
 
     /// <summary>Keeps a burst of hits from stacking flares on top of each other.</summary>
     private static readonly TimeSpan ImpactCooldown = TimeSpan.FromSeconds(0.35);

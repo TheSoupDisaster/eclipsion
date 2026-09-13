@@ -1,0 +1,43 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineTFCFGrill
+  name: Federation Grill-O-Mat
+  description: A greasy TFCF fast-food machine that keeps burgers, jackal dogs and grey-meat nuggets warm under a heat lamp. The menu is very specific about prices and very vague about ingredients.
+  components:
+  - type: VendingMachine
+    pack: TFCFGrillInventory
+    dispenseOnHitChance: 0.25
+    dispenseOnHitThreshold: 2
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+    initialStockQuality: 1
+  - type: Advertise
+    pack: TFCFGrillAds
+  - type: SpeakOnUIClosed
+    pack: TFCFGrillGoodbyes
+  - type: Speech
+  - type: Sprite
+    noRot: true
+    sprite: _Crescent/Structures/Machines/Vendors/grill_tfsc.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 2
+    energy: 1.6
+    color: "#e08a4a"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true

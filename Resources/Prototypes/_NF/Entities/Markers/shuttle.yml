@@ -2,7 +2,6 @@
   parent: IDCardStandard
   id: ShuttleDeedIDCard
   name: shuttle deed
-  suffix: DO NOT MAP
   components:
   - type: Sprite
     layers:

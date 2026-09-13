@@ -45,7 +45,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHunterElite
   categories: [ HideSpawnMenu ]
-  name: sixth subjugation fireteam hardsuit helmet
+  name: hunter hardsuit helmet
   description: Spaceworthy protection for your fragile skull.
   components:
   - type: BreathMask

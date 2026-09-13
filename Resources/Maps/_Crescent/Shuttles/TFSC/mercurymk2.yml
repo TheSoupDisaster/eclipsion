@@ -2015,7 +2015,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTFSC
   entities:
   - uid: 188
     components:
@@ -2042,7 +2042,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,3.5
       parent: 1
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 179
     components:

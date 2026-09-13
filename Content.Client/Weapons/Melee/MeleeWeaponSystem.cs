@@ -152,6 +152,13 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 altDown = false;
         }
 
+        // Eclipsion: a gunner seated at a field gun is aiming it, not swinging at the air.
+        if (TryComp<Content.Shared.Buckle.Components.BuckleComponent>(entity, out var buckle) &&
+            HasComp<Content.Shared._Crescent.Weapons.FieldArtillery.FieldArtilleryComponent>(buckle.BuckledTo))
+        {
+            useDown = false;
+        }
+
         // Right-click: Parry attempt (requires holding a melee weapon, not unarmed or gun)
         if (altDown && !useDown)
         {

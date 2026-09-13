@@ -15,11 +15,13 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  # Eclipsion - the lower threshold is the wall's real health; the upper one only decides whether an overkill hit
+  # leaves a girder behind. Faction variants in factionwalls.yml override both.
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 700
+        damage: 800
       behaviors:
       - !type:PlaySoundBehavior #Nyano
         sound:
@@ -86,12 +88,13 @@
   parent: WallReinforced
   id: WallReinforcedCapital
   suffix: Capital
+  description: Station-grade reinforced plating, far thicker than anything a ship could carry.
   components:
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 4000
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -100,7 +103,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 2000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -125,22 +128,25 @@
     - type: Tag
       tags:
         - Wall
+    # Eclipsion - the girder used to come from SpawnEntitiesBehavior, which drops it at a random world offset.
+    # On a rotated ship grid that lands off the tile, fails to anchor and gets cleaned up as space debris.
+    # The construction node swap places it on the wall's own tile, like solid and reinforced walls.
+    - type: Construction
+      graph: Girder
+      node: plastitaniumWall
     - type: Destructible
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 1000
+            damage: 1100
           behaviors:
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                Girder:
-                  min: 1
-                  max: 1
             - !type:SpawnEntitiesBehavior
               spawn:
                 TitaniumScrap1:
                   min: 4
                   max: 6
+            - !type:ChangeConstructionNodeBehavior
+              node: girder
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
     - type: RCDDeconstructable

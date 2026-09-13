@@ -3550,7 +3550,7 @@ entities:
     - type: Transform
       pos: 4.5,-3.5
       parent: 1
-- proto: WallShuttle
+- proto: WallShuttleDSM
   entities:
   - uid: 447
     components:

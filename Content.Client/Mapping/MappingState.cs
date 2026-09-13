@@ -793,15 +793,20 @@ public sealed class MappingState : GameplayStateBase
         UpdateLocale();
     }
 
-    private void OnGetData(IPrototype prototype, List<Texture> textures)
+    private bool OnGetData(IPrototype prototype, List<Texture> textures, bool allowSlow)
     {
         // Getting an entity's textures spawns and deletes a dummy entity, and the search list rebuilds its
         // buttons on every scroll tick, so this has to be cached or scrolling turns into a spawn storm.
         if (_textureCache.TryGetValue(prototype, out var cached))
         {
             textures.AddRange(cached);
-            return;
+            return true;
         }
+
+        // Expanding "Entities" inserts hundreds of rows in one frame; a dummy spawn for each froze the client.
+        // The list asks again, a few rows per frame, once a row is actually on screen.
+        if (!allowSlow && prototype is EntityPrototype)
+            return false;
 
         var result = new List<Texture>();
 
@@ -831,6 +836,7 @@ public sealed class MappingState : GameplayStateBase
 
         _textureCache[prototype] = result;
         textures.AddRange(result);
+        return true;
     }
 
     private void OnSelected(MappingPrototypeList list, MappingPrototype mapping)

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.Mapping;
 using Content.Client.Parallax.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Parallax;
@@ -6,6 +7,7 @@ using Content.Shared.Parallax.Biomes;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Client.State;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
@@ -24,6 +26,7 @@ public sealed class ParallaxOverlay : Overlay
     // SharedMapSystem is an entity system, not an IoC service.
     private SharedMapSystem _mapManager => _entManager.System<SharedMapSystem>();
     [Dependency] private readonly IParallaxManager _manager = default!;
+    [Dependency] private readonly IStateManager _stateManager = default!;
     private readonly ParallaxSystem _parallax;
     private readonly MapSystem _map;
 
@@ -59,7 +62,11 @@ public sealed class ParallaxOverlay : Overlay
         if (!_configurationManager.GetCVar(CCVars.ParallaxEnabled))
             return;
 
-        ParallaxComponent? parallax = _entManager.GetComponentOrNull<ParallaxComponent>(_playerManager.LocalEntity);
+        // The player's parallax is the space biome they are in; mappers want a plain backdrop,
+        // not a biome planet (e.g. Gliess's) pasted behind the map they are editing.
+        ParallaxComponent? parallax = _stateManager.CurrentState is MappingState
+            ? null
+            : _entManager.GetComponentOrNull<ParallaxComponent>(_playerManager.LocalEntity);
         parallax ??= _entManager.GetComponentOrNull<ParallaxComponent>(mapUid);
 
         if (parallax == null)

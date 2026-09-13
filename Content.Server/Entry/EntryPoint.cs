@@ -26,6 +26,7 @@ using Content.Shared.Kitchen;
 using Content.Shared.Localizations;
 using Robust.Server;
 using Robust.Server.ServerStatus;
+using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
@@ -57,6 +58,9 @@ namespace Content.Server.Entry
             var cfg = IoCManager.Resolve<IConfigurationManager>();
             var res = IoCManager.Resolve<IResourceManager>();
             var logManager = IoCManager.Resolve<ILogManager>();
+
+            // Late client input is routine under lag and floods the console; set net.log_late_msg = true to debug.
+            cfg.OverrideDefault(CVars.NetLogLateMsg, false);
 
             LoadConfigPresets(cfg, res, logManager.GetSawmill("configpreset"));
 

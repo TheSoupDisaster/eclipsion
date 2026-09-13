@@ -1090,7 +1090,7 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: -3.5,-5.5
-- proto: WallShuttle
+- proto: WallShuttleCMM
   entities:
   - uid: 116
     components:
@@ -1208,7 +1208,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -2.5,-5.5
-- proto: WallShuttleDiagonalCurved
+- proto: WallShuttleCMMDiagonalCurved
   entities:
   - uid: 136
     components:

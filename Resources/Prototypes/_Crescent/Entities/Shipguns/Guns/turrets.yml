@@ -123,7 +123,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: MagazineVulcan - on being rebuilt from destruction this gives it free ammo
+          startingItem: MagazineVulcan
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
@@ -383,7 +383,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: MagazineMortar - on being rebuilt from destruction this gives it free ammo
+          startingItem: MagazineMortar
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
@@ -548,7 +548,7 @@
         - FullAuto
       soundGunshot: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     - type: BallisticAmmoProvider
-      #proto: SmartBomb - on being rebuilt from destruction this gives it free ammo
+      proto: SmartBomb
       whitelist:
         tags:
           - SmartBomb
@@ -619,7 +619,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: MagazineNeedler - - on being rebuilt from destruction this gives it free ammo
+          startingItem: MagazineNeedler
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
@@ -773,7 +773,7 @@
     - type: BallisticAmmoProvider
       cycleable: false
       capacity: 3
-      #proto: TorpGarg - on being rebuilt from destruction this gives it free ammo
+      proto: TorpGarg
       whitelist:
         tags:
         - TorpedoGarg
@@ -852,7 +852,7 @@
     - type: BallisticAmmoProvider
       cycleable: false
       capacity: 15
-      #proto: LanceRocketCartridge - on being rebuilt from destruction this gives it free ammo
+      proto: LanceRocketCartridge
       whitelist:
         tags:
         - LanceRocket
@@ -931,7 +931,7 @@
     - type: BallisticAmmoProvider
       cycleable: false
       capacity: 3
-      #proto: HeavyMortarCartridge - on being rebuilt from destruction this gives it free ammo
+      proto: HeavyMortarCartridge
       whitelist:
         tags:
         - HeavyMortarShell
@@ -1012,7 +1012,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: MagazineFlak - on being rebuilt from destruction this gives it free ammo
+          startingItem: MagazineFlak
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
@@ -1111,7 +1111,7 @@
     - type: BallisticAmmoProvider
       cycleable: false
       capacity: 6
-      #proto: TorpCatapult - on being rebuilt from destruction this gives it free ammo
+      proto: TorpCatapult
       whitelist:
         tags:
         - TorpedoCatapult
@@ -1260,7 +1260,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: LensInfared - on being rebuilt from destruction this gives it free ammo
+          startingItem: LensInfared
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
@@ -1347,7 +1347,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: StandardAntimatterCanister - on being rebuilt from destruction this gives it free ammo
+          startingItem: StandardAntimatterCanister
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
@@ -1437,7 +1437,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: SwarmrocketClip - on being rebuilt from destruction this gives it free ammo
+          startingItem: SwarmrocketClip
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2
@@ -1523,7 +1523,7 @@
         - FullAuto
       soundGunshot: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
     - type: BallisticAmmoProvider
-      #proto: IdnaTorpedo - on being rebuilt from destruction this gives it free ammo
+      proto: IdnaTorpedo
       whitelist:
         tags:
           - Torpedo
@@ -1616,7 +1616,7 @@
       slots:
         gun_magazine:
           name: Magazine
-          #startingItem: MagazineLightRifleBoxSlug - on being rebuilt from destruction this gives it free ammo
+          startingItem: MagazineLightRifleBoxSlug
           insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
           ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
           priority: 2

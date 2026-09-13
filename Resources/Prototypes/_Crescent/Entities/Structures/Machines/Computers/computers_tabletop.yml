@@ -351,33 +351,56 @@
     - map: ["computerLayerKeys"]
       state: id_key
 
+# Share the recruitment screen; faction visualizers and lights come from the full-size parent.
 - type: entity
-  parent: [BaseComputerTabletopHullrotId, FactionRecruitmentConsoleDSM]
+  parent: BaseCrescentComputerTabletop
+  id: BaseComputerTabletopFactionRecruitment
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _NF/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      sprite: _Crescent/Structures/Computers/recruitment.rsi
+      state: recruitment
+    - map: ["computerLayerKeys"]
+      state: id_key
+    - map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      state: generic_panel_open
+
+- type: entity
+  parent: [BaseComputerTabletopFactionRecruitment, FactionRecruitmentConsoleDSM]
   id: ComputerTabletopFactionRecruitmentDSM
   suffix: Tabletop, DSM
 
 - type: entity
-  parent: [BaseComputerTabletopHullrotId, FactionRecruitmentConsoleNCWL]
+  parent: [BaseComputerTabletopFactionRecruitment, FactionRecruitmentConsoleNCWL]
   id: ComputerTabletopFactionRecruitmentNCWL
   suffix: Tabletop, NCWL
 
 - type: entity
-  parent: [BaseComputerTabletopHullrotId, FactionRecruitmentConsoleSHI]
+  parent: [BaseComputerTabletopFactionRecruitment, FactionRecruitmentConsoleSHI]
   id: ComputerTabletopFactionRecruitmentSHI
   suffix: Tabletop, SHI
 
 - type: entity
-  parent: [BaseComputerTabletopHullrotId, FactionRecruitmentConsoleTFSC]
+  parent: [BaseComputerTabletopFactionRecruitment, FactionRecruitmentConsoleTFSC]
   id: ComputerTabletopFactionRecruitmentTFSC
   suffix: Tabletop, TFCF
 
 - type: entity
-  parent: [BaseComputerTabletopHullrotId, FactionRecruitmentConsoleGS]
+  parent: [BaseComputerTabletopFactionRecruitment, FactionRecruitmentConsoleGS]
   id: ComputerTabletopFactionRecruitmentGS
   suffix: Tabletop, GS
 
 - type: entity
-  parent: [BaseComputerTabletopHullrotId, FactionRecruitmentConsoleTAP]
+  parent: [BaseComputerTabletopFactionRecruitment, FactionRecruitmentConsoleTAP]
   id: ComputerTabletopFactionRecruitmentTAP
   suffix: Tabletop, TAP
 

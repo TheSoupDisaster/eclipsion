@@ -115,6 +115,15 @@ public sealed class AccessReaderSystem : EntitySystem
         // override normal acces with our version.
         if (TryComp<DynamicCodeHolderComponent>(target, out var holder))
         {
+            // Crescent - admin master key opens every ship regardless of its registered codes.
+            foreach (var source in accessSources)
+            {
+                if (!HasComp<DynamicCodeMasterKeyComponent>(source))
+                    continue;
+                LogAccess((target, reader), user);
+                return true;
+            }
+
             var dynamicCodes = FindDynamicAccesCodes(user, accessSources);
             // check if our required codes are all present in the dynamicCodes amalgamation of all sources - SPCR 2025
             if (_dynamicCodeSystem.hasAllKeys(holder.codes,  dynamicCodes))

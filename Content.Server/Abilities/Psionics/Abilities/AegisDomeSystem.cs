@@ -210,7 +210,7 @@ public sealed class AegisDomeSystem : EntitySystem
 
     /// <summary>
     /// The barrier takes its share of the hit and pays for it out of its own integrity. Reducing
-    /// damage without spending integrity would make the dome an unbreakable 60 percent armour
+    /// damage without spending integrity would make the dome an unbreakable 40 percent armour
     /// bonus, so the two always move together.
     /// </summary>
     private void OnShelteredDamage(

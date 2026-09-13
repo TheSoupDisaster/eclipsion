@@ -13814,7 +13814,7 @@ entities:
           showEnts: False
           occludes: True
           ent: 113
-- proto: AmeJar
+- proto: AmeJarT3
   entities:
   - uid: 113
     components:
@@ -13822,6 +13822,8 @@ entities:
       parent: 112
     - type: Physics
       canCollide: False
+- proto: AmeJar
+  entities:
   - uid: 114
     components:
     - type: Transform
@@ -24482,73 +24484,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-0.5
       parent: 1
-- proto: PoweredlightCyan
-  entities:
-  - uid: 1741
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -5.5,-0.5
-      parent: 1
-  - uid: 1742
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,-0.5
-      parent: 1
-  - uid: 1743
-    components:
-    - type: Transform
-      pos: -1.5,-21.5
-      parent: 1
-  - uid: 1744
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,21.5
-      parent: 1
-  - uid: 1745
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -15.5,17.5
-      parent: 1
-  - uid: 1746
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -20.5,8.5
-      parent: 1
-  - uid: 1747
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 17.5,16.5
-      parent: 1
-  - uid: 1748
-    components:
-    - type: Transform
-      pos: 8.5,-20.5
-      parent: 1
-  - uid: 1749
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 21.5,-7.5
-      parent: 1
-  - uid: 1750
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -16.5,-15.5
-      parent: 1
-  - uid: 1751
-    components:
-    - type: Transform
-      pos: 16.5,-16.5
-      parent: 1
-- proto: Poweredlight
-  entities:
   - uid: 1752
     components:
     - type: Transform
@@ -24830,6 +24765,71 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -11.5,14.5
+      parent: 1
+- proto: PoweredlightCyan
+  entities:
+  - uid: 1741
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-0.5
+      parent: 1
+  - uid: 1742
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-0.5
+      parent: 1
+  - uid: 1743
+    components:
+    - type: Transform
+      pos: -1.5,-21.5
+      parent: 1
+  - uid: 1744
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,21.5
+      parent: 1
+  - uid: 1745
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,17.5
+      parent: 1
+  - uid: 1746
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,8.5
+      parent: 1
+  - uid: 1747
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,16.5
+      parent: 1
+  - uid: 1748
+    components:
+    - type: Transform
+      pos: 8.5,-20.5
+      parent: 1
+  - uid: 1749
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-7.5
+      parent: 1
+  - uid: 1750
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-15.5
+      parent: 1
+  - uid: 1751
+    components:
+    - type: Transform
+      pos: 16.5,-16.5
       parent: 1
 - proto: PoweredlightPink
   entities:
@@ -25668,7 +25668,7 @@ entities:
     - type: Transform
       pos: 13.448246,-6.337171
       parent: 1
-- proto: ReinforcedShuttleWallCMM
+- proto: WallShuttleCyberdawn
   entities:
   - uid: 1944
     components:
@@ -30213,7 +30213,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -12.5,-6.5
       parent: 1
-- proto: WallShuttleDiagonalCurved
+- proto: WallShuttleCyberdawnDiagonalCurved
   entities:
   - uid: 2630
     components:

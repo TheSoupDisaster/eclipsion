@@ -1321,3 +1321,34 @@ Entries:
     id: 6114
     time: '2026-09-12T00:00:00.0000000+00:00'
     url: null
+  - author: Taleryn
+    changes:
+      - message: Toned down the psionic Defense tree. Energy Aegis now lasts 10 seconds instead of 15, blocks half of heat and explosion damage instead of 65 percent, and recharges in 60 seconds instead of 45.
+        type: Tweak
+      - message: Reinforced Aegis now reduces incoming damage by 7 percent instead of 10.
+        type: Tweak
+      - message: Aegis Dome now holds 150 damage instead of 250, soaks 40 percent of hits on the people under it instead of 60, lasts 12 seconds instead of 20, and recharges in 3 minutes instead of 2.
+        type: Tweak
+    id: 6115
+    time: '2026-09-12T00:00:00.0000000+00:00'
+    url: null
+  - author: Taleryn
+    changes:
+      - message: Ghost roles now only come from admins. Salvage and wreck mobs, personal AIs, positronic brains, sentient artifacts and other ghost roles the world used to hand out on its own no longer show up in the ghost role list.
+        type: Remove
+      - message: Hunters and Hunt Overseers now spawn in the hunter hardsuit (formerly the sixth subjugation fireteam hardsuit) with a double emergency oxygen tank. Their hat now starts in the backpack so the hardsuit helmet can deploy.
+        type: Tweak
+    id: 6116
+    time: '2026-09-12T00:00:00.0000000+00:00'
+    url: null
+  - author: Taleryn
+    changes:
+      - message: Toned down the psionic Recurrence tree. Stasis Field now lasts 5 seconds instead of 8, lets things inside move twice as fast as before, only halves the walking speed of people in it instead of cutting it to a quarter, and recharges in 2 minutes instead of 90 seconds.
+        type: Tweak
+      - message: Reweave now destroys one armour piece in fifty instead of one in a hundred, and recharges in 4 minutes instead of 3.
+        type: Tweak
+      - message: Recurrence Pulse no longer throws rounds back faster than they arrived, and recharges in 45 seconds instead of 30.
+        type: Tweak
+    id: 6117
+    time: '2026-09-12T00:00:00.0000000+00:00'
+    url: null

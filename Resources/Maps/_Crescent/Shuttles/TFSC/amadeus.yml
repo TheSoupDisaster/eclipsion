@@ -4927,8 +4927,6 @@ entities:
     - type: Transform
       parent: 1
       pos: -1.5,-2.5
-- proto: Poweredlight
-  entities:
   - uid: 589
     components:
     - type: Transform
@@ -5774,7 +5772,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 5.5,-11.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumTFSC
   entities:
   - uid: 687
     components:
@@ -6261,7 +6259,7 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 9.5,11.5
-- proto: WallReinforced
+- proto: WallReinforcedTFSC
   entities:
   - uid: 769
     components:

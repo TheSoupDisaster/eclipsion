@@ -115,11 +115,12 @@ public sealed partial class DroneCarrierComponent : Component
     public bool SelfDestructOnOrphan = true;
 
     /// <summary>
-    ///     Whether producing a drone bills the owning faction's treasury for the vessel's price. Turn off for
-    ///     a console that should hand out drones for free.
+    ///     Whether producing a drone bills the owning faction's treasury for the vessel's price. Off by default:
+    ///     the drones are part of the carrier's own material cost, and lost ones are paid for at a repair
+    ///     station restock instead.
     /// </summary>
     [DataField]
-    public bool ChargeTreasury = true;
+    public bool ChargeTreasury;
 
     /// <summary>
     ///     Multiplier applied to the vessel's shipyard price when billing the treasury for a produced drone.
@@ -134,12 +135,36 @@ public sealed partial class DroneCarrierComponent : Component
     public Dictionary<int, EntityUid> Slots = new();
 
     /// <summary>
-    ///     Lifetime count of drones this carrier has fielded. This is the hard production limit: it never
-    ///     decreases, so a destroyed drone does NOT free up capacity - once <see cref="MaxDrones"/> have been
-    ///     produced, no more can be made.
+    ///     Drones taken out of the hangar so far. A destroyed or written-off drone does NOT free up capacity -
+    ///     once <see cref="MaxDrones"/> have been produced the hangar is empty. Only a repair station restock
+    ///     brings it back down to the number of drones still alive.
     /// </summary>
     [ViewVariables]
     public int ProducedCount;
+
+    /// <summary>
+    ///     How long a drone may sit unpowered before the carrier writes it off. A written-off drone is dropped
+    ///     from the console and can never be reclaimed.
+    /// </summary>
+    [DataField]
+    public TimeSpan DisabledTimeout = TimeSpan.FromSeconds(20);
+
+    /// <summary>
+    ///     Hull integrity (0..1) below which a drone is written off as unusable.
+    /// </summary>
+    [DataField]
+    public float DisabledHullIntegrity = 0.25f;
+
+    /// <summary>
+    ///     What a repair station bills to restock the hangar after losing one drone. Scales linearly up to
+    ///     <see cref="RestockCostMax"/> for losing the whole squadron.
+    /// </summary>
+    [DataField]
+    public int RestockCostMin = 15000;
+
+    /// <inheritdoc cref="RestockCostMin"/>
+    [DataField]
+    public int RestockCostMax = 25000;
 
     /// <summary>
     ///     Vessel prototype IDs this console can produce, shown for selection in the UI. Set per faction

@@ -1874,7 +1874,7 @@ entities:
           - Reverse
         - - Middle
           - Off
-- proto: WallReinforced
+- proto: WallReinforcedDSM
   entities:
   - uid: 217
     components:

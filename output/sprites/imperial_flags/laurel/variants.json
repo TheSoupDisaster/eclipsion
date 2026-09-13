@@ -1,0 +1,19 @@
+{
+  "variants": [
+    {
+      "name": "flag"
+    },
+    {
+      "name": "ceremonial"
+    },
+    {
+      "name": "swallowtail"
+    },
+    {
+      "name": "guard"
+    },
+    {
+      "name": "battleworn"
+    }
+  ]
+}

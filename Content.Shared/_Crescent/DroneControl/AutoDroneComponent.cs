@@ -60,6 +60,19 @@ public sealed partial class AutoDroneComponent : Component
     [ViewVariables]
     public bool Produced;
 
+    /// <summary>
+    ///     Set when the carrier wrote this drone off as disabled (unpowered too long, or hull shot away). A
+    ///     written-off drone is never claimed by any carrier again.
+    /// </summary>
+    [ViewVariables]
+    public bool WrittenOff;
+
+    /// <summary>
+    ///     When the drone last lost power while deployed, or null while it is powered.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan? UnpoweredSince;
+
     // ---- condition readout ----
 
     /// <summary>

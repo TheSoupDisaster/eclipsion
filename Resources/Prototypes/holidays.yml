@@ -1,439 +1,338 @@
-- type: holiday
-  id: NewYear
-  name: holiday-name-new-year
-  beginDay: 30
-  beginMonth: December
-  endDay: 2
-  endMonth: January
+# Sector Crescent observances. Every holiday is in-universe; greetings live in holiday-greet.ftl.
+# FestiveSeason, GarbageDay and MikuDay keep their legacy IDs: HolidayVisuals and job specials reference them.
 
 - type: holiday
-  id: MisterLizard
-  name: holiday-name-mister-lizard
-  beginDay: 15
+  id: NewCycleDay
+  name: holiday-name-new-cycle-day
+  beginDay: 1
   beginMonth: January
+  greet:
+    !type:Custom
+    text: holiday-custom-new-cycle-day
 
 - type: holiday
-  id: ChineseNewYear
-  name: holiday-name-chinese-new-year
-  shouldCelebrate:
-    !type:ChineseNewYear {}
+  id: ArticlesDay
+  name: holiday-name-articles-day
+  beginDay: 19
+  beginMonth: January
+  greet:
+    !type:Custom
+    text: holiday-custom-articles-day
 
 - type: holiday
-  id: GroundhogDay
-  name: holiday-name-groundhog-day
-  beginDay: 2
+  id: RecurrenceDay
+  name: holiday-name-recurrence-day
+  beginDay: 7
   beginMonth: February
+  greet:
+    !type:Custom
+    text: holiday-custom-recurrence-day
 
 - type: holiday
-  id: ValentinesDay
-  name: holiday-name-valentines-day
-  beginDay: 13
-  endDay: 15
+  id: SweetheartsWatch
+  name: holiday-name-sweethearts-watch
+  beginDay: 21
   beginMonth: February
-
-- type: holiday
-  id: Birthday13
-  name: holiday-name-birthday13
-  beginDay: 16
-  beginMonth: February
-
-- type: holiday
-  id: RandomKindness
-  name: holiday-name-random-kindness
-  beginDay: 17
-  beginMonth: February
-
-- type: holiday
-  id: LeapDay
-  name: holiday-name-leap-day
-  beginDay: 29
-  beginMonth: February
+  greet:
+    !type:Custom
+    text: holiday-custom-sweethearts-watch
 
 - type: holiday
   id: MikuDay
-  name: holiday-name-miku-day
+  name: holiday-name-idol-broadcast
   beginDay: 9
   beginMonth: March
+  greet:
+    !type:Custom
+    text: holiday-custom-idol-broadcast
 
 - type: holiday
-  id: PiDay
-  name: holiday-name-pi-day
-  beginDay: 14
+  id: WorkersRisingDay
+  name: holiday-name-workers-rising
+  beginDay: 18
   beginMonth: March
+  greet:
+    !type:Custom
+    text: holiday-custom-workers-rising
 
 - type: holiday
-  id: StPatricksDay
-  name: holiday-name-st-patricks-day
-  beginDay: 17
+  id: NavigatorsDay
+  name: holiday-name-navigators-day
+  beginDay: 27
   beginMonth: March
+  greet:
+    !type:Custom
+    text: holiday-custom-navigators-day
 
 - type: holiday
-  id: holiday-name-easter
-  name: Easter
-  shouldCelebrate:
-    !type:Computus { }
-
-- type: holiday
-  id: AprilFoolDay
-  name: holiday-name-april-fool-day
-  beginDay: 1
-  beginMonth: April
-
-- type: holiday
-  id: AutismAwarenessDay
-  name: holiday-name-autism-awareness-day
-  beginDay: 2
-  beginMonth: April
-
-- type: holiday
-  id: CosmonauticsDay
-  name: holiday-name-cosmonautics-day
-  beginDay: 12
+  id: FalseFlagDay
+  name: holiday-name-false-flag-day
+  beginDay: 8
   beginMonth: April
   greet:
     !type:Custom
-    text: holiday-custom-cosmonautics-day
+    text: holiday-custom-false-flag-day
 
 - type: holiday
-  id: FourTwenty
-  name: holiday-name-four-twenty
-  beginDay: 20
+  id: FirstJumpDay
+  name: holiday-name-first-jump-day
+  beginDay: 16
   beginMonth: April
-
-- type: holiday
-  id: TeaDay
-  name: holiday-name-tea-day
-  beginDay: 21
-  beginMonth: April
-
-- type: holiday
-  id: EarthDay
-  name: holiday-name-earth-day
-  beginDay: 22
-  beginMonth: April
-
-- type: holiday
-  id: AnzacDay
-  name: holiday-name-anzac-day
-  beginDay: 25
-  beginMonth: April
-
-- type: holiday
-  id: Birthday14
-  name: holiday-name-birthday14
-  beginDay: 26
-  beginMonth: April
-
-- type: holiday
-  id: LaborDay
-  name: holiday-name-labor-day
-  beginDay: 1
-  beginMonth: May
-
-- type: holiday
-  id: FirefighterDay
-  name: holiday-name-firefighter-day
-  beginDay: 4
-  beginMonth: May
-
-- type: holiday
-  id: MothersDay
-  name: holiday-name-mothers-day
-  beginMonth: May
-  shouldCelebrate:
-    !type:WeekdayInMonth
-    weekday: Sunday
-    occurrence: 2
   greet:
     !type:Custom
-    text: holiday-custom-mothers-day
+    text: holiday-custom-first-jump-day
 
 - type: holiday
-  id: OwlAndPussycatDay
-  name: holiday-name-owl-and-pussycat-day
+  id: HomeguardRemembranceDay
+  name: holiday-name-homeguard-remembrance
+  beginDay: 29
+  beginMonth: April
+  greet:
+    !type:Custom
+    text: holiday-custom-homeguard-remembrance
+
+- type: holiday
+  id: CharterDay
+  name: holiday-name-charter-day
+  beginDay: 3
+  beginMonth: May
+  greet:
+    !type:Custom
+    text: holiday-custom-charter-day
+
+- type: holiday
+  id: DamageControlDay
+  name: holiday-name-damage-control-day
   beginDay: 12
   beginMonth: May
+  greet:
+    !type:Custom
+    text: holiday-custom-damage-control-day
 
 - type: holiday
-  id: TowelDay
-  name: holiday-name-towel-day
-  beginDay: 25
-  beginMonth: May
-
-- type: holiday
-  id: MoMMIDay
-  name: holiday-name-mommi-day
+  id: DroneAppreciationDay
+  name: holiday-name-drone-appreciation-day
   beginDay: 30
   beginMonth: May
+  greet:
+    !type:Custom
+    text: holiday-custom-drone-appreciation-day
+
+- type: holiday
+  id: FederationDay
+  name: holiday-name-federation-day
+  beginDay: 6
+  beginMonth: June
+  greet:
+    !type:Custom
+    text: holiday-custom-federation-day
 
 - type: holiday
   id: GarbageDay
-  name: holiday-name-garbage-day
+  name: holiday-name-salvagers-day
   beginDay: 17
   beginMonth: June
+  greet:
+    !type:Custom
+    text: holiday-custom-salvagers-day
 
 - type: holiday
-  id: InternationalPicnicDay
-  name: holiday-name-international-picnic-day
-  beginDay: 18
+  id: LongRainDay
+  name: holiday-name-long-rain-day
+  beginDay: 24
   beginMonth: June
+  greet:
+    !type:Custom
+    text: holiday-custom-long-rain-day
 
 - type: holiday
-  id: FathersDay
-  name: holiday-name-fathers-day
-  beginMonth: August
-  shouldCelebrate:
-    !type:WeekdayInMonth
-    weekday: Sunday
-    occurrence: 3
-
-- type: holiday
-  id: SummerSolstice
-  name: holiday-name-summer-solstice
-  beginDay: 21
-  beginMonth: June
-
-- type: holiday
-  id: StonewallRiotsAnniversary
-  name: holiday-name-stonewall-riots-anniversary
-  beginDay: 28
-  beginMonth: June
-
-- type: holiday
-  id: DoctorDay
-  name: holiday-name-doctor-day
+  id: CorpsmensDay
+  name: holiday-name-corpsmens-day
   beginDay: 1
   beginMonth: July
+  greet:
+    !type:Custom
+    text: holiday-custom-corpsmens-day
 
 - type: holiday
-  id: UFODay
-  name: holiday-name-ufo-day
-  beginDay: 2
-  beginMonth: July
-
-- type: holiday
-  id: USIndependenceDay
-  name: holiday-name-us-independence-day
-  beginDay: 4
-  beginMonth: July
-
-- type: holiday
-  id: WritersDay
-  name: holiday-name-writers-day
-  beginDay: 8
-  beginMonth: July
-
-- type: holiday
-  id: BastilleDay
-  name: holiday-name-bastille-day
-  beginDay: 14
+  id: OldTaypanDay
+  name: holiday-name-old-taypan-day
+  beginDay: 11
   beginMonth: July
   greet:
     !type:Custom
-    text: holiday-custom-bastille-day
+    text: holiday-custom-old-taypan-day
 
 - type: holiday
-  id: FriendshipDay
-  name: holiday-name-friendship-day
-  beginDay: 30
+  id: AlliesDay
+  name: holiday-name-allies-day
+  beginDay: 23
   beginMonth: July
   greet:
     !type:Custom
-    text: holiday-custom-friendship-day
+    text: holiday-custom-allies-day
 
 - type: holiday
-  id: BeerDay
-  name: holiday-name-beer-day
-  shouldCelebrate:
-    !type:WeekdayInMonth
-    weekday: Friday
+  id: NightOfOldOaths
+  name: holiday-name-old-oaths
+  beginDay: 5
   beginMonth: August
+  greet:
+    !type:Custom
+    text: holiday-custom-old-oaths
 
 - type: holiday
-  id: TalkLikeAPirateDay
-  name: holiday-name-talk-like-a-pirate-day
+  id: DocksideBrewDay
+  name: holiday-name-dockside-brew-day
+  beginDay: 14
+  beginMonth: August
+  greet:
+    !type:Custom
+    text: holiday-custom-dockside-brew-day
+
+- type: holiday
+  id: ShinoharaFoundersDay
+  name: holiday-name-shinohara-founders-day
+  beginDay: 28
+  beginMonth: August
+  greet:
+    !type:Custom
+    text: holiday-custom-shinohara-founders-day
+
+- type: holiday
+  id: SystemsEngineersDay
+  name: holiday-name-systems-engineers-day
+  shouldCelebrate:
+    !type:DayOfYear
+    dayOfYear: 256
+  greet:
+    !type:Custom
+    text: holiday-custom-systems-engineers-day
+
+- type: holiday
+  id: RaidersDay
+  name: holiday-name-raiders-day
   beginDay: 19
   beginMonth: September
   greet:
     !type:Custom
-    text: holiday-custom-talk-like-a-pirate-day
+    text: holiday-custom-raiders-day
 
 - type: holiday
-  id: ProgrammersDay
-  name: holiday-name-programmers-day
-  shouldCelebrate:
-    !type:DayOfYear
-    dayOfYear: 256
-
-- type: holiday
-  id: BisexualPrideDay
-  name: holiday-name-bisexual-pride-day
-  beginDay: 23
-  beginMonth: September
-
-- type: holiday
-  id: StupidQuestionsDay
-  name: holiday-name-stupid-questions-day
+  id: CadetQuestionsDay
+  name: holiday-name-cadet-questions-day
   beginDay: 28
   beginMonth: September
+  greet:
+    !type:Custom
+    text: holiday-custom-cadet-questions-day
 
 - type: holiday
-  id: AnimalsDay
-  name: holiday-name-animals-day
+  id: MascotsDay
+  name: holiday-name-mascots-day
   beginDay: 4
   beginMonth: October
+  greet:
+    !type:Custom
+    text: holiday-custom-mascots-day
 
 - type: holiday
-  id: SmilingDay
-  name: holiday-name-smiling-day
-  beginDay: 7
+  id: NovaBelraskaRemembrance
+  name: holiday-name-nova-belraska
+  beginDay: 17
   beginMonth: October
+  greet:
+    !type:Custom
+    text: holiday-custom-nova-belraska
 
 - type: holiday
-  id: LesbianDay
-  name: holiday-name-lesbian-day
-  beginDay: 8
-  beginMonth: October
-
-- type: holiday
-  id: NationalComingOutDay
-  name: holiday-name-national-coming-out-day
-  beginDay: 11
-  beginMonth: October
-
-- type: holiday
-  id: CanadianThanksgiving
-  name: holiday-name-canadian-thanksgiving
-  beginMonth: October
-  shouldCelebrate:
-    !type:WeekdayInMonth
-    occurrence: 2
-    weekday: Monday
-
-- type: holiday
-  id: SpiritDay
-  name: holiday-name-spirit-day
-  beginMonth: October
-  shouldCelebrate:
-    !type:WeekdayInMonth
-    occurrence: 3
-    weekday: Thursday
-
-- type: holiday
-  id: holiday-name-halloween
-  name: Halloween
+  id: TurningNight
+  name: holiday-name-turning-night
   beginDay: 31
   beginMonth: October
   greet:
     !type:Custom
-    text: holiday-custom-halloween
+    text: holiday-custom-turning-night
 
 - type: holiday
-  id: VeganDay
-  name: holiday-name-vegan-day
-  beginDay: 1
-  beginMonth: November
-
-- type: holiday
-  id: ArmisticeDay
-  name: holiday-name-armistice-day
-  beginDay: 11
-  beginMonth: November
-
-- type: holiday
-  id: KindnessDay
-  name: holiday-name-kindness-day
-  beginDay: 13
+  id: OpeningOfTheHunt
+  name: holiday-name-opening-of-the-hunt
+  beginDay: 7
   beginMonth: November
   greet:
     !type:Custom
-    text: holiday-custom-kindness-day
+    text: holiday-custom-opening-of-the-hunt
 
 - type: holiday
-  id: LifeDay
-  name: holiday-name-life-day
-  beginDay: 17
+  id: CeasefireDay
+  name: holiday-name-ceasefire-day
+  beginDay: 15
   beginMonth: November
-
-- type: holiday
-  id: FlowersDay
-  name: holiday-name-flowers-day
-  beginDay: 19
-  beginMonth: November
-
-- type: holiday
-  id: TransgenderRemembranceDay
-  name: holiday-name-transgender-remembrance-day
-  beginDay: 20
-  beginMonth: November
-
-- type: holiday
-  id: SayingHelloDay
-  name: holiday-name-saying-hello-day
-  beginDay: 21
-  beginMonth: November
-
-- type: holiday
-  id: Thanksgiving
-  name: holiday-name-thanksgiving
-  beginMonth: November
-  shouldCelebrate:
-    !type:WeekdayInMonth
-    occurrence: 4
-    weekday: Thursday
-
-- type: holiday
-  id: holiday-name-sinterklaas
-  name: Sinterklaas
-  beginDay: 5
-  beginMonth: December
-
-- type: holiday
-  id: HumanRightsDay
-  name: holiday-name-human-rights-day
-  beginDay: 10
-  beginMonth: December
-
-- type: holiday
-  id: MonkeyDay
-  name: holiday-name-monkey-day
-  beginDay: 14
-  beginMonth: December
-
-- type: holiday
-  id: MayanDoomsday
-  name: holiday-name-mayan-doomsday
-  beginDay: 21
-  beginMonth: December
-
-- type: holiday
-  id: holiday-name-christmas
-  name: Christmas
-  beginDay: 24
-  endDay: 26
-  beginMonth: December
   greet:
     !type:Custom
-    text: holiday-custom-christmas
+    text: holiday-custom-ceasefire-day
+
+- type: holiday
+  id: HailingDay
+  name: holiday-name-hailing-day
+  beginDay: 21
+  beginMonth: November
+  greet:
+    !type:Custom
+    text: holiday-custom-hailing-day
+
+- type: holiday
+  id: MinutemenMuster
+  name: holiday-name-minutemen-muster
+  beginDay: 26
+  beginMonth: November
+  greet:
+    !type:Custom
+    text: holiday-custom-minutemen-muster
 
 - type: holiday
   id: FestiveSeason
-  name: holiday-name-festive-season
+  name: holiday-name-long-night-lights
   beginDay: 1
   endDay: 31
   beginMonth: December
   greet:
     !type:Custom
-    text: holiday-custom-festive-season
+    text: holiday-custom-long-night-lights
 
 - type: holiday
-  id: BoxingDay
-  name: holiday-name-boxing-day
-  beginDay: 26
+  id: ArchivistsDay
+  name: holiday-name-archivists-day
+  beginDay: 13
   beginMonth: December
+  greet:
+    !type:Custom
+    text: holiday-custom-archivists-day
 
 - type: holiday
-  id: FridayThirteenth
-  name: holiday-name-friday-thirteenth
+  id: SurvivorsDay
+  name: holiday-name-survivors-day
+  beginDay: 20
+  beginMonth: December
+  greet:
+    !type:Custom
+    text: holiday-custom-survivors-day
+
+- type: holiday
+  id: GiftExchange
+  name: holiday-name-gift-exchange
+  beginDay: 24
+  endDay: 26
+  beginMonth: December
+  greet:
+    !type:Custom
+    text: holiday-custom-gift-exchange
+
+- type: holiday
+  id: OmenDay
+  name: holiday-name-omen-day
   shouldCelebrate:
     !type:FridayThirteenth { }
+  greet:
+    !type:Custom
+    text: holiday-custom-omen-day

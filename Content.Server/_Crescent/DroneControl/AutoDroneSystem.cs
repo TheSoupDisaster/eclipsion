@@ -344,6 +344,10 @@ public sealed class AutoDroneSystem : EntitySystem
 
     private void DeployDrone(Entity<DroneCarrierComponent> carrier, EntityUid carrierGrid, MapGridComponent grid, Entity<AutoDroneComponent> drone, bool produced = false)
     {
+        // A drone its carrier already wrote off stays a derelict; it can't be docked back in to dodge a restock.
+        if (drone.Comp.WrittenOff)
+            return;
+
         var droneGrid = Transform(drone.Owner).GridUid;
 
         var carrierFaction = GetGridFaction(carrierGrid);
@@ -472,6 +476,109 @@ public sealed class AutoDroneSystem : EntitySystem
 
             drone.HullIntegrity = Math.Clamp(CountTiles(gridUid) / (float) drone.InitialTileCount, 0f, 1f);
         }
+    }
+
+    /// <summary>
+    ///     Drops a disabled drone from the carrier for good. Its slot is freed but the hangar is not refilled,
+    ///     so the loss shows on the console until a repair station restocks it.
+    /// </summary>
+    private void WriteOffDrone(Entity<DroneCarrierComponent> carrier, int slot, Entity<AutoDroneComponent> drone)
+    {
+        var name = Transform(drone.Owner).GridUid is { } grid ? Name(grid) : Name(drone.Owner);
+
+        UndeploySlot(carrier, slot);
+        drone.Comp.WrittenOff = true;
+        drone.Comp.UnpoweredSince = null;
+
+        _popup.PopupEntity(Loc.GetString("drone-carrier-drone-lost", ("drone", name)), carrier.Owner, PopupType.MediumCaution);
+    }
+
+    #endregion
+
+    #region hangar
+
+    /// <summary>
+    ///     Drones this carrier produced that are no longer under its command.
+    /// </summary>
+    public int GetLostDrones(DroneCarrierComponent carrier)
+    {
+        return Math.Clamp(carrier.ProducedCount - carrier.Slots.Count, 0, EffectiveMaxDrones(carrier));
+    }
+
+    /// <summary>
+    ///     Drones still in the hangar, i.e. how many more can be produced right now.
+    /// </summary>
+    public int GetHangarCount(DroneCarrierComponent carrier)
+    {
+        return Math.Max(0, EffectiveMaxDrones(carrier) - carrier.ProducedCount - carrier.PendingSpawns.Count);
+    }
+
+    /// <summary>
+    ///     Repair station fee for restocking this carrier's lost drones: <see cref="DroneCarrierComponent.RestockCostMin"/>
+    ///     for one, rising linearly to <see cref="DroneCarrierComponent.RestockCostMax"/> for the whole squadron.
+    /// </summary>
+    public int GetRestockCost(DroneCarrierComponent carrier)
+    {
+        var lost = GetLostDrones(carrier);
+        if (lost <= 0)
+            return 0;
+
+        var max = EffectiveMaxDrones(carrier);
+        if (max <= 1)
+            return carrier.RestockCostMin;
+
+        var t = (lost - 1) / (float) (max - 1);
+        return (int) MathF.Round(carrier.RestockCostMin + (carrier.RestockCostMax - carrier.RestockCostMin) * t);
+    }
+
+    /// <summary>
+    ///     Lost drones and restock fee summed over every carrier console aboard <paramref name="grid"/>.
+    ///     <paramref name="console"/> is the first console that needs restocking.
+    /// </summary>
+    public (int Lost, int Cost) GetHangarRestock(EntityUid grid, out EntityUid? console)
+    {
+        console = null;
+        var lost = 0;
+        var cost = 0;
+
+        var query = EntityQueryEnumerator<DroneCarrierComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var carrier, out var xform))
+        {
+            if (xform.GridUid != grid)
+                continue;
+
+            var carrierLost = GetLostDrones(carrier);
+            if (carrierLost <= 0)
+                continue;
+
+            console ??= uid;
+            lost += carrierLost;
+            cost += GetRestockCost(carrier);
+        }
+
+        return (lost, cost);
+    }
+
+    /// <summary>
+    ///     Refills the hangar of every carrier console aboard <paramref name="grid"/>, so lost drones can be
+    ///     produced again. Returns how many drones were restocked.
+    /// </summary>
+    public int RestockHangars(EntityUid grid)
+    {
+        var restocked = 0;
+
+        var query = EntityQueryEnumerator<DroneCarrierComponent, TransformComponent>();
+        while (query.MoveNext(out var carrier, out var xform))
+        {
+            if (xform.GridUid != grid)
+                continue;
+
+            var lost = GetLostDrones(carrier);
+            carrier.ProducedCount -= lost;
+            restocked += lost;
+        }
+
+        return restocked;
     }
 
     #endregion
@@ -693,10 +800,10 @@ public sealed class AutoDroneSystem : EntitySystem
         var now = _timing.CurTime;
         ent.Comp.PendingSpawns.RemoveAll(p => (now - p.Time).TotalSeconds > PendingSpawnTtl);
 
-        // Hard lifetime cap: produced + still-arriving must stay under the limit.
-        if (ent.Comp.ProducedCount + ent.Comp.PendingSpawns.Count >= EffectiveMaxDrones(ent.Comp))
+        // Produced + still-arriving must stay under the limit; only a repair station restock refills it.
+        if (GetHangarCount(ent.Comp) <= 0)
         {
-            _popup.PopupEntity(Loc.GetString("drone-carrier-limit-reached"), ent.Owner, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("drone-carrier-hangar-empty"), ent.Owner, PopupType.MediumCaution);
             return;
         }
 
@@ -841,13 +948,29 @@ public sealed class AutoDroneSystem : EntitySystem
                 continue;
             }
 
-            // Unpowered drones drift.
+            // Hull shot away: the drone is no use to anyone, write it off.
+            if (drone.HullIntegrity < carrier.Comp.DisabledHullIntegrity)
+            {
+                WriteOffDrone(carrier, slot, (droneUid, drone));
+                continue;
+            }
+
+            // Unpowered drones drift, and are written off if they stay dark.
             if (_powerQuery.TryComp(droneUid, out var receiver) && !_power.IsPowered(droneUid, receiver))
             {
+                drone.UnpoweredSince ??= now;
+                if (now - drone.UnpoweredSince.Value >= carrier.Comp.DisabledTimeout)
+                {
+                    WriteOffDrone(carrier, slot, (droneUid, drone));
+                    continue;
+                }
+
                 StopDrone(droneUid);
                 drone.Mode = AutoDroneMode.Idle;
                 continue;
             }
+
+            drone.UnpoweredSince = null;
 
             // A produced drone can finish its FTL hop still docked to the station; cast it off once.
             TryUndock((droneUid, drone));
@@ -882,6 +1005,8 @@ public sealed class AutoDroneSystem : EntitySystem
             if (drone.SelfDestructAt != null)
                 continue;
 
+            // The power-loss clock only runs while the carrier is watching.
+            drone.UnpoweredSince = null;
             StopDrone(droneUid);
             drone.Mode = AutoDroneMode.Idle;
         }

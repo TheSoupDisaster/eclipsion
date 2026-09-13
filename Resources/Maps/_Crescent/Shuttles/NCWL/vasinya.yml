@@ -5378,7 +5378,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -0.5,24.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumNCWL
   entities:
   - uid: 13
     components:

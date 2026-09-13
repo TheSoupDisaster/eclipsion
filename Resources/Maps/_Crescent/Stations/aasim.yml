@@ -3650,7 +3650,7 @@ entities:
           showEnts: False
           occludes: True
           ent: 1179
-- proto: AmeJar
+- proto: AmeJarT3
   entities:
   - uid: 1179
     components:

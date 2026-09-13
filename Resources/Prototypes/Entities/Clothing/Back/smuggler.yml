@@ -58,7 +58,7 @@
   parent: [ BaseSubfloorAnchorStorageAnchored, BriefcaseSyndie ]
   id: BriefcaseSmugglerCash
   name: smuggler's briefcase
-  suffix: Smuggler, Do Not Map
+  suffix: Smuggler
   components:
   - type: EntityTableContainerFill
     containers:
@@ -72,7 +72,7 @@
   parent: [ BaseSubfloorAnchorStorageAnchored, ClothingBackpackDuffelClown ]
   id: ClothingBackpackDuffelClownSmuggler
   name: smuggler's clown duffel bag
-  suffix: Smuggler, Do Not Map
+  suffix: Smuggler
   components:
   - type: EntityTableContainerFill
     containers:
@@ -95,7 +95,7 @@
 - type: entity
   parent: ClothingBackpackSatchelSmuggler
   id: ClothingBackpackSatchelSmugglerFilled
-  suffix: Smuggler, Do Not Map
+  suffix: Smuggler
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/smuggler.rsi
@@ -109,7 +109,6 @@
   parent: MarkerBase
   id: RandomSatchelSpawner
   name: random smuggler's satchel spawner
-  suffix: Do Not Map
   components:
   - type: Sprite
     layers:

@@ -35,7 +35,6 @@
   id: ClothingOuterSuitJanitorBomb
   name: janitorial bomb suit
   description: A heavy helmet designed to withstand explosions formed from reactions between chemicals.
-  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/janitor_bombsuit.rsi
@@ -303,7 +302,7 @@
 - type: entity
   parent: ClothingOuterSuitCarp
   id: ClothingOuterHardsuitCarp
-  suffix: Hardsuit, DO NOT MAP
+  suffix: Hardsuit
   components:
   - type: PressureProtection
     highPressureMultiplier: 0.6

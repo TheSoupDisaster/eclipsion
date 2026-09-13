@@ -1,7 +1,7 @@
 - type: entity
   id: SpawnPointPlayerCharacter
   name: ghost role spawn point
-  suffix: player character, DO NOT MAP
+  suffix: player character
   parent: MarkerBase
   components:
     - type: GhostRole

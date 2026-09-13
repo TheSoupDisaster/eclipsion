@@ -1982,7 +1982,7 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 5.5,-3.5
-- proto: WallPlastitanium
+- proto: WallPlastitaniumDSM
   entities:
   - uid: 172
     components:

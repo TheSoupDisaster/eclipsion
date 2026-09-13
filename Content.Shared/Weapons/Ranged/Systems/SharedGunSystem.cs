@@ -206,6 +206,17 @@ public abstract partial class SharedGunSystem : EntitySystem
             return true;
         }
 
+        // Eclipsion: a gunner buckled into a field gun fires the gun, not whatever is in their hands.
+        if (TryComp<Content.Shared.Buckle.Components.BuckleComponent>(entity, out var buckle) &&
+            buckle.BuckledTo is { } strap &&
+            HasComp<Content.Shared._Crescent.Weapons.FieldArtillery.FieldArtilleryComponent>(strap) &&
+            TryComp(strap, out GunComponent? mountedGun))
+        {
+            gunEntity = strap;
+            gunComp = mountedGun;
+            return true;
+        }
+
         if (EntityManager.TryGetComponent(entity, out HandsComponent? hands) &&
             hands.ActiveHandEntity is { } held &&
             TryComp(held, out GunComponent? gun))

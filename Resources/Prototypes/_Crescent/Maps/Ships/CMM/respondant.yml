@@ -2,25 +2,25 @@
 # Discord: the_inbetwixt
 
 - type: vessel
-  id: Respondant
+  id: respondant
   name: TS Respondant
   description: |
-    A compact corvette built to brawl. Once a militia mainstay, the Respondant trades armor for a punchy mix of autocannons and rocket pods, letting a skilled pilot chip away at targets before closing in for the kill.
-    LOADOUT: 2x 60mm 'Azimuth' Rocket Pod, 2x 50mm 'Striker' Heavy Autocannon
+    A compact corvette. Called either a heavy fighter, or heavy brawler.
+    LOADOUT: 2x 60mm 'Azimuth' Rocket Pods, 2x 50mm 'Striker' Heavy Autocannons
     SHIELD: Absent
-    SPEED: 35 m/s
-  price: 35000
+    SPEED: 25 m/s
+  price: 41000
   category: Small
   group: None
   path: /Maps/_Crescent/Shuttles/CMM/respondant.yml
 
 - type: gameMap
-  id: Respondant
+  id: respondant
   mapName: 'TS Respondant'
   mapPath: /Maps/_Crescent/Shuttles/CMM/respondant.yml
   minPlayers: 0
   stations:
-    Respondant:
+    respondant:
       stationProto: StandardCrescentExpeditionVessel
       components:
         - type: VesselIcon
@@ -35,4 +35,4 @@
         - type: VesselDesignation
           designation: vessel-designation-corvette
         - type: VesselDescription
-          description: A compact corvette, good at brawling. A skilled pilot can pick targets off at range with its Strikers.
+          description: A compact corvette, good at brawling.

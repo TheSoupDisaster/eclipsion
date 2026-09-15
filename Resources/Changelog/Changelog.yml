@@ -1352,3 +1352,10 @@ Entries:
     id: 6117
     time: '2026-09-12T00:00:00.0000000+00:00'
     url: null
+  - author: grandalff
+    changes:
+      - type: Tweak
+        message: fully remapped Respondant, lowered its speed to be within the vision of project managers and not OP
+    id: 6118
+    time: '2026-09-15T18:34:21.0000000+00:00'
+    url: https://github.com/eclipsion-team/eclipsion/pull/55

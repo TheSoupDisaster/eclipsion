@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Encore, using HULLROT mecha art as a style reference.",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "bastion",
+      "directions": 4
+    },
+    {
+      "name": "bastion-open"
+    },
+    {
+      "name": "bastion-broken"
+    },
+    {
+      "name": "bastion-power-powered",
+      "directions": 4
+    },
+    {
+      "name": "bastion-open-power-powered"
+    },
+    {
+      "name": "bastion-power-low",
+      "directions": 4
+    },
+    {
+      "name": "bastion-open-power-low"
+    },
+    {
+      "name": "bastion-power-off",
+      "directions": 4
+    },
+    {
+      "name": "bastion-open-power-off"
+    },
+    {
+      "name": "bastion-broken-power-off"
+    }
+  ]
+}

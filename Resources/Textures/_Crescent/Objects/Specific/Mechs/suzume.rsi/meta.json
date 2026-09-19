@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Encore, using HULLROT mecha art as a style reference.",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "suzume",
+      "directions": 4
+    },
+    {
+      "name": "suzume-open"
+    },
+    {
+      "name": "suzume-broken"
+    },
+    {
+      "name": "suzume-power-powered",
+      "directions": 4
+    },
+    {
+      "name": "suzume-open-power-powered"
+    },
+    {
+      "name": "suzume-power-low",
+      "directions": 4
+    },
+    {
+      "name": "suzume-open-power-low"
+    },
+    {
+      "name": "suzume-power-off",
+      "directions": 4
+    },
+    {
+      "name": "suzume-open-power-off"
+    },
+    {
+      "name": "suzume-broken-power-off"
+    }
+  ]
+}

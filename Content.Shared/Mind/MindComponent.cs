@@ -52,6 +52,11 @@ public sealed partial class MindComponent : Component
     // This is a lazy way to ensure that people check that the entity still exists.
     // TODO MIND Fix this properly by adding an OriginalMindContainerComponent or something like that.
 
+    // Crescent: the last non-ghost entity this mind was transferred out of. Unlike OriginalOwnedEntity this
+    // follows cloning, borging and the like, so admins can put someone back into the body they just ghosted from.
+    [AutoNetworkedField]
+    public NetEntity? LastOwnedBody;
+
     [ViewVariables]
     public bool IsVisitingEntity => VisitingEntity != null;
 

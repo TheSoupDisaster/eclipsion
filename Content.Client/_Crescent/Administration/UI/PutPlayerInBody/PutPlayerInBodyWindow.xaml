@@ -1,0 +1,13 @@
+<ui:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc put-player-in-body-title}" MinSize="320 460">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <Label Name="BodyLabel" Margin="8 8 8 0" />
+        <Label Name="OccupantLabel" Margin="8 0 8 0" Visible="False" />
+        <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" Margin="8 4 8 4" />
+        <Button Name="ConfirmButton" Text="{Loc put-player-in-body-confirm}" Disabled="True"
+                HorizontalExpand="True" Margin="8 0 8 8" />
+    </BoxContainer>
+</ui:FancyWindow>

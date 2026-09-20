@@ -1,6 +1,8 @@
 - type: vendingMachineInventory
   id: NCWLArmoryInventory
   startingInventory:
+    ClothingBeltSheathNCWLShashkaFilled: 3
+    ClothingBeltSheathNCWLEstocFilled: 3
     WeaponRifleNCWLBatanya: 6
     WeaponSubMachineGunBloodhound: 6
     WeaponSubMachineGunNCWLWatchdog: 6

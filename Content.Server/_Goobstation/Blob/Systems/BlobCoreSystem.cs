@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
@@ -57,14 +58,11 @@ public sealed class BlobCoreSystem : EntitySystem
     private EntityQuery<BlobFactoryComponent> _factory;
     private EntityQuery<BlobNodeComponent> _node;
 
-    [ValidatePrototypeId<AlertPrototype>]
-    private const string BlobHealth = "BlobHealth";
+    private static readonly ProtoId<AlertPrototype> BlobHealth = "BlobHealth";
 
-    [ValidatePrototypeId<AlertPrototype>]
-    private const string BlobResource = "BlobResource";
+    private static readonly ProtoId<AlertPrototype> BlobResource = "BlobResource";
 
-    [ValidatePrototypeId<CurrencyPrototype>]
-    private const string BlobMoney = "BlobPoint";
+    private static readonly ProtoId<CurrencyPrototype> BlobMoney = "BlobPoint";
 
     private readonly ReaderWriterLockSlim _pointsChange = new();
 
@@ -127,7 +125,7 @@ public sealed class BlobCoreSystem : EntitySystem
         var store = EnsureComp<StoreComponent>(uid);
         store.CurrencyWhitelist.Add(BlobMoney);
 
-        _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
+        _storeSystem.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
         {
             { BlobMoney, FixedPoint2.Zero }
         },
@@ -587,7 +585,7 @@ public sealed class BlobCoreSystem : EntitySystem
         if (core.Comp.MaxStorageAmount < store.Balance[BlobMoney] + amount)
             amount = core.Comp.MaxStorageAmount - store.Balance[BlobMoney];
 
-        if (_storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
+        if (_storeSystem.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
                 {
                     { BlobMoney, amount }
                 },

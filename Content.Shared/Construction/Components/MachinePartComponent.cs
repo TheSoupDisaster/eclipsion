@@ -1,14 +1,14 @@
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Construction.Components
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class MachinePartComponent : Component
     {
-        [DataField("part", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string PartType { get; private set; } = default!;
+        [DataField("part", required: true)]
+        public ProtoId<MachinePartPrototype> PartType { get; private set; } = default!;
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("rating")]

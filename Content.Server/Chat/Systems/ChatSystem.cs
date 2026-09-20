@@ -215,6 +215,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!CanSendInGame(message, shell, player))
             return;
 
+        // Crescent - word filter, only for messages a player actually typed
+        if (player != null && _chatManager.IsMessageFiltered(player, message))
+            return;
+
         ignoreActionBlocker = CheckIgnoreSpeechBlocker(source, ignoreActionBlocker);
 
         // this method is a disaster
@@ -320,6 +324,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         // It doesn't make any sense for a non-player to send in-game OOC messages, whereas non-players may be sending
         // in-game IC messages.
         if (player?.AttachedEntity is not { Valid: true } entity || source != entity)
+            return;
+
+        // Crescent - word filter
+        if (_chatManager.IsMessageFiltered(player, message))
             return;
 
         message = SanitizeInGameOOCMessage(message);
@@ -858,8 +866,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return message;
     }
 
-    [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public const string ChatSanitize_Accent = "chatsanitize";
+    public static readonly ProtoId<ReplacementAccentPrototype> ChatSanitize_Accent = "chatsanitize";
 
     public string SanitizeMessageReplaceWords(string message)
     {

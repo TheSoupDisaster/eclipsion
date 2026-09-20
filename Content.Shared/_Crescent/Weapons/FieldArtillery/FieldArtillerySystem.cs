@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Construction.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Components;
@@ -23,7 +22,6 @@ public sealed class FieldArtillerySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FieldArtilleryComponent, AttemptShootEvent>(OnAttemptShoot);
-        SubscribeLocalEvent<FieldArtilleryComponent, UserAnchoredEvent>(OnUserAnchored);
         SubscribeLocalEvent<FieldArtilleryComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
         SubscribeLocalEvent<FieldArtilleryComponent, StrapAttemptEvent>(OnStrapAttempt);
         SubscribeLocalEvent<FieldArtilleryComponent, InteractUsingEvent>(OnInteractUsing,
@@ -91,25 +89,6 @@ public sealed class FieldArtillerySystem : EntitySystem
         args.Cancelled = true;
         args.ResetCooldown = true;
         args.Message = Loc.GetString(message);
-    }
-
-    /// <summary>
-    /// Locks the gun facing away from whoever wrenched it down, snapped to the grid.
-    /// </summary>
-    private void OnUserAnchored(EntityUid uid, FieldArtilleryComponent comp, UserAnchoredEvent args)
-    {
-        var xform = Transform(uid);
-        var facing = _transform.GetWorldPosition(xform) - _transform.GetWorldPosition(args.User);
-
-        var worldFacing = facing.LengthSquared() > 0.01f
-            ? facing.ToWorldAngle()
-            : _transform.GetWorldRotation(args.User);
-
-        var parentRotation = xform.ParentUid.IsValid()
-            ? _transform.GetWorldRotation(xform.ParentUid)
-            : Angle.Zero;
-
-        _transform.SetLocalRotation(uid, (worldFacing - parentRotation).GetCardinalDir().ToAngle());
     }
 
     private void OnAnchorStateChanged(Entity<FieldArtilleryComponent> ent, ref AnchorStateChangedEvent args)

@@ -160,7 +160,7 @@ public abstract class SharedWeatherSystem : EntitySystem
         foreach (var (eProto, weather) in weatherComp.Weather)
         {
             // Reset cooldown if it's an existing one.
-            if (eProto == proto?.ID)
+            if (eProto.Id == proto?.ID)
             {
                 weather.EndTime = endTime;
 

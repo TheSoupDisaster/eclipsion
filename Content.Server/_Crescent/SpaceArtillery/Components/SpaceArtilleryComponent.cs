@@ -3,15 +3,14 @@ using Content.Shared.Construction.Prototypes;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 
 [RegisterComponent]
 public sealed partial class SpaceArtilleryComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField(customTypeSerializer: typeof(PrototypeIdSerializer<StackPrototype>))]
-    public string CoolantType = "Coolant";
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public ProtoId<StackPrototype> CoolantType = "Coolant";
 
     public static string CoolantSlotSlotId = "SpaceArtillery-CoolantSlot";
 
@@ -151,45 +150,45 @@ public sealed partial class SpaceArtilleryComponent : Component
     /// <summary>
     /// Signal port that makes space artillery fire.
     /// </summary>
-    [DataField("spaceArtilleryFirePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-    public string SpaceArtilleryFirePort = "SpaceArtilleryFire";
+    [DataField("spaceArtilleryFirePort")]
+    public ProtoId<SinkPortPrototype> SpaceArtilleryFirePort = "SpaceArtilleryFire";
 
     /// <summary>
     /// Signal port that toggles artillery's safety, which is the combat mode
     /// </summary>
-    [DataField("spaceArtilleryToggleSafetyPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-    public string SpaceArtilleryToggleSafetyPort = "SpaceArtilleryToggleSafety";
+    [DataField("spaceArtilleryToggleSafetyPort")]
+    public ProtoId<SinkPortPrototype> SpaceArtilleryToggleSafetyPort = "SpaceArtilleryToggleSafety";
 
     /// <summary>
     /// Signal port that sets artillery's safety to "SAFE"
     /// </summary>
-    [DataField("spaceArtilleryOnSafetyPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-    public string SpaceArtilleryOnSafetyPort = "SpaceArtilleryOnSafety";
+    [DataField("spaceArtilleryOnSafetyPort")]
+    public ProtoId<SinkPortPrototype> SpaceArtilleryOnSafetyPort = "SpaceArtilleryOnSafety";
 
     /// <summary>
     /// Signal port that sets artillery's safety to "ARMED"
     /// </summary>
-    [DataField("spaceArtilleryOffSafetyPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-    public string SpaceArtilleryOffSafetyPort = "SpaceArtilleryOffSafety";
+    [DataField("spaceArtilleryOffSafetyPort")]
+    public ProtoId<SinkPortPrototype> SpaceArtilleryOffSafetyPort = "SpaceArtilleryOffSafety";
 
     ///Source Ports
     /// <summary>
     /// The port that gets set to high while the alarm is in the danger state, and low when not.
     /// </summary>
-    [DataField("spaceArtilleryDetectedFiringPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string SpaceArtilleryDetectedFiringPort = "SpaceArtilleryDetectedFiring";
+    [DataField("spaceArtilleryDetectedFiringPort")]
+    public ProtoId<SourcePortPrototype> SpaceArtilleryDetectedFiringPort = "SpaceArtilleryDetectedFiring";
 
     /// <summary>
     /// The port that gets set to high while the alarm is in the danger state, and low when not.
     /// </summary>
-    [DataField("spaceArtilleryDetectedMalfunctionPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string SpaceArtilleryDetectedMalfunctionPort = "SpaceArtilleryDetectedMalfunction";
+    [DataField("spaceArtilleryDetectedMalfunctionPort")]
+    public ProtoId<SourcePortPrototype> SpaceArtilleryDetectedMalfunctionPort = "SpaceArtilleryDetectedMalfunction";
 
     /// <summary>
     /// The port that gets set to high while the alarm is in the danger state, and low when not.
     /// </summary>
-    [DataField("spaceArtilleryDetectedSafetyChangePort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string SpaceArtilleryDetectedSafetyChangePort = "SpaceArtilleryDetectedSafetyChange";
+    [DataField("spaceArtilleryDetectedSafetyChangePort")]
+    public ProtoId<SourcePortPrototype> SpaceArtilleryDetectedSafetyChangePort = "SpaceArtilleryDetectedSafetyChange";
 
 
     ///Actions
@@ -197,8 +196,8 @@ public sealed partial class SpaceArtilleryComponent : Component
     /// The action for firing the artillery when mounted
     /// </summary>
 
-    [DataField("fireAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? FireAction = "ActionSpaceArtilleryFire";
+    [DataField("fireAction")]
+    public EntProtoId? FireAction = "ActionSpaceArtilleryFire";
 
     /// <summary>
     /// The action for the weapon (if any)

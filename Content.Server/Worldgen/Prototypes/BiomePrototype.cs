@@ -1,7 +1,7 @@
-﻿using System.Numerics;
+﻿using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using System.Numerics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
 namespace Content.Server.Worldgen.Prototypes;
 

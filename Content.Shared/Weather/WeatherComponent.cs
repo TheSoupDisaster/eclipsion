@@ -1,8 +1,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Weather;
 
@@ -12,8 +12,8 @@ public sealed partial class WeatherComponent : Component
     /// <summary>
     /// Currently running weathers
     /// </summary>
-    [ViewVariables, DataField("weather", customTypeSerializer:typeof(PrototypeIdDictionarySerializer<WeatherData, WeatherPrototype>))]
-    public Dictionary<string, WeatherData> Weather = new();
+    [ViewVariables, DataField("weather")]
+    public Dictionary<ProtoId<WeatherPrototype>, WeatherData> Weather = new();
 
     public static readonly TimeSpan StartupTime = TimeSpan.FromSeconds(15);
     public static readonly TimeSpan ShutdownTime = TimeSpan.FromSeconds(15);

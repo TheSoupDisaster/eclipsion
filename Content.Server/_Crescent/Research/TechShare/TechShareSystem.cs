@@ -268,7 +268,7 @@ public sealed class TechShareSystem : EntitySystem
         receiver.SharedRecipes.Clear();
 
         // Snapshot receiver's current recipes before sharing
-        var existingRecipes = new HashSet<string>(rcvDb.UnlockedRecipes);
+        var existingRecipes = new HashSet<string>(rcvDb.UnlockedRecipes.Select(static r => r.Id));
 
         // Add recipes
         foreach (var recipe in selectedRecipes)
@@ -294,7 +294,7 @@ public sealed class TechShareSystem : EntitySystem
         if (!TryComp<TechnologyDatabaseComponent>(reqServer, out var reqDb))
             return new HashSet<string>();
 
-        return new HashSet<string>(reqDb.UnlockedRecipes);
+        return new HashSet<string>(reqDb.UnlockedRecipes.Select(static r => r.Id));
     }
 
     /// <summary>

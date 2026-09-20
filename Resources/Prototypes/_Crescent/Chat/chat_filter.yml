@@ -1,0 +1,75 @@
+- type: chatFilter
+  id: Slurs
+  severity: Slur
+  anywhere:
+  - nigger
+  - nigga
+  - niggr
+  - nignog
+  - faggot
+  - retard
+  - tranny
+  wholeWord:
+  - fag
+  - fagot
+  - kike
+  - chink
+  - spic
+  - coon
+  - gook
+  - wetback
+  - beaner
+  - raghead
+  - towelhead
+  - paki
+  - dyke
+  - troon
+  - tard
+  - mongoloid
+  - porchmonkey
+  - junglebunny
+  - zipperhead
+  allowed:
+  # Removed before matching, so these never reach the lists above.
+  - retardant
+  # "spic" picks up the s/es plural, which would otherwise block "spices".
+  - spice
+  # Van Dyke is a moustache style the character editor offers by name.
+  - van dyke
+
+- type: chatFilter
+  id: SexualViolence
+  severity: Slur
+  inWord:
+  # These have no innocent English word built on them, so every form is caught at once:
+  # molest/molested/molestation, incest/incestuous, pedophile/pedophilia.
+  - molest
+  - incest
+  - pedophil
+  - paedophil
+  # run-together spellings only - the bare words below have to stay wholeWord,
+  # otherwise "grape", "drapes", "scraping" and "therapist" all get blocked.
+  - gangrape
+  - gangraping
+  wholeWord:
+  - rape
+  - raped
+  - raping
+  - rapist
+  - rapey
+  # wholeWord because "torpedo" and "pedometer" are ordinary words here.
+  - pedo
+  - paedo
+
+# Ordinary swearing (fuck, shit, goddamn it) is deliberately NOT filtered.
+# If you ever want a milder tier back, add a second prototype and flip chat.filter_profanity:
+#
+# - type: chatFilter
+#   id: Profanity
+#   severity: Profanity
+#   inWord:
+#   - somewordhere
+#   wholeWord:
+#   - someotherword
+#   allowed:
+#   - falsepositiveword

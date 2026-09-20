@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Implants;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Shared.Actions;
 using Content.Server.Abilities.Psionics;
 using Content.Shared.Psionics;
@@ -174,9 +173,9 @@ public sealed partial class TraitRemoveActions : TraitFunction
 [UsedImplicitly]
 public sealed partial class TraitAddImplant : TraitFunction
 {
-    [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<EntityPrototype>))]
+    [DataField]
     [AlwaysPushInheritance]
-    public HashSet<string> Implants { get; private set; } = new();
+    public HashSet<EntProtoId> Implants { get; private set; } = new();
 
     public override void OnPlayerSpawn(EntityUid uid,
         IComponentFactory factory,

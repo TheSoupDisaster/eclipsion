@@ -111,16 +111,13 @@ namespace Content.Client.Lobby.UI
 
         public event Action<HumanoidCharacterProfile, int>? OnProfileChanged;
 
-        [ValidatePrototypeId<GuideEntryPrototype>]
-        private const string DefaultSpeciesGuidebook = "Species";
+        private static readonly ProtoId<GuideEntryPrototype> DefaultSpeciesGuidebook = "Species";
 
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
-        [ValidatePrototypeId<LocalizedDatasetPrototype>]
-        private const string StationAiNames = "NamesAI";
+        private static readonly ProtoId<LocalizedDatasetPrototype> StationAiNames = "NamesAI";
 
-        [ValidatePrototypeId<DatasetPrototype>]
-        private const string CyborgNames = "names_borg";
+        private static readonly ProtoId<DatasetPrototype> CyborgNames = "names_borg";
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
@@ -1891,17 +1888,13 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            var hairMarking = Profile.Appearance.HairStyleId switch
-            {
-                HairStyles.DefaultHairStyle => new List<Marking>(),
-                _ => new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) },
-            };
+            var hairMarking = HairStyles.DefaultHairStyle.Id == Profile.Appearance.HairStyleId
+                ? new List<Marking>()
+                : new List<Marking> { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) };
 
-            var facialHairMarking = Profile.Appearance.FacialHairStyleId switch
-            {
-                HairStyles.DefaultFacialHairStyle => new List<Marking>(),
-                _ => new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) },
-            };
+            var facialHairMarking = HairStyles.DefaultFacialHairStyle.Id == Profile.Appearance.FacialHairStyleId
+                ? new List<Marking>()
+                : new List<Marking> { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) };
 
             HairStylePicker.UpdateData(
                 hairMarking,

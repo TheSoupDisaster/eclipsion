@@ -35,23 +35,17 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
     private readonly List<ThavenMood> _sharedMoods = new();
 
 
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string SharedDataset = "ThavenMoodsShared";
+    private static readonly ProtoId<DatasetPrototype> SharedDataset = "ThavenMoodsShared";
 
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string YesAndDataset = "ThavenMoodsYesAnd";
+    private static readonly ProtoId<DatasetPrototype> YesAndDataset = "ThavenMoodsYesAnd";
 
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string NoAndDataset = "ThavenMoodsNoAnd";
+    private static readonly ProtoId<DatasetPrototype> NoAndDataset = "ThavenMoodsNoAnd";
 
-    [ValidatePrototypeId<DatasetPrototype>]
-    private const string WildcardDataset = "ThavenMoodsWildcard";
+    private static readonly ProtoId<DatasetPrototype> WildcardDataset = "ThavenMoodsWildcard";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string ActionViewMoods = "ActionViewMoods";
+    private static readonly EntProtoId ActionViewMoods = "ActionViewMoods";
 
-    [ValidatePrototypeId<WeightedRandomPrototype>]
-    private const string RandomThavenMoodDataset = "RandomThavenMoodDataset";
+    private static readonly ProtoId<WeightedRandomPrototype> RandomThavenMoodDataset = "RandomThavenMoodDataset";
 
     public override void Initialize()
     {
@@ -88,7 +82,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
             }
         }
 
-        if (checkConflicts && (GetConflicts(_sharedMoods).Contains(mood.ProtoId) || GetMoodProtoSet(_sharedMoods).Overlaps(mood.Conflicts)))
+        if (checkConflicts && (GetConflicts(_sharedMoods).Contains(mood.ProtoId) || GetMoodProtoSet(_sharedMoods).Overlaps(mood.Conflicts.Select(static c => c.Id))))
             return false;
 
         _sharedMoods.Add(mood);
@@ -137,7 +131,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
                 continue; // Skip proto if an existing mood conflicts with it
 
             var moodProto = _proto.Index<ThavenMoodPrototype>(moodId);
-            if (moodProto.Conflicts.Overlaps(currentMoodProtos))
+            if (currentMoodProtos.Overlaps(moodProto.Conflicts.Select(static c => c.Id)))
                 continue; // Skip proto if it conflicts with an existing mood
 
             proto = moodProto;
@@ -292,7 +286,7 @@ public sealed partial class ThavenMoodsSystem : SharedThavenMoodSystem
         foreach (var mood in moods)
         {
             conflicts.Add(mood.ProtoId); // Specific moods shouldn't be added twice
-            conflicts.UnionWith(mood.Conflicts);
+            conflicts.UnionWith(mood.Conflicts.Select(static c => c.Id));
         }
 
         return conflicts;

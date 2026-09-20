@@ -48,5 +48,12 @@ namespace Content.Server.Chat.Managers
         /// <param name="player">The player sending a chat message.</param>
         /// <returns>False if the player has violated rate limits and should be blocked from sending further messages.</returns>
         RateLimitStatus HandleRateLimit(ICommonSession player);
+
+        /// <summary>
+        /// Crescent - checks a player's message against the chat filter, and if it's caught,
+        /// tells the player, logs it and alerts admins for slurs.
+        /// </summary>
+        /// <returns>True if the message was blocked and must not be sent.</returns>
+        bool IsMessageFiltered(ICommonSession player, string message);
     }
 }

@@ -61,6 +61,10 @@
         name: lug baton
       - id: NCWLKukri
         name: vibro kukri
+      - id: ClothingBeltSheathNCWLShashkaFilled
+        name: boarding shashka with scabbard
+      - id: ClothingBeltSheathNCWLEstocFilled
+        name: trench estoc with scabbard
     - name: Armor
       entries:
       - id: NCWLRiotShield

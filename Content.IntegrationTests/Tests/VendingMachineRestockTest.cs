@@ -178,7 +178,7 @@ namespace Content.IntegrationTests.Tests
                         CheckInventory(inventory.EmaggedInventory);
                 }
 
-                void CheckInventory(Dictionary<string, uint> inventory)
+                void CheckInventory(Dictionary<EntProtoId, uint> inventory)
                 {
                     foreach (var (product, count) in inventory)
                     {

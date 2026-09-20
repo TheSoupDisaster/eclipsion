@@ -1,14 +1,14 @@
 using Content.Shared.Shipyard.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Crescent.Vouchers;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShipVoucherComponent : Component
 {
-    [DataField("ship", customTypeSerializer: typeof(PrototypeIdSerializer<VesselPrototype>))]
-    public string Ship;
+    [DataField("ship")]
+    public ProtoId<VesselPrototype> Ship;
 
     [DataField("requiresShipInConsole")]
     public bool RequiresShipInConsole;

@@ -7,8 +7,6 @@ using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Content.Shared._Crescent.Ranks;
 
 namespace Content.Shared.Roles
@@ -23,8 +21,8 @@ namespace Content.Shared.Roles
         [IdDataField]
         public string ID { get; private set; } = default!;
 
-        [DataField("playTimeTracker", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
-        public string PlayTimeTracker { get; private set; } = string.Empty;
+        [DataField("playTimeTracker", required: true)]
+        public ProtoId<PlayTimeTrackerPrototype> PlayTimeTracker { get; private set; } = string.Empty;
 
         [DataField("supervisors")]
         public string Supervisors { get; private set; } = "nobody";
@@ -106,8 +104,8 @@ namespace Content.Shared.Roles
         [DataField("antagAdvantage")]
         public int AntagAdvantage = 0;
 
-        [DataField("startingGear", customTypeSerializer: typeof(PrototypeIdSerializer<StartingGearPrototype>))]
-        public string? StartingGear { get; private set; }
+        [DataField("startingGear")]
+        public ProtoId<StartingGearPrototype>? StartingGear { get; private set; }
 
         /// <summary>
         ///     If this has a value, it will randomly set the entity name of the
@@ -127,8 +125,8 @@ namespace Content.Shared.Roles
         /// Starting gear will be ignored.
         /// If you want to just add special attributes to a humanoid, use AddComponentSpecial instead.
         /// </summary>
-        [DataField("jobEntity", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string? JobEntity = null;
+        [DataField("jobEntity")]
+        public EntProtoId? JobEntity = null;
 
         /// <summary>
         /// Optional canonical humanoid identity applied only while spawning as this job.

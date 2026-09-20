@@ -100,7 +100,7 @@
   components:
   - type: Construction
     graph: ComputerTabletop
-    node: computer
+    node: tabletop computer
   - type: Sprite
     sprite: Structures/Machines/computers.rsi
     layers:

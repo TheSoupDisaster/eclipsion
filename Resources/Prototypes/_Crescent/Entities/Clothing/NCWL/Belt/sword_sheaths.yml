@@ -1,0 +1,61 @@
+- type: entity
+  parent: ClothingBeltSheathDSMSabre
+  id: ClothingBeltSheathNCWLShashka
+  name: communard shashka scabbard
+  description: A reinforced scabbard fitted for a Homeguard boarding shashka.
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: NCWLShashka
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags: [NCWLShashka]
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags: [NCWLShashka]
+
+- type: entity
+  parent: ClothingBeltSheathDSMRapier
+  id: ClothingBeltSheathNCWLEstoc
+  name: communard estoc scabbard
+  description: A reinforced scabbard fitted for a League trench estoc.
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: NCWLEstoc
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags: [NCWLEstoc]
+  - type: ItemMapper
+    mapLayers:
+      sheath-rapier:
+        whitelist:
+          tags: [NCWLEstoc]
+
+- type: entity
+  parent: ClothingBeltSheathNCWLShashka
+  id: ClothingBeltSheathNCWLShashkaFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item: [NCWLShashka]
+
+- type: entity
+  parent: ClothingBeltSheathNCWLEstoc
+  id: ClothingBeltSheathNCWLEstocFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item: [NCWLEstoc]

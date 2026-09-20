@@ -2,7 +2,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Bank.Components;
 
@@ -10,8 +10,8 @@ namespace Content.Shared.Bank.Components;
 
 public sealed partial class StationBankATMComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("cashType", customTypeSerializer:typeof(PrototypeIdSerializer<StackPrototype>))]
-    public string CashType = "Credit";
+    [ViewVariables(VVAccess.ReadWrite), DataField("cashType")]
+    public ProtoId<StackPrototype> CashType = "Credit";
 
     public static string CashSlotSlotId = "station-bank-ATM-cashSlot";
 

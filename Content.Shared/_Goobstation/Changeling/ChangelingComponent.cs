@@ -160,8 +160,7 @@ public sealed partial class ChangelingComponent : Component
     [DataField]
     public TimeSpan AbsorbTime = TimeSpan.FromSeconds(15);
 
-    [ValidatePrototypeId<DamageTypePrototype>]
-    public string AbsorbedDamageType = "Cellular";
+    public ProtoId<DamageTypePrototype> AbsorbedDamageType = "Cellular";
 
     /// <summary>
     ///     What reagent will the changeling replace their SUCC'ed victims blood with.

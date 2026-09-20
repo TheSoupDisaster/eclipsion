@@ -355,6 +355,10 @@ namespace Content.IntegrationTests.Tests
                 "LoadedChunk", // Worldgen chunk loading malding.
                 "BiomeSelection", // Whaddya know, requires config.
                 "ActivatableUI", // Requires enum key
+                "PersistentCaptureRegion", // Crescent: map instances must supply a unique regionId
+                "ProjectilePhasePrevent", // Only valid on an entity that already has ProjectileComponent
+                "HardsuitInjector", // Requires ItemSlots
+                "Skilldeck", // Above.
             };
 
             // TODO TESTS

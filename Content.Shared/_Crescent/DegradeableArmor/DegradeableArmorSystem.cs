@@ -159,7 +159,7 @@ public sealed class DegradeableArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLowerInvariant());
+            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.Id.ToLowerInvariant());
             msg.AddMarkup(Loc.GetString("armor-reduction-value",
                 ("type", armorType),
                 ("value", (int)(flatArmor.Value * GetProtectionFactor(component)))

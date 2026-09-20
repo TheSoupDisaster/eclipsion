@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Construction.Components;
@@ -33,8 +34,7 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
 
     private EntityQuery<BlobCoreComponent> _blobCoreQuery;
 
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string BlobFaction = "Blob";
+    private static readonly ProtoId<NpcFactionPrototype> BlobFaction = "Blob";
 
     public override void Initialize()
     {

@@ -1,4 +1,4 @@
-<controls:FancyWindow xmlns="https://spacestation14.io"
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
@@ -46,7 +46,17 @@
                         RectClipContent="True">
                         <!-- There lives all of technologies -->
                     </goob:ResearchesContainerPanel>
-                    <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 -5"/>
+                    <BoxContainer Name="ViewControls"
+                                  Orientation="Horizontal"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Bottom"
+                                  SeparationOverride="4"
+                                  Margin="5 -5">
+                        <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40"/>
+                        <Button Name="ZoomOutButton" Text="{Loc 'research-console-menu-zoom-out-button'}" ToolTip="{Loc 'research-console-menu-zoom-tooltip'}" MinHeight="40" MinWidth="40"/>
+                        <Label Name="ZoomLabel" MinWidth="52" Align="Center" VerticalAlignment="Center"/>
+                        <Button Name="ZoomInButton" Text="{Loc 'research-console-menu-zoom-in-button'}" ToolTip="{Loc 'research-console-menu-zoom-tooltip'}" MinHeight="40" MinWidth="40"/>
+                    </BoxContainer>
                 </PanelContainer>
             </BoxContainer>
             <PanelContainer SizeFlagsStretchRatio="2">

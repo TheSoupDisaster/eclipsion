@@ -470,9 +470,6 @@ entities:
     - type: RadiationGridResistance
     - type: BecomesStation
       id: Templar
-    - type: CrescentEMPTechnologyTier
-      powerLossMarkiplier: 1.2
-      eMPMultiplier: 0.7
     - type: IFF
       relations: {}
       color: '#F6CE9C9C'

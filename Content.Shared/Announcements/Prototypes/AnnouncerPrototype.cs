@@ -53,8 +53,8 @@ public sealed partial class AnnouncementData
     /// <summary>
     ///    Use a soundCollection instead of a single sound
     /// </summary>
-    [DataField("collection"), ValidatePrototypeId<SoundCollectionPrototype>]
-    public string? Collection;
+    [DataField("collection")]
+    public ProtoId<SoundCollectionPrototype>? Collection;
 
     /// <summary>
     ///     Overrides the default announcement message for this announcement type

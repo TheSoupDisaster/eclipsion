@@ -30,6 +30,9 @@ using Robust.Shared.Utility;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
 
+using Robust.Shared.Prototypes;
+using Content.Shared.Store;
+
 namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevenantSystem
@@ -190,7 +193,7 @@ public sealed partial class RevenantSystem
 
         essence.Harvested = true;
         ChangeEssenceAmount(uid, essence.EssenceAmount, component);
-        _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
+        _store.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
             { {component.StolenEssenceCurrencyPrototype, essence.EssenceAmount} }, uid);
 
         if (!HasComp<MobStateComponent>(args.Args.Target))

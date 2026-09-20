@@ -1,7 +1,8 @@
-using System.Numerics;
+﻿using System.Numerics;
 using Content.Shared._Goobstation.Research;
 using Content.Shared.Research.Prototypes;
 using Robust.Client.Graphics;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._Goobstation.Research.UI;
@@ -13,9 +14,31 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
 {
     private readonly List<PrerequisiteConnectionGroup> _connectionCache = new();
 
+    /// <summary>
+    /// Raised when the player scrolls over the tree, so the menu can zoom.
+    /// </summary>
+    public event Action<GUIMouseWheelEventArgs>? WheelScrolled;
+
+    /// <summary>
+    /// Current zoom of the tree. Node positions are already scaled by the menu, so this only
+    /// keeps the decorations drawn here (padding, arrow heads, routing offsets) in proportion.
+    /// </summary>
+    public float Zoom { get; set; } = 1f;
+
     public ResearchesContainerPanel()
     {
 
+    }
+
+    protected override void MouseWheel(GUIMouseWheelEventArgs args)
+    {
+        base.MouseWheel(args);
+
+        if (args.Delta.Y == 0)
+            return;
+
+        WheelScrolled?.Invoke(args);
+        args.Handle();
     }
 
     /// <summary>
@@ -149,7 +172,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
 
         // Position trunk junction at a reasonable distance from dependent
         var toDependent = (endCoords - avgPos).Normalized();
-        var trunkDistance = Math.Min(80f, (endCoords - avgPos).Length() * 0.6f);
+        var trunkDistance = Math.Min(80f * Zoom, (endCoords - avgPos).Length() * 0.6f);
         var trunkPoint = endCoords - toDependent * trunkDistance;
 
         // Draw clean trunk line from junction to dependent
@@ -197,8 +220,8 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
     /// </summary>
     private void DrawSpreadConnectionWithIndex(DrawingHandleScreen handle, Vector2 start, Vector2 end, Color color, float spreadIndex)
     {
-        const float baseOffset = 20f; // Base offset for separation
-        const float indexMultiplier = 10f; // Additional offset per connection index
+        var baseOffset = 20f * Zoom; // Base offset for separation
+        var indexMultiplier = 10f * Zoom; // Additional offset per connection index
 
         var delta = end - start;
 
@@ -229,7 +252,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
         var distance = delta.Length();
 
         // Avoid very short or overlapping connections
-        if (distance < 10f)
+        if (distance < 10f * Zoom)
             return;
 
         // Use a simple two-segment path for clean appearance
@@ -259,7 +282,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
     /// </summary>
     private void DrawCleanJunctionIndicator(DrawingHandleScreen handle, Vector2 position, Color color)
     {
-        const float size = 2.5f;
+        var size = 2.5f * Zoom;
 
         // Draw a simple small square instead of complex shapes
         var rect = new UIBox2(
@@ -278,7 +301,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
     private void DrawTreeConnection(DrawingHandleScreen handle, Vector2 start, Vector2 end, Vector2 delta, Color color)
     {
         // For single connections, tree style behaves like a clean L-shape
-        const float straightLineThreshold = 15f;
+        var straightLineThreshold = 15f * Zoom;
 
         if (Math.Abs(delta.X) < straightLineThreshold || Math.Abs(delta.Y) < straightLineThreshold)
         {
@@ -392,8 +415,8 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
     /// </summary>
     private void DrawLShapeConnection(DrawingHandleScreen handle, Vector2 start, Vector2 end, Vector2 delta, Color color)
     {
-        const float straightLineThreshold = 15f;
-        const float directDiagonalThreshold = 120f;
+        var straightLineThreshold = 15f * Zoom;
+        var directDiagonalThreshold = 120f * Zoom;
 
         // Check if it's a direct line (same row or column)
         if (Math.Abs(delta.X) < straightLineThreshold) // Same column - direct vertical
@@ -453,7 +476,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
     /// </summary>
     private void DrawSpreadConnection(DrawingHandleScreen handle, Vector2 start, Vector2 end, Vector2 delta, Color color)
     {
-        const float straightLineThreshold = 15f;
+        var straightLineThreshold = 15f * Zoom;
 
         // For very aligned connections, just draw straight
         if (Math.Abs(delta.X) < straightLineThreshold || Math.Abs(delta.Y) < straightLineThreshold)
@@ -463,7 +486,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
         }
 
         // Create angled routing with the bend exactly at the midpoint
-        const float avoidanceDistance = 30f; // Distance to offset the midpoint for collision avoidance
+        var avoidanceDistance = 30f * Zoom; // Distance to offset the midpoint for collision avoidance
 
         // Calculate perpendicular direction for avoidance at midpoint
         var mainAngle = Math.Atan2(delta.Y, delta.X);
@@ -493,7 +516,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
         var position = new Vector2(tech.PixelPosition.X, tech.PixelPosition.Y);
         var size = new Vector2(tech.PixelWidth, tech.PixelHeight);
 
-        var padding = 6f;
+        var padding = 6f * Zoom;
         return new UIBox2(
             position.X + padding,
             position.Y + padding,
@@ -519,7 +542,7 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
     /// <summary>
     /// Makes the left-to-right prerequisite direction explicit without covering the icon.
     /// </summary>
-    private static void DrawArrowHead(
+    private void DrawArrowHead(
         DrawingHandleScreen handle,
         Vector2 previous,
         Vector2 end,
@@ -529,8 +552,8 @@ public sealed partial class ResearchesContainerPanel : LayoutContainer
         if (delta == Vector2.Zero)
             return;
 
-        const float length = 7f;
-        const float width = 3.5f;
+        var length = 7f * Zoom;
+        var width = 3.5f * Zoom;
         var direction = delta.Normalized();
         var perpendicular = new Vector2(-direction.Y, direction.X);
         var arrowBase = end - direction * length;

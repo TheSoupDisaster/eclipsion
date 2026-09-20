@@ -1,13 +1,19 @@
+using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using Content.Server._Crescent.Chat;
+using Content.Shared._Crescent.CCVar;
+using Content.Shared._Crescent.Chat;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chat.Managers;
 
 public sealed class ChatSanitizationManager : IChatSanitizationManager
 {
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private static readonly Dictionary<string, string> SmileyToEmote = new()
     {
@@ -99,10 +105,55 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
     };
 
     private bool _doSanitize;
+    private bool _filterEnabled;
+    private bool _filterProfanity;
+
+    // Crescent - built lazily so it picks up prototypes loaded after Initialize, cleared on prototype reload.
+    private List<ChatFilterMatcher>? _filters;
 
     public void Initialize()
     {
         _configurationManager.OnValueChanged(CCVars.ChatSanitizerEnabled, x => _doSanitize = x, true);
+        _configurationManager.OnValueChanged(RatCCVars.ChatFilterEnabled, x => _filterEnabled = x, true);
+        _configurationManager.OnValueChanged(RatCCVars.ChatFilterProfanity, x => _filterProfanity = x, true);
+
+        _prototypeManager.PrototypesReloaded += args =>
+        {
+            if (args.WasModified<ChatFilterPrototype>())
+                _filters = null;
+        };
+    }
+
+    public bool CheckFilter(string input, [NotNullWhen(true)] out ChatFilterPrototype? filter, [NotNullWhen(true)] out string? match)
+    {
+        filter = null;
+        match = null;
+
+        if (!_filterEnabled || string.IsNullOrWhiteSpace(input))
+            return false;
+
+        _filters ??= _prototypeManager.EnumeratePrototypes<ChatFilterPrototype>()
+            .Select(p => new ChatFilterMatcher(p))
+            // slurs first, so a message with both gets reported as the worse one
+            .OrderByDescending(f => f.Prototype.Severity)
+            .ToList();
+
+        var normalized = ChatFilterMatcher.Normalize(input);
+
+        foreach (var matcher in _filters)
+        {
+            if (matcher.Prototype.Severity == ChatFilterSeverity.Profanity && !_filterProfanity)
+                continue;
+
+            if (matcher.Match(normalized) is not { } found)
+                continue;
+
+            filter = matcher.Prototype;
+            match = found;
+            return true;
+        }
+
+        return false;
     }
 
     public bool TrySanitizeOutSmilies(string input, EntityUid speaker, out string sanitized, [NotNullWhen(true)] out string? emote)

@@ -130,10 +130,10 @@ public sealed partial class DeepFryerSystem
         if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
         {
             HashSet<string> goodFlavors = new(flavorProfileComponent.Flavors);
-            goodFlavors.IntersectWith(component.GoodFlavors);
+            goodFlavors.IntersectWith(component.GoodFlavors.Select(static f => f.Id));
 
             HashSet<string> badFlavors = new(flavorProfileComponent.Flavors);
-            badFlavors.IntersectWith(component.BadFlavors);
+            badFlavors.IntersectWith(component.BadFlavors.Select(static f => f.Id));
 
             deepFriedComponent.PriceCoefficient = Math.Max(0.01f,
                 1.0f

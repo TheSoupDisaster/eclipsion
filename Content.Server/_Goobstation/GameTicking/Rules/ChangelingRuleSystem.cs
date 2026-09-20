@@ -34,7 +34,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
 
-    [ValidatePrototypeId<EntityPrototype>] EntProtoId mindRole = "MindRoleChangeling";
+     EntProtoId mindRole = "MindRoleChangeling";
 
     public override void Initialize()
     {

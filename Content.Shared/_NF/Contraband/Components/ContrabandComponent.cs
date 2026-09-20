@@ -1,6 +1,5 @@
 using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._NF.Contraband.Components;
 
@@ -19,6 +18,6 @@ public sealed partial class ContrabandComponent : Component
     /// <summary>
     /// The currency stack prototype ID to spawn as reward.
     /// </summary>
-    [DataField("currency", customTypeSerializer: typeof(PrototypeIdSerializer<StackPrototype>))]
-    public string Currency = "FrontierUplinkCoin";
+    [DataField("currency")]
+    public ProtoId<StackPrototype> Currency = "FrontierUplinkCoin";
 }

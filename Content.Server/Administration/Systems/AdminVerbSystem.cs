@@ -41,6 +41,10 @@ using Content.Shared.Silicons.Laws.Components;
 using Robust.Server.Player;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
+using Content.Server._Crescent.Administration; // Crescent
+using Content.Shared.Ghost; // Crescent
+using Content.Shared.Mobs.Components; // Crescent
+using System.Diagnostics.CodeAnalysis; // Crescent
 using Content.Shared._Impstation.Thaven.Components; // DeltaV
 using Content.Server._Impstation.Thaven; // DeltaV
 
@@ -278,6 +282,24 @@ namespace Content.Server.Administration.Systems
                         Act = () => _console.ExecuteCommand(player, $"playerpanel \"{targetActor.PlayerSession.UserId}\""),
                         Impact = LogImpact.Low
                     });
+
+                    // Crescent: Return to body - one click undo for players who ghosted by accident.
+                    if (_adminManager.HasAdminFlag(player, PutPlayerInBodyEui.RequiredFlags)
+                        && TryGetReturnBody(targetActor.PlayerSession, out var returnBody))
+                    {
+                        var body = returnBody.Value;
+                        var session = targetActor.PlayerSession;
+
+                        args.Verbs.Add(new Verb
+                        {
+                            Text = Loc.GetString("admin-verbs-return-to-body"),
+                            Message = Loc.GetString("admin-verbs-return-to-body-description", ("body", Name(body))),
+                            Category = VerbCategory.Admin,
+                            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
+                            Act = () => _mindSystem.ControlMob(session.UserId, body),
+                            Impact = LogImpact.High,
+                        });
+                    }
                 }
 
                 // Admin Logs
@@ -345,6 +367,21 @@ namespace Content.Server.Administration.Systems
                     Impact = LogImpact.Low
                 });
 
+                // Crescent: Put any player into this body, so admins don't have to dig up entity uids for setmind.
+                if (_adminManager.HasAdminFlag(player, PutPlayerInBodyEui.RequiredFlags)
+                    && (HasComp<MindContainerComponent>(args.Target) || HasComp<MobStateComponent>(args.Target)))
+                {
+                    args.Verbs.Add(new Verb
+                    {
+                        Text = Loc.GetString("admin-verbs-put-player-in-body"),
+                        Message = Loc.GetString("admin-verbs-put-player-in-body-description"),
+                        Category = VerbCategory.Admin,
+                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/in.svg.192dpi.png")),
+                        Act = () => _eui.OpenEui(new PutPlayerInBodyEui(GetNetEntity(args.Target)), player),
+                        Impact = LogImpact.High,
+                    });
+                }
+
                 if (TryComp<SiliconLawBoundComponent>(args.Target, out var lawBoundComponent))
                 {
                     args.Verbs.Add(new Verb()
@@ -387,6 +424,39 @@ namespace Content.Server.Administration.Systems
             }
         }
                 // End DeltaV Additions
+
+        /// <summary>
+        ///     Crescent: finds the body an admin would most likely want to shove this ghosted player back
+        ///     into, i.e. the last real body they left. Falls back to the entity they started the round in.
+        /// </summary>
+        private bool TryGetReturnBody(ICommonSession session, [NotNullWhen(true)] out EntityUid? body)
+        {
+            body = null;
+
+            if (!_mindSystem.TryGetMind(session, out _, out var mind))
+                return false;
+
+            // Only offer this while the player is actually ghosted. LastOwnedBody keeps pointing at
+            // whatever they left behind - the corpse after cloning, the old shell after being borged -
+            // so without this the verb shows up on a living player and yanks them out of the body
+            // they are currently playing.
+            if (mind.CurrentEntity is not { } current || !HasComp<GhostComponent>(current))
+                return false;
+
+            foreach (var candidate in new[] { mind.LastOwnedBody, mind.OriginalOwnedEntity })
+            {
+                if (candidate == null || !TryGetEntity(candidate.Value, out var uid) || Deleted(uid))
+                    continue;
+
+                if (uid == mind.CurrentEntity || HasComp<GhostComponent>(uid.Value))
+                    continue;
+
+                body = uid;
+                return true;
+            }
+
+            return false;
+        }
 
         private void AddDebugVerbs(GetVerbsEvent<Verb> args)
         {

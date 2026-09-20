@@ -1,8 +1,8 @@
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Xenoarchaeology.Equipment.Components;
 
@@ -28,8 +28,8 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     /// <summary>
     /// Which machine part affects time reduction
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartTimeReduction = "Manipulator";
+    [DataField]
+    public ProtoId<MachinePartPrototype> MachinePartTimeReduction = "Manipulator";
 
     /// <summary>
     /// Seconds removed from the analysis duration for each machine-part tier above one.

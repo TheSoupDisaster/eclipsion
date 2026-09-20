@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server._NF.Smuggling.Components;
 
@@ -43,8 +42,8 @@ public sealed partial class DeadDropComponent : Component
     /// <summary>
     ///     The paper prototype to spawn.
     /// </summary>
-    [DataField("hintPaper", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string HintPaper = "PaperCargoInvoice";
+    [DataField("hintPaper")]
+    public EntProtoId HintPaper = "PaperCargoInvoice";
 
     /// <summary>
     ///     Location of the grid to spawn in as the dead drop.

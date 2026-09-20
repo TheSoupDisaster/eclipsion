@@ -1,5 +1,4 @@
 using System.Numerics;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Crescent.SpaceEvents.Components;
@@ -19,8 +18,8 @@ public sealed partial class AnomalyStationRuleComponent : Component
     [DataField(required: true)]
     public LocId Announcement;
 
-    [DataField("artifactSpawnerPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ArtifactSpawnerPrototype = "RandomArtifactSpawner";
+    [DataField("artifactSpawnerPrototype")]
+    public EntProtoId ArtifactSpawnerPrototype = "RandomArtifactSpawner";
 
     public Vector2 Coordinates;
 }

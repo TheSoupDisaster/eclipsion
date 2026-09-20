@@ -8,6 +8,7 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Mindshield;
 
@@ -22,8 +23,7 @@ public sealed class MindShieldSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
 
-    [ValidatePrototypeId<TagPrototype>]
-    public const string MindShieldTag = "MindShield";
+    public static readonly ProtoId<TagPrototype> MindShieldTag = "MindShield";
 
     public override void Initialize()
     {

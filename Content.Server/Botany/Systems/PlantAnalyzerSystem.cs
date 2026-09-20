@@ -86,7 +86,7 @@ public sealed class PlantAnalyzerSystem : AbstractAnalyzerSystem<PlantAnalyzerCo
                     yield: plantHolder.Seed.ProductPrototypes.Count == 0 ? 0 : BotanySystem.CalculateTotalYield(plantHolder.Seed.Yield, plantHolder.YieldMod),
                     potency: plantHolder.Seed.Potency,
                     chemicals: [.. plantHolder.Seed.Chemicals.Keys],
-                    produce: plantHolder.Seed.ProductPrototypes,
+                    produce: plantHolder.Seed.ProductPrototypes.Select(static p => p.Id).ToList(),
                     exudeGasses: [.. plantHolder.Seed.ExudeGasses.Keys],
                     seedless: plantHolder.Seed.Seedless
                 );
@@ -97,7 +97,7 @@ public sealed class PlantAnalyzerSystem : AbstractAnalyzerSystem<PlantAnalyzerCo
                 toxins: plantHolder.Toxins,
                 pestLevel: plantHolder.PestLevel,
                 weedLevel: plantHolder.WeedLevel,
-                chemicals: plantHolder.SoilSolution?.Comp.Solution.Contents.Select(r => r.Reagent.Prototype).ToList()
+                chemicals: plantHolder.SoilSolution?.Comp.Solution.Contents.Select(r => r.Reagent.Prototype.Id).ToList()
             );
         }
 

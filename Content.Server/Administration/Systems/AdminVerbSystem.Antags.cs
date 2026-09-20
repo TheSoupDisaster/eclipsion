@@ -19,23 +19,17 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultTraitorRule = "Traitor";
+    private static readonly EntProtoId DefaultTraitorRule = "Traitor";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultNukeOpRule = "Traitor";
+    private static readonly EntProtoId DefaultNukeOpRule = "Traitor";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultRevsRule = "Revolutionary";
+    private static readonly EntProtoId DefaultRevsRule = "Revolutionary";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultThiefRule = "Thief";
+    private static readonly EntProtoId DefaultThiefRule = "Thief";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultChangelingRule = "Changeling";
+    private static readonly EntProtoId DefaultChangelingRule = "Changeling";
 
-    [ValidatePrototypeId<StartingGearPrototype>]
-    private const string PirateGearId = "PirateGear";
+    private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)

@@ -315,8 +315,8 @@ public sealed class MaterialArbitrageTest
             foreach (var (id, compositionComponent) in physicalCompositions)
             {
                 // Check cargo sell price
-                var materialPrice = await GetDeconstructedPrice(compositionComponent.MaterialComposition);
-                var chemicalPrice = await GetChemicalCompositionPrice(compositionComponent.ChemicalComposition);
+                var materialPrice = await GetDeconstructedPrice(compositionComponent.MaterialComposition.ToDictionary(static x => x.Key.Id, static x => x.Value));
+                var chemicalPrice = await GetChemicalCompositionPrice(compositionComponent.ChemicalComposition.ToDictionary(static x => x.Key.Id, static x => x.Value));
                 var sumPrice = materialPrice + chemicalPrice;
                 var price = await GetPrice(id);
                 if (sumPrice > 0 && price > 0)

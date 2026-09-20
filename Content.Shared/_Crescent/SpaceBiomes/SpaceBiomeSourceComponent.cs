@@ -1,12 +1,13 @@
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Crescent.SpaceBiomes;
 
 [RegisterComponent, AutoGenerateComponentState]
 public sealed partial class SpaceBiomeSourceComponent : Component
 {
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<SpaceBiomePrototype>)), AutoNetworkedField]
-    public string Biome = "";
+    [DataField(required: true), AutoNetworkedField]
+    public ProtoId<SpaceBiomePrototype> Biome = "";
 
     /// <summary>
     /// Distance at which swap should begin

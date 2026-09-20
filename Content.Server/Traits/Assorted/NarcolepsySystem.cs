@@ -4,6 +4,7 @@ using Content.Shared.Chat;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Traits.Assorted;
@@ -13,8 +14,7 @@ namespace Content.Server.Traits.Assorted;
 /// </summary>
 public sealed class NarcolepsySystem : EntitySystem
 {
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string StatusEffectKey = "ForcedSleep"; // Same one used by N2O and other sleep chems.
+    private static readonly ProtoId<StatusEffectPrototype> StatusEffectKey = "ForcedSleep"; // Same one used by N2O and other sleep chems.
 
     [Dependency] private readonly IChatManager _chatMan = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;

@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using System.Numerics;
 using Content.Server.Body.Components;
 using Content.Server.Botany.Components;
@@ -52,8 +53,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly SharedMindSystem _minds = default!;
 
-        [ValidatePrototypeId<MaterialPrototype>]
-        public const string BiomassPrototype = "Biomass";
+        public static readonly ProtoId<MaterialPrototype> BiomassPrototype = "Biomass";
 
         public override void Update(float frameTime)
         {

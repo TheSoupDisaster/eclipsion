@@ -1,7 +1,7 @@
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Traits.Assorted.Components;
 
@@ -18,14 +18,14 @@ public sealed partial class SelfAwareComponent : Component
     // collection does component.AnalyzableTypes.Clear() before refilling it, and a client builds this component
     // from the network with no YAML behind it - so a null here is a NullReferenceException on the very first
     // state application, which black-screens every client that can see the entity.
-    [DataField(required: true, customTypeSerializer:typeof(PrototypeIdHashSetSerializer<DamageTypePrototype>)), AutoNetworkedField]
-    public HashSet<string> AnalyzableTypes = new();
+    [DataField(required: true), AutoNetworkedField]
+    public HashSet<ProtoId<DamageTypePrototype>> AnalyzableTypes = new();
 
     // <summary>
     //     Damage groups that an entity is able to detect the presence of when they examine themselves.
     // </summary>
-    [DataField(required: true, customTypeSerializer:typeof(PrototypeIdHashSetSerializer<DamageGroupPrototype>)), AutoNetworkedField]
-    public HashSet<string> DetectableGroups = new();
+    [DataField(required: true), AutoNetworkedField]
+    public HashSet<ProtoId<DamageGroupPrototype>> DetectableGroups = new();
 
     // <summary>
     //     The thresholds for determining the examine text of DetectableGroups for certain amounts of damage.

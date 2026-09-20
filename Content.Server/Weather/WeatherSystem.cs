@@ -26,7 +26,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
     private void OnWeatherGetState(EntityUid uid, WeatherComponent component, ref ComponentGetState args)
     {
-        args.State = new WeatherComponentState(component.Weather);
+        args.State = new WeatherComponentState(component.Weather.ToDictionary(static x => x.Key.Id, static x => x.Value));
     }
 
     [AdminCommand(AdminFlags.Fun)]

@@ -20,6 +20,8 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server._Forge.Sponsors; // Forge-Change
 using Content.Shared._Forge.Sponsors; // Forge-Change
+using Content.Shared._Crescent.CCVar; // Crescent
+using Content.Shared._Crescent.Chat; // Crescent
 
 namespace Content.Server.Chat.Managers
 {
@@ -47,6 +49,7 @@ namespace Content.Server.Chat.Managers
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimitManager = default!;
         [Dependency] private readonly SponsorManager _sponsors = default!; // Forge-Change
+        [Dependency] private readonly IChatSanitizationManager _sanitizer = default!; // Crescent
 
         private ISawmill _sawmill = default!;
 
@@ -221,6 +224,10 @@ namespace Content.Server.Chat.Managers
                 return;
             }
 
+            // Crescent - word filter. Admin chat is left alone so admins can quote what got blocked.
+            if (type == OOCChatType.OOC && IsMessageFiltered(player, message))
+                return;
+
             switch (type)
             {
                 case OOCChatType.OOC:
@@ -230,6 +237,31 @@ namespace Content.Server.Chat.Managers
                     SendAdminChat(player, message);
                     break;
             }
+        }
+
+        // Crescent
+        public bool IsMessageFiltered(ICommonSession player, string message)
+        {
+            if (!_sanitizer.CheckFilter(message, out var filter, out var match))
+                return false;
+
+            var slur = filter.Severity == ChatFilterSeverity.Slur;
+
+            DispatchServerMessage(player,
+                Loc.GetString(slur ? "chat-filter-blocked-slur" : "chat-filter-blocked-profanity"),
+                suppressLog: true);
+
+            _adminLogger.Add(LogType.Chat, slur ? LogImpact.High : LogImpact.Low,
+                $"Chat filter ({filter.ID}, matched \"{match}\") blocked message from {player:Player}: {message}");
+
+            if (slur && _configurationManager.GetCVar(RatCCVars.ChatFilterAdminAlert))
+            {
+                SendAdminAlert(Loc.GetString("chat-filter-admin-alert",
+                    ("player", player.Name),
+                    ("message", message)));
+            }
+
+            return true;
         }
 
         #endregion

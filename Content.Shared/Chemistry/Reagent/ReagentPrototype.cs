@@ -1,3 +1,4 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using System.Collections.Frozen;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -14,8 +15,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Chemistry.Reagent

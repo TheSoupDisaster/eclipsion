@@ -1,5 +1,5 @@
+using System.Linq;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Random;
 
@@ -12,6 +12,18 @@ public sealed partial class WeightedRandomEntityPrototype : IWeightedRandomProto
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("weights", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, EntityPrototype>))]
-    public Dictionary<string, float> Weights { get; private set; } = new();
+    [DataField("weights")]
+    public Dictionary<EntProtoId, float> Weights { get; private set; } = new();
+
+    private Dictionary<string, float>? _untypedWeights;
+
+    /// <remarks>
+    ///     Projects the validated, prototype-typed weights onto the untyped dictionary
+    ///     <see cref="IWeightedRandomPrototype"/> exposes. Prototype ids are strings at
+    ///     runtime, so the projection is purely a type change. It is built once per instance
+    ///     rather than per access; reloading a prototype builds a new instance, so the cached
+    ///     projection cannot go stale.
+    /// </remarks>
+    Dictionary<string, float> IWeightedRandomPrototype.Weights =>
+        _untypedWeights ??= Weights.ToDictionary(static pair => pair.Key.Id, static pair => pair.Value);
 }

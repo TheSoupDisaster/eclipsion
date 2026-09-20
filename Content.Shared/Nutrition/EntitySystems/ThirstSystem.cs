@@ -24,14 +24,11 @@ public sealed class ThirstSystem : EntitySystem
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
 
-    [ValidatePrototypeId<SatiationIconPrototype>]
-    private const string ThirstIconOverhydratedId = "ThirstIconOverhydrated";
+    private static readonly ProtoId<SatiationIconPrototype> ThirstIconOverhydratedId = "ThirstIconOverhydrated";
 
-    [ValidatePrototypeId<SatiationIconPrototype>]
-    private const string ThirstIconThirstyId = "ThirstIconThirsty";
+    private static readonly ProtoId<SatiationIconPrototype> ThirstIconThirstyId = "ThirstIconThirsty";
 
-    [ValidatePrototypeId<SatiationIconPrototype>]
-    private const string ThirstIconParchedId = "ThirstIconParched";
+    private static readonly ProtoId<SatiationIconPrototype> ThirstIconParchedId = "ThirstIconParched";
 
     private SatiationIconPrototype? _thirstIconOverhydrated = null;
     private SatiationIconPrototype? _thirstIconThirsty = null;

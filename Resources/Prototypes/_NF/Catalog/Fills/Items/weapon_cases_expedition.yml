@@ -368,6 +368,9 @@
   suffix: Dungeon, RPG
   categories: [ HideSpawnMenu ]
   components:
+  - type: Storage
+    grid:
+    - 0,0,5,6
   - type: StorageFill
     contents:
     - id: WeaponLauncherRocket

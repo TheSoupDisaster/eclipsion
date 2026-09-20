@@ -1,5 +1,5 @@
 using Content.Shared.Shipyard.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Shipyard.Components;
 
@@ -12,8 +12,8 @@ public sealed partial class ShipyardListingComponent : Component
     /// <summary>
     ///   All VesselPrototype IDs that should be listed in this shipyard console.
     /// </summary>
-    [ViewVariables, DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<VesselPrototype>))]
-    public List<string> Shuttles = new();
+    [ViewVariables, DataField]
+    public List<ProtoId<VesselPrototype>> Shuttles = new();
 
     [ViewVariables, DataField]
     public Color? IffColor;

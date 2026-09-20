@@ -3,7 +3,6 @@ using Content.Shared.Antag;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Goobstation.Blob.Components;
 
@@ -26,8 +25,8 @@ public sealed partial class BlobCarrierComponent : Component
     public float TransformationTimer = 0;
 
     [ViewVariables(VVAccess.ReadWrite),
-     DataField("corePrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string CoreBlobPrototype = "CoreBlobTile";
+     DataField("corePrototype")]
+    public EntProtoId CoreBlobPrototype = "CoreBlobTile";
 
     public EntityUid? TransformToBlob = null;
 }

@@ -1,8 +1,8 @@
 ﻿using Content.Shared.Anomaly;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 
 namespace Content.Server.Anomaly.Components;
@@ -59,8 +59,8 @@ public sealed partial class AnomalyVesselComponent : Component
     /// <summary>
     ///     Which machine part affects the point multiplier
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartPointMultiplier = "Capacitor";
+    [DataField]
+    public ProtoId<MachinePartPrototype> MachinePartPointMultiplier = "Capacitor";
 
     /// <summary>
     /// The maximum time between each beep

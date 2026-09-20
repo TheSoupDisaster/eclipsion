@@ -2,8 +2,6 @@
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Shared._Impstation.Thaven;
 
@@ -27,9 +25,9 @@ public partial class ThavenMood
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
     public string MoodDesc = string.Empty;
 
-    [DataField(serverOnly: true, customTypeSerializer: typeof(PrototypeIdHashSetSerializer<ThavenMoodPrototype>))]
+    [DataField(serverOnly: true)]
     [ViewVariables(VVAccess.ReadWrite)]
-    public HashSet<string> Conflicts = new();
+    public HashSet<ProtoId<ThavenMoodPrototype>> Conflicts = new();
 
     /// <summary>
     /// Additional localized words for the <see cref="MoodDesc"/>, for things like random
@@ -71,15 +69,15 @@ public sealed partial class ThavenMoodPrototype : IPrototype
     /// <summary>
     /// A list of mood IDs that this mood will conflict with.
     /// </summary>
-    [DataField("conflicts", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<ThavenMoodPrototype>))]
-    public HashSet<string> Conflicts = new();
+    [DataField("conflicts")]
+    public HashSet<ProtoId<ThavenMoodPrototype>> Conflicts = new();
 
     /// <summary>
     /// Extra mood variables that will be randomly chosen and provided
     /// to the <see cref="Loc.GetString"/> call on <see cref="ThavenMood.MoodDesc"/>.
     /// </summary>
-    [DataField("moodVars", customTypeSerializer: typeof(PrototypeIdValueDictionarySerializer<string, DatasetPrototype>))]
-    public Dictionary<string, string> MoodVarDatasets = new();
+    [DataField("moodVars")]
+    public Dictionary<string, ProtoId<DatasetPrototype>> MoodVarDatasets = new();
 
     /// <summary>
     /// If false, prevents the same variable from being rolled twice when rolling

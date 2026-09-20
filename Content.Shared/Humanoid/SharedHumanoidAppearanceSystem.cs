@@ -44,17 +44,13 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!;
 
-    [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
 
-    [ValidatePrototypeId<EmployerPrototype>]
-    public const string DefaultEmployer = "NanoTrasen";
+    public static readonly ProtoId<EmployerPrototype> DefaultEmployer = "NanoTrasen";
 
-    [ValidatePrototypeId<NationalityPrototype>]
-    public const string DefaultNationality = "Bieselite";
+    public static readonly ProtoId<NationalityPrototype> DefaultNationality = "Bieselite";
 
-    [ValidatePrototypeId<LifepathPrototype>]
-    public const string DefaultLifepath = "Spacer";
+    public static readonly ProtoId<LifepathPrototype> DefaultLifepath = "Spacer";
 
 
     public override void Initialize()

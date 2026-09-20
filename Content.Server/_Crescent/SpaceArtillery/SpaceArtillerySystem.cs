@@ -335,7 +335,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
 
         // validate stack prototypes
         if (!TryComp<StackComponent>(component.CoolantSlot.ContainerSlot.ContainedEntity, out var stackComponent) ||
-                stackComponent.StackTypeId == null)
+                stackComponent.StackTypeId.Id == null)
         {
             return;
         }

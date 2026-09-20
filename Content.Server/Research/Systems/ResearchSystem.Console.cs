@@ -94,7 +94,7 @@ public sealed partial class ResearchSystem
             if (clientComponent.ConnectedToServer &&
                 TryComp<TechnologyDatabaseComponent>(clientComponent.Server, out var database))
             {
-                var unlocked = new HashSet<string>(database.UnlockedTechnologies);
+                var unlocked = new HashSet<string>(database.UnlockedTechnologies.Select(static t => t.Id));
                 var disciplineTiers = GetDisciplineTiers(database);
 
                 researches = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>()

@@ -32,8 +32,7 @@ public abstract class SharedBlobMobSystem : EntitySystem
     private void OnGetDefaultRadioChannel(Entity<BlobSpeakComponent> ent, ref GetDefaultRadioChannelEvent args) => args.Channel = ent.Comp.Channel;
 
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string HealEffect = "EffectHealPlusTripleYellow";
+    private static readonly EntProtoId HealEffect = "EffectHealPlusTripleYellow";
 
     private void OnPulse(BlobMobGetPulseEvent ev)
     {

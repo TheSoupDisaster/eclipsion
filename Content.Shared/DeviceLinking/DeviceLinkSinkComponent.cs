@@ -1,5 +1,5 @@
 ﻿using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.DeviceLinking;
 
@@ -10,8 +10,8 @@ public sealed partial class DeviceLinkSinkComponent : Component
     /// <summary>
     /// The ports this sink has
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<SinkPortPrototype>))]
-    public HashSet<string>? Ports;
+    [DataField]
+    public HashSet<ProtoId<SinkPortPrototype>>? Ports;
 
     /// <summary>
     /// Used for removing a sink from all linked sources when it gets removed

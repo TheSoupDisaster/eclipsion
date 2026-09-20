@@ -4,7 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Overlays;
+using Robust.Shared.Prototypes;
 using Robust.Client.Player;
 using Robust.Shared.Console;
 using System.Linq;
@@ -40,7 +42,7 @@ public sealed class ShowHealthBarsCommand : LocalizedCommands
         {
             var showHealthBarsComponent = new ShowHealthBarsComponent
             {
-                DamageContainers = args.ToList(),
+                DamageContainers = args.Select(static a => new ProtoId<DamageContainerPrototype>(a)).ToList(),
                 HealthStatusIcon = "",
                 NetSyncEnabled = false
             };

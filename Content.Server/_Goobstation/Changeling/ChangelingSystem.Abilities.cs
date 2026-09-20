@@ -26,6 +26,8 @@ using Content.Shared.Overlays.Switchable;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 
+using Content.Shared.Store;
+
 namespace Content.Server.Changeling;
 
 public sealed partial class ChangelingSystem
@@ -197,7 +199,7 @@ public sealed partial class ChangelingSystem
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
+            _store.TryAddCurrency(new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
             _store.UpdateUserInterface(args.User, args.User, store);
         }
 

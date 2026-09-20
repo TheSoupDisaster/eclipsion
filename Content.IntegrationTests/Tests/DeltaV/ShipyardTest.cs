@@ -2,6 +2,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Shipyard;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Shipyard.Prototypes;
+using Content.Shared._Crescent.DroneControl;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -60,8 +61,9 @@ public sealed class ShipyardTest
                     var shuttle = shipyard.TryCreateShuttle(vessel.Path.ToString());
                     Assert.That(shuttle, Is.Not.Null, $"Failed to spawn shuttle {vessel.ID}!");
 
-                    var console = FindComponent<ShuttleConsoleComponent>(entities, shuttle.Value);
-                    Assert.That(console, Is.True, $"Shuttle {vessel.ID} had no shuttle console!");
+                    var console = FindComponent<ShuttleConsoleComponent>(entities, shuttle.Value)
+                                  || FindComponent<DroneControlComponent>(entities, shuttle.Value);
+                    Assert.That(console, Is.True, $"Shuttle {vessel.ID} had no shuttle console or drone control!");
 
                     var dock = FindComponent<DockingComponent>(entities, shuttle.Value);
                     Assert.That(dock, Is.True, $"Shuttle {vessel.ID} had no shuttle dock!");

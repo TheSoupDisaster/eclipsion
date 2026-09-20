@@ -1,8 +1,12 @@
-research-console-unlocks-text = Unlocked recipes:
+﻿research-console-unlocks-text = Unlocked recipes:
 research-console-required-text = Prerequisites:
 research-console-no-tech-requirements = [color=green]This technology has no prerequisites![/color]
 research-console-menu-recenter-button = Recenter
 research-console-menu-server-researched-button = Researched
+research-console-menu-zoom-in-button = +
+research-console-menu-zoom-out-button = -
+research-console-menu-zoom-label = { $percent }%
+research-console-menu-zoom-tooltip = Scroll over the tree to zoom in and out.
 research-console-tech-cost-label = { $cost } R.P.
 research-console-tree-section-faction = Faction research
 research-console-tree-section-civilian = Civilian research

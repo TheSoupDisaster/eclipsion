@@ -28,6 +28,7 @@ using Content.Shared.Wires;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -58,8 +59,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
 
-    [ValidatePrototypeId<JobPrototype>]
-    public const string BorgJobId = "Borg";
+    public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 
     /// <inheritdoc/>
     public override void Initialize()

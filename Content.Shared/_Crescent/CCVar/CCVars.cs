@@ -57,5 +57,24 @@ namespace Content.Shared._Crescent.CCVar
         /// </summary>
         public static readonly CVarDef<bool> FactionBalanceAdminBypass =
             CVarDef.Create("game.faction_balance_admin_bypass", true, CVar.SERVERONLY | CVar.ARCHIVE);
+
+        /// <summary>
+        /// Master switch for the chat word filter (see chatFilter prototypes).
+        /// Deliberately not ARCHIVE: an admin can switch it off for the round, but it is always back on next restart.
+        /// </summary>
+        public static readonly CVarDef<bool> ChatFilterEnabled =
+            CVarDef.Create("chat.filter_enabled", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether Profanity-severity filters block messages. Slur filters are always applied while the filter is enabled.
+        /// </summary>
+        public static readonly CVarDef<bool> ChatFilterProfanity =
+            CVarDef.Create("chat.filter_profanity", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether online admins are alerted when a message is blocked for containing a slur.
+        /// </summary>
+        public static readonly CVarDef<bool> ChatFilterAdminAlert =
+            CVarDef.Create("chat.filter_admin_alert", true, CVar.SERVERONLY);
     }
 }

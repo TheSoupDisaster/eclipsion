@@ -6,6 +6,9 @@ using Content.Shared.Administration;
 using Content.Shared.Store.Components;
 using Robust.Shared.Console;
 
+using Robust.Shared.Prototypes;
+using Content.Shared.Store;
+
 namespace Content.Server.Store.Systems;
 
 public sealed partial class StoreSystem
@@ -36,7 +39,7 @@ public sealed partial class StoreSystem
         if (!TryComp<StoreComponent>(uid, out var store))
             return;
 
-        var currency = new Dictionary<string, FixedPoint2>
+        var currency = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
         {
             { args[1], id }
         };

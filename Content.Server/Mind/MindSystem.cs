@@ -225,6 +225,11 @@ public sealed class MindSystem : SharedMindSystem
         }
 
         var oldEntity = mind.OwnedEntity;
+
+        // Crescent: remember the body we're leaving so admins have something to put the player back into.
+        if (oldEntity != null && !HasComp<GhostComponent>(oldEntity.Value))
+            mind.LastOwnedBody = GetNetEntity(oldEntity.Value);
+
         if (TryComp(oldEntity, out MindContainerComponent? oldContainer))
         {
             oldContainer.Mind = null;

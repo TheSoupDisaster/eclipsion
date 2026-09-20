@@ -9,6 +9,7 @@ using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Labels
 {
@@ -24,8 +25,7 @@ namespace Content.Server.Labels
         [Dependency] private readonly TagSystem _tagSystem = default!;
 
         public const string ContainerName = "paper_label";
-        [ValidatePrototypeId<TagPrototype>]
-        private const string PreventTag = "PreventLabel";
+        private static readonly ProtoId<TagPrototype> PreventTag = "PreventLabel";
 
         public override void Initialize()
         {

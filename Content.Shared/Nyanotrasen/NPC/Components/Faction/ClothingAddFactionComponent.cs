@@ -1,5 +1,5 @@
 using Content.Shared.NPC.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 
 namespace Content.Shared.Nyanotrasen.NPC.Components.Faction
@@ -16,7 +16,7 @@ namespace Content.Shared.Nyanotrasen.NPC.Components.Faction
         /// Faction added
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite),
-         DataField("faction", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<NpcFactionPrototype>))]
-        public string Faction = "";
+         DataField("faction", required: true)]
+        public ProtoId<NpcFactionPrototype> Faction = "";
     }
 }

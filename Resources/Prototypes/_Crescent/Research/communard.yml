@@ -277,6 +277,10 @@
   recipeUnlocks:
   - NCWLKukri
   - ClothingBeltSheathNCWLKukri
+  - NCWLShashka
+  - ClothingBeltSheathNCWLShashka
+  - NCWLEstoc
+  - ClothingBeltSheathNCWLEstoc
 
 - type: technology
   id: NCWLCraftingComponents

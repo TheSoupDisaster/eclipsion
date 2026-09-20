@@ -900,6 +900,10 @@
       - ClothingOuterHardsuitNCWLJuggernaut
       - NCWLKukri
       - ClothingBeltSheathNCWLKukri
+      - NCWLShashka
+      - ClothingBeltSheathNCWLShashka
+      - NCWLEstoc
+      - ClothingBeltSheathNCWLEstoc
       # NCWL end
       - ClothingUniformJumpsuitExecutiveShinoharaSuit
       - ClothingUniformJumpsuitShinoharaLogistics
@@ -2472,6 +2476,10 @@
       - WeaponLauncherGM94
       - NCWLKukri
       - ClothingBeltSheathNCWLKukri
+      - NCWLShashka
+      - ClothingBeltSheathNCWLShashka
+      - NCWLEstoc
+      - ClothingBeltSheathNCWLEstoc
       - TubeLoaderNCWL
       # Component feedstock. Most of the guns and gear above are priced in BasicMechatronics or
       # BasicElectronics, and there is no research server on the surface to unlock the recipes that make

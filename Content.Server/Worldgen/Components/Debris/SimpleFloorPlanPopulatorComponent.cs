@@ -4,7 +4,6 @@ using Content.Server.Worldgen.Tools;
 using Content.Shared.Maps;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Server.Worldgen.Components.Debris;
 
@@ -20,17 +19,15 @@ public sealed partial class SimpleFloorPlanPopulatorComponent : Component
     /// <summary>
     ///     The prototype facing floor plan populator entries.
     /// </summary>
-    [DataField("entries", required: true,
-        customTypeSerializer: typeof(PrototypeIdDictionarySerializer<List<EntitySpawnEntry>, ContentTileDefinition>))]
-    private Dictionary<string, List<EntitySpawnEntry>> _entries = default!;
+    [DataField("entries", required: true)]
+    private Dictionary<ProtoId<ContentTileDefinition>, List<EntitySpawnEntry>> _entries = default!;
 
     /// <summary>
     ///     Entities that must be placed on distinct tiles before the random population pass.
     ///     Reserved tiles are skipped by the random entries so guaranteed floor features stay accessible.
     /// </summary>
-    [DataField("guaranteedSpawns",
-        customTypeSerializer: typeof(PrototypeIdDictionarySerializer<List<EntProtoId>, ContentTileDefinition>))]
-    public Dictionary<string, List<EntProtoId>> GuaranteedSpawns { get; private set; } = new();
+    [DataField("guaranteedSpawns")]
+    public Dictionary<ProtoId<ContentTileDefinition>, List<EntProtoId>> GuaranteedSpawns { get; private set; } = new();
 
     /// <summary>
     ///     The spawn collections used to place entities on different tile types.

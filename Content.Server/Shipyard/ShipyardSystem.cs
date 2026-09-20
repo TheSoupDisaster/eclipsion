@@ -8,6 +8,7 @@ using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 
@@ -27,8 +28,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
-    [ValidatePrototypeId<TagPrototype>]
-    public string DockTag = "DockShipyard";
+    public ProtoId<TagPrototype> DockTag = "DockShipyard";
 
     public bool Enabled;
 

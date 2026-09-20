@@ -55,3 +55,7 @@
       id: LoadoutBeltSheathNCWLKukri
     - type: loadout
       id: LoadoutBeltSheathSRMDuelingKhopesh
+    - type: loadout
+      id: LoadoutBeltSheathNCWLShashka
+    - type: loadout
+      id: LoadoutBeltSheathNCWLEstoc

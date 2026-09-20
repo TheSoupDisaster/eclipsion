@@ -70,3 +70,39 @@
       group: LoadoutBelt
     - !type:CharacterJobRequirement
       jobs: []
+
+- type: loadout
+  id: LoadoutBeltSheathNCWLShashka
+  category: Belt
+  cost: 0
+  items:
+    - ClothingBeltSheathNCWLShashkaFilled
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutBelt
+    - !type:CharacterJobRequirement
+      jobs:
+        - CommandantNCWL
+        - KommissarNCWL
+        - MVDOfficerNCWL
+        - MVDGruntNCWL
+        - FleetkapitanNCWL
+        - PartisanNCWL
+
+- type: loadout
+  id: LoadoutBeltSheathNCWLEstoc
+  category: Belt
+  cost: 0
+  items:
+    - ClothingBeltSheathNCWLEstocFilled
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutBelt
+    - !type:CharacterJobRequirement
+      jobs:
+        - CommandantNCWL
+        - KommissarNCWL
+        - MVDOfficerNCWL
+        - MVDGruntNCWL
+        - FleetkapitanNCWL
+        - PartisanNCWL

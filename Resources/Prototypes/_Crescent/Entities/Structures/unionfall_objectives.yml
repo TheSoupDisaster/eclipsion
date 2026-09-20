@@ -133,11 +133,14 @@
         layer:
         - MachineLayer
         density: 1000
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: UnionfallClonerDatabase
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3000
+        damage: 15000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -221,11 +224,14 @@
         layer:
         - MachineLayer
         density: 1000
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: UnionfallClonerDatabase
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 3000
+        damage: 15000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -319,3 +325,15 @@
   - type: Appearance
   - type: UnionfallAnnouncer
     gracePeriod: 600
+# Cloner databases are the main objective, so they should not melt to EMP/shock weaponry.
+- type: damageModifierSet
+  id: UnionfallClonerDatabase
+  coefficients:
+    Blunt: 0.7
+    Slash: 0.5
+    Piercing: 0.7
+    Shock: 0.05
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+    Shock: 50

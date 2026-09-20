@@ -1,0 +1,55 @@
+# Inherit combat statistics so each League blade stays matched to its noble counterpart.
+- type: entity
+  parent: DSMSabre
+  id: NCWLShashka
+  name: communard boarding shashka
+  description: A red-wrapped boarding sword with a blackened steel guard, forged for the League's Homeguard. Its sweeping cuts answer the noble sabre without a fleck of gold or a pedigree.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Objects/Weapons/Melee/ncwl_shashka.rsi
+    state: icon
+  - type: Item
+    sprite: _Crescent/Objects/Weapons/Melee/ncwl_shashka.rsi
+  - type: MeleeWeapon
+    animation: WeaponArcSlash
+    wideAnimation: WeaponArcSlash
+  - type: Tag
+    tags:
+    - NCWLShashka
+  - type: ReverseEngineering
+    recipes:
+    - NCWLShashka
+    - ClothingBeltSheathNCWLShashka
+    - NCWLEstoc
+    - ClothingBeltSheathNCWLEstoc
+
+- type: entity
+  parent: DSMRapier
+  id: NCWLEstoc
+  name: communard trench estoc
+  description: A narrow thrusting sword with a riveted steel guard and a red-wrapped grip. League workshops built it to meet Imperial duelists point for point, with a direct soldier's thrust.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Objects/Weapons/Melee/ncwl_estoc.rsi
+    state: icon
+  - type: Item
+    sprite: _Crescent/Objects/Weapons/Melee/ncwl_estoc.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    wideAnimation: WeaponArcThrust
+  - type: Tag
+    tags:
+    - NCWLEstoc
+  - type: ReverseEngineering
+    recipes:
+    - NCWLShashka
+    - ClothingBeltSheathNCWLShashka
+    - NCWLEstoc
+    - ClothingBeltSheathNCWLEstoc
+
+- type: Tag
+  id: NCWLShashka
+
+- type: Tag
+  id: NCWLEstoc

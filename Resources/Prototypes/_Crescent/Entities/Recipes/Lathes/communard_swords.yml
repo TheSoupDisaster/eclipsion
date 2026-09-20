@@ -1,0 +1,33 @@
+- type: latheRecipe
+  id: NCWLShashka
+  category: Weapons
+  result: NCWLShashka
+  completetime: 2
+  materials:
+    Steel: 1500
+    Tungsten: 1000
+
+- type: latheRecipe
+  id: NCWLEstoc
+  category: Weapons
+  result: NCWLEstoc
+  completetime: 2
+  materials:
+    Steel: 1500
+    Tungsten: 1000
+
+- type: latheRecipe
+  id: ClothingBeltSheathNCWLShashka
+  category: Clothing
+  result: ClothingBeltSheathNCWLShashka
+  completetime: 2
+  materials:
+    Cloth: 750
+
+- type: latheRecipe
+  id: ClothingBeltSheathNCWLEstoc
+  category: Clothing
+  result: ClothingBeltSheathNCWLEstoc
+  completetime: 2
+  materials:
+    Cloth: 750

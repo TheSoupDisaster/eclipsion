@@ -61,3 +61,12 @@
 - type: tileAlias
   id: FloorPlanetAsphalt
   target: FloorAsphalt
+
+# Blood cult tiles are disabled (WhiteDream/tiles.yml); keep old maps loading
+- type: tileAlias
+  id: CultFloorConcealed
+  target: FloorSteel
+
+- type: tileAlias
+  id: CultFloor
+  target: FloorDark

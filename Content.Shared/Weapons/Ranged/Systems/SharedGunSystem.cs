@@ -740,6 +740,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                             if (!ev.Reflected)
                                 break;
 
+                            // A reflected beam no longer ends on the entity that reflected it.
+                            lastHit = null;
                             fromEffect = Transform(hit).Coordinates;
                             from = fromEffect.ToMap(EntityManager, TransformSystem);
                             dir = ev.Direction;

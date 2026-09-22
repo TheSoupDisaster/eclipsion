@@ -828,7 +828,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var entityWasNotDead = !_mobState.IsDead(entity);
             var entityWasNotIncap = !_mobState.IsIncapacitated(entity);
 
-            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier);
+            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: GetResistanceBypass(meleeUid, user, component), partMultiplier: component.HeavyPartDamageMultiplier);
 
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);

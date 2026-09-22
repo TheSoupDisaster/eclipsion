@@ -1,0 +1,103 @@
+- type: humanoidProfile
+  id: AlbertWesker
+  profile:
+    name: Albert Wesker
+    species: Human
+    age: 48
+    sex: Male
+    gender: Male
+    appearance:
+      hair: HumanHairGelled
+      hairColor: "#D8C27E"
+      facialHair: FacialHairShaved
+      eyeColor: "#D1301B"
+      skinColor: "#E3BFA0"
+
+- type: startingGear
+  id: AlbertWeskerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    outerClothing: ClothingOuterCoatTrench
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesBootsJack
+
+- type: entity
+  parent: MobHuman
+  id: MobAlbertWesker
+  name: Albert Wesker
+  description: Seven minutes. Seven minutes is all I can spare to play with you.
+  components:
+  - type: HumanoidAppearance
+    species: Human
+    initial: AlbertWesker
+  - type: GhostRole
+    name: ghost-role-information-albert-wesker-name
+    description: ghost-role-information-albert-wesker-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [ AlbertWeskerGear ]
+  - type: WeskerDodge
+  # Three and a half times a normal human, and he stays fast while hurt.
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Critical
+      700: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      250: 0.9
+      400: 0.8
+  # Vacuum, heat and cold do nothing to him, and he has no use for air.
+  - type: PressureImmunity
+  - type: MovedByPressure
+    enabled: false
+  - type: BreathingImmunity
+  - type: Temperature
+    heatDamageThreshold: 5000
+    coldDamageThreshold: 0
+  - type: Flammable
+    damage:
+      types:
+        Heat: 0
+  # Fists that go straight through armour: every hit ignores resistances.
+  # 80 per light punch, 104 per heavy - two or three hits kill (death at 200).
+  - type: MeleeWeapon
+    attackRate: 1.2
+    resistanceBypass: true
+    heavyDamageBaseModifier: 1.3
+    damage:
+      types:
+        Blunt: 40
+        Slash: 15
+        Piercing: 15
+        Heat: 10
+
+- type: entity
+  id: EffectWeskerDodge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 2
+    color: "#D1301B"
+  - type: LightFade
+    duration: 0.3
+  - type: TimedDespawn
+    lifetime: 0.3
+
+# Only Wesker's dodge triggers this one, so it stays out of everyone else's emote menu.
+- type: emote
+  id: WeskerFingerWag
+  name: chat-emote-name-wesker-finger-wag
+  category: Hands
+  available: false
+  chatMessages:
+  - chat-emote-msg-wesker-finger-wag-1
+  - chat-emote-msg-wesker-finger-wag-2
+  - chat-emote-msg-wesker-finger-wag-3

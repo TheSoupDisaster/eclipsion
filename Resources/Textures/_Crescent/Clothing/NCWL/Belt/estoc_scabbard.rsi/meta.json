@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made for Encore. Hilts taken from the Encore Communard swords. Belt strap pixels and placement adapted from the Sector Crescent / Hullrot sabre scabbard.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sheath"
+    },
+    {
+      "name": "sheathed"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "sheathed-equipped-BELT",
+      "directions": 4
+    }
+  ]
+}

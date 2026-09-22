@@ -677,7 +677,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!TryComp(user, out TransformComponent? userXform))
             return false;
 
-        var targetMap = TransformSystem.ToMapCoordinates(GetCoordinates(ev.Coordinates));
+        // _Crescent: the client can reference net entities the server can no longer resolve, e.g. a grid
+        // that was deleted or that left their PVS mid-swing. Those resolve to EntityUid.Invalid and then
+        // error out inside ToMapCoordinates. Reject the swing instead of passing an invalid uid onwards.
+        var targetCoords = GetCoordinates(ev.Coordinates);
+
+        if (!targetCoords.IsValid(EntityManager))
+            return false;
+
+        var targetMap = TransformSystem.ToMapCoordinates(targetCoords);
 
         if (targetMap.MapId != userXform.MapID)
             return false;
@@ -690,7 +698,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var distance = Math.Min(component.Range * component.HeavyRangeModifier, direction.Length());
 
         var damage = GetDamage(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
-        var entities = GetEntityList(ev.Entities);
+        // _Crescent: as above - unresolvable targets become EntityUid.Invalid and make ArcRaySuccessful ->
+        // InRangeUnobstructed log a resolve error per target per swing. Filter them out up front.
+        var entities = new List<EntityUid>(ev.Entities.Count);
+
+        foreach (var netEntity in ev.Entities)
+        {
+            if (TryGetEntity(netEntity, out var entity))
+                entities.Add(entity.Value);
+        }
 
         if (entities.Count == 0)
         {

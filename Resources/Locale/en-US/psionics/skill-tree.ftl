@@ -96,6 +96,12 @@ psionic-skill-armor-reweave-description = Wind your worn armour back to the cond
 psionic-skill-recurrence-pulse-name = Recurrence Pulse
 psionic-skill-recurrence-pulse-description = Collapse your stasis fields and give back every moment they held at once. Anything caught is hurled back down the path it arrived on, and returned rounds answer to you.
 
+command-make-psionic-description = Makes a target psionic from scratch, as a Latent Psychic: no powers, level one, one point to spend.
+command-make-psionic-help = Usage: makepsionic [player name or entity id]. With no arguments, makes yourself psionic.
+command-make-psionic-already = {$target} is already psionic - level {$level} with {$points} point(s).
+command-make-psionic-granted = {$target} is now a latent psychic at level {$level} with {$points} point(s) to spend.
+command-make-psionic-granted-demindbroken = {$target} is now a latent psychic at level {$level} with {$points} point(s) to spend. Their mindbreaking was undone to get there.
+
 command-grant-psionic-level-description = Grants one or more psionic levels and development points.
 command-grant-psionic-level-help = Usage: grantpsioniclevel [player name or entity id] [amount]. With no arguments, grants one level to yourself.
 command-grant-psionic-level-invalid-amount = The amount must be a positive integer.

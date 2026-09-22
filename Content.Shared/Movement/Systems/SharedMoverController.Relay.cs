@@ -95,5 +95,17 @@ public abstract partial class SharedMoverController
 
         if (TryComp(entity.Comp.Source, out RelayInputMoverComponent? relay) && relay.LifeStage <= ComponentLifeStage.Running)
             RemComp(entity.Comp.Source, relay);
+
+        // _Crescent: while a relay is active, HandleMobMovement copies the source's RelativeEntity onto this
+        // mover every tick, and TryUpdateRelative only runs on the non-relay path. So once the relay ends the
+        // copied value is frozen until this entity next changes parent. If the grid it points at gets deleted
+        // first, the mover keeps a dangling reference and OnMoverGetState logs a resolve error every time PVS
+        // serializes it. Re-derive it from our own transform on the way out.
+        if (MoverQuery.TryGetComponent(entity.Owner, out var mover)
+            && XformQuery.TryGetComponent(entity.Owner, out var xform)
+            && TryUpdateRelative(mover, xform))
+        {
+            Dirty(entity.Owner, mover);
+        }
     }
 }

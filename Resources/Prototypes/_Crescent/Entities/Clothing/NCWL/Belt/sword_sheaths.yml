@@ -1,9 +1,16 @@
 - type: entity
-  parent: ClothingBeltSheathDSMSabre
+  parent: [ClothingBeltBase, ClothingSlotBase]
   id: ClothingBeltSheathNCWLShashka
   name: communard shashka scabbard
-  description: A reinforced scabbard fitted for a Homeguard boarding shashka.
+  description: A curved charcoal-leather scabbard with red bindings and a reinforced steel tip. Built to carry a Homeguard boarding shashka on a short belt suspension.
   components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/NCWL/Belt/shashka_scabbard.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Crescent/Clothing/NCWL/Belt/shashka_scabbard.rsi
+  - type: Item
+    size: Ginormous
   - type: ItemSlots
     slots:
       item:
@@ -16,16 +23,25 @@
           tags: [NCWLShashka]
   - type: ItemMapper
     mapLayers:
-      sheath-sabre:
+      sheathed:
         whitelist:
           tags: [NCWLShashka]
+  - type: Appearance
+  - type: ScabbardVisuals
 
 - type: entity
-  parent: ClothingBeltSheathDSMRapier
+  parent: [ClothingBeltBase, ClothingSlotBase]
   id: ClothingBeltSheathNCWLEstoc
   name: communard estoc scabbard
-  description: A reinforced scabbard fitted for a League trench estoc.
+  description: A slim charcoal-leather scabbard with red retaining bands and a reinforced steel throat. A compact suspension secures the League's trench estoc at the hip.
   components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/NCWL/Belt/estoc_scabbard.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Crescent/Clothing/NCWL/Belt/estoc_scabbard.rsi
+  - type: Item
+    size: Ginormous
   - type: ItemSlots
     slots:
       item:
@@ -38,9 +54,11 @@
           tags: [NCWLEstoc]
   - type: ItemMapper
     mapLayers:
-      sheath-rapier:
+      sheathed:
         whitelist:
           tags: [NCWLEstoc]
+  - type: Appearance
+  - type: ScabbardVisuals
 
 - type: entity
   parent: ClothingBeltSheathNCWLShashka

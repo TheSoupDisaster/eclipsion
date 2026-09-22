@@ -147,7 +147,12 @@ namespace Content.Shared.Movement.Systems
             args.State = new InputMoverComponentState()
             {
                 CanMove = entity.Comp.CanMove,
-                RelativeEntity = GetNetEntity(entity.Comp.RelativeEntity),
+                // _Crescent: this getter runs on PVS worker threads. If RelativeEntity is dangling, GetNetEntity
+                // logs a resolve error that captures Environment.StackTrace - once per serialization, per client.
+                // Send null rather than paying for that; the receiver recomputes it from its own transform anyway.
+                RelativeEntity = Exists(entity.Comp.RelativeEntity)
+                    ? GetNetEntity(entity.Comp.RelativeEntity)
+                    : null,
                 LerpTarget = entity.Comp.LerpTarget,
                 HeldMoveButtons = entity.Comp.HeldMoveButtons,
                 RelativeRotation = entity.Comp.RelativeRotation,

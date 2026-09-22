@@ -208,3 +208,73 @@ public sealed class RemoveAllPsionicPowersCommand : IConsoleCommand
         return args.Length == 1 ? PsionicCommandHelper.TargetCompletion() : CompletionResult.Empty;
     }
 }
+
+/// <summary>
+/// Makes a target psionic outright, with no powers: the same starting point a Latent Psychic
+/// rolls a character with. Level one, one point, and the general tree to spend it in.
+/// </summary>
+[AdminCommand(AdminFlags.Fun)]
+public sealed class MakePsionicCommand : IConsoleCommand
+{
+    public string Command => "makepsionic";
+    public string Description => Loc.GetString("command-make-psionic-description");
+    public string Help => Loc.GetString("command-make-psionic-help");
+
+    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (args.Length > 1)
+        {
+            shell.WriteError(Help);
+            return;
+        }
+
+        var entMan = IoCManager.Resolve<IEntityManager>();
+        EntityUid uid;
+
+        if (args.Length == 0)
+        {
+            if (shell.Player?.AttachedEntity is not { } self)
+            {
+                shell.WriteError(Loc.GetString("command-psionic-no-self"));
+                return;
+            }
+
+            uid = self;
+        }
+        else if (!PsionicCommandHelper.TryResolveEntity(shell, args[0], entMan, out var resolved))
+        {
+            return;
+        }
+        else
+        {
+            uid = resolved.Value;
+        }
+
+        if (entMan.TryGetComponent<PsionicComponent>(uid, out var existing))
+        {
+            shell.WriteError(Loc.GetString(
+                "command-make-psionic-already",
+                ("target", entMan.ToPrettyString(uid)),
+                ("level", existing.PsionicLevel),
+                ("points", existing.SkillPoints)));
+            return;
+        }
+
+        // Mindbreaking is what keeps a psion from ever progressing again, so a mindbroken target
+        // would otherwise get the component and none of the point of having it.
+        var demindbroken = entMan.RemoveComponent<MindbrokenComponent>(uid);
+
+        var psionic = entMan.AddComponent<PsionicComponent>(uid);
+
+        shell.WriteLine(Loc.GetString(
+            demindbroken ? "command-make-psionic-granted-demindbroken" : "command-make-psionic-granted",
+            ("target", entMan.ToPrettyString(uid)),
+            ("level", psionic.PsionicLevel),
+            ("points", psionic.SkillPoints)));
+    }
+
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length == 1 ? PsionicCommandHelper.TargetCompletion() : CompletionResult.Empty;
+    }
+}

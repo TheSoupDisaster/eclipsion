@@ -38,8 +38,6 @@ public sealed class WeskerDodgeSystem : EntitySystem
 
     private readonly HashSet<Entity<ProjectileComponent>> _incoming = new();
 
-    private const int RandomDirectionAttempts = 12;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -201,7 +199,8 @@ public sealed class WeskerDodgeSystem : EntitySystem
     }
 
     /// <summary>
-    /// Prefers stepping perpendicular to the shot, left or right, and falls back to any direction.
+    /// Steps perpendicular to the shot, left or right and nothing else, so the blink always reads
+    /// as a sidestep rather than a jump across the room.
     /// </summary>
     private bool TryFindDodgeSpot(Entity<WeskerDodgeComponent, TransformComponent> ent,
         MapCoordinates origin,
@@ -215,30 +214,15 @@ public sealed class WeskerDodgeSystem : EntitySystem
             side = -side;
 
         var onGrid = ent.Comp2.GridUid != null;
-        var distance = _random.NextFloat(comp.MinDistance, comp.MaxDistance);
 
-        // Both sides at the rolled distance, then both sides at the minimum.
-        Span<Vector2> preferred = stackalloc Vector2[]
+        // Straight out to one side and nowhere else. The longest step is tried first so he clears
+        // the line of fire where there is room, and shuffles aside by a tile where there is not.
+        for (var distance = comp.MaxDistance; distance >= comp.MinDistance; distance -= 1f)
         {
-            side * distance, -side * distance,
-            side * comp.MinDistance, -side * comp.MinDistance,
-        };
-
-        foreach (var offset in preferred)
-        {
-            if (IsValidSpot(ent, origin, offset, onGrid, out target))
+            if (IsValidSpot(ent, origin, side * distance, onGrid, out target))
                 return true;
-        }
 
-        for (var i = 0; i < RandomDirectionAttempts; i++)
-        {
-            var offset = _random.NextAngle().ToVec() * _random.NextFloat(comp.MinDistance, comp.MaxDistance);
-
-            // Blinking along the shot is pointless, keep to the flanks.
-            if (MathF.Abs(Vector2.Dot(Vector2.Normalize(offset), shot)) > 0.8f)
-                continue;
-
-            if (IsValidSpot(ent, origin, offset, onGrid, out target))
+            if (IsValidSpot(ent, origin, -side * distance, onGrid, out target))
                 return true;
         }
 

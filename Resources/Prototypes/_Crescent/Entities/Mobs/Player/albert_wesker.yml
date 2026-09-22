@@ -17,10 +17,31 @@
   id: AlbertWeskerGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
-    outerClothing: ClothingOuterCoatTrench
+    outerClothing: ClothingOuterCoatHoSTrench
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
     shoes: ClothingShoesBootsJack
+    id: AlbertWeskerIDCard
+
+- type: entity
+  parent: IDCardStandard
+  id: AlbertWeskerIDCard
+  name: Albert Wesker's ID card
+  description: The card of a man who was never on the crew manifest.
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#2B2B2B"
+    - state: subdepartment
+      color: "#D1301B"
+  - type: IdCard
+    fullName: Albert Wesker
+    jobTitle: job-title-wesker
+  - type: Access
+    groups:
+    - AllAccess
 
 - type: entity
   parent: MobHuman
@@ -43,6 +64,23 @@
   - type: Loadout
     prototypes: [ AlbertWeskerGear ]
   - type: WeskerDodge
+  # Grabbing someone in combat mode empties their hands and puts them on the floor.
+  - type: WeskerGrab
+    stunTime: 4
+    cooldown: 8
+  # His grip skips the soft stage, and almost nobody wriggles out of it.
+  - type: Puller
+    stageChangeCooldown: 0.5
+    suffocateGrabStaminaDamage: 25
+    escapeChances:
+      "No": 1.0
+      "Soft": 0.1
+      "Hard": 0.03
+      "Suffocate": 0.0
+  # No door on the station stays shut for him, and it needs no ID to take off him.
+  - type: Access
+    groups:
+    - AllAccess
   # Three and a half times a normal human, and he stays fast while hurt.
   - type: MobThresholds
     thresholds:
@@ -77,6 +115,16 @@
         Slash: 15
         Piercing: 15
         Heat: 10
+  # His theme walks in with him: no boombox, no way to switch it off, and it loops until he is
+  # dead. The Jukebox component below only carries it - the range is the boombox's own falloff.
+  - type: ThemeSong
+    song: WeskerTheme
+  - type: Jukebox
+    volume: -10
+    range: 10
+    # Long music through the engine's wall low-pass turns to static, and the ten tile range already
+    # keeps it from carrying across a ship.
+    occlusion: false
 
 - type: entity
   id: EffectWeskerDodge
@@ -101,3 +149,10 @@
   - chat-emote-msg-wesker-finger-wag-1
   - chat-emote-msg-wesker-finger-wag-2
   - chat-emote-msg-wesker-finger-wag-3
+
+# Only Wesker plays this, but it lives with the rest of the soundtracks so jukeboxes can find it too.
+- type: jukebox
+  id: WeskerTheme
+  name: Orange Sector - Farben (Slowed)
+  path:
+    path: /Audio/_Crescent/Jukebox/farben_slowed.ogg

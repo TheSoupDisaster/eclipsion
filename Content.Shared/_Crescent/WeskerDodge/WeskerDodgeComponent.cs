@@ -14,16 +14,17 @@ namespace Content.Shared._Crescent.WeskerDodge;
 public sealed partial class WeskerDodgeComponent : Component
 {
     /// <summary>
-    /// Shortest sideways teleport distance, in tiles.
+    /// Shortest sideways teleport distance, in tiles. Used when the full step is blocked.
     /// </summary>
     [DataField]
-    public float MinDistance = 3f;
+    public float MinDistance = 1f;
 
     /// <summary>
-    /// Longest sideways teleport distance, in tiles.
+    /// Longest sideways teleport distance, in tiles. He always steps straight out to one side,
+    /// so this is the furthest he can ever end up from where he was standing.
     /// </summary>
     [DataField]
-    public float MaxDistance = 4f;
+    public float MaxDistance = 2f;
 
     /// <summary>
     /// How far ahead in time an incoming round is predicted. A round that would reach the owner

@@ -7,3 +7,6 @@ chat-emote-name-wesker-finger-wag = Finger wag
 chat-emote-msg-wesker-finger-wag-1 = raises a finger and wags it slowly.
 chat-emote-msg-wesker-finger-wag-2 = wags a finger. You shouldn't have done that.
 chat-emote-msg-wesker-finger-wag-3 = lifts a finger and waves it side to side, tutting.
+
+job-title-wesker = Umbrella Executive
+wesker-grab-popup = {CAPITALIZE(THE($user))} slams {THE($target)} down!

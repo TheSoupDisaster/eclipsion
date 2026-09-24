@@ -1,0 +1,398 @@
+# Faction soldier AI. Admin-spawn troops in their own faction's hardsuit, carrying that faction's own
+# weapons, which they actually fire - see NpcGunHandlingSystem for the wielding/bolt/cycling handling
+# that any NPC holding a Hullrot gun needs.
+#
+# Roles differ in what they carry and in how close they want to be: a shotgunner walks into your face,
+# a marksman hangs back at the edge of its vision. Gear lives in soldier_ai_gear.yml.
+
+- type: entity
+  abstract: true
+  parent: MobHuman
+  id: BaseMobSoldierAI
+  suffix: AI
+  components:
+  - type: RandomHumanoidAppearance
+  - type: InputMover
+  - type: MobMover
+  - type: CombatMode
+  - type: NpcStartInternals
+  - type: NpcGunHandling
+    resupply: true
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      MeleeRange: !type:Single
+        4
+      VisionRadius: !type:Single
+        14
+      AggroVisionRadius: !type:Single
+        14
+
+# Role archetypes. Each faction's mobs pick one of these up alongside their faction base.
+
+- type: entity
+  abstract: true
+  parent: BaseMobSoldierAI
+  id: BaseMobSoldierAIShock
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      MeleeRange: !type:Single
+        2
+      VisionRadius: !type:Single
+        12
+      AggroVisionRadius: !type:Single
+        12
+
+- type: entity
+  abstract: true
+  parent: BaseMobSoldierAI
+  id: BaseMobSoldierAIShotgunner
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      MeleeRange: !type:Single
+        1.5
+      VisionRadius: !type:Single
+        10
+      AggroVisionRadius: !type:Single
+        10
+
+- type: entity
+  abstract: true
+  parent: BaseMobSoldierAI
+  id: BaseMobSoldierAIMarksman
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      MeleeRange: !type:Single
+        9
+      VisionRadius: !type:Single
+        18
+      AggroVisionRadius: !type:Single
+        18
+
+- type: entity
+  abstract: true
+  parent: BaseMobSoldierAI
+  id: BaseMobSoldierAIGunner
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      MeleeRange: !type:Single
+        6
+      VisionRadius: !type:Single
+        16
+      AggroVisionRadius: !type:Single
+        16
+  # A belt-fed gun is a long reload, and they carry fewer belts than a rifleman carries magazines.
+  - type: NpcGunHandling
+    resupply: true
+    resupplyDelay: 6
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.2
+    baseSprintSpeed: 3.2
+
+# Imperial Mandate
+
+- type: entity
+  parent: BaseMobSoldierAI
+  id: MobSoldierAIDSMRifleman
+  name: imperial rifleman
+  description: A levyman of the Imperial Mandate, hardsuited and carrying a Miller.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - DSM
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearDSMRifleman
+
+- type: entity
+  parent: [ BaseMobSoldierAIShock, MobSoldierAIDSMRifleman ]
+  id: MobSoldierAIDSMShock
+  name: imperial shocktrooper
+  description: A levyman of the Imperial Mandate, hardsuited and carrying a Beetle.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearDSMShock
+
+- type: entity
+  parent: [ BaseMobSoldierAIShotgunner, MobSoldierAIDSMRifleman ]
+  id: MobSoldierAIDSMShotgunner
+  name: imperial breacher
+  description: A levyman of the Imperial Mandate, hardsuited and carrying a Reno.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearDSMShotgunner
+
+- type: entity
+  parent: [ BaseMobSoldierAIMarksman, MobSoldierAIDSMRifleman ]
+  id: MobSoldierAIDSMMarksman
+  name: imperial marksman
+  description: A levyman of the Imperial Mandate, hardsuited and carrying a Legax.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearDSMMarksman
+
+- type: entity
+  parent: [ BaseMobSoldierAIGunner, MobSoldierAIDSMRifleman ]
+  id: MobSoldierAIDSMGunner
+  name: imperial machinegunner
+  description: A levyman of the Imperial Mandate, hardsuited and carrying a Dominion.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearDSMGunner
+
+# New Communard Workers' League
+
+- type: entity
+  parent: BaseMobSoldierAI
+  id: MobSoldierAINCWLRifleman
+  name: communard rifleman
+  description: A partisan of the League, hardsuited and carrying a Falin.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NCWL
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearNCWLRifleman
+
+- type: entity
+  parent: [ BaseMobSoldierAIShock, MobSoldierAINCWLRifleman ]
+  id: MobSoldierAINCWLShock
+  name: communard shocktrooper
+  description: A partisan of the League, hardsuited and carrying a Watchdog.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearNCWLShock
+
+- type: entity
+  parent: [ BaseMobSoldierAIShotgunner, MobSoldierAINCWLRifleman ]
+  id: MobSoldierAINCWLShotgunner
+  name: communard breacher
+  description: A partisan of the League, hardsuited and carrying a Proletariat.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearNCWLShotgunner
+
+- type: entity
+  parent: [ BaseMobSoldierAIMarksman, MobSoldierAINCWLRifleman ]
+  id: MobSoldierAINCWLMarksman
+  name: communard marksman
+  description: A partisan of the League, hardsuited and carrying a Molot.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearNCWLMarksman
+
+- type: entity
+  parent: [ BaseMobSoldierAIGunner, MobSoldierAINCWLRifleman ]
+  id: MobSoldierAINCWLGunner
+  name: communard machinegunner
+  description: A partisan of the League, hardsuited and carrying a Conscript.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearNCWLGunner
+
+# Trans-Federation Sovereign Coalition
+
+- type: entity
+  parent: BaseMobSoldierAI
+  id: MobSoldierAITFSCRifleman
+  name: coalition rifleman
+  description: A Coalition contractor, hardsuited and carrying an AKMS.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - TFSC
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearTFSCRifleman
+
+- type: entity
+  parent: [ BaseMobSoldierAIShock, MobSoldierAITFSCRifleman ]
+  id: MobSoldierAITFSCShock
+  name: coalition shocktrooper
+  description: A Coalition contractor, hardsuited and carrying an Atreides.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearTFSCShock
+
+- type: entity
+  parent: [ BaseMobSoldierAIShotgunner, MobSoldierAITFSCRifleman ]
+  id: MobSoldierAITFSCShotgunner
+  name: coalition breacher
+  description: A Coalition contractor, hardsuited and carrying a Saiga-12k.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearTFSCShotgunner
+
+- type: entity
+  parent: [ BaseMobSoldierAIMarksman, MobSoldierAITFSCRifleman ]
+  id: MobSoldierAITFSCMarksman
+  name: coalition marksman
+  description: A Coalition contractor, hardsuited and carrying an SVD.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearTFSCMarksman
+
+- type: entity
+  parent: [ BaseMobSoldierAIGunner, MobSoldierAITFSCRifleman ]
+  id: MobSoldierAITFSCGunner
+  name: coalition machinegunner
+  description: A Coalition contractor, hardsuited and carrying an RPD.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearTFSCGunner
+
+# Shinohara Heavy Industries
+
+- type: entity
+  parent: BaseMobSoldierAI
+  id: MobSoldierAISHIRifleman
+  name: corporate rifleman
+  description: Shinohara corporate security, hardsuited and carrying a Nimrod.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SHI
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearSHIRifleman
+
+- type: entity
+  parent: [ BaseMobSoldierAIShock, MobSoldierAISHIRifleman ]
+  id: MobSoldierAISHIShock
+  name: corporate shocktrooper
+  description: Shinohara corporate security, hardsuited and carrying a Warden.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearSHIShock
+
+- type: entity
+  parent: [ BaseMobSoldierAIShotgunner, MobSoldierAISHIRifleman ]
+  id: MobSoldierAISHIShotgunner
+  name: corporate breacher
+  description: Shinohara corporate security, hardsuited and carrying a Blaster.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearSHIShotgunner
+
+- type: entity
+  parent: [ BaseMobSoldierAIMarksman, MobSoldierAISHIRifleman ]
+  id: MobSoldierAISHIMarksman
+  name: corporate marksman
+  description: Shinohara corporate security, hardsuited and carrying a Hound.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearSHIMarksman
+
+- type: entity
+  parent: [ BaseMobSoldierAIGunner, MobSoldierAISHIRifleman ]
+  id: MobSoldierAISHIGunner
+  name: corporate machinegunner
+  description: Shinohara corporate security, hardsuited and carrying an L6.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearSHIGunner
+
+# Independents
+
+- type: entity
+  parent: BaseMobSoldierAI
+  id: MobSoldierAIINDRifleman
+  name: independent gunhand
+  description: Hired muscle in a patched-up Fishbed, carrying a Krinkov.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - IND
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearINDRifleman
+
+- type: entity
+  parent: [ BaseMobSoldierAIShock, MobSoldierAIINDRifleman ]
+  id: MobSoldierAIINDShock
+  name: independent enforcer
+  description: Hired muscle in a patched-up Fishbed, carrying a Militant.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearINDShock
+
+- type: entity
+  parent: [ BaseMobSoldierAIShotgunner, MobSoldierAIINDRifleman ]
+  id: MobSoldierAIINDShotgunner
+  name: independent breacher
+  description: Hired muscle in a patched-up Fishbed, carrying a Bush.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearINDShotgunner
+
+- type: entity
+  parent: [ BaseMobSoldierAIMarksman, MobSoldierAIINDRifleman ]
+  id: MobSoldierAIINDMarksman
+  name: independent sharpshooter
+  description: Hired muscle in a patched-up Fishbed, carrying a Kar98k.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearINDMarksman
+
+- type: entity
+  parent: [ BaseMobSoldierAIGunner, MobSoldierAIINDRifleman ]
+  id: MobSoldierAIINDGunner
+  name: independent machinegunner
+  description: Hired muscle in a patched-up Fishbed, carrying an MG42.
+  components:
+  - type: Loadout
+    prototypes:
+    - SoldierAIGearINDGunner

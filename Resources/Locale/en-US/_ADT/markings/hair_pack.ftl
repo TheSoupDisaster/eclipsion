@@ -1,0 +1,33 @@
+# Names written for this port; the upstream pack only ships ru-RU.
+
+marking-ADTHumanHairLady = Lady
+marking-ADTHumanHairLongHairFringe = Long Hair with Fringe
+marking-ADTHumanHairSheaf = Sheaf
+marking-ADTHumanHairShortTail = Short Tail
+marking-ADTHumanHairArabicgatheredhair = Gathered (Arabic)
+marking-ADTHumanHairClassichairmale = Classic (Male)
+marking-ADTHumanHairCombedfromside = Combed From Side
+marking-ADTHumanHairLonghair = Long Hair
+marking-ADTHumanHairManbunold = Man Bun (Old)
+marking-ADTHumanHairPigtailtajaran = Pigtails (Tajaran)
+marking-ADTHumanHairShavedside = Shaved Side
+marking-ADTHumanHairShorthaired = Short Haired
+marking-ADTHumanWomenbun = Women's Bun
+marking-ADTDemonHairBubbleGum = Bubble Gum
+marking-ADTDemonHairGorgona = Gorgon
+marking-ADTDemonHairGorgona2 = Gorgon (Alt)
+marking-ADTDemonHairMorningHairStyle = Morning Hair
+marking-ADTDemonHairMorningHairStyle2 = Morning Hair (Alt)
+marking-ADTDemonHairMorningHairStyle3 = Morning Hair (Alt 2)
+marking-ADTDemonHairShavedUnisex = Shaved (Unisex)
+marking-ADTDemonHairValkyrieScythe = Valkyrie Scythe
+marking-ADTDemonHairValkyrieScythe2 = Valkyrie Scythe (Alt)
+marking-ADTDemonHairValkyrieScythe3 = Valkyrie Scythe (Alt 2)
+marking-ADTHumanBeardBeardchin = Chin Beard
+marking-ADTHumanBeardBeardlong = Full Beard (Long)
+marking-ADTHumanBeardBeardshort = Full Beard (Short)
+marking-ADTHumanBeardBeardthick = Thick Beard
+marking-ADTHumanBeardBeardviking = Viking Beard
+marking-ADTHumanBeardBristle = Bristle
+marking-ADTHumanBeardMustachewithstubble = Moustache with Stubble
+marking-ADTHumanBeardThickbristle = Thick Bristle

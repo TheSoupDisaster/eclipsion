@@ -14,6 +14,22 @@
         {
             "name": "shaved_female",
             "directions": 4
+        },
+        {
+            "name": "lady",
+            "directions": 4
+        },
+        {
+            "name": "longhairfringe",
+            "directions": 4
+        },
+        {
+            "name": "sheaf",
+            "directions": 4
+        },
+        {
+            "name": "shorttail",
+            "directions": 4
         }
     ]
 }

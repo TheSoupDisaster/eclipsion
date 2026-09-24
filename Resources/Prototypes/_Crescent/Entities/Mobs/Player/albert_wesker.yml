@@ -63,6 +63,13 @@
   - type: GhostTakeoverAvailable
   - type: Loadout
     prototypes: [ AlbertWeskerGear ]
+  # Everyone understands him whatever they speak, and he understands every one of them back.
+  - type: LanguageKnowledge
+    speaks:
+    - Universal
+    understands:
+    - Universal
+  - type: UniversalLanguageSpeaker
   - type: WeskerDodge
   # Grabbing someone in combat mode empties their hands and puts them on the floor.
   - type: WeskerGrab
@@ -81,6 +88,8 @@
   - type: Access
     groups:
     - AllAccess
+  # Wet floors, soap and banana peels never once break his stride.
+  - type: NoSlip
   # Three and a half times a normal human, and he stays fast while hurt.
   - type: MobThresholds
     thresholds:

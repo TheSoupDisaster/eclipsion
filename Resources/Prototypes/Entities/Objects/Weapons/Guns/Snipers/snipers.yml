@@ -376,26 +376,19 @@
   - type: Item
     size: Ginormous
     sprite: _Crescent/Objects/Weapons/Guns/surplus_ncwl_amr.rsi
-  - type: ItemSlots
-    slots:
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeAntiMateriel
-        priority: 1
-        insertSound: /Audio/Weapons/Guns/UnionfallWeapons/amr_reload.ogg
-        whitelist:
-          tags:
-            - CartridgeAntiMateriel
+  - type: BallisticAmmoProvider
+    capacity: 1
+    autoCycle: false
+    proto: CartridgeAntiMateriel
+    soundInsert: /Audio/Weapons/Guns/UnionfallWeapons/amr_reload.ogg
+    soundRack: /Audio/Weapons/Guns/UnionfallWeapons/amr_open_2.ogg
+    whitelist:
+      tags:
+        - CartridgeAntiMateriel
   - type: ContainerContainer
     containers:
-      gun_chamber: !type:ContainerSlot
-  - type: ChamberMagazineAmmoProvider
-    autoCycle: false
-    boltClosed: true
-    canRack: false
-    soundBoltClosed: /Audio/Weapons/Guns/UnionfallWeapons/amr_close_2.ogg
-    soundBoltOpened: /Audio/Weapons/Guns/UnionfallWeapons/amr_open_2.ogg
-    soundRack: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg #this should never play
+      ballistic-ammo: !type:Container
+        ents: []
   - type: Clothing
     sprite: _Crescent/Objects/Weapons/Guns/surplus_ncwl_amr.rsi
     quickEquip: false
@@ -432,26 +425,19 @@
   - type: Item
     size: Ginormous
     sprite: _Crescent/Objects/Weapons/Guns/surplus_dsm_amr.rsi
-  - type: ItemSlots
-    slots:
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeAntiMateriel
-        priority: 1
-        insertSound: /Audio/Weapons/Guns/UnionfallWeapons/amr_reload.ogg
-        whitelist:
-          tags:
-            - CartridgeAntiMateriel
+  - type: BallisticAmmoProvider
+    capacity: 1
+    autoCycle: false
+    proto: CartridgeAntiMateriel
+    soundInsert: /Audio/Weapons/Guns/UnionfallWeapons/amr_reload.ogg
+    soundRack: /Audio/Weapons/Guns/UnionfallWeapons/amr_open_1.ogg
+    whitelist:
+      tags:
+        - CartridgeAntiMateriel
   - type: ContainerContainer
     containers:
-      gun_chamber: !type:ContainerSlot
-  - type: ChamberMagazineAmmoProvider
-    autoCycle: false
-    boltClosed: true
-    canRack: false
-    soundBoltClosed: /Audio/Weapons/Guns/UnionfallWeapons/amr_close_1.ogg
-    soundBoltOpened: /Audio/Weapons/Guns/UnionfallWeapons/amr_open_1.ogg
-    soundRack: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg #this should never play
+      ballistic-ammo: !type:Container
+        ents: []
   - type: Clothing
     sprite: _Crescent/Objects/Weapons/Guns/surplus_dsm_amr.rsi
     quickEquip: false

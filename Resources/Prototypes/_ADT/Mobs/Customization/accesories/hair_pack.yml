@@ -1,0 +1,251 @@
+# Ported from ADT hair and beard pack (Adventure Time / ADT fork), CC-BY-SA-3.0. See the rsi meta.json for the original attribution.
+
+# speciesRestriction dropped on purpose: these are plain 32x32 hair sprites.
+
+- type: marking
+  id: ADTHumanHairLady
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Hair/hair.rsi
+      state: lady
+
+- type: marking
+  id: ADTHumanHairLongHairFringe
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Hair/hair.rsi
+      state: longhairfringe
+
+- type: marking
+  id: ADTHumanHairSheaf
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Hair/hair.rsi
+      state: sheaf
+
+- type: marking
+  id: ADTHumanHairShortTail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Hair/hair.rsi
+      state: shorttail
+
+- type: marking
+  id: ADTHumanHairArabicgatheredhair
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-arabicgatheredhair
+
+- type: marking
+  id: ADTHumanHairClassichairmale
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-classichairmale
+
+- type: marking
+  id: ADTHumanHairCombedfromside
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-combedfromside
+
+- type: marking
+  id: ADTHumanHairLonghair
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-longhair
+
+- type: marking
+  id: ADTHumanHairManbunold
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-manbunold
+
+- type: marking
+  id: ADTHumanHairPigtailtajaran
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-pigtailtajaran
+
+- type: marking
+  id: ADTHumanHairShavedside
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-shavedside
+
+- type: marking
+  id: ADTHumanHairShorthaired
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-shorthaired
+
+- type: marking
+  id: ADTHumanWomenbun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-womenbun
+
+- type: marking
+  id: ADTDemonHairBubbleGum
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-bubble_gum
+
+- type: marking
+  id: ADTDemonHairGorgona
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-gorgona
+
+- type: marking
+  id: ADTDemonHairGorgona2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-gorgona_2
+
+- type: marking
+  id: ADTDemonHairMorningHairStyle
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-morning_hairstyle
+
+- type: marking
+  id: ADTDemonHairMorningHairStyle2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-morning_hairstyle_2
+
+- type: marking
+  id: ADTDemonHairMorningHairStyle3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-morning_hairstyle_3
+
+- type: marking
+  id: ADTDemonHairShavedUnisex
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-shaved_unisex
+
+- type: marking
+  id: ADTDemonHairValkyrieScythe
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-valkyrie_scythe
+
+- type: marking
+  id: ADTDemonHairValkyrieScythe2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-valkyrie_scythe_2
+
+- type: marking
+  id: ADTDemonHairValkyrieScythe3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: hair-valkyrie_scythe_3
+
+- type: marking
+  id: ADTHumanBeardBeardchin
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardchin
+
+- type: marking
+  id: ADTHumanBeardBeardlong
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardlong
+
+- type: marking
+  id: ADTHumanBeardBeardshort
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardshort
+
+- type: marking
+  id: ADTHumanBeardBeardthick
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardthick
+
+- type: marking
+  id: ADTHumanBeardBeardviking
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardviking
+
+- type: marking
+  id: ADTHumanBeardBristle
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-bristle
+
+- type: marking
+  id: ADTHumanBeardMustachewithstubble
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-mustachewithstubble
+
+- type: marking
+  id: ADTHumanBeardThickbristle
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  sprites:
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-thickbristle

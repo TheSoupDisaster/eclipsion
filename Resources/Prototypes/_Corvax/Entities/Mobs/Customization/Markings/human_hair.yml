@@ -1,0 +1,329 @@
+# Ported from SS220 Corvax (Skyrat-tg) hair pack (SerbiaStrong-220/space-station-14), CC-BY-SA-3.0. See the rsi meta.json for the original attribution.
+
+- type: marking
+  id: HumanHairAstolfo
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: astolfo
+
+- type: marking
+  id: HumanHairBeachwave
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: beachwave
+
+- type: marking
+  id: HumanHairBobcutAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: bobcutalt
+
+- type: marking
+  id: HumanHairEmoshort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: emoshort
+
+- type: marking
+  id: HumanHairFingerwave
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: fingerwave
+
+- type: marking
+  id: HumanHairFluffyShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: fluffy_short
+
+- type: marking
+  id: HumanHairFortuneteller
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: fortuneteller
+
+- type: marking
+  id: HumanHairFortunetellerAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: fortuneteller_alt
+
+- type: marking
+  id: HumanHairFroofylong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: froofylong
+
+- type: marking
+  id: HumanHairGeisha
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: geisha
+
+- type: marking
+  id: HumanHairGentle21
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: gentle21
+
+- type: marking
+  id: HumanHairGlammetal
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: glammetal
+
+- type: marking
+  id: HumanHairHalfshave
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: halfshave
+
+- type: marking
+  id: HumanHairHalfshaveglamorous
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: halfshave_glamorous
+
+- type: marking
+  id: HumanHairHalfshaveLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: halfshave_long
+
+- type: marking
+  id: HumanHairHalfshaveMessy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: halfshave_messy
+
+- type: marking
+  id: HumanHairHalfshaveMessyLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: halfshave_messylong
+
+- type: marking
+  id: HumanHairHalfshaveSnout
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: halfshave_snout
+
+- type: marking
+  id: HumanHairLongdtails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: longdtails
+
+- type: marking
+  id: HumanHairLongerAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: longeralt
+
+- type: marking
+  id: HumanHairLongsidepartstraight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: longsidepartstraight
+
+- type: marking
+  id: HumanHairMediumbraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: mediumbraid
+
+- type: marking
+  id: HumanHairNewyou
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: newyou
+
+- type: marking
+  id: HumanHairPonytailAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: ponytailalt
+
+- type: marking
+  id: HumanHairPonytailF
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: ponytailf
+
+- type: marking
+  id: HumanHairPoofy2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: poofy2
+
+- type: marking
+  id: HumanHairQuadcurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: quadcurls
+
+- type: marking
+  id: HumanHairScully
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: scully
+
+- type: marking
+  id: HumanHairShorthair4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: shorthair4
+
+- type: marking
+  id: HumanHairShy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: shy
+
+- type: marking
+  id: HumanHairSimplePonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: simple_ponytail
+
+- type: marking
+  id: HumanHairSlimedroplet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: slimedroplet
+
+- type: marking
+  id: HumanHairSlimedropletAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: slimedroplet_alt
+
+- type: marking
+  id: HumanHairSlimespikes
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: slimespikes
+
+- type: marking
+  id: HumanHairSlimetendrils
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: slimetendrils
+
+- type: marking
+  id: HumanHairSlimetendrilsAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: slimetendrils_alt
+
+- type: marking
+  id: HumanHairTwintailFloor
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: twintail_floor
+
+- type: marking
+  id: HumanHairVeryshortovereye
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: veryshortovereye
+
+- type: marking
+  id: HumanHairVictory
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: victory
+
+- type: marking
+  id: HumanHairViper
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: viper
+
+- type: marking
+  id: HumanHairWife
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Corvax/Mobs/Customization/human_hair.rsi
+      state: wife

@@ -1,3 +1,4 @@
+using Content.Server._Crescent.NPC;
 using Content.Server.NPC.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
@@ -16,6 +17,7 @@ public sealed partial class NPCCombatSystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
     [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly NpcGunHandlingSystem _npcGun = default!; // Crescent
 
     private EntityQuery<CombatModeComponent> _combatQuery;
     private EntityQuery<NPCSteeringComponent> _steeringQuery;
@@ -106,19 +108,28 @@ public sealed partial class NPCCombatSystem
                 continue;
             }
 
-            var ammoEv = new GetAmmoCountEvent();
-            RaiseLocalEvent(gunUid, ref ammoEv);
-            if (ammoEv.Count == 0)
+            // Crescent: wield it, close the bolt, work the action - the manual steps a Hullrot gun needs
+            // before it will fire that an NPC has no other way to perform. While that is in progress the
+            // NPC keeps tracking and facing its target below, it just doesn't get to shoot; the ammo
+            // check is skipped too, since a gun halfway through a magazine change reads as empty.
+            var gunReady = _npcGun.TryReadyGun(uid, gunUid);
+
+            if (gunReady)
             {
-                // Recharging then?
-                if (_rechargeQuery.HasComponent(gunUid))
+                var ammoEv = new GetAmmoCountEvent();
+                RaiseLocalEvent(gunUid, ref ammoEv);
+                if (ammoEv.Count == 0)
                 {
+                    // Recharging then?
+                    if (_rechargeQuery.HasComponent(gunUid))
+                    {
+                        continue;
+                    }
+
+                    comp.Status = CombatStatus.Unspecified;
+                    comp.ShootAccumulator = 0f;
                     continue;
                 }
-
-                comp.Status = CombatStatus.Unspecified;
-                comp.ShootAccumulator = 0f;
-                continue;
             }
 
             var worldPos = _transform.GetWorldPosition(xform);
@@ -185,6 +196,10 @@ public sealed partial class NPCCombatSystem
             // Max rotation speed
 
             // TODO: Check if we can face
+
+            // Crescent: facing and LOS are up to date now, but the gun still isn't ready to fire.
+            if (!gunReady)
+                continue;
 
             if (!Enabled || !_gun.CanShoot(gun))
                 continue;

@@ -1,4 +1,8 @@
+using System.Linq;
+using System.Numerics;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Camera;
+using Content.Shared.Projectiles;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -36,6 +40,8 @@ public sealed class SharedExecutionSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -281,6 +287,10 @@ public sealed class SharedExecutionSystem : EntitySystem
             return false;
         }
 
+        // Read the round's damage type before the projectiles are deleted below - Del is immediate, so
+        // afterwards there is nothing left to inspect.
+        var damageType = GetExecutionDamageType(weapon, projectiles);
+
         // AttemptShoot already did everything we want (spent a round, ejected the casing, muzzle flash,
         // gunshot sound), but it also spawned a real projectile that flies off into whatever is behind
         // the victim - a point-blank execution shouldn't overpenetrate into the wall. Delete the
@@ -297,12 +307,52 @@ public sealed class SharedExecutionSystem : EntitySystem
         // nothing, so replay the gunshot for them alone - bystanders already heard it via AttemptShoot.
         _audio.PlayEntity(gunComp.SoundGunshotModified ?? gunComp.SoundGunshot, attacker, weapon);
 
-        // Guarantee the kill regardless of where the point-blank projectile actually ended up.
+        // Kick the attacker's camera backwards, away from the victim, so a point-blank shot has some
+        // weight to it.
+        var recoilDir = _transform.GetWorldPosition(attacker) - _transform.GetWorldPosition(victim);
+        if (recoilDir != Vector2.Zero)
+            _recoil.KickCamera(attacker, recoilDir.Normalized());
+
+        // Guarantee the kill regardless of where the point-blank projectile actually ended up. The
+        // damage type follows whatever was actually loaded rather than always being Piercing, so
+        // executing with a laser burns and executing with a shotgun slug pierces.
         if (TryComp<DamageableComponent>(victim, out var damageable))
-            _suicide.ApplyLethalDamage((victim, damageable), "Piercing");
+            _suicide.ApplyLethalDamage((victim, damageable), damageType);
 
         ShowExecutionInternalPopup(gun.Comp.CompleteInternalGunExecutionMessage, attacker, victim, weapon, false);
         ShowExecutionExternalPopup(gun.Comp.CompleteExternalGunExecutionMessage, attacker, victim, weapon);
         return true;
+    }
+
+    /// <summary>
+    /// Works out which damage type a gun execution should kill with. Battery weapons are almost always
+    /// heat, otherwise the dominant damage type of the round that was actually fired is used.
+    /// </summary>
+    private string GetExecutionDamageType(EntityUid weapon, List<EntityUid>? projectiles)
+    {
+        const string fallback = "Piercing";
+
+        if (HasComp<BatteryAmmoProviderComponent>(weapon))
+            return "Heat";
+
+        if (projectiles == null)
+            return fallback;
+
+        foreach (var projectile in projectiles)
+        {
+            if (!TryComp<ProjectileComponent>(projectile, out var proj))
+                continue;
+
+            var dominant = proj.Damage.DamageDict
+                .Where(kv => kv.Key != "Structural" && kv.Value > 0)
+                .ToList();
+
+            if (dominant.Count == 0)
+                continue;
+
+            return dominant.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
+        }
+
+        return fallback;
     }
 }

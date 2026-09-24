@@ -1,3 +1,4 @@
+using Content.Server._Crescent.NPC;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 
@@ -36,6 +37,15 @@ public sealed partial class GunAmmoPrecondition : HTNPrecondition
             percent = ammoEv.Count / (float) ammoEv.Capacity;
 
         percent = System.Math.Clamp(percent, 0f, 1f);
+
+        // Crescent: an NPC partway through a magazine change still counts as armed. Without this the
+        // plan sees an empty gun and takes the "discard it" branch, so the mob throws its weapon on the
+        // floor in the couple of seconds the magazine is out.
+        if (_entManager.TryGetComponent<NpcGunHandlingComponent>(owner, out var handling) &&
+            handling.ResupplyEnd != null)
+        {
+            percent = 1f;
+        }
 
         if (MaxPercent < percent)
             return false;

@@ -140,7 +140,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 150000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -231,7 +231,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15000
+        damage: 150000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -326,12 +326,15 @@
   - type: UnionfallAnnouncer
     gracePeriod: 600
 # Cloner databases are the main objective, so they should not melt to EMP/shock weaponry.
+# Heat is here because shipgun explosions are 75% Heat, and the node spans 16 tiles, so a single
+# torpedo used to land its blast on every one of them at full rate.
 - type: damageModifierSet
   id: UnionfallClonerDatabase
   coefficients:
     Blunt: 0.7
     Slash: 0.5
     Piercing: 0.7
+    Heat: 0.35
     Shock: 0.05
   flatReductions:
     Blunt: 5

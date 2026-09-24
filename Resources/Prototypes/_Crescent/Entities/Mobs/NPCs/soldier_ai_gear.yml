@@ -1,0 +1,250 @@
+# Kit for the faction soldier AI in soldier_ai.yml.
+#
+# Each faction has one base gear listing the hardsuit and everything under it, which the per-role gears
+# pull in as subGear and then add the weapon to. The weapon goes in `inhand` on purpose: NPC gun combat
+# only looks at the active hand, and nothing in the HTN can take a gun out of suit storage.
+
+# Imperial Mandate
+
+- type: startingGear
+  id: SoldierAIGearDSM
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitImperialCombat
+    outerClothing: ClothingOuterHardsuitImperialSoldier
+    head: ClothingHeadHelmetHardsuitImperialSoldier
+    mask: ClothingMaskImperialCombatGasmask
+    gloves: ClothingHandsGlovesImperialLonggloves
+    shoes: ClothingShoesBootsMagDSM
+    ears: ClothingHeadsetEmpire
+    pocket1: DoubleEmergencyOxygenTankFilled
+
+- type: startingGear
+  id: SoldierAIGearDSMRifleman
+  subGear:
+  - SoldierAIGearDSM
+  inhand:
+  - WeaponRifleMiller
+
+- type: startingGear
+  id: SoldierAIGearDSMShock
+  subGear:
+  - SoldierAIGearDSM
+  inhand:
+  - WeaponSubMachineGunBeetle
+
+- type: startingGear
+  id: SoldierAIGearDSMShotgunner
+  subGear:
+  - SoldierAIGearDSM
+  inhand:
+  - WeaponShotgunReno
+
+- type: startingGear
+  id: SoldierAIGearDSMMarksman
+  subGear:
+  - SoldierAIGearDSM
+  inhand:
+  - WeaponSniperDSMLegax
+
+- type: startingGear
+  id: SoldierAIGearDSMGunner
+  subGear:
+  - SoldierAIGearDSM
+  inhand:
+  - WeaponLightMachineGunDSMDominion
+
+# New Communard Workers' League
+
+- type: startingGear
+  id: SoldierAIGearNCWL
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitNCWL
+    outerClothing: ClothingOuterHardsuitNCWLInfantry
+    head: ClothingHeadHelmetHardsuitNCWLInfantry
+    mask: ClothingMaskNCWLBalaclava
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsMagNCWL
+    ears: ClothingHeadsetNCWL
+    pocket1: DoubleEmergencyOxygenTankFilled
+
+- type: startingGear
+  id: SoldierAIGearNCWLRifleman
+  subGear:
+  - SoldierAIGearNCWL
+  inhand:
+  - WeaponRifleFAL
+
+- type: startingGear
+  id: SoldierAIGearNCWLShock
+  subGear:
+  - SoldierAIGearNCWL
+  inhand:
+  - WeaponSubMachineGunNCWLWatchdog
+
+- type: startingGear
+  id: SoldierAIGearNCWLShotgunner
+  subGear:
+  - SoldierAIGearNCWL
+  inhand:
+  - WeaponShotgunProletar
+
+- type: startingGear
+  id: SoldierAIGearNCWLMarksman
+  subGear:
+  - SoldierAIGearNCWL
+  inhand:
+  - WeaponSniperMolot
+
+- type: startingGear
+  id: SoldierAIGearNCWLGunner
+  subGear:
+  - SoldierAIGearNCWL
+  inhand:
+  - WeaponLightMachineGunConscript
+
+# Trans-Federation Sovereign Coalition
+
+- type: startingGear
+  id: SoldierAIGearTFSC
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicate
+    outerClothing: ClothingOuterHardsuitSyndicateBG
+    head: ClothingHeadHelmetHardsuitSyndicateBattlegroup
+    mask: ClothingMaskGasSyndicate
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsMagSyndie
+    ears: ClothingHeadsetTFSC
+    pocket1: DoubleEmergencyOxygenTankFilled
+
+- type: startingGear
+  id: SoldierAIGearTFSCRifleman
+  subGear:
+  - SoldierAIGearTFSC
+  inhand:
+  - WeaponRifleAk
+
+- type: startingGear
+  id: SoldierAIGearTFSCShock
+  subGear:
+  - SoldierAIGearTFSC
+  inhand:
+  - WeaponSubMachineGunAtreidesHullrot
+
+- type: startingGear
+  id: SoldierAIGearTFSCShotgunner
+  subGear:
+  - SoldierAIGearTFSC
+  inhand:
+  - WeaponShotgunTFSCSaiga12
+
+- type: startingGear
+  id: SoldierAIGearTFSCMarksman
+  subGear:
+  - SoldierAIGearTFSC
+  inhand:
+  - WeaponRifleSVDMarksman
+
+- type: startingGear
+  id: SoldierAIGearTFSCGunner
+  subGear:
+  - SoldierAIGearTFSC
+  inhand:
+  - WeaponLightMachineGunTFSCRPD
+
+# Shinohara Heavy Industries
+
+- type: startingGear
+  id: SoldierAIGearSHI
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitShinoharaSecurity
+    outerClothing: ClothingOuterHardsuitHighsec
+    head: ClothingHeadHelmetHardsuitCorpsec
+    mask: ClothingMaskGasSecurity
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsMagCombat
+    ears: ClothingHeadsetShinohara
+    pocket1: DoubleEmergencyOxygenTankFilled
+
+- type: startingGear
+  id: SoldierAIGearSHIRifleman
+  subGear:
+  - SoldierAIGearSHI
+  inhand:
+  - WeaponRifleSHINimrod
+
+- type: startingGear
+  id: SoldierAIGearSHIShock
+  subGear:
+  - SoldierAIGearSHI
+  inhand:
+  - WeaponSubMachineGunMP49
+
+- type: startingGear
+  id: SoldierAIGearSHIShotgunner
+  subGear:
+  - SoldierAIGearSHI
+  inhand:
+  - WeaponShotgunBlaster
+
+- type: startingGear
+  id: SoldierAIGearSHIMarksman
+  subGear:
+  - SoldierAIGearSHI
+  inhand:
+  - WeaponRifleHoundMarksman
+
+- type: startingGear
+  id: SoldierAIGearSHIGunner
+  subGear:
+  - SoldierAIGearSHI
+  inhand:
+  - WeaponLightMachineGunL6
+
+# Independents
+
+- type: startingGear
+  id: SoldierAIGearIND
+  equipment:
+    jumpsuit: ClothingUniformSpacer
+    outerClothing: ClothingOuterHardsuitFishbed
+    head: ClothingHeadHelmetHardsuitFishbed
+    mask: ClothingMaskGas
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsMagCombat
+    ears: ClothingHeadsetFreelance
+    pocket1: DoubleEmergencyOxygenTankFilled
+
+- type: startingGear
+  id: SoldierAIGearINDRifleman
+  subGear:
+  - SoldierAIGearIND
+  inhand:
+  - WeaponRifleKrinkov
+
+- type: startingGear
+  id: SoldierAIGearINDShock
+  subGear:
+  - SoldierAIGearIND
+  inhand:
+  - WeaponSubMachineGunMilitant
+
+- type: startingGear
+  id: SoldierAIGearINDShotgunner
+  subGear:
+  - SoldierAIGearIND
+  inhand:
+  - WeaponShotgunBush
+
+- type: startingGear
+  id: SoldierAIGearINDMarksman
+  subGear:
+  - SoldierAIGearIND
+  inhand:
+  - WeaponSniperKar98K
+
+- type: startingGear
+  id: SoldierAIGearINDGunner
+  subGear:
+  - SoldierAIGearIND
+  inhand:
+  - WeaponLightMachineGunMG42

@@ -7,7 +7,7 @@
         "y": 32
     },
     "states": [
-		{
+        {
             "name": "beard-beardchin",
             "directions": 4
         },
@@ -169,6 +169,46 @@
         },
         {
             "name": "tattoo_serpenttemptation",
+            "directions": 4
+        },
+        {
+            "name": "hair-bubble_gum",
+            "directions": 4
+        },
+        {
+            "name": "hair-gorgona",
+            "directions": 4
+        },
+        {
+            "name": "hair-gorgona_2",
+            "directions": 4
+        },
+        {
+            "name": "hair-morning_hairstyle",
+            "directions": 4
+        },
+        {
+            "name": "hair-morning_hairstyle_2",
+            "directions": 4
+        },
+        {
+            "name": "hair-morning_hairstyle_3",
+            "directions": 4
+        },
+        {
+            "name": "hair-shaved_unisex",
+            "directions": 4
+        },
+        {
+            "name": "hair-valkyrie_scythe",
+            "directions": 4
+        },
+        {
+            "name": "hair-valkyrie_scythe_2",
+            "directions": 4
+        },
+        {
+            "name": "hair-valkyrie_scythe_3",
             "directions": 4
         }
     ]

@@ -6,6 +6,9 @@
   components:
   - type: VendingMachine
     pack: ShinoharaHotDrinksMachineInventory
+  - type: CompanyVendor
+    company: SHI
+    product: Coffee
   - type: Sprite
     noRot: true
     sprite: _Crescent/Structures/shinohara_coffee.rsi

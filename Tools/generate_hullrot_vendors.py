@@ -4,8 +4,10 @@ Vendor chassis, drawn from scratch rather than reskinned from the RMC ColMarTech
   armory -- caged gun locker in the vein of Crescent's own armory.rsi: overhanging hood, sprayed unit
             markings, barred window with the racked stock behind it, keypad column, dispensing tray.
   supply -- slimmer requisitions rack: lit emblem sign, glass front with folded stock on shelves, tray.
+  security -- equipment cabinet with a riot shield, cuffs and glasses for the seven faction SecTechs.
   sustenance -- Shinohara's ration vendor: broad lit header, tall window of boxed rations, keypad column.
   budget -- Shinohara's public gun shop: compact sign, colourful pistols and ammunition behind glass.
+  surplus -- Taypani's second-hand arms shop: stepped brass cap, crescent sign and horizontal gun racks.
   grill -- the TFCF fast-food vendor: "???" marquee, striped awning, heat-lamp window of burgers and fries.
 
 Every faction gets the armory and supply chassis. The sustenance chassis is Shinohara's alone -- SHI
@@ -21,6 +23,7 @@ ShipyardScreens/<faction>.rsi; consoles opt in with the ShipyardScreen component
 
 Usage: python Tools/generate_hullrot_vendors.py [repo] [--preview out.png]   (needs Pillow; overwrites
 Resources/Textures/_Crescent/Structures/Machines/Vendors in place)
+Use --security-only to generate only the faction security RSIs and their optional preview.
 """
 import json
 import math
@@ -29,6 +32,9 @@ import sys
 from PIL import Image
 
 argv = sys.argv[1:]
+SECURITY_ONLY = "--security-only" in argv
+if SECURITY_ONLY:
+    argv.remove("--security-only")
 PREVIEW = None
 if "--preview" in argv:
     i = argv.index("--preview")
@@ -79,8 +85,7 @@ FACTIONS = {
     "tfsc": dict(chassis="#56453F", accent="#D0463F", cap="chamfer", emblem="diamonds", trim="dash", pillar="bolts"),
     "tap": dict(chassis="#766650", accent="#5DBB5A", cap="stepped", emblem="crescent", trim="chevron", pillar="rivets"),
     "srm": dict(chassis="#302C2A", accent="#B8A97A", cap="arch", emblem="cross", trim="double", pillar="stripe"),
-    "ath": dict(chassis="#9E998C", accent="#E0CF8A", cap="spire", emblem="crown", trim="double", pillar="stripe"),
-    "tsp": dict(chassis="#3A4658", accent="#4E8FD6", cap="badge", emblem="shield", trim="solid", pillar="rivets"),
+    "cmm": dict(chassis="#3A4658", accent="#4E8FD6", cap="badge", emblem="shield", trim="solid", pillar="rivets"),
 }
 
 # Shinohara sells rations to every flag in the sector, so its ration vendor is a fleet-service machine
@@ -89,9 +94,21 @@ FACTIONS = {
 SUSTENANCE = dict(chassis="#3F4E52", accent="#6FB0A6", cap="dome", emblem="s", trim="solid", pillar="stripe")
 
 BUDGET = dict(FACTIONS["shi"], chassis="#626F72", pillar="bolts")
+SURPLUS = dict(FACTIONS["tap"], chassis="#82745A", accent="#72BA83")
 
 # The Federation grill wears the TFCF armoury paint and chamfered cap, but swaps the diamonds for a burger.
 GRILL = dict(FACTIONS["tfsc"], emblem="burger")
+
+# Gliess has a civilian municipal livery.
+SECURITY_FACTIONS = {
+    "dsm": FACTIONS["dsm"],
+    "shi": FACTIONS["shi"],
+    "ncwl": FACTIONS["ncwl"],
+    "cmm": FACTIONS["cmm"],
+    "tap": FACTIONS["tap"],
+    "gs": dict(chassis="#52636A", accent="#D1B878", cap="flat", emblem="square", trim="solid", pillar="bolts"),
+    "srm": FACTIONS["srm"],
+}
 
 EMBLEMS = {
     "square": [".......", ".#####.", ".#...#.", ".#.#.#.", ".#...#.", ".#####.", "......."],
@@ -204,6 +221,22 @@ class Canvas:
 
 # Geometry. Bodies are odd-width so the emblem centres on a pixel column.
 GEO = {
+    "security": dict(
+        bx0=3, bx1=29, bt=5,
+        sign=(4, 5, 28, 13), plate=(5, 4, 13, 12),
+        glass=(6, 15, 20, 26), glass_frame=(5, 14, 21, 27),
+        screen=(24, 15, 26, 17), screen_frame=(23, 14, 27, 18),
+        keys=(24, 20, 26, 22), led=(28, 20), slot=(24, 25, 27, 25),
+        hatch=(7, 29, 20, 29), console=(23, 14, 28, 27),
+    ),
+    "surplus": dict(
+        bx0=2, bx1=29, bt=5,
+        sign=(4, 5, 27, 12), plate=(4, 4, 12, 12),
+        glass=(5, 14, 20, 26), glass_frame=(4, 13, 21, 27),
+        screen=(24, 14, 26, 16), screen_frame=(23, 13, 27, 17),
+        keys=(24, 19, 26, 22), led=(28, 19), slot=(24, 25, 27, 25),
+        hatch=(6, 29, 20, 29), console=(23, 13, 28, 27),
+    ),
     "budget": dict(
         bx0=3, bx1=29, bt=4,
         sign=(4, 4, 28, 12), plate=(5, 4, 13, 12),
@@ -299,8 +332,8 @@ def draw_body(kind, fac, p):
         if any((x + dx, y + dy) not in mask for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
             c.put(x, y, p["out"])
 
-    {"supply": draw_supply, "sustenance": draw_sustenance,
-     "grill": draw_grill, "budget": draw_budget}[kind](c, g, fac, p)
+    {"supply": draw_supply, "sustenance": draw_sustenance, "surplus": draw_surplus,
+     "grill": draw_grill, "budget": draw_budget, "security": draw_security}[kind](c, g, fac, p)
     return c
 
 
@@ -402,6 +435,96 @@ def draw_supply(c, g, fac, p):
     for x in range(hx0 - 1, hx1 + 2):
         c.put(x, hy - 1, p["out"])
         c.put(x, hy, p["lt"])
+
+
+# ---------------------------------------------------------------- faction security equipment
+
+SECURITY_LETTERS = (
+    ["###", "#..", "###", "..#", "###"],
+    ["###", "#..", "##.", "#..", "###"],
+    ["###", "#..", "#..", "#..", "###"],
+)
+
+
+def draw_security(c, g, fac, p):
+    # Reinforced sides, faction crest and a small SEC sign above the equipment window.
+    for x, mirrored in ((3, False), (27, True)):
+        draw_pillar(c, x, 14, 28, fac, p, mirrored)
+    c.rect(*g["sign"], p["out"])
+    for y in (12, 13):
+        for x in range(4, 29):
+            c.put(x, y, trim_color(fac["trim"], x, y, 12, 13, p))
+    draw_plate(c, g, fac, p, p["acc_dim"])
+    for x, letter in zip((16, 20, 24), SECURITY_LETTERS):
+        c.glyph(letter, x, 6, p["acc_dim"])
+    draw_glass(c, g, p)
+
+    # A tall riot shield occupies the left rack; its slit and centre boss stay legible at 1x.
+    c.glyph([".#####.", "#######", "#.....#", "#.###.#", "#.....#",
+             "#..#..#", "#..#..#", "#.....#", ".#...#.", "..###.."],
+            6, 16, METAL)
+    c.rect(8, 18, 10, 18, GLASS_HI)
+    c.put(9, 22, p["acc"])
+    # Cuffs, linked across the centre, on the upper right shelf.
+    c.glyph(["##..##", "#.##.#", "##..##"], 14, 16, METAL)
+    c.rect(14, 20, 20, 20, METAL_DK)
+    # Security glasses with pale lenses on the lower shelf.
+    c.glyph(["#######", "##.#.##", ".#...#."], 14, 22, p["acc_dk"])
+    c.put(15, 23, GLASS_HI)
+    c.put(19, 23, GLASS_HI)
+    c.rect(14, 26, 20, 26, METAL_DK)
+    draw_console(c, g, p)
+    hx0, hy, hx1, _ = g["hatch"]
+    c.rect(hx0 - 1, hy - 1, hx1 + 1, hy + 1, p["out"])
+    c.rect(hx0, hy, hx1, hy, p["lt"])
+
+
+# ---------------------------------------------------------------- Taypani surplus shop
+
+SURPLUS_LETTERS = (["###", ".#.", ".#.", ".#.", ".#."],
+                   ["###", "#..", "###", "..#", "###"])
+
+
+def draw_surplus(c, g, fac, p):
+    # A reclaimed field locker: brass edging, a stepped trade sign and mismatched stock.
+    c.frame(*g["sign"], p["out"])
+    c.rect(13, 6, 26, 11, PLATE)
+    draw_plate(c, g, fac, p, p["acc_dim"])
+    for x, letter in zip((16, 21), SURPLUS_LETTERS):
+        c.glyph(letter, x, 6, p["acc_dim"])
+    for x in range(7, 25):
+        c.put(x, 3, p["hi"] if x % 4 else p["acc_dk"])
+    for x in (3, 28):
+        for y in (6, 11, 15, 24, 28):
+            c.put(x, y, p["hi"])
+            c.put(x, y + 1, p["seam"])
+
+    draw_glass(c, g, p)
+    # Horizontal long guns, with wood furniture and different barrel lengths.
+    for y, length, stock in ((15, 13, (133, 94, 60)), (20, 11, (93, 104, 78))):
+        c.rect(6, y + 1, 9, y + 2, stock)
+        c.put(6, y + 3, stock)
+        c.rect(9, y, 6 + length, y, GUN_M)
+        c.rect(9, y + 1, 14, y + 1, GUN_B)
+        c.put(12, y + 2, GUN_M)
+        c.put(13, y + 3, GUN_B)
+        c.put(6 + length - 1, y - 1, GUN_H)
+        c.put(10, y, GUN_H)
+        c.rect(5, y + 4, 20, y + 4, p["seam"])
+    # A row of ammunition tins, each with a paper inventory label.
+    for x, col in ((6, p["acc_dk"]), (11, CRATE), (16, (102, 74, 57))):
+        c.rect(x, 25, x + 3, 26, col)
+        c.put(x + 1, 25, (184, 174, 131))
+    c.put(5, 14, GLASS_HI)
+    c.put(6, 14, GLASS_HI)
+    draw_console(c, g, p)
+    # Recessed collection tray with a worn brass lip.
+    c.rect(5, 28, 21, 30, p["out"])
+    c.rect(*g["hatch"], (15, 19, 18))
+    c.rect(6, 30, 20, 30, p["lt"])
+    for x, y in ((3, 18), (28, 9), (22, 26), (4, 29), (18, 30)):
+        c.put(x, y, p["hi"])
+        c.put(x + 1, y, p["seam"])
 
 
 # ---------------------------------------------------------------- budget gun shop
@@ -907,6 +1030,22 @@ def paint_ambient(c, kind, g, fac, p):
     if kind == "armory":
         armory_ambient(c, g, fac, p)
         return
+    if kind == "security":
+        px0, py0, _, _ = g["plate"]
+        c.glyph(EMBLEMS[fac["emblem"]], px0 + 1, py0 + 1, p["acc_lt"])
+        for x, letter in zip((16, 20, 24), SECURITY_LETTERS):
+            c.glyph(letter, x, 6, p["acc_lt"])
+        for x in range(6, 21):
+            c.put(x, 15, p["acc_lt"], 65)
+        return
+    if kind == "surplus":
+        px0, py0, _, _ = g["plate"]
+        c.glyph(EMBLEMS[fac["emblem"]], px0 + 1, py0 + 1, p["acc_lt"])
+        for x, letter in zip((16, 21), SURPLUS_LETTERS):
+            c.glyph(letter, x, 6, p["acc_lt"])
+        for x in range(5, 21):
+            c.put(x, 14, p["acc_lt"], 65)
+        return
     if kind == "budget":
         px0, py0, _, _ = g["plate"]
         c.glyph(EMBLEMS[fac["emblem"]], px0 + 1, py0 + 1, p["acc_lt"])
@@ -1112,6 +1251,10 @@ def write_rsi(kind, name, fac):
         "size": {"x": S, "y": S},
         "states": meta_states,
     }
+    if kind == "surplus":
+        meta["copyright"] = "Original Taypani surplus layout based on Taleryn's Hullrot vendor generator."
+    if kind == "security":
+        meta["copyright"] = "Faction security equipment layout based on Taleryn's Hullrot vendor generator."
     with open(os.path.join(path, "meta.json"), "w", encoding="utf-8", newline="\n") as fh:
         json.dump(meta, fh, indent=2)
         fh.write("\n")
@@ -1153,13 +1296,45 @@ def write_screen(name, fac):
     return im
 
 
+def security_preview(rendered, path):
+    from PIL import ImageDraw
+
+    labels = ("OFF", "ON", "DENY", "EJECT", "BROKEN", "PANEL")
+    cell, left, top = 140, 64, 24
+    out = Image.new("RGBA", (left + len(labels) * cell, top + len(SECURITY_FACTIONS) * cell), (40, 44, 50, 255))
+    text = ImageDraw.Draw(out)
+    for col, label in enumerate(labels):
+        text.text((left + col * cell, 6), label, fill="white")
+    for row, name in enumerate(SECURITY_FACTIONS):
+        st = rendered[("security", name)]
+        off = st["off"][0]
+        frames = [off] + [Image.alpha_composite(off, st[state][0]) for state in
+                         ("normal-unshaded", "deny-unshaded", "eject-unshaded")]
+        frames += [st["broken"][0], Image.alpha_composite(off, st["panel"][0])]
+        text.text((4, top + row * cell + 58), name.upper(), fill="white")
+        for col, frame in enumerate(frames):
+            frame = frame.resize((128, 128), Image.Resampling.NEAREST)
+            out.alpha_composite(frame, (left + col * cell, top + row * cell))
+    out.save(path)
+    print("security preview:", path)
+
+
 def main():
     rendered = {}
+    for name, fac in SECURITY_FACTIONS.items():
+        rendered[("security", name)] = write_rsi("security", name, fac)
+    if PREVIEW:
+        path = PREVIEW if SECURITY_ONLY else os.path.splitext(PREVIEW)[0] + "_security.png"
+        security_preview(rendered, path)
+    if SECURITY_ONLY:
+        print(f"wrote {len(rendered)} security RSIs to {os.path.normpath(OUT)}")
+        return
     for kind in ("armory", "supply"):
         for name, fac in FACTIONS.items():
             rendered[(kind, name)] = write_rsi(kind, name, fac)
     rendered[("sustenance", "shi")] = write_rsi("sustenance", "shi", SUSTENANCE)
     rendered[("budget", "shi")] = write_rsi("budget", "shi", BUDGET)
+    rendered[("surplus", "tap")] = write_rsi("surplus", "tap", SURPLUS)
     rendered[("grill", "tfsc")] = write_rsi("grill", "tfsc", GRILL)
     print(f"wrote {len(rendered)} RSIs to {os.path.normpath(OUT)}")
 
@@ -1171,7 +1346,7 @@ def main():
         z, pad = 4, 4
         names = list(FACTIONS)
         cell = S * z + pad
-        kinds = ("armory", "supply", "sustenance", "budget", "grill")
+        kinds = ("armory", "supply", "sustenance", "budget", "grill", "surplus")
         out = Image.new("RGBA", (3 * len(kinds) * cell + pad, len(names) * cell + pad), (40, 44, 50, 255))
         for r, name in enumerate(names):
             for k, kind in enumerate(kinds):

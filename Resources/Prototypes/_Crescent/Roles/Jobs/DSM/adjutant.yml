@@ -114,6 +114,7 @@
 - type: startingGear
   id: AdjutantGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     jumpsuit: ClothingUniformJumpsuitImperialAdjutantFormal
     back: ClothingBackpackSatchelLeather
     shoes: ClothingShoesBootsImperialLongboots

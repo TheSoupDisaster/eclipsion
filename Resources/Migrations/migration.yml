@@ -409,3 +409,12 @@ WallJackalDiagonalNorthwestHollow: WallReinforcedCapitalDiagonalNorthwestHollow
 WallJackalDiagonalSouthwestHollow: WallReinforcedCapitalDiagonalSouthwestHollow
 WallJackalDiagonalSoutheastHollow: WallReinforcedCapitalDiagonalSoutheastHollow
 ReinforcedShuttleWallCMM: WallShuttle
+
+# 2026-09-25 EstacaoPirata playing cards removed
+CardBoxBlack: null
+CardBoxNanotrasen: null
+CardBoxSyndicate: null
+CardDeckBlack: null
+CardDeckNanotrasen: null
+CardDeckSyndicate: null
+CardHandBase: null

@@ -518,13 +518,15 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    denyState: deny-unshaded
+    ejectState: eject-unshaded
   - type: Advertise
     pack: AmmoVendAds
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Speech
   - type: Sprite
-    sprite: _Crescent/Structures/drivevend.rsi
+    sprite: _Crescent/Structures/Machines/Vendors/surplus_tap.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]

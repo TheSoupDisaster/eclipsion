@@ -143,10 +143,12 @@ namespace Content.Server.Atmos.EntitySystems
                     ReleaseGas(gasTank);
                 }
 
-                if (comp.CheckUser)
+                // A tank inside a bag gets no parent change when the bag itself is dropped or handed over, so
+                // nested tanks are re-checked every pass instead of waiting for CheckUser.
+                if (comp.CheckUser || comp.IsConnected && Transform(uid).ParentUid != comp.User)
                 {
                     comp.CheckUser = false;
-                    if (Transform(uid).ParentUid != comp.User)
+                    if (!IsCarriedBy(uid, comp.User))
                     {
                         DisconnectFromInternals(gasTank);
                         continue;
@@ -274,9 +276,24 @@ namespace Content.Server.Atmos.EntitySystems
             owner ??= component.User;
             if (Deleted(component.Owner))return null;
             if (owner != null) return CompOrNull<InternalsComponent>(owner.Value);
-            return _containers.TryGetContainingContainer(component.Owner, out var container)
-                ? CompOrNull<InternalsComponent>(container.Owner)
+            // Walk up nested containers so tanks inside bags/pouches still find their wearer.
+            InternalsComponent? internals = null;
+            return _containers.TryFindComponentOnEntityContainerOrParent(component.Owner, GetEntityQuery<InternalsComponent>(), ref internals)
+                ? internals
                 : null;
+        }
+
+        /// <summary>
+        /// Whether the tank is carried by the given user, either directly or nested inside storage (bags, pouches).
+        /// </summary>
+        private bool IsCarriedBy(EntityUid tank, EntityUid? user)
+        {
+            if (user == null)
+                return false;
+
+            InternalsComponent? internals = null;
+            return _containers.TryFindComponentOnEntityContainerOrParent(tank, GetEntityQuery<InternalsComponent>(), ref internals)
+                && internals.Owner == user.Value;
         }
 
         public void AssumeAir(Entity<GasTankComponent> ent, GasMixture giver)

@@ -161,33 +161,23 @@
     state: srm
 
 # Legacy ATH content is represented as a rare direct Crown contingent. The obsolete Authoritat is no longer canon.
-- type: faction
-  name: "Crown Expeditionary Force"
-  id: ATH
-  descriptionPrefix: |
-    MINIMUM PLAYTIME: 10 HOURS / 3 ROUNDS
-    Rare direct intervention from beyond Count Olywier's local charter.
-    Restricted to special midround spawns.
-  buttonColor: Black
-  description: |
-    Crown forces belong to the wider Divine Sol Mandate rather than Count Olywier's regional chain of command. They may
-    arrive to authenticate a direct order, protect an empire-wide interest, inspect charter compliance or reinforce a
-    strategic crisis too large for local forces.
-
-    Such intervention is exceptional. Domain normally governs Crescent through Olywier's recognized charter because a
-    functioning local ruler is cheaper and more effective than direct administration. A Crown contingent therefore
-    carries enormous political weight without replacing the Lord Admiral's routine frontier command.
-  color: "#ffffed"
-  uiAccent: "#E0CF8A"
-  weight: 2
-  enabled: false
-  icon:
-    sprite: /Textures/_Crescent/faction_icons.rsi
-    state: csa
+# ATH is not in the game for now; its lore is kept here, commented out, until the faction is ready. Its sprites
+# live under Textures/_Crescent/UnusedFactions/ATH.
+#- type: faction
+#  name: "Crown Expeditionary Force"
+#  id: ATH
+#  description: |
+#    Crown forces belong to the wider Divine Sol Mandate rather than Count Olywier's regional chain of command. They may
+#    arrive to authenticate a direct order, protect an empire-wide interest, inspect charter compliance or reinforce a
+#    strategic crisis too large for local forces.
+#
+#    Such intervention is exceptional. Domain normally governs Crescent through Olywier's recognized charter because a
+#    functioning local ruler is cheaper and more effective than direct administration. A Crown contingent therefore
+#    carries enormous political weight without replacing the Lord Admiral's routine frontier command.
 
 - type: faction
   name: "Colonial Minutemen"
-  id: TSP
+  id: CMM
   description: |
     The Colonial Minutemen began as a publicly funded Taypani defense force during the first chaotic years of the
     Turning. Port fees, local levies, donated supplies and volunteer service paid them to protect routes and civilians,
@@ -202,4 +192,4 @@
   enabled: false
   icon:
     sprite: /Textures/_Crescent/faction_icons.rsi
-    state: tsp
+    state: cmm

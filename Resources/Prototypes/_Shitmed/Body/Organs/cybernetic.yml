@@ -30,7 +30,7 @@
     - type: FlashImmunity
     - type: EyeProtection
     - type: ShowJobIcons
-    - type: ShowMindShieldIcons
+    - type: ShowFactionRelationIcons # Crescent: replaces mindshield icons
     - type: ShowCriminalRecordIcons
 
 - type: entity

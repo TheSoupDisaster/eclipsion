@@ -385,7 +385,7 @@
     - type: Loadout
       prototypes: [ MinutemanGhostGear ]
     - type: HullrotFaction
-      faction: TSP
+      faction: CMM
 
 - type: startingGear
   id: MinutemanGhostGear
@@ -453,7 +453,7 @@
     - type: Loadout
       prototypes: [ WatchmasterGhostGear ]
     - type: HullrotFaction
-      faction: TSP
+      faction: CMM
 
 - type: startingGear
   id: WatchmasterGhostGear

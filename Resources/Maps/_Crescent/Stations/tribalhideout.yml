@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 08/19/2026 17:08:14
-  entityCount: 1687
+  entityCount: 1688
 maps: []
 grids:
 - 1
@@ -25520,6 +25520,13 @@ entities:
     - type: Transform
       parent: 1
       pos: -12.5,-20.5
+- proto: TAPBiomeSource
+  entities:
+  - uid: 1688
+    components:
+    - type: Transform
+      pos: 0.5,-4.5
+      parent: 1
 - proto: TelecomServerTAP
   entities:
   - uid: 847

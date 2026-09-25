@@ -72202,7 +72202,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -16.5,2.5
-- proto: VendingMachineSec
+- proto: VendingMachineSecSHI
   entities:
   - uid: 7220
     components:

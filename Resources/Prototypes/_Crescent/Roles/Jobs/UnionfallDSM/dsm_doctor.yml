@@ -65,6 +65,7 @@
     - UnionfallDSMCadetNote
   storage:
     back:
+    - ClothingEyesHudFactionDSM
     - DefibrillatorCompact
     - MedkitCombatFilled
     - OmnizineChemistryBottle

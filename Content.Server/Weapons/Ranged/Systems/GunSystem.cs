@@ -14,7 +14,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
-using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using Content.Shared._Crescent.Weapons.Ranged.Events;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 

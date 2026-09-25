@@ -44,7 +44,7 @@ public sealed class ChasmSystem : EntitySystem
                 continue;
 
                         // Lavaland Change start: Jaunter
-            var ev = new _Lavaland.Chasm.BeforeChasmFallingEvent(uid);
+            var ev = new _Crescent.Chasm.BeforeChasmFallingEvent(uid);
             RaiseLocalEvent(uid, ref ev);
             if (ev.Cancelled)
             {

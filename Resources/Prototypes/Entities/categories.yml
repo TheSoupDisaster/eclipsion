@@ -1,7 +1,14 @@
+# components: action entities live in an action container, never in the world, and have no sprite.
+# Plenty of them forget `categories: [ HideSpawnMenu ]` and show up in the mapping menu as errors.
 - type: entityCategory
   id: Actions
   name: entity-category-name-actions
   hideSpawnMenu: true
+  components:
+  - InstantAction
+  - WorldTargetAction
+  - EntityTargetAction
+  - EntityWorldTargetAction
 
 # components: anything carrying a GameRule joins this category on its own, so a rule that forgets
 # `categories: [ HideSpawnMenu ]` can't leak into the spawn and mapping menus as an errored sprite.
@@ -20,10 +27,21 @@
   components:
   - Objective
 
+# Mind roles sit on minds, not in the world.
 - type: entityCategory
   id: Roles
   name: entity-category-name-roles
   hideSpawnMenu: true
+  components:
+  - MindRole
+
+# Implants only exist inside an implanter or a body; map the implanter instead.
+- type: entityCategory
+  id: Implants
+  name: entity-category-name-implants
+  hideSpawnMenu: true
+  components:
+  - SubdermalImplant
 
 # markers, atmos fixing, etc
 - type: entityCategory

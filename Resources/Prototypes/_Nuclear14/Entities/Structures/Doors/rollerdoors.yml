@@ -12,7 +12,7 @@
     openSound:
       path: /Audio/Machines/airlock_ext_open.ogg
     closeSound:
-      path: /Audio/Machines/airlock_ext_close.ogg
+      path: /Audio/Machines/airlock_close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: Sprite

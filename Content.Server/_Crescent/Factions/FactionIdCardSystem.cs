@@ -4,6 +4,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Roles;
+using Content.Shared._Crescent.Factions;
 using Content.Shared._Crescent.HullrotFaction;
 
 namespace Content.Server._Crescent.Factions;
@@ -91,6 +92,7 @@ public sealed partial class FactionIdCardSystem : EntitySystem
     {
         var component = EnsureComp<FactionIdCardComponent>(id);
         component.Faction = faction.Trim();
+        Dirty(id, component);
     }
 
     /// <summary>

@@ -95,7 +95,7 @@
     pocket2: WeaponPistolNeoVolker
     suitstorage: JetpackBlackFilled
     ears: ClothingHeadsetEmpire
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionDSM
   inhand:
     - UnionfallDSMShipCaptainNote
   storage:

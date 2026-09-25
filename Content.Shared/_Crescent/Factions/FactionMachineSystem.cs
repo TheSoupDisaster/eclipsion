@@ -107,6 +107,15 @@ public sealed class FactionMachineSystem : EntitySystem
         ["CD"] = "TFSC", // Cyberdawn
     };
 
+    /// <summary>
+    /// Folds a faction ID the same way machine ownership does: "Neutral" becomes empty and TFCF member
+    /// organizations become TFSC.
+    /// </summary>
+    public static string NormalizeFaction(string faction)
+    {
+        return Normalize(faction, true);
+    }
+
     private static string Normalize(string faction, bool normalizeParent)
     {
         // "Neutral" is the IFF default for unaligned grids, so it means the same thing as no faction at all.

@@ -121,6 +121,42 @@
     state: ncwlposter3
 
 - type: entity
+  parent: BaseFlagNCWL
+  id: NCWLPoster4
+  name: union foundry poster
+  description: "A faded Communard poster showing an orbital foundry worker at the forge. The slogan has long since worn away."
+  components:
+  - type: Sprite
+    state: ncwlposter4
+
+- type: entity
+  parent: BaseFlagNCWL
+  id: NCWLPoster5
+  name: union beacon poster
+  description: "A faded Communard poster. Gloved hands raise a brilliant star over a distant workers' city."
+  components:
+  - type: Sprite
+    state: ncwlposter5
+
+- type: entity
+  parent: BaseFlagNCWL
+  id: NCWLPoster6
+  name: union medic poster
+  description: "A faded Communard poster depicting a medic racing toward a stricken station."
+  components:
+  - type: Sprite
+    state: ncwlposter6
+
+- type: entity
+  parent: BaseFlagNCWL
+  id: NCWLPoster7
+  name: union ascent poster
+  description: "A faded Communard poster of a shuttle climbing away from an orbital dock toward a single bright star."
+  components:
+  - type: Sprite
+    state: ncwlposter7
+
+- type: entity
   parent: BaseSign
   id: BaseWindowSRM
   abstract: true

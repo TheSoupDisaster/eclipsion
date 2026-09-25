@@ -68,6 +68,7 @@
 - type: startingGear
   id: CorpsecGear
   equipment:
+    eyes: ClothingEyesHudFactionSHI
     jumpsuit: ClothingUniformJumpsuitShinoharaSecurity
     outerClothing: ClothingOuterArmorShinoharaArmor
     head: ClothingHeadHatShinoharaBeret

@@ -34,6 +34,10 @@
         14
 
 # Role archetypes. Each faction's mobs pick one of these up alongside their faction base.
+#
+# The role archetype has to be the *first* parent so its HTN wins, but with multiple parents the first one
+# also wins every other shared component - including NpcFactionMember, which it inherits from MobHuman as
+# NanoTrasen. So every role mob restates its faction itself, or it ends up friendly to every player.
 
 - type: entity
   abstract: true
@@ -143,6 +147,9 @@
   name: imperial shocktrooper
   description: A levyman of the Imperial Mandate, hardsuited and carrying a Beetle.
   components:
+  - type: NpcFactionMember
+    factions:
+    - DSM
   - type: Loadout
     prototypes:
     - SoldierAIGearDSMShock
@@ -153,6 +160,9 @@
   name: imperial breacher
   description: A levyman of the Imperial Mandate, hardsuited and carrying a Reno.
   components:
+  - type: NpcFactionMember
+    factions:
+    - DSM
   - type: Loadout
     prototypes:
     - SoldierAIGearDSMShotgunner
@@ -163,6 +173,9 @@
   name: imperial marksman
   description: A levyman of the Imperial Mandate, hardsuited and carrying a Legax.
   components:
+  - type: NpcFactionMember
+    factions:
+    - DSM
   - type: Loadout
     prototypes:
     - SoldierAIGearDSMMarksman
@@ -173,6 +186,9 @@
   name: imperial machinegunner
   description: A levyman of the Imperial Mandate, hardsuited and carrying a Dominion.
   components:
+  - type: NpcFactionMember
+    factions:
+    - DSM
   - type: Loadout
     prototypes:
     - SoldierAIGearDSMGunner
@@ -198,6 +214,9 @@
   name: communard shocktrooper
   description: A partisan of the League, hardsuited and carrying a Watchdog.
   components:
+  - type: NpcFactionMember
+    factions:
+    - NCWL
   - type: Loadout
     prototypes:
     - SoldierAIGearNCWLShock
@@ -208,6 +227,9 @@
   name: communard breacher
   description: A partisan of the League, hardsuited and carrying a Proletariat.
   components:
+  - type: NpcFactionMember
+    factions:
+    - NCWL
   - type: Loadout
     prototypes:
     - SoldierAIGearNCWLShotgunner
@@ -218,6 +240,9 @@
   name: communard marksman
   description: A partisan of the League, hardsuited and carrying a Molot.
   components:
+  - type: NpcFactionMember
+    factions:
+    - NCWL
   - type: Loadout
     prototypes:
     - SoldierAIGearNCWLMarksman
@@ -228,6 +253,9 @@
   name: communard machinegunner
   description: A partisan of the League, hardsuited and carrying a Conscript.
   components:
+  - type: NpcFactionMember
+    factions:
+    - NCWL
   - type: Loadout
     prototypes:
     - SoldierAIGearNCWLGunner
@@ -253,6 +281,9 @@
   name: coalition shocktrooper
   description: A Coalition contractor, hardsuited and carrying an Atreides.
   components:
+  - type: NpcFactionMember
+    factions:
+    - TFSC
   - type: Loadout
     prototypes:
     - SoldierAIGearTFSCShock
@@ -263,6 +294,9 @@
   name: coalition breacher
   description: A Coalition contractor, hardsuited and carrying a Saiga-12k.
   components:
+  - type: NpcFactionMember
+    factions:
+    - TFSC
   - type: Loadout
     prototypes:
     - SoldierAIGearTFSCShotgunner
@@ -273,6 +307,9 @@
   name: coalition marksman
   description: A Coalition contractor, hardsuited and carrying an SVD.
   components:
+  - type: NpcFactionMember
+    factions:
+    - TFSC
   - type: Loadout
     prototypes:
     - SoldierAIGearTFSCMarksman
@@ -283,6 +320,9 @@
   name: coalition machinegunner
   description: A Coalition contractor, hardsuited and carrying an RPD.
   components:
+  - type: NpcFactionMember
+    factions:
+    - TFSC
   - type: Loadout
     prototypes:
     - SoldierAIGearTFSCGunner
@@ -308,6 +348,9 @@
   name: corporate shocktrooper
   description: Shinohara corporate security, hardsuited and carrying a Warden.
   components:
+  - type: NpcFactionMember
+    factions:
+    - SHI
   - type: Loadout
     prototypes:
     - SoldierAIGearSHIShock
@@ -318,6 +361,9 @@
   name: corporate breacher
   description: Shinohara corporate security, hardsuited and carrying a Blaster.
   components:
+  - type: NpcFactionMember
+    factions:
+    - SHI
   - type: Loadout
     prototypes:
     - SoldierAIGearSHIShotgunner
@@ -328,6 +374,9 @@
   name: corporate marksman
   description: Shinohara corporate security, hardsuited and carrying a Hound.
   components:
+  - type: NpcFactionMember
+    factions:
+    - SHI
   - type: Loadout
     prototypes:
     - SoldierAIGearSHIMarksman
@@ -338,6 +387,9 @@
   name: corporate machinegunner
   description: Shinohara corporate security, hardsuited and carrying an L6.
   components:
+  - type: NpcFactionMember
+    factions:
+    - SHI
   - type: Loadout
     prototypes:
     - SoldierAIGearSHIGunner
@@ -363,6 +415,9 @@
   name: independent enforcer
   description: Hired muscle in a patched-up Fishbed, carrying a Militant.
   components:
+  - type: NpcFactionMember
+    factions:
+    - IND
   - type: Loadout
     prototypes:
     - SoldierAIGearINDShock
@@ -373,6 +428,9 @@
   name: independent breacher
   description: Hired muscle in a patched-up Fishbed, carrying a Bush.
   components:
+  - type: NpcFactionMember
+    factions:
+    - IND
   - type: Loadout
     prototypes:
     - SoldierAIGearINDShotgunner
@@ -383,6 +441,9 @@
   name: independent sharpshooter
   description: Hired muscle in a patched-up Fishbed, carrying a Kar98k.
   components:
+  - type: NpcFactionMember
+    factions:
+    - IND
   - type: Loadout
     prototypes:
     - SoldierAIGearINDMarksman
@@ -393,6 +454,9 @@
   name: independent machinegunner
   description: Hired muscle in a patched-up Fishbed, carrying an MG42.
   components:
+  - type: NpcFactionMember
+    factions:
+    - IND
   - type: Loadout
     prototypes:
     - SoldierAIGearINDGunner

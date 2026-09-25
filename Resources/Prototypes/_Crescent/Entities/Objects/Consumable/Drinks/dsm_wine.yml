@@ -1,0 +1,51 @@
+- type: entity
+  parent: DrinkWineBottleFull
+  id: DrinkDSMRabenauWineBottleFull
+  name: Rabenau Reserve wine bottle
+  description: An oak-aged ruby wine bottled for the noble households of the Divine Sol Mandate. A violet bottle with a gold label bears the Rabenau name.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/pwinebottle.rsi
+  - type: Label
+    currentLabel: reagent-name-dsm-rabenau-wine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: DSMRabenauWine
+          Quantity: 100
+
+- type: entity
+  parent: DrinkWineBottleFull
+  id: DrinkDSMConclaveWineBottleFull
+  name: Conclave Gold wine bottle
+  description: A golden white wine reserved for the Mandate's electoral banquets. Its broad green bottle wears gold foil, a small extravagance even by courtly standards.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/champagnebottle.rsi
+  - type: Label
+    currentLabel: reagent-name-dsm-conclave-wine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: DSMConclaveWine
+          Quantity: 100
+
+- type: entity
+  parent: DrinkWineBottleFull
+  id: DrinkDSMCourtierWineBottleFull
+  name: Courtier's Rose wine bottle
+  description: A delicate rose wine favored at the salons of the Divine Sol Mandate. Its slender, rose-tinted bottle is a customary gift between noble patrons.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/winebottle.rsi
+    color: "#EFA6BD"
+  - type: Label
+    currentLabel: reagent-name-dsm-courtier-wine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: DSMCourtierWine
+          Quantity: 100

@@ -111,6 +111,7 @@
 - type: startingGear
   id: GovernorGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     jumpsuit: ClothingUniformJumpsuitImperialGovernor
     shoes: ClothingShoesBootsImperialGovernorBoots
     back: ClothingBackpackSatchelLeather

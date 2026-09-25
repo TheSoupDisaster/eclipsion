@@ -169572,21 +169572,11 @@ entities:
     - type: Transform
       parent: 1
       pos: -11.5,-14.5
-  - uid: 12999
-    components:
-    - type: Transform
-      parent: 1
-      pos: 12.5,-14.5
   - uid: 13000
     components:
     - type: Transform
       parent: 1
       pos: 4.5,-14.5
-  - uid: 13001
-    components:
-    - type: Transform
-      parent: 1
-      pos: -5.5,-4.5
 - proto: RatComputerShipyardCrescent
   entities:
   - uid: 13002
@@ -177564,16 +177554,6 @@ entities:
       pos: 28.5,-8.5
 - proto: VendingMachineCoffee
   entities:
-  - uid: 14050
-    components:
-    - type: Transform
-      parent: 1
-      pos: 14.5,1.5
-  - uid: 14051
-    components:
-    - type: Transform
-      parent: 1
-      pos: -13.5,1.5
   - uid: 14052
     components:
     - type: Transform
@@ -177684,7 +177664,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -19.5,-3.5
-- proto: VendingMachineSec
+- proto: VendingMachineSecDSM
   entities:
   - uid: 14070
     components:
@@ -189156,7 +189136,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WildBiomeSource
+- proto: ImperialBiomeSource
   entities:
   - uid: 16007
     components:
@@ -189668,4 +189648,28 @@ entities:
       parent: 1434
     - type: Physics
       canCollide: False
+- proto: VendingMachineCoffeeShinohara
+  entities:
+  - uid: 14051
+    components:
+    - type: Transform
+      parent: 1
+      pos: -13.5,1.5
+  - uid: 14050
+    components:
+    - type: Transform
+      parent: 1
+      pos: 14.5,1.5
+- proto: VendingMachineSustenanceShinohara
+  entities:
+  - uid: 13001
+    components:
+    - type: Transform
+      parent: 1
+      pos: -5.5,-4.5
+  - uid: 12999
+    components:
+    - type: Transform
+      parent: 1
+      pos: 12.5,-14.5
 ...

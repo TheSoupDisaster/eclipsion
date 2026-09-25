@@ -212,30 +212,6 @@
   editorHidden: false
 
 - type: department
-  id: ATH
-  description: department-ATH-description
-  color: "#ffffed"
-  weight: 40
-  roles:
-  - KommandantATH
-  - LeutnantATH
-  - KanoneerATH
-  - SoldatATH
-  - SanitatATH
-  - StewardATH
-  - OberartzATH
-  - LogistatATH
-  - HandelsATH
-  - ForscherATH
-  - ChirurgeonATH
-  - VorarbeiterATH
-  - ArbeiterATH
-  editorHidden: true
-  primary: false
-
-  # UNIONFALL
-
-- type: department
   id: UnionfallNCWL
   description: department-UnionfallNCWL-description
   color: "#FFD580"

@@ -121,13 +121,13 @@
   description: A windbreaker, sporting the official heraldry of the Idris Incorporated Corporate Finances division. Its made of sturdy futuristic fiber.
   components:
   - type: Sprite
-    sprite: _EE/Clothing/idris_windbreaker.rsi
+    sprite: _Crescent/Clothing/idris_windbreaker.rsi
     layers:
     - state: icon
     - state: icon-unshaded
       shader: unshaded
   - type: Clothing
-    sprite: _EE/Clothing/idris_windbreaker.rsi
+    sprite: _Crescent/Clothing/idris_windbreaker.rsi
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING

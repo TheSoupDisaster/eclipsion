@@ -13,9 +13,9 @@
 - type: soundCollection
   id: ShellLand
   files:
-    - "/Audio/_EE/Weapons/Guns/Casings/shotgun_shell1.ogg"
-    - "/Audio/_EE/Weapons/Guns/Casings/shotgun_shell2.ogg"
-    - "/Audio/_EE/Weapons/Guns/Casings/shotgun_shell3.ogg"
+    - "/Audio/_Crescent/Weapons/Guns/Casings/shotgun_shell1.ogg"
+    - "/Audio/_Crescent/Weapons/Guns/Casings/shotgun_shell2.ogg"
+    - "/Audio/_Crescent/Weapons/Guns/Casings/shotgun_shell3.ogg"
 
 - type: soundCollection
   id: ToyFall

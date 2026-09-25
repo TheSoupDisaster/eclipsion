@@ -73,6 +73,7 @@
 - type: startingGear
   id: WealthGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     jumpsuit: ClothingUniformJumpsuitImperialNobleMale
     back: ClothingBackpackSatchelLeather
     shoes: ClothingShoesBootsImperialLongboots

@@ -8006,14 +8006,14 @@ entities:
     - type: Transform
       parent: 1
       pos: 4.5,-11.5
-- proto: TelecomServerTSP
+- proto: TelecomServerCMM
   entities:
   - uid: 576
     components:
     - type: Transform
       parent: 1
       pos: 0.5,-15.5
-- proto: Thruster
+- proto: ThrusterCMMFighter
   entities:
   - uid: 864
     components:

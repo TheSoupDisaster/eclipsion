@@ -129,13 +129,6 @@
       requirements:
         - !type:FactionRequirement
           factionID: "TFSC"
-    - description: "bookofkane-extendeddescription-ATH"
-      fontSize: 12
-      color: "#880000"
-      requireDetailRange: true
-      requirements:
-        - !type:FactionRequirement
-          factionID: "ATH"
     - description: "bookofkane-extendeddescription-SRM"
       fontSize: 12
       color: "#880000"

@@ -1,0 +1,77 @@
+- type: job
+  id: DeputyMarshalCMM
+  name: job-name-deputymarshal
+  description: job-description-deputymarshal
+  playTimeTracker: JobDeputyMarshalCMM
+  ranks:
+    RatRankCMMMarshalMiddle:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobDeputyMarshalCMM
+      min: 72000 # 20 hours
+    RatRankCMMMarshalJunior:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobDeputyMarshalCMM
+      min: 36000 # 10 hours
+    RatRankCMMMinutemanTop: []
+  weight: 32
+  startingGear: DeputyMarshalGear
+  alwaysUseSpawner: true
+  requireAdminNotify: false
+  icon: "JobIconDeputyMarshal"
+  supervisors: job-supervisors-cmm-deputy
+  canBeAntag: false
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 90000 # 25 hours
+    - !type:FactionRequirement
+        factionID: "CMM"
+    - !type:CharacterTraitRequirement
+        inverted: true
+        traits:
+          - Muted
+          - Blindness
+          - Pacifist
+          - WheelchairBound
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: HullrotFaction
+        faction: CMM
+      - type: LanguageAdder
+        addSpoken:
+          - American
+          - Tradeband
+        addUnderstood:
+          - American
+          - Tradeband
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Command
+  - Maintenance
+  - Minuteman
+  - MinutemanPrison
+  - MinutemanRankingOfficer
+  - MinutemanMarshal
+  - CMMFunds
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - GliessSheriff
+  - GliessDockmaster
+
+- type: startingGear
+  id: DeputyMarshalGear
+  equipment:
+    eyes: ClothingEyesHudFactionCMM
+    jumpsuit: ClothingUniformJumpsuitCMMOfficer
+    shoes: ClothingShoesBootsCombat
+    head: ClothingHeadHatCMMDeputyMarshal
+    gloves: ClothingHandsGlovesCombat
+    belt: ClothingBeltMinutemanPouches
+    back: ClothingBackpackMinuteman
+    pocket1: WeaponRevolverSnubnose
+    pocket2: RatRubberStampCMM
+    id: DeputyMarshalPDA
+    ears: ClothingHeadsetCMM
+    outerClothing: ClothingOuterArmorCMMDeputyCarapace

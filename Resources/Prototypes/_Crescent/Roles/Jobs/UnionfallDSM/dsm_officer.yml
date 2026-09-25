@@ -95,7 +95,7 @@
     pocket2: Whistle
     ears: ClothingHeadsetEmpire
     suitstorage: WeaponSniperDSMLegax
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionDSM
   inhand:
     - JetpackBlackFilled
   storage:

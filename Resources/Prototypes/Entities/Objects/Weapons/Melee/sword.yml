@@ -40,7 +40,7 @@
     wideAnimationRotation: -135
     range: 1.25
     soundHit:
-      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
+      path: /Audio/Weapons/Melee/rapierhit.ogg
     damage:
       types:
         Slash: 32
@@ -88,7 +88,7 @@
     wideAnimationRotation: -135
     attackRate: 1
     soundHit:
-      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
+      path: /Audio/Weapons/Melee/rapierhit.ogg
     damage:
       types:
         Slash: 34

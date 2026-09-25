@@ -21,3 +21,9 @@
     # Rat-start
     - id: RatAnomalyStationEvent
     # Rat-stop
+
+- type: entity
+  id: LavalandStormScheduler
+  parent: BaseGameRule
+  components:
+  - type: LavalandStormSchedulerRule

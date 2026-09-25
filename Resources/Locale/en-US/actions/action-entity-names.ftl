@@ -94,6 +94,6 @@ ent-ActionPsionicSkillTree = { action-name-psionic-skill-tree }
 ent-ActionSummonMothroach = { action-name-summon-mothroach }
     .desc = { action-description-summon-mothroach }
 
-# Resources/Prototypes/_Lavaland/Entities/Objects/Weapons/Guns/Basic/pka.yml
+# Resources/Prototypes/_Crescent/Entities/Objects/Weapons/Guns/Basic/pka.yml
 ent-ActionTogglePKALight = { action-name-toggle-pka-light }
     .desc = { action-description-toggle-pka-light }

@@ -37,6 +37,7 @@
 - type: startingGear
   id: APRTHunterGear
   equipment:
+    eyes: ClothingEyesHudFactionSRM
     id: HunterPDA
     ears: ClothingHeadsetHunter
     jumpsuit: ClothingUniformJumpsuitHunter

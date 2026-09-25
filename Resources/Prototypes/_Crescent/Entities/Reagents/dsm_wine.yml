@@ -1,0 +1,24 @@
+# Inherit ordinary wine's alcohol metabolism and colorable wineglass visuals.
+- type: reagent
+  parent: Wine
+  id: DSMRabenauWine
+  name: reagent-name-dsm-rabenau-wine
+  desc: reagent-desc-dsm-rabenau-wine
+  flavor: dsm-rabenau-wine
+  color: "#8C173B"
+
+- type: reagent
+  parent: Wine
+  id: DSMConclaveWine
+  name: reagent-name-dsm-conclave-wine
+  desc: reagent-desc-dsm-conclave-wine
+  flavor: dsm-conclave-wine
+  color: "#EAC65B"
+
+- type: reagent
+  parent: Wine
+  id: DSMCourtierWine
+  name: reagent-name-dsm-courtier-wine
+  desc: reagent-desc-dsm-courtier-wine
+  flavor: dsm-courtier-wine
+  color: "#E887A0"

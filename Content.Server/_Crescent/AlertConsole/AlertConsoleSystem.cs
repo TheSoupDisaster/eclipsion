@@ -37,8 +37,7 @@ public sealed class AlertConsoleSystem : EntitySystem
         ["SAW"] = "Saws",
         ["GSC"] = "Gorlex",
         ["CD"] = "Cyberdawn",
-        ["TSP"] = "Nfsd",
-        ["ATH"] = "Authority",
+        ["CMM"] = "Nfsd",
     };
 
     /// <summary>

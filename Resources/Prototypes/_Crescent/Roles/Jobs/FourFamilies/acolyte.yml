@@ -85,6 +85,7 @@
 - type: startingGear
   id: AcolyteTAPGear
   equipment:
+    eyes: ClothingEyesHudFactionTAP
     jumpsuit: ClothingUniformJumpsuitBodysuit
     back: ClothingBackpackSatchelLeatherFilledNCWL
     shoes: ClothingShoesBootsJack

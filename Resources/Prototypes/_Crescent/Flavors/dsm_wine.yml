@@ -1,0 +1,14 @@
+- type: flavor
+  id: dsm-rabenau-wine
+  flavorType: Complex
+  description: flavor-complex-dsm-rabenau-wine
+
+- type: flavor
+  id: dsm-conclave-wine
+  flavorType: Complex
+  description: flavor-complex-dsm-conclave-wine
+
+- type: flavor
+  id: dsm-courtier-wine
+  flavorType: Complex
+  description: flavor-complex-dsm-courtier-wine

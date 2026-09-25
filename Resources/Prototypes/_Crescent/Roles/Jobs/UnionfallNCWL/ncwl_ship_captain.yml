@@ -93,7 +93,7 @@
     back: ClothingBackpackNCWL
     gloves: ClothingHandsGlovesCombat
     suitstorage: JetpackBlackFilled
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionNCWL
 
   inhand:
     - ClothingOuterHardsuitNCWLPetya

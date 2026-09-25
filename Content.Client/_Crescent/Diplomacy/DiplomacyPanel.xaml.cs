@@ -15,7 +15,7 @@ public sealed partial class DiplomacyPanel : BoxContainer
     // Must mirror RatDiplomacySystem.AllFactions on the server. The legacy TFSC id represents the TFCF's shared
     // diplomatic front; IPM, SAW, GSC and CD remain distinct member organizations.
     private static readonly string[] AllFactions =
-        ["DSM", "NCWL", "SHI", "SRM", "TAP", "TFSC", "TSP"];
+        ["DSM", "NCWL", "SHI", "SRM", "TAP", "TFSC", "CMM"];
 
     // Must mirror RatDiplomacySystem.PermanentEnemyPairs on the server. These pairs are locked at
     // war, so their peace/alliance/trade buttons are disabled — the server would reject them anyway.

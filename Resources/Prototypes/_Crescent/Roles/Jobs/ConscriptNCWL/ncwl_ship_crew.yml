@@ -72,6 +72,7 @@
 - type: startingGear
   id: ConscriptShipCrewNCWLGear
   equipment:
+    eyes: ClothingEyesHudFactionNCWL
     jumpsuit: ClothingUniformJumpsuitNCWLArtificer
     neck: ClothingNeckIFFOrange
     id: NCWLHomeguardSoldatPDA

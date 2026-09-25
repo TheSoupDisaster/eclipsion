@@ -456,15 +456,11 @@
             - !type:MappingTemplatePrototype
               id: RatAlseikMothershipComputer
             - !type:MappingTemplatePrototype
-              id: RatAuthorityMothershipComputer
-            - !type:MappingTemplatePrototype
               id: RatThukkerMothershipComputer
             - !type:MappingTemplatePrototype
               id: RatIzdariMothershipComputer
             - !type:MappingTemplatePrototype
               id: RatOuroborosMothershipComputer
-            - !type:MappingTemplatePrototype
-              id: RatNAPMothershipComputer
             - !type:MappingTemplatePrototype
               id: RatTrashcanMothershipComputer
             - !type:MappingTemplatePrototype
@@ -687,15 +683,11 @@
             - !type:MappingTemplatePrototype
               id: RatAlseikMothershipComputerTabletop
             - !type:MappingTemplatePrototype
-              id: RatAuthorityMothershipComputerTabletop
-            - !type:MappingTemplatePrototype
               id: RatThukkerMothershipComputerTabletop
             - !type:MappingTemplatePrototype
               id: RatIzdariMothershipComputerTabletop
             - !type:MappingTemplatePrototype
               id: RatOuroborosMothershipComputerTabletop
-            - !type:MappingTemplatePrototype
-              id: RatNAPMothershipComputerTabletop
             - !type:MappingTemplatePrototype
               id: RatTrashcanMothershipComputerTabletop
             - !type:MappingTemplatePrototype

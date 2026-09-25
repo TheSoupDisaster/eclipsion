@@ -9,6 +9,8 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Internals;
 using Content.Shared.Inventory;
 using Content.Shared.Roles;
+using Content.Shared.Storage;
+using System.Linq;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
@@ -264,6 +266,7 @@ public sealed class InternalsSystem : EntitySystem
         // 2. exo-slot tanks
         // 3. in-hand tanks
         // 4. pocket/belt tanks
+        // 5. tanks inside carried bags/pouches
 
         if (!Resolve(user, ref user.Comp1, ref user.Comp2, ref user.Comp3))
             return null;
@@ -282,10 +285,28 @@ public sealed class InternalsSystem : EntitySystem
             return (entity.Value, gasTank);
         }
 
-        foreach (var item in _inventory.GetHandOrInventoryEntities((user.Owner, user.Comp1, user.Comp2)))
+        var carried = _inventory.GetHandOrInventoryEntities((user.Owner, user.Comp1, user.Comp2)).ToList();
+
+        foreach (var item in carried)
         {
             if (TryComp(item, out gasTank) && gasTank.IsInternals && _gasTank.CanConnectToInternals(gasTank))
                 return (item, gasTank);
+        }
+
+        // 5. tanks inside carried storage (bags, pouches), including nested storage
+        var toSearch = new Queue<EntityUid>(carried);
+        while (toSearch.TryDequeue(out var holder))
+        {
+            if (!TryComp<StorageComponent>(holder, out var storage))
+                continue;
+
+            foreach (var item in storage.Container.ContainedEntities)
+            {
+                if (TryComp(item, out gasTank) && gasTank.IsInternals && _gasTank.CanConnectToInternals(gasTank))
+                    return (item, gasTank);
+
+                toSearch.Enqueue(item);
+            }
         }
 
         return null;

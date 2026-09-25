@@ -27,3 +27,14 @@
 # Ratgore Start
 # HardlinerFireControlConsoleCircuitboard → Resources/Prototypes/_Crescent/Entities/Objects/Devices/Circuitboards/hardliner_fire_control_console.yml
 # Ratgore End
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SupermatterComputerCircuitboard
+  name: supermatter monitoring console board
+  description: A computer printed circuit board for a supermatter monitoring console.
+  components:
+  - type: Sprite
+    state: cpu_engineering
+  - type: ComputerBoard
+    prototype: ComputerSupermatter

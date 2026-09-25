@@ -74,6 +74,7 @@
 - type: startingGear
   id: TraumasecGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicateInterdyne
     gloves: ClothingHandsGlovesFingerless
     mask: ClothingMaskBreathMedicalSecurity

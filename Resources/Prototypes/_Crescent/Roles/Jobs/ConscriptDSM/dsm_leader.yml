@@ -81,7 +81,7 @@
     pocket2: SyndicateWhistle
     ears: ClothingHeadsetEmpire
     suitstorage: WeaponSniperDSMLegax
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionDSM
   storage:
     back:
       - VoidsuitKitDSM

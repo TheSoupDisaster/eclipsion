@@ -25,12 +25,6 @@
     - type: loadout
       id: LoadoutBeltSheathDSMBaton
     - type: loadout
-      id: LoadoutBeltATHWebbing
-    - type: loadout
-      id: LoadoutBeltATHPouches
-    - type: loadout
-      id: LoadoutBeltATHDropPouches
-    - type: loadout
       id: LoadoutBeltTacticalRig
     - type: loadout
       id: LoadoutBeltSheathMacheteIndependent

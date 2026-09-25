@@ -61,7 +61,7 @@
 - type: cargoProduct
   id: ArmoryBRDIR25
   icon:
-    sprite: _EE/Objects/Weapons/Guns/SMGs/BRDI_R25.rsi
+    sprite: _Crescent/Objects/Weapons/Guns/SMGs/BRDI_R25.rsi
     state: icon
   product: CrateArmoryBRDIR25
   cost: 12000

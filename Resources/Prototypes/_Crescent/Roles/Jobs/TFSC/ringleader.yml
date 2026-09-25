@@ -96,6 +96,7 @@
 - type: startingGear
   id: RingleaderGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicateOfficer
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHatSyndicateOfficer

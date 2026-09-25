@@ -231,47 +231,6 @@
 - type: playTimeTracker
   id: JobAntiquarianTAP
 
-#ath
-
-- type: playTimeTracker
-  id: JobKommandantATH
-
-- type: playTimeTracker
-  id: JobLeutnantATH
-
-- type: playTimeTracker
-  id: JobStewartATH
-
-- type: playTimeTracker
-  id: JobOberartzATH
-
-- type: playTimeTracker
-  id: JobLogistatATH
-
-- type: playTimeTracker
-  id: JobSoldatATH
-
-- type: playTimeTracker
-  id: JobKanoneerATH
-
-- type: playTimeTracker
-  id: JobSanitatATH
-
-- type: playTimeTracker
-  id: JobHandelsATH
-
-- type: playTimeTracker
-  id: JobForscherATH
-
-- type: playTimeTracker
-  id: JobChirurgeonATH
-
-- type: playTimeTracker
-  id: JobVorarbeiterATH
-
-- type: playTimeTracker
-  id: JobArbeiterATH
-
 #misc
 
 - type: playTimeTracker

@@ -68,6 +68,7 @@
 - type: startingGear
   id: TemplarGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: TemplarPDA
     ears: ClothingHeadsetEmpire
     jumpsuit: ClothingUniformJumpsuitImperialCombat

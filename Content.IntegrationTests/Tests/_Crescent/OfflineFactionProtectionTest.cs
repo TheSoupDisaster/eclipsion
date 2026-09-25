@@ -20,7 +20,7 @@ public sealed class OfflineFactionProtectionTest
                 Assert.That(protection.IsProtected("DSM"), Is.True);
                 Assert.That(protection.IsProtected("SRM"), Is.True);
                 Assert.That(protection.IsProtected("TAP"), Is.True);
-                Assert.That(protection.IsProtected("TSP"), Is.True);
+                Assert.That(protection.IsProtected("CMM"), Is.True);
                 Assert.That(protection.IsProtected(string.Empty), Is.False);
             });
         });

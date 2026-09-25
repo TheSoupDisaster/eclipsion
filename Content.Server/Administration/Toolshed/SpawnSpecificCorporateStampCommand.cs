@@ -1,10 +1,10 @@
 ﻿using Content.Server.GameTicking;
-using Content.Shared._EE.Contractors.Systems;
+using Content.Shared._Crescent.Contractors.Systems;
 using Content.Shared.Administration;
 using Robust.Shared.Player;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Errors;
-using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._Crescent.Contractors.Prototypes;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Inventory;

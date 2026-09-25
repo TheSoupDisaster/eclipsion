@@ -1,0 +1,45 @@
+# Sold by the Shinohara canteen vendor, the corporate counterpart to the TFCF Grill-O-Mat.
+
+- type: entity
+  parent: FoodRicePork
+  id: FoodShinoharaBento
+  name: Shinohara executive bento
+  description: Rice, glazed pork and pickles in precisely measured compartments. The lid carries a nutrition audit and a reminder that lunch ends in twelve minutes.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - rice
+    - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 4
+
+- type: entity
+  parent: FoodSnackRicecake
+  id: FoodShinoharaOnigiri
+  name: Shinohara onigiri
+  description: A triangle of rice wrapped in seaweed and a corporate-blue label. Quality-checked by a machine, sealed by another machine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 2
+
+- type: entity
+  parent: FoodSnackDanDanNoodles
+  id: FoodShinoharaNoodleCup
+  name: Shinohara overtime noodles
+  description: Instant noodles in a cup printed with a smiling cat mascot. Engineered to be ready before your next meeting starts.

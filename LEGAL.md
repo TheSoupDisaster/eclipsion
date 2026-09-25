@@ -44,13 +44,14 @@ This repository is a downstream fork. Under AGPLv3 §5(a), modified files carry 
 they were changed, and the original authors' copyright notices are preserved.
 
 Content originating from another Space Station 14 project is kept under a directory prefix
-(for example `_Goobstation/`, `_NF/`, `_EE/`) or inside a dedicated `Content.<Project>.*` assembly.
+(for example `_Goobstation/`, `_NF/`, `_DV/`) or inside a dedicated `Content.<Project>.*` assembly.
 Authoritative copyright and licensing for any individual file is recorded in its
 `SPDX-FileCopyrightText` / `SPDX-License-Identifier` header, or, for assets, in the `meta.json`
 of the containing `.rsi` directory.
 
 This project is the direct continuation of
-[HULLROT](https://github.com/Sector-Crescent/Hullrot) (content under `_Crescent`).
+[HULLROT](https://github.com/Sector-Crescent/Hullrot) (content under `_Crescent`, which also holds the content formerly kept under `_EE`
+and `_Lavaland`; its origin is recorded in the git history).
 
 Other major upstream projects include Space Station 14, Robust Toolbox, Einstein Engines,
 Goob-Station, Frontier Station 14, Delta-v, Nyanotrasen, RMC-14, Shiptest and tgstation.

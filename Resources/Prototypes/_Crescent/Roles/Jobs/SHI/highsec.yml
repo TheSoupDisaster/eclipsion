@@ -82,6 +82,8 @@
     back: ClothingBackpackSHISatchel
     belt: ClothingBeltSecurityFilled
   storage:
+    back:
+    - ClothingEyesHudFactionSHI
     belt:
       - Flash
       - Tourniquet
@@ -158,6 +160,8 @@
     outerClothing: ClothingOuterArmorShinoharaHOSVest
     belt: ClothingBeltSecurityFilled
   storage:
+    back:
+    - ClothingEyesHudFactionSHI
     belt:
       - Flash
       - Tourniquet

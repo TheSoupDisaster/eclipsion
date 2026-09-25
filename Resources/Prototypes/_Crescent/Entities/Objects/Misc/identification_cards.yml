@@ -985,202 +985,7 @@
   - type: PresetIdCard
     job: ServileTAP
 
-#ath
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardKommandant
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: KommandantATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardLeutnant
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: LeutnantATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardSoldat
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: SoldatATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardKanoneer
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: KanoneerATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardSanitat
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: SanitatATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardSteward
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: StewardATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardOberartz
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: OberartzATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardLogistat
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: LogistatATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardHandels
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: HandelsATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardForscher
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: ForscherATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardChirurgeon
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: ChirurgeonATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardVorarbeiter
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: VorarbeiterATH
-
-- type: entity
-  parent: IDCardStandard
-  id: ATHIDCardArbeiter
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: ArbeiterATH
-
 #anti psionic response team
-
-- type: entity
-  parent: IDCardStandard
-  id: APRTIDCardKanoneer
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: APRTKanoneerATH
-
-- type: entity
-  parent: IDCardStandard
-  id: APRTIDCardSanitat
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: APRTSanitatATH
-
-- type: entity
-  parent: IDCardStandard
-  id: APRTIDCardSoldat
-  name: Crown expeditionary ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idquartermaster
-  - type: PresetIdCard
-    job: APRTSoldatATH
-
 
 #misc
 
@@ -1291,3 +1096,23 @@
     - state: idseniorresearcher
   - type: PresetIdCard
     job: PretorianKnightDSM
+
+# SAN ID
+- type: entity
+  parent: [IDCardStandard, SolAllianceInfo]
+  id: SANIdCard
+  name: "Solarian Alliance Navy RFItags"
+  components:
+    - type: Icon
+      sprite: Clothing/Neck/Misc/dogtags.rsi
+      state: icon
+    - type: Sprite
+      sprite: Clothing/Neck/Misc/dogtags.rsi
+      state: icon
+    - type: Clothing
+      sprite: Clothing/Neck/Misc/dogtags.rsi
+      slots:
+        - idcard
+    - type: Access
+      tags:
+        - SAN

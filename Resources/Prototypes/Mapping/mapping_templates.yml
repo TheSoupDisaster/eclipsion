@@ -907,13 +907,7 @@
         - !type:MappingTemplatePrototype
           id: TelecomServerSRM
         - !type:MappingTemplatePrototype
-          id: TelecomServerATH
-        - !type:MappingTemplatePrototype
-          id: TelecomServerTSP
-        - !type:MappingTemplatePrototype
-          id: TelecomServerClarizian
-        - !type:MappingTemplatePrototype
-          id: TelecomServerNAP
+          id: TelecomServerCMM
         - !type:MappingTemplatePrototype
           id: TelecomServer
         - !type:MappingTemplatePrototype

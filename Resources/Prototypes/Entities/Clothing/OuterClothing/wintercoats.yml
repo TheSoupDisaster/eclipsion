@@ -570,9 +570,9 @@
   description: A cozy jacket with the Zavodskoi Interstellar logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
   components:
   - type: Sprite
-    sprite: _EE/Clothing/corpo_jacket_zavodskoi_interstellar.rsi
+    sprite: _Crescent/Clothing/corpo_jacket_zavodskoi_interstellar.rsi
   - type: Clothing
-    sprite: _EE/Clothing/corpo_jacket_zavodskoi_interstellar.rsi
+    sprite: _Crescent/Clothing/corpo_jacket_zavodskoi_interstellar.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -691,9 +691,9 @@
   description: A cozy jacket with the Idris Incorporated logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
   components:
   - type: Sprite
-    sprite: _EE/Clothing/corpo_jacket_idris_incorporated.rsi
+    sprite: _Crescent/Clothing/corpo_jacket_idris_incorporated.rsi
   - type: Clothing
-    sprite: _EE/Clothing/corpo_jacket_idris_incorporated.rsi
+    sprite: _Crescent/Clothing/corpo_jacket_idris_incorporated.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -703,6 +703,6 @@
   description: A cozy jacket with the Orion Express logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
   components:
   - type: Sprite
-    sprite: _EE/Clothing/corpo_jacket_orion_express.rsi
+    sprite: _Crescent/Clothing/corpo_jacket_orion_express.rsi
   - type: Clothing
-    sprite: _EE/Clothing/corpo_jacket_orion_express.rsi
+    sprite: _Crescent/Clothing/corpo_jacket_orion_express.rsi

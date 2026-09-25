@@ -52,6 +52,7 @@
 - type: startingGear
   id: ReinforcementNCWLSMGConscriptGear
   equipment:
+    eyes: ClothingEyesHudFactionNCWL
     shoes: ClothingShoesBootsCombat
     jumpsuit: ClothingUniformJumpsuitNCWL
     id: NCWLHomeguardSoldatPDA

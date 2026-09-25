@@ -1,0 +1,55 @@
+- type: entity
+  id: HolographBlackHole
+  parent: HolographStation
+  name: black hole hologram projector
+  description: An amber accretion disk circles a lightless singularity. A reassuringly small model of an unreasonably large hazard.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Decoration/holograph_concepts.rsi
+    state: holograph_black_hole
+  - type: PointLight
+    radius: 1.6
+    energy: 2
+    color: "#FFBA56"
+
+- type: entity
+  id: HolographTacticalFleet
+  parent: HolographStation
+  name: tactical fleet hologram projector
+  description: A cyan tactical projection of a capital ship and its escorts. Their formation holds while targeting telemetry scrolls beneath them.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Decoration/holograph_concepts.rsi
+    state: holograph_tactical_fleet
+  - type: PointLight
+    radius: 1.6
+    energy: 2
+    color: "#3FE9E0"
+
+- type: entity
+  id: HolographGeneticHelix
+  parent: HolographStation
+  name: genetic helix hologram projector
+  description: A luminous double helix suspended above a sequencing display. Its patient scan repeats a fragment of somebody's genetic code.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Decoration/holograph_concepts.rsi
+    state: holograph_genetic_helix
+  - type: PointLight
+    radius: 1.6
+    energy: 2
+    color: "#70FFA9"
+
+- type: entity
+  id: HolographCrystalAnomaly
+  parent: HolographStation
+  name: crystal anomaly hologram projector
+  description: A violet crystalline anomaly hangs in a cloud of orbiting motes. The projection captures its shape, but offers no explanation.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Decoration/holograph_concepts.rsi
+    state: holograph_crystal_anomaly
+  - type: PointLight
+    radius: 1.6
+    energy: 2
+    color: "#D275FF"

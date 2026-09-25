@@ -9,7 +9,7 @@
     range: 30
     enabled: true
     sound:
-      path: /Audio/_EE/Supermatter/delamming.ogg
+      path: /Audio/_Crescent/Supermatter/delamming.ogg
   - type: Sprite
     snapCardinals: true
     noRot: true
@@ -93,7 +93,7 @@
     range: 30
     enabled: true
     sound:
-      path: /Audio/_EE/Supermatter/delamming.ogg
+      path: /Audio/_Crescent/Supermatter/delamming.ogg
   - type: Sprite
     snapCardinals: true
     noRot: true
@@ -184,7 +184,7 @@
     range: 30
     enabled: true
     sound:
-      path: /Audio/_EE/Supermatter/delamming.ogg
+      path: /Audio/_Crescent/Supermatter/delamming.ogg
   - type: Sprite
     snapCardinals: true
     noRot: true
@@ -275,7 +275,7 @@
     range: 30
     enabled: true
     sound:
-      path: /Audio/_EE/Supermatter/delamming.ogg
+      path: /Audio/_Crescent/Supermatter/delamming.ogg
   - type: Sprite
     snapCardinals: true
     noRot: true

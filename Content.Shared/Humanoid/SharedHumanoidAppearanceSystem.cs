@@ -1,7 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
-using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._Crescent.Contractors.Prototypes;
 using Content.Shared.Decals;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
@@ -21,7 +21,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
-using Content.Shared._EE.GenderChange;
+using Content.Shared._Crescent.GenderChange;
 using Content.Shared.Turrets;
 
 namespace Content.Shared.Humanoid;

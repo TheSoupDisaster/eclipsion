@@ -102,6 +102,6 @@
     back: ClothingBackpackNCWL
     gloves: ClothingHandsGlovesFingerless
     head: ClothingHeadHatBeretQM
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionNCWL
     ears: ClothingHeadsetNCWLCommand
     pocket2: RatRubberStampNCWLCargo

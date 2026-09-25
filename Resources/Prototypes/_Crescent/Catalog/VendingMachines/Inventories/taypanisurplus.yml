@@ -14,6 +14,7 @@
     ClothingMaskINDGasmaskTaypaniVend: 6
     ClothingHandsGlovesCombatTaypaniVend: 6
     ClothingShoesBootsMagCombatFilledTaypaniVend: 6
+    ClothingEyesHudFactionCivilianTaypaniVend: 6
     AmmoTechFabCircuitboardTaypaniVend: 4
 
 # Storefront variants keep this vendor's balance from changing the value of
@@ -121,6 +122,14 @@
   components:
   - type: StaticPrice
     price: 2500
+
+- type: entity
+  parent: ClothingEyesHudFactionCivilian
+  id: ClothingEyesHudFactionCivilianTaypaniVend
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StaticPrice
+    price: 2000
 
 - type: entity
   parent: AmmoTechFabCircuitboard

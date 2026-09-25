@@ -79,6 +79,7 @@
 - type: startingGear
   id: IntelligenceOfficerGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicateSuitCyberdawn
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHatPatriarch

@@ -135,3 +135,30 @@
 
 - type: Tag
   id: LeaguePlansFolder
+
+- type: Tag
+  id: Medipen
+
+- type: Tag
+  id: InsulatedJacket
+
+- type: Tag
+  id: DockMining
+
+- type: Tag
+  id: PKAUpgrade
+
+- type: Tag
+  id: GunUpgradeDamage
+
+- type: Tag
+  id: GunUpgradeReloadSpeed
+
+- type: Tag
+  id: GunUpgradeRange
+
+- type: Tag
+  id: LavalandInterior5x5
+
+- type: Tag
+  id: LavalandInterior7x7

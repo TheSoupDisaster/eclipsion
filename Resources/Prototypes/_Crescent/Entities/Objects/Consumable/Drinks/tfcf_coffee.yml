@@ -1,0 +1,28 @@
+# Legacy IDs preserve saved vending stock. These are ordinary energy drinks, without Shinohara's epinephrine.
+- type: entity
+  parent: DrinkEnergyDrinkCan
+  id: DrinkTFCFNightshiftCoffee
+  name: Federation nightshift energy drink
+  description: A cold can of sweet, fizzy energy drink for the long night shift. The label is entirely uninterested in your productivity metrics.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: EnergyDrink
+          Quantity: 30
+
+- type: entity
+  parent: DrinkEnergyDrinkCan
+  id: DrinkTFCFCreamCoffee
+  name: Federation dockside energy drink
+  description: An extra-fizzy energy drink for the few minutes between unloading one ship and loading the next. The can says you have earned this.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: EnergyDrink
+          Quantity: 25
+        - ReagentId: SodaWater
+          Quantity: 5

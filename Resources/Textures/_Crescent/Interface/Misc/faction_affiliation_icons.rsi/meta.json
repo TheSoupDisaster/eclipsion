@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made for Hullrot/Crescent faction HUDs",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "dsm"
+        },
+        {
+            "name": "ncwl"
+        },
+        {
+            "name": "shi"
+        },
+        {
+            "name": "srm"
+        },
+        {
+            "name": "tfsc"
+        },
+        {
+            "name": "tap"
+        },
+        {
+            "name": "cmm"
+        },
+        {
+            "name": "ath"
+        }
+    ]
+}

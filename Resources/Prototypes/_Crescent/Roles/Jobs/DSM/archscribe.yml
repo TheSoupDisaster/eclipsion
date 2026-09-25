@@ -77,6 +77,7 @@
 - type: startingGear
   id: ArchmaesterGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: ArchmaesterPDA
     ears: ClothingHeadsetEmpire
     back: ClothingBackpackSatchelLeatherFilledDSM

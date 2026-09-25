@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Vienna for Sector Crescent.",
+  "copyright": "Original posters made by Vienna for Sector Crescent.",
   "source": "Vienna",
   "size": {
     "x": 23,
@@ -16,6 +16,18 @@
         },
         {
             "name": "ncwlposter3"
+        },
+        {
+            "name": "ncwlposter4"
+        },
+        {
+            "name": "ncwlposter5"
+        },
+        {
+            "name": "ncwlposter6"
+        },
+        {
+            "name": "ncwlposter7"
         }
     ]
 }

@@ -62,6 +62,7 @@
     - CartridgePuncturase
   storage:
     back:
+      - ClothingEyesHudFactionNCWL
       - DefibrillatorCompact
       - VoidsuitKitNCWL
       - BoxFlare

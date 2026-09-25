@@ -80,6 +80,7 @@
 - type: startingGear
   id: SoldatNCWLGear
   equipment:
+    eyes: ClothingEyesHudFactionNCWL
     shoes: ClothingShoesBootsCombat
     jumpsuit: ClothingUniformJumpsuitNCWL
     id: NCWLHomeguardSoldatPDA

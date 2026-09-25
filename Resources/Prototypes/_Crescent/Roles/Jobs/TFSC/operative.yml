@@ -71,6 +71,7 @@
 - type: startingGear
   id: OperativeGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicateSoldierCyberdawn
     shoes: ClothingShoesBootsCombat
     id: OperativePDA

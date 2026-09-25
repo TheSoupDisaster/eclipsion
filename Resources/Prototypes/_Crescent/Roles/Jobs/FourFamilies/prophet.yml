@@ -89,6 +89,7 @@
 - type: startingGear
   id: ProphetGear
   equipment:
+    eyes: ClothingEyesHudFactionTAP
     jumpsuit: ClothingUniformJumpsuitBodysuit
     back: ClothingBackpackSatchelLeatherFilledNCWL
     shoes: ClothingShoesBootsJack

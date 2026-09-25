@@ -14,7 +14,7 @@ public sealed partial class FactionStatusWidget : UIWidget
     // Must mirror RatDiplomacySystem.AllFactions on the server. The legacy TFSC id represents the TFCF's shared
     // diplomatic front; IPM, SAW, GSC and CD remain distinct member organizations.
     private static readonly string[] AllFactions =
-        ["DSM", "NCWL", "SHI", "SRM", "TAP", "TFSC", "TSP"];
+        ["DSM", "NCWL", "SHI", "SRM", "TAP", "TFSC", "CMM"];
 
     private static readonly Color WarBg = Color.FromHex("#6B1A1A");
     private static readonly Color AllyBg = Color.FromHex("#1A4D2E");

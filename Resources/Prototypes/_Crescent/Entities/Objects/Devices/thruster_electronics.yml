@@ -142,7 +142,7 @@
 - type: entity
   id: SHIWarshipCircuitBoard
   parent: BaseMachineCircuitboard
-  name: minutemen warship circuit board
+  name: shinohara warship circuit board
   components:
   - type: MachineBoard
     prototype: ThrusterSHIWarship
@@ -170,7 +170,7 @@
 - type: entity
   id: SRMWarshipCircuitBoard
   parent: BaseMachineCircuitboard
-  name: imperial warship circuit board
+  name: hunter warship circuit board
   components:
   - type: MachineBoard
     prototype: ThrusterSRMWarship

@@ -2051,7 +2051,7 @@ entities:
     - type: Transform
       pos: 6.5,-2.5
       parent: 1
-- proto: Thruster
+- proto: ThrusterCMMFighter
   entities:
   - uid: 254
     components:

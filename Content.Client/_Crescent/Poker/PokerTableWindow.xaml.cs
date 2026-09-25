@@ -29,7 +29,7 @@ public sealed partial class PokerTableWindow : DefaultWindow
     private PokerTableBoundUserInterfaceState? _lastState;
     private RSI? _cardRsi;
 
-    private const string CardRsiPath = "/Textures/EstacaoPirata/Objects/Misc/cards.rsi";
+    private const string CardRsiPath = "/Textures/_Crescent/Objects/Misc/cards.rsi";
     private const string CardBackState = "singlecard_down_nanotrasen";
 
     // Card sizes  (RSI is 32x32 — scale 3x / 2x)

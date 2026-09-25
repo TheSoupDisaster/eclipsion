@@ -407,6 +407,16 @@
     snap:
     - Wall
   components:
+  # Only shows with markers visible, so mappers can see it.
+  - type: Marker
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: Markers/environment.rsi
+    layers:
+    - state: base-red
+    - state: wall
   - type: Tag
     tags:
       - Wall

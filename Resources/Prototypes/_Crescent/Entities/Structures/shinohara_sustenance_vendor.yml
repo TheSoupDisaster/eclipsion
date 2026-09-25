@@ -1,0 +1,10 @@
+# Company-run SHI compact ration vendor: Shinohara's food line for the CompanyVendor system. The plain
+# VendingMachineSustenance on ships and derelicts stays an ordinary self-refilling vendor.
+- type: entity
+  parent: VendingMachineSustenance
+  id: VendingMachineSustenanceShinohara
+  suffix: Company
+  components:
+  - type: CompanyVendor
+    company: SHI
+    product: Food

@@ -82,6 +82,7 @@
 - type: startingGear
   id: ReinforcementNCWLSpetsnazKapitanGear
   equipment:
+    eyes: ClothingEyesHudFactionNCWL
     shoes: ClothingShoesBootsCombat
     jumpsuit: ClothingUniformJumpsuitNCWL
     id: NCWLHomeguardSquadCaptainPDA

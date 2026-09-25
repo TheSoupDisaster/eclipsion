@@ -1,0 +1,5 @@
+- type: vendingMachineInventory
+  id: TFCFCoffeeInventory
+  startingInventory:
+    DrinkTFCFNightshiftCoffee: 20
+    DrinkTFCFCreamCoffee: 15

@@ -1,0 +1,20 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomDrinkDSMWine
+  name: random DSM noble wine spawner
+  suffix: Bottle
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Consumable/Drinks/pwinebottle.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - DrinkDSMRabenauWineBottleFull
+    - DrinkDSMConclaveWineBottleFull
+    - DrinkDSMCourtierWineBottleFull
+    chance: 1
+    offset: 0.0

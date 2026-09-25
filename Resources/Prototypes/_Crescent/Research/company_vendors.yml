@@ -1,0 +1,138 @@
+# Franchise vendor stock modules (see CompanyVendorSystem). One technology per module level, each unlocking that
+# level for both of the company's product lines; printed on the faction microforge.
+# TFCF's legacy Cyberdawn and combined Coalition servers unlock the same recipes.
+
+# Shinohara
+
+- type: technology
+  id: ShinoharaFranchiseStock1
+  name: research-technology-franchise-stock-1
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_joe
+  discipline: Corporate
+  tier: 1
+  cost: 2500
+  recipeUnlocks:
+  - CompanyVendorRestockShinoharaCoffee1
+  - CompanyVendorRestockShinoharaCanteen1
+
+- type: technology
+  id: ShinoharaFranchiseStock2
+  name: research-technology-franchise-stock-2
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_joe
+  discipline: Corporate
+  tier: 2
+  cost: 7500
+  technologyPrerequisites:
+  - ShinoharaFranchiseStock1
+  recipeUnlocks:
+  - CompanyVendorRestockShinoharaCoffee2
+  - CompanyVendorRestockShinoharaCanteen2
+
+- type: technology
+  id: ShinoharaFranchiseStock3
+  name: research-technology-franchise-stock-3
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_joe
+  discipline: Corporate
+  tier: 3
+  cost: 12500
+  technologyPrerequisites:
+  - ShinoharaFranchiseStock2
+  recipeUnlocks:
+  - CompanyVendorRestockShinoharaCoffee3
+  - CompanyVendorRestockShinoharaCanteen3
+
+# TFCF - Cyberdawn
+
+- type: technology
+  id: CyberdawnFranchiseStock1
+  name: research-technology-franchise-stock-1
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_cola
+  discipline: Cyberdawn
+  tier: 1
+  cost: 2500
+  recipeUnlocks:
+  - CompanyVendorRestockTFCFCoffee1
+  - CompanyVendorRestockTFCFGrill1
+
+- type: technology
+  id: CyberdawnFranchiseStock2
+  name: research-technology-franchise-stock-2
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_cola
+  discipline: Cyberdawn
+  tier: 2
+  cost: 7500
+  technologyPrerequisites:
+  - CyberdawnFranchiseStock1
+  recipeUnlocks:
+  - CompanyVendorRestockTFCFCoffee2
+  - CompanyVendorRestockTFCFGrill2
+
+- type: technology
+  id: CyberdawnFranchiseStock3
+  name: research-technology-franchise-stock-3
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_cola
+  discipline: Cyberdawn
+  tier: 3
+  cost: 12500
+  technologyPrerequisites:
+  - CyberdawnFranchiseStock2
+  recipeUnlocks:
+  - CompanyVendorRestockTFCFCoffee3
+  - CompanyVendorRestockTFCFGrill3
+
+# TFCF - Coalition
+
+- type: technology
+  id: CoalitionFranchiseStock1
+  name: research-technology-franchise-stock-1
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_cola
+  discipline: Coalition
+  tier: 1
+  cost: 2500
+  recipeUnlocks:
+  - CompanyVendorRestockTFCFCoffee1
+  - CompanyVendorRestockTFCFGrill1
+
+- type: technology
+  id: CoalitionFranchiseStock2
+  name: research-technology-franchise-stock-2
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_cola
+  discipline: Coalition
+  tier: 2
+  cost: 7500
+  technologyPrerequisites:
+  - CoalitionFranchiseStock1
+  recipeUnlocks:
+  - CompanyVendorRestockTFCFCoffee2
+  - CompanyVendorRestockTFCFGrill2
+
+- type: technology
+  id: CoalitionFranchiseStock3
+  name: research-technology-franchise-stock-3
+  icon:
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    state: refill_cola
+  discipline: Coalition
+  tier: 3
+  cost: 12500
+  technologyPrerequisites:
+  - CoalitionFranchiseStock2
+  recipeUnlocks:
+  - CompanyVendorRestockTFCFCoffee3
+  - CompanyVendorRestockTFCFGrill3

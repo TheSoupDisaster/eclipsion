@@ -51,7 +51,7 @@
     ears: ClothingHeadsetEmpire
     id: LevymanPDA
     suitstorage: WeaponAntimaterielDSMLeveller
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionDSM
   inhand:
     - BookUnionfallDSMGuide
     - BoxRoundsAntiMateriel

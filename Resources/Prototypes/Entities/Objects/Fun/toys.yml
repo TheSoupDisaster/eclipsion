@@ -1808,12 +1808,12 @@
       sprite: Objects/Fun/bwoink_hammer.rsi
     - type: MeleeWeapon
       soundHit:
-        path: /Audio/Admin/adminhelp_old.ogg
+        path: /Audio/Effects/adminhelp.ogg
         params:
             variation: 0.03
             volume: 3
       soundNoDamage:
-        path: /Audio/Admin/adminhelp_old.ogg
+        path: /Audio/Effects/adminhelp.ogg
         params:
             variation: 0.03
             volume: 3

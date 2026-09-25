@@ -71,6 +71,7 @@
 - type: startingGear
   id: BoardGear
   equipment:
+    eyes: ClothingEyesHudFactionSHI
     jumpsuit: ClothingUniformJumpsuitShinoharaSuit
     shoes: ClothingShoesBootsLaceup
     neck: ClothingNeckTieRed
@@ -149,6 +150,7 @@
 - type: startingGear
   id: BoardHRGear
   equipment:
+    eyes: ClothingEyesHudFactionSHI
     jumpsuit: ClothingUniformJumpsuitShinoharaHumanResources
     shoes: ClothingShoesBootsLaceup
     neck: ClothingNeckTieRed

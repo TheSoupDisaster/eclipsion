@@ -7,8 +7,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 // Lavaland Change
-using Content.Shared._Lavaland.Weapons.Marker;
-using Content.Shared._Lavaland.Mobs;
+using Content.Shared._Crescent.Weapons.Marker;
+using Content.Shared._Crescent.Mobs;
 
 namespace Content.Shared.Weapons.Marker;
 

@@ -3,6 +3,71 @@
 # TFCF's legacy Cyberdawn and combined Coalition servers unlock the same recipes.
 
 - type: technology
+  id: MinutemenMechComponents
+  name: research-technology-minutemen-mech-components
+  icon:
+    sprite: _Crescent/Objects/Materials/materials.rsi
+    state: advancedmechanic
+  discipline: Minutemen
+  tier: 2
+  cost: 15000
+  technologyPrerequisites:
+  - ConstructionPartsMechatronics
+  recipeUnlocks:
+  - AdvancedMechatronics1Craft
+  - AdvancedElectronics1Craft
+
+- type: technology
+  id: MinutemenDeputy
+  name: research-technology-mech-deputy
+  icon:
+    sprite: _Crescent/Objects/Specific/Mechs/suzume.rsi
+    state: suzume
+  discipline: Minutemen
+  tier: 2
+  cost: 15000
+  technologyPrerequisites:
+  - MinutemenBoltRifle
+  - MinutemenMechComponents
+  recipeUnlocks:
+  - DeputyFlatpack
+  - WeaponMechCombatLightRifle
+  - WeaponMechSword
+
+- type: technology
+  id: MinutemenBailiff
+  name: research-technology-mech-bailiff
+  icon:
+    sprite: _Crescent/Objects/Specific/Mechs/jaipei.rsi
+    state: jaipei
+  discipline: Minutemen
+  tier: 3
+  cost: 20000
+  technologyPrerequisites:
+  - MinutemenHardsuit
+  - MinutemenMechComponents
+  - MinutemenDeputy
+  recipeUnlocks:
+  - BailiffFlatpack
+  - WeaponMechCombatAutoshotgun
+  - WeaponMechMaul
+
+- type: technology
+  id: MinutemenJusticiar
+  name: research-technology-mech-justiciar
+  icon:
+    sprite: _Crescent/Objects/Specific/Mechs/bastion.rsi
+    state: bastion
+  discipline: Minutemen
+  tier: 3
+  cost: 25000
+  technologyPrerequisites:
+  - MinutemenBailiff
+  recipeUnlocks:
+  - JusticiarFlatpack
+  - WeaponMechCombatAutocannon
+
+- type: technology
   id: ShinoharaSuzume
   name: research-technology-mech-suzume
   icon:

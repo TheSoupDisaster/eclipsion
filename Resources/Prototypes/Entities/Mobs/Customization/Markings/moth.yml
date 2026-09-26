@@ -1118,5 +1118,5 @@
   markingCategory: Snout
   speciesRestriction: [Moth]
   sprites:
-  - sprite: _EE/Mobs/Customization/Moth/ChitinidMarkings/bodyparts.rsi
+  - sprite: _Crescent/Mobs/Customization/Moth/ChitinidMarkings/bodyparts.rsi
     state: mothhead

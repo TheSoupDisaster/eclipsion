@@ -79,7 +79,7 @@
     belt: ClothingBeltAssaultFilledCrew
     pocket1: DoubleEmergencyOxygenTankFilled
     ears: ClothingHeadsetEmpire
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionDSM
   storage:
     back:
       - VoidsuitKitDSM

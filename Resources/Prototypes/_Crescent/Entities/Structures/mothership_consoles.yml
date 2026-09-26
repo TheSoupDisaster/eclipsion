@@ -241,7 +241,7 @@
   name: Gliessian internal shipyard
   components:
   - type: ShipyardScreen
-    faction: TSP
+    faction: CMM
   - type: ShipyardListing
     iffColor: "#36B500"
     shuttles:
@@ -281,19 +281,6 @@
     - Bhaalgorn
 
 - type: entity
-  id: AuthorityMothershipComputer
-  parent: BaseMothershipComputer
-  name: Crown expeditionary shipyard
-  components:
-  - type: ShipyardScreen
-    faction: ATH
-  - type: ShipyardListing
-    shuttles:
-    - Archon
-    - Carrum
-    - Khorkoi
-
-- type: entity
   id: ThukkerMothershipComputer
   parent: BaseMothershipComputer
   name: thukker tribal shipyard
@@ -331,16 +318,6 @@
     - Gnat
     - Piranha
     - Scuttlefish
-
-- type: entity
-  id: NAPMothershipComputer
-  parent: BaseMothershipComputer
-  name: NAP military shipyard
-  components:
-  - type: ShipyardListing
-    shuttles:
-    - Phantom
-    - Falcon
 
 - type: entity
   id: TrashcanMothershipComputer

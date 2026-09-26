@@ -5,6 +5,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server._Crescent.Diplomacy;
 using Content.Server._Crescent.Factions;
+using Content.Shared._Crescent.Factions;
 using Content.Shared._Crescent.Diplomacy;
 using Content.Shared._Crescent.HullrotFaction;
 using Content.Shared.Emag.Components;

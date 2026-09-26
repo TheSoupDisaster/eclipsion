@@ -1,0 +1,102 @@
+# Faction security vendors - replace SecTech on faction stations.
+# Each faction uses its own security equipment vendor RSI.
+
+- type: entity
+  abstract: true
+  parent: VendingMachineSec
+  id: BaseFactionSecVendor
+  description: A vending machine containing security equipment.
+  components:
+  - type: VendingMachine
+    pack: FactionSecInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+    denyState: deny-unshaded
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/security.rsi
+    noRot: true
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+- type: entity
+  parent: BaseFactionSecVendor
+  id: VendingMachineSecDSM
+  name: imperial security vendor
+  description: A vending machine containing security equipment for the House's enforcers.
+  components:
+  - type: VendingMachine
+    pack: FactionSecInventoryDSM
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/security_dsm.rsi
+
+- type: entity
+  parent: BaseFactionSecVendor
+  id: VendingMachineSecSHI
+  name: shinohara security vendor
+  description: A vending machine containing security equipment for Shinohara security personnel.
+  components:
+  - type: VendingMachine
+    pack: FactionSecInventorySHI
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/security_shi.rsi
+
+- type: entity
+  parent: BaseFactionSecVendor
+  id: VendingMachineSecNCWL
+  name: union security vendor
+  description: A vending machine containing security equipment for the Union's enforcers.
+  components:
+  - type: VendingMachine
+    pack: FactionSecInventoryNCWL
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/security_ncwl.rsi
+
+- type: entity
+  parent: BaseFactionSecVendor
+  id: VendingMachineSecCMM
+  name: CMM security vendor
+  description: A vending machine containing security equipment for CMM personnel.
+  components:
+  - type: VendingMachine
+    pack: FactionSecInventoryCMM
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/security_cmm.rsi
+
+- type: entity
+  parent: BaseFactionSecVendor
+  id: VendingMachineSecTAP
+  name: TAP security vendor
+  description: A vending machine containing security equipment for TAP personnel.
+  components:
+  - type: VendingMachine
+    pack: FactionSecInventoryTAP
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/security_tap.rsi
+
+- type: entity
+  parent: BaseFactionSecVendor
+  id: VendingMachineSecGS
+  name: gliess santo security vendor
+  description: A vending machine containing security equipment for Gliess Santo personnel.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/security_gs.rsi
+
+- type: entity
+  parent: BaseFactionSecVendor
+  id: VendingMachineSecSRM
+  name: SRM security vendor
+  description: A vending machine containing security equipment for SRM personnel.
+  components:
+  - type: VendingMachine
+    pack: FactionSecInventorySRM
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/security_srm.rsi

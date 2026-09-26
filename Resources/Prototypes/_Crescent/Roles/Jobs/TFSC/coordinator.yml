@@ -84,6 +84,7 @@
 - type: startingGear
   id: CoordinatorGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicateInterdyneWhiteUniform
     gloves: ClothingHandsGlovesCombat
     mask: ClothingMaskSyndicateFacemask

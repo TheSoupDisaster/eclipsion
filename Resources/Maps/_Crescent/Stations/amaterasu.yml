@@ -29202,7 +29202,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -9.5,-8.5
-- proto: VendingMachineSec
+- proto: VendingMachineSecSHI
   entities:
   - uid: 2411
     components:

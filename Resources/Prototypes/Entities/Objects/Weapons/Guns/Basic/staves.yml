@@ -13,7 +13,7 @@
     heldPrefix: healing
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
+      path: /Audio/Magic/staff_healing.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileHealingBolt
     capacity: 10

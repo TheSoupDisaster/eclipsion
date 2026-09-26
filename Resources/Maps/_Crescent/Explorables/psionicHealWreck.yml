@@ -2019,7 +2019,7 @@ entities:
     - type: Transform
       pos: 10.5,2.5
       parent: 1
-- proto: AirlockCommandAuthoritymedHorizontal
+- proto: AirlockMedicalHorizontal
   entities:
   - uid: 41
     components:

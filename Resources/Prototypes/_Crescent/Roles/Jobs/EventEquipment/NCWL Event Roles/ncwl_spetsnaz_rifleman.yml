@@ -82,6 +82,7 @@
 - type: startingGear
   id: ReinforcementNCWLSpetsnazRiflemanGear
   equipment:
+    eyes: ClothingEyesHudFactionNCWL
     shoes: ClothingShoesBootsCombat
     jumpsuit: ClothingUniformJumpsuitNCWL
     id: NCWLHomeguardSoldatPDA

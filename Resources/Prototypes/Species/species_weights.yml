@@ -10,7 +10,7 @@
     Vulpkanin: 4 # DeltaV - Vulpkanin, see Prototypes/DeltaV/Entities/Mobs/Species/vulpkanin.yml
     Diona: 2
     Voidborn: 0
-    Tajaran: 3 # Einstein Engines - Tajaran, see Prototypes/_EE/Entities/Mobs/Species/tajaran.yml
+    Tajaran: 3 # Einstein Engines - Tajaran, see Prototypes/_Crescent/Entities/Mobs/Species/tajaran.yml
     Chitinid: 3 # DeltaV - Chitinid, see Prototypes/DeltaV/Entities/Mobs/Species/chitinid.yml
-    Xelthia: 3 # Einstein Engines - Xelthia, see Prototypes/_EE/Entities/Mobs/Species/xelthia.yml
+    Xelthia: 3 # Einstein Engines - Xelthia, see Prototypes/_Crescent/Entities/Mobs/Species/xelthia.yml
     Skeleton: 0 # Playable, but never handed out by the random-species roll.

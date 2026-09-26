@@ -213,9 +213,11 @@ public sealed partial class NPCCombatSystem
 
             comp.Status = CombatStatus.Normal;
 
+            // Crescent: continue, not return - returning here ended the whole loop, so one NPC waiting on
+            // its fire rate stopped every NPC after it in the query from shooting that tick.
             if (gun.NextFire > _timing.CurTime)
             {
-                return;
+                continue;
             }
 
             gun.Target = comp.AlwaysDirectTargets || _random.Prob(comp.DirectTargetChance) ? comp.Target : null;

@@ -117903,7 +117903,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 5.5,-20.5
-- proto: TelecomServerTSP
+- proto: TelecomServerCMM
   entities:
   - uid: 5164
     components:
@@ -118643,14 +118643,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 16.5,-28.5
-- proto: VendingMachineCoffee
-  entities:
-  - uid: 8116
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 11.5,-28.5
 - proto: VendingMachineDinnerware
   entities:
   - uid: 8117
@@ -118691,13 +118683,6 @@ entities:
     - type: Transform
       parent: 1
       pos: -22.5,-0.5
-- proto: VendingMachineHotfood
-  entities:
-  - uid: 8123
-    components:
-    - type: Transform
-      parent: 1
-      pos: 27.5,-11.5
 - proto: VendingMachineMedical
   entities:
   - uid: 8124
@@ -118762,7 +118747,7 @@ entities:
     - type: Transform
       parent: 1
       pos: -21.5,-0.5
-- proto: VendingMachineSec
+- proto: VendingMachineSecGS
   entities:
   - uid: 8130
     components:
@@ -125400,4 +125385,19 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: VendingMachineCoffeeTFCF
+  entities:
+  - uid: 8116
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 11.5,-28.5
+- proto: VendingMachineTFCFGrill
+  entities:
+  - uid: 8123
+    components:
+    - type: Transform
+      parent: 1
+      pos: 27.5,-11.5
 ...

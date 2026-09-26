@@ -1,0 +1,129 @@
+# Faction security HUDs. Each is keyed to one faction's diplomacy and marks everyone in view by the ID they are
+# wearing: own faction, allied, neutral (incl. peace and trade), hostile (at war), or unknown (no faction ID).
+
+- type: entity
+  id: ShowFactionSecurityIcons
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ShowJobIcons
+  - type: ShowFactionRelationIcons
+
+- type: entity
+  abstract: true
+  parent: [ClothingEyesBase, ShowFactionSecurityIcons]
+  id: ClothingEyesHudFactionBase
+  name: faction security hud
+  description: A heads-up display that reads the ID of everyone in view and checks it against your faction's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/sec.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/sec.rsi
+  - type: Tag
+    tags:
+    - HudSecurity
+
+- type: entity
+  parent: ClothingEyesHudFactionBase
+  id: ClothingEyesHudFactionDSM
+  name: DSM security hud
+  description: A Divine Sol Mandate heads-up display. Reads the ID of everyone in view and marks them by the Mandate's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/dsm.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/dsm.rsi
+  - type: ShowFactionRelationIcons
+    faction: DSM
+
+- type: entity
+  parent: ClothingEyesHudFactionBase
+  id: ClothingEyesHudFactionNCWL
+  name: NCWL security hud
+  description: A New Crescent Workers' League heads-up display. Reads the ID of everyone in view and marks them by the League's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/ncwl.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/ncwl.rsi
+  - type: ShowFactionRelationIcons
+    faction: NCWL
+
+- type: entity
+  parent: ClothingEyesHudFactionBase
+  id: ClothingEyesHudFactionSHI
+  name: SHI security hud
+  description: A Shinohara Heavy Industries heads-up display. Reads the ID of everyone in view and marks them by Shinohara's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/shi.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/shi.rsi
+  - type: ShowFactionRelationIcons
+    faction: SHI
+
+- type: entity
+  parent: ClothingEyesHudFactionBase
+  id: ClothingEyesHudFactionSRM
+  name: SRM security hud
+  description: A Saint's Militia heads-up display. Reads the ID of everyone in view and marks them by the Militia's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/srm.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/srm.rsi
+  - type: ShowFactionRelationIcons
+    faction: SRM
+
+- type: entity
+  parent: ClothingEyesHudFactionBase
+  id: ClothingEyesHudFactionTAP
+  name: TAP security hud
+  description: A Taypani-Atyrian Pact heads-up display. Reads the ID of everyone in view and marks them by the Pact's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/tap.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/tap.rsi
+  - type: ShowFactionRelationIcons
+    faction: TAP
+
+- type: entity
+  parent: ClothingEyesHudFactionBase
+  id: ClothingEyesHudFactionTFSC
+  name: TFCF security hud
+  description: A Taypani Free Companies Federation heads-up display. Reads the ID of everyone in view and marks them by the Federation's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/tfsc.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/tfsc.rsi
+  - type: ShowFactionRelationIcons
+    faction: TFSC
+
+- type: entity
+  parent: ClothingEyesHudFactionBase
+  id: ClothingEyesHudFactionCMM
+  name: Minutemen security hud
+  description: A Colonial Minutemen heads-up display. Reads the ID of everyone in view and marks them by the Minutemen's diplomatic standing.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/cmm.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/cmm.rsi
+  - type: ShowFactionRelationIcons
+    faction: CMM
+
+# Neutral civilian HUD: shows whose ID everyone is wearing, but not whether that faction is friend or foe.
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudFactionCivilian
+  name: civilian identification hud
+  description: A cheap surplus heads-up display that reads the ID of everyone in view and shows which faction issued it. It has no idea who is at war with whom.
+  components:
+  - type: Sprite
+    sprite: _Crescent/Clothing/Eyes/FactionHud/civilian.rsi
+  - type: Clothing
+    sprite: _Crescent/Clothing/Eyes/FactionHud/civilian.rsi
+  - type: ShowFactionAffiliationIcons

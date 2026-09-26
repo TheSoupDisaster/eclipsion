@@ -66,6 +66,7 @@
 - type: startingGear
   id: LevymanGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: LevymanPDA
     ears: ClothingHeadsetEmpireCiv
     shoes: ClothingShoesBootsImperialJackboots

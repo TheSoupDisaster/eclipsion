@@ -117,6 +117,7 @@
 - type: startingGear
   id: planetfall_governor_gear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     jumpsuit: ClothingUniformJumpsuitImperialGovernor
     shoes: ClothingShoesBootsImperialGovernorBoots
     head: ClothingHeadHoodMysta

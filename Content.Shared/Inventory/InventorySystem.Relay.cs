@@ -1,3 +1,4 @@
+using Content.Shared._Crescent.Factions;
 using Content.Shared.Chat;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Chemistry;
@@ -71,6 +72,8 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowSyndicateIconsComponent>>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowPsionicsRecordIconsComponent>>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowFactionRelationIconsComponent>>(RelayInventoryEvent); // Crescent
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowFactionAffiliationIconsComponent>>(RelayInventoryEvent); // Crescent
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RelayInventoryEvent);
 

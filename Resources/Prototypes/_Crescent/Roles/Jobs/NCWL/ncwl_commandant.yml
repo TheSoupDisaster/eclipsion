@@ -112,7 +112,7 @@
     head: ClothingHeadHatNCWLBeretAdmiral
     mask: ClothingMaskNCWLGasmask
     ears: ClothingHeadsetNCWLCommand
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionNCWL
     back: ClothingBackpackNCWL
   storage:
     back:

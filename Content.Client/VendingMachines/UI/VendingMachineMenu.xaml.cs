@@ -121,7 +121,10 @@ namespace Content.Client.VendingMachines.UI
 
         private void SetSizeAfterUpdate(int longestEntryLength, int contentCount)
         {
-            SetSize = new Vector2(Math.Clamp((longestEntryLength + 2) * 12, 250, 300),
+            // Make room for the title plus the close button, so long machine names don't push it off-screen.
+            var titleWidth = (Title?.Length ?? 0) * 10 + 50;
+            var entryWidth = (longestEntryLength + 2) * 12;
+            SetSize = new Vector2(Math.Clamp(Math.Max(entryWidth, titleWidth), 250, 450),
                 Math.Clamp(contentCount * 50, 150, 350));
         }
     }

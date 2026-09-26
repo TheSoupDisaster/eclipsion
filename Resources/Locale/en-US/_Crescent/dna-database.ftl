@@ -25,6 +25,6 @@ faction-IPM = Interdyne Pharmaceuticals
 faction-SAW = Shipbreaker Astronautics Workers Union
 faction-GSC = Gorlex Security Consulting
 faction-CD = Cyberdawn Technologies
-faction-TSP = Colonial Minutemen
+faction-CMM = Colonial Minutemen
 faction-TFSC = Taypani Free Companies Federation
 faction-ATH = Crown Expeditionary Force

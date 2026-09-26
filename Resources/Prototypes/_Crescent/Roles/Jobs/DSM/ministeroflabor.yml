@@ -77,6 +77,7 @@
 - type: startingGear
   id: LaborGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     head: ClothingHeadHatImperialPeakedCap
     jumpsuit: ClothingUniformJumpsuitImperialNobleMale
     shoes: ClothingShoesBootsImperialLaceup

@@ -25198,7 +25198,7 @@ entities:
     - type: Transform
       pos: 7.5,-30.5
       parent: 1
-- proto: VendingMachineSec
+- proto: VendingMachineSecTAP
   entities:
   - uid: 1668
     components:

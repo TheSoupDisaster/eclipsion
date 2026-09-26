@@ -114,5 +114,5 @@
     head: ClothingHeadHatNCWLKommissarHat
     mask: ClothingMaskNCWLGasmask
     ears: ClothingHeadsetNCWLCommand
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionNCWL
     pocket1: RatRubberStampNCWLComissar

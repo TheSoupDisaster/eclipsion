@@ -171824,7 +171824,7 @@ entities:
     - type: Transform
       pos: -19.5,-3.5
       parent: 1
-- proto: VendingMachineSec
+- proto: VendingMachineSecDSM
   entities:
   - uid: 14222
     components:
@@ -183613,7 +183613,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WildBiomeSource
+- proto: ImperialBiomeSource
   entities:
   - uid: 16200
     components:

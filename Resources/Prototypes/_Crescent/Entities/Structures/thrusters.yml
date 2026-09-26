@@ -1,450 +1,191 @@
 #faction-flagged thrusters
+# all faction thrusters share the same stats; only the sprite, NPC faction and board differ
+
+- type: entity
+  id: BaseThrusterFaction
+  parent: Thruster
+  abstract: true
+  components:
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: StructuralMetallicStrong
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:ChangeConstructionNodeBehavior
+            node: machineFrame
 
 - type: entity
   id: ThrusterTFSCFighter
-  parent: Thruster
+  parent: BaseThrusterFaction
   suffix: TFCF, Fighter
   components:
     - type: NpcFactionMember
       factions:
         - TFSCFighter
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400 #we removed the instant destruction threshold for now, eB don't forget this!
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
     - type: Sprite
       sprite: _Crescent/Structures/thrustersyn.rsi
-      layers:
-      - state: base
-        map: ["enum.ThrusterVisualLayers.Base"]
-      - state: thrust
-        map: ["enum.ThrusterVisualLayers.ThrustOn"]
-        shader: unshaded
-        visible: false
-      - state: thrust_burn_unshaded
-        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-        shader: unshaded
-        visible: false
-        offset: 0, 1
     - type: Machine
       board: TFSCFighterCircuitBoard
 
 - type: entity
   id: ThrusterTFSCSmuggler
-  parent: Thruster
+  parent: BaseThrusterFaction
   suffix: TFCF, Smuggler
   components:
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
     - type: Sprite
       sprite: _Crescent/Structures/thrustersyn.rsi
-      layers:
-      - state: base
-        map: ["enum.ThrusterVisualLayers.Base"]
-      - state: thrust
-        map: ["enum.ThrusterVisualLayers.ThrustOn"]
-        shader: unshaded
-        visible: false
-      - state: thrust_burn_unshaded
-        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-        shader: unshaded
-        visible: false
-        offset: 0, 1
     - type: Machine
       board: TFSCSmugglerCircuitBoard
 
 - type: entity
-  id: ThrusterCMMFighter
-  parent: Thruster
-  suffix: CMM, Fighter
-  components:
-    - type: NpcFactionMember
-      factions:
-        - CMMFighter
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
-    - type: Machine
-      board: CMMFighterCircuitBoard
-
-- type: entity
-  id: ThrusterDSMFighter
-  parent: Thruster
-  suffix: DSM, Fighter
-  components:
-    - type: NpcFactionMember
-      factions:
-        - DSMFighter
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
-    - type: Sprite
-      sprite: _Crescent/Structures/thrusterempire.rsi
-      layers:
-      - state: base
-        map: ["enum.ThrusterVisualLayers.Base"]
-      - state: thrust
-        map: ["enum.ThrusterVisualLayers.ThrustOn"]
-        shader: unshaded
-        visible: false
-      - state: thrust_burn_unshaded
-        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-        shader: unshaded
-        visible: false
-        offset: 0, 1
-    - type: Machine
-      board: DSMFighterCircuitBoard
-
-
-
-- type: entity
-  id: ThrusterSHIFighter
-  parent: Thruster
-  suffix: SHI, Fighter
-  components:
-    - type: NpcFactionMember
-      factions:
-        - SHIFighter
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
-    - type: Machine
-      board: SHIFighterCircuitBoard
-
-- type: entity
-  id: ThrusterNCWLFighter
-  parent: Thruster
-  suffix: NCWL, Fighter
-  components:
-    - type: NpcFactionMember
-      factions:
-        - NCWLFighter
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicReinforcedPlast
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 300
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
-    - type: Sprite
-      sprite: _Crescent/Structures/thrusterncwl.rsi
-      layers:
-      - state: base
-        map: ["enum.ThrusterVisualLayers.Base"]
-      - state: thrust
-        map: ["enum.ThrusterVisualLayers.ThrustOn"]
-        shader: unshaded
-        visible: false
-      - state: thrust_burn_unshaded
-        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-        shader: unshaded
-        visible: false
-        offset: 0, 1
-    - type: Machine
-      board: NCWLFighterCircuitBoard
-
-- type: entity
-  id: ThrusterSRMFighter
-  parent: Thruster
-  suffix: SRM, Fighter
-  components:
-    - type: NpcFactionMember
-      factions:
-        - SRMFighter
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
-    - type: Machine
-      board: SRMFighterCircuitBoard
-
-- type: entity
   id: ThrusterTFSCWarship
-  parent: Thruster
+  parent: BaseThrusterFaction
   suffix: TFCF, Warship
   components:
     - type: NpcFactionMember
       factions:
         - TFSCWarship
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
     - type: Sprite
       sprite: _Crescent/Structures/thrustersyn.rsi
-      layers:
-      - state: base
-        map: ["enum.ThrusterVisualLayers.Base"]
-      - state: thrust
-        map: ["enum.ThrusterVisualLayers.ThrustOn"]
-        shader: unshaded
-        visible: false
-      - state: thrust_burn_unshaded
-        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-        shader: unshaded
-        visible: false
-        offset: 0, 1
     - type: Machine
       board: TFSCWarshipCircuitBoard
 
 - type: entity
+  id: ThrusterNCWLFighter
+  parent: BaseThrusterFaction
+  suffix: NCWL, Fighter
+  components:
+    - type: NpcFactionMember
+      factions:
+        - NCWLFighter
+    - type: Sprite
+      sprite: _Crescent/Structures/thrusterncwl.rsi
+    - type: Machine
+      board: NCWLFighterCircuitBoard
+
+- type: entity
   id: ThrusterNCWLWarship
-  parent: Thruster
+  parent: BaseThrusterFaction
   suffix: NCWL, Warship
   components:
     - type: NpcFactionMember
       factions:
         - NCWLWarship
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicReinforcedPlast
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 300
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
     - type: Sprite
       sprite: _Crescent/Structures/thrusterncwl.rsi
-      layers:
-      - state: base
-        map: ["enum.ThrusterVisualLayers.Base"]
-      - state: thrust
-        map: ["enum.ThrusterVisualLayers.ThrustOn"]
-        shader: unshaded
-        visible: false
-      - state: thrust_burn_unshaded
-        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-        shader: unshaded
-        visible: false
-        offset: 0, 1
     - type: Machine
       board: NCWLWarshipCircuitBoard
 
 - type: entity
-  id: ThrusterCMMWarship
-  parent: Thruster
-  suffix: CMM, Warship
+  id: ThrusterDSMFighter
+  parent: BaseThrusterFaction
+  suffix: DSM, Fighter
   components:
     - type: NpcFactionMember
       factions:
-        - CMMWarship
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
+        - DSMFighter
+    - type: Sprite
+      sprite: _Crescent/Structures/thrusterempire.rsi
     - type: Machine
-      board: CMMWarshipCircuitBoard
-
-- type: entity
-  id: ThrusterSHIWarship
-  parent: Thruster
-  suffix: SHI, Warship
-  components:
-    - type: NpcFactionMember
-      factions:
-        - SHIWarship
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
-    - type: Machine
-      board: SHIWarshipCircuitBoard
+      board: DSMFighterCircuitBoard
 
 - type: entity
   id: ThrusterDSMWarship
-  parent: Thruster
+  parent: BaseThrusterFaction
   suffix: DSM, Warship
   components:
     - type: NpcFactionMember
       factions:
         - DSMWarship
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
     - type: Sprite
       sprite: _Crescent/Structures/thrusterempire.rsi
-      layers:
-      - state: base
-        map: ["enum.ThrusterVisualLayers.Base"]
-      - state: thrust
-        map: ["enum.ThrusterVisualLayers.ThrustOn"]
-        shader: unshaded
-        visible: false
-      - state: thrust_burn_unshaded
-        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-        shader: unshaded
-        visible: false
-        offset: 0, 1
     - type: Machine
       board: DSMWarshipCircuitBoard
 
 - type: entity
+  id: ThrusterCMMFighter
+  parent: BaseThrusterFaction
+  suffix: CMM, Fighter
+  components:
+    - type: NpcFactionMember
+      factions:
+        - CMMFighter
+    - type: Sprite
+      sprite: _Crescent/Structures/thrustercmm.rsi
+    - type: Machine
+      board: CMMFighterCircuitBoard
+
+- type: entity
+  id: ThrusterCMMWarship
+  parent: BaseThrusterFaction
+  suffix: CMM, Warship
+  components:
+    - type: NpcFactionMember
+      factions:
+        - CMMWarship
+    - type: Sprite
+      sprite: _Crescent/Structures/thrustercmm.rsi
+    - type: Machine
+      board: CMMWarshipCircuitBoard
+
+- type: entity
+  id: ThrusterSHIFighter
+  parent: BaseThrusterFaction
+  suffix: SHI, Fighter
+  components:
+    - type: NpcFactionMember
+      factions:
+        - SHIFighter
+    - type: Sprite
+      sprite: _Crescent/Structures/thrustershi.rsi
+    - type: Machine
+      board: SHIFighterCircuitBoard
+
+- type: entity
+  id: ThrusterSHIWarship
+  parent: BaseThrusterFaction
+  suffix: SHI, Warship
+  components:
+    - type: NpcFactionMember
+      factions:
+        - SHIWarship
+    - type: Sprite
+      sprite: _Crescent/Structures/thrustershi.rsi
+    - type: Machine
+      board: SHIWarshipCircuitBoard
+
+- type: entity
+  id: ThrusterSRMFighter
+  parent: BaseThrusterFaction
+  suffix: SRM, Fighter
+  components:
+    - type: NpcFactionMember
+      factions:
+        - SRMFighter
+    - type: Sprite
+      sprite: _Crescent/Structures/thrustersrm.rsi
+    - type: Machine
+      board: SRMFighterCircuitBoard
+
+- type: entity
   id: ThrusterSRMWarship
-  parent: Thruster
+  parent: BaseThrusterFaction
   suffix: SRM, Warship
   components:
     - type: NpcFactionMember
       factions:
         - SRMWarship
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:ChangeConstructionNodeBehavior
-            node: machineFrame
+    - type: Sprite
+      sprite: _Crescent/Structures/thrustersrm.rsi
     - type: Machine
       board: SRMWarshipCircuitBoard
 
@@ -456,6 +197,8 @@
   name: high-impulse thruster
   suffix: TAP, High-Impulse
   components:
+    - type: Sprite
+      sprite: _Crescent/Structures/thrustertap.rsi
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: StructuralMetallicStrong

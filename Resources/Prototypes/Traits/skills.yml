@@ -18,10 +18,7 @@
         - Brigmedic
         - SeniorPhysician
         - BlueshieldOfficer
-        - APRTSanitatATH
-        - SanitatATH
         - SurgeonDSM
-        - ChirurgeonATH
         - TenderSRM
         - planetfall_surgeon
         - MedtechSHI
@@ -232,10 +229,7 @@
         - ChiefMedicalOfficer
         - Brigmedic
         - SeniorPhysician
-        - APRTSanitatATH
-        - SanitatATH
         - SurgeonDSM
-        - ChirurgeonATH
         - TenderSRM
         - planetfall_surgeon
         - MedtechSHI
@@ -263,7 +257,6 @@
       inverted: true
       jobs:
         - ChiefMedicalOfficer
-        - ChirurgeonATH
         - DirectorNCWL
         - CoordinatorTFSC
   functions:

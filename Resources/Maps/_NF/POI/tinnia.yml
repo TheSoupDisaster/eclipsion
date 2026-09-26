@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/19/2025 15:24:45
-  entityCount: 1456
+  entityCount: 1457
 maps: []
 grids:
 - 1
@@ -7639,6 +7639,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,-10.5
+      parent: 1
+- proto: TaypanOneBiomeSource
+  entities:
+  - uid: 1457
+    components:
+    - type: Transform
+      pos: 0.5,-6.5
       parent: 1
 - proto: ToolboxElectricalFilled
   entities:

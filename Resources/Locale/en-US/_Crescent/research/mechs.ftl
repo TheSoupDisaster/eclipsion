@@ -1,4 +1,8 @@
 research-technology-mech-suzume = SHI Suzume Scout Exosuit
+research-technology-mech-bailiff = CMM Bailiff Patrol Exosuit
+research-technology-mech-deputy = CMM Deputy Scout Exosuit
+research-technology-mech-justiciar = CMM Justiciar Siege Exosuit
+research-technology-minutemen-mech-components = Minutemen Exosuit Components
 research-technology-mech-jaipei = SHI Jaipei Combat Exosuit
 research-technology-mech-tfcf-scouts = TFCF Marauder and Yamori Scout Exosuits
 research-technology-mech-oni = TFCF Oni Combat Exosuit

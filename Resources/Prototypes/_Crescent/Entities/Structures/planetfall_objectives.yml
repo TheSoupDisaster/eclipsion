@@ -4,5 +4,12 @@
   description: Hidden controller for the Planetfall timed barrier release.
   components:
   - type: Transform
+  - type: Marker
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: Markers/cross.rsi
+    state: timed
   - type: PlanetfallBarrierAnnouncer
     releaseDelay: 900

@@ -7,6 +7,7 @@
 #
 # The upstream department servers (Cargo, Engineering, Medical, ...) are gone; see
 # Resources/Migrations/telecomms.yml for how old grids are remapped onto these.
+# Custom chassis cover the active factions, Militia and Gliess Minutemen content.
 
 - type: entity
   parent: TelecomServer
@@ -25,6 +26,8 @@
   suffix: DSM
   description: When powered it carries Imperial command and civil traffic for a Mandate hull.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Telecomms/dsm.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -38,6 +41,8 @@
   suffix: NCWL
   description: When powered it carries League command and line traffic for a Union hull.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Telecomms/ncwl.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -53,6 +58,8 @@
   suffix: TFCF
   description: When powered it carries every Federation member channel for a Free Companies hull.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Telecomms/tfcf.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -69,6 +76,8 @@
   suffix: SHI
   description: When powered it carries the corporate channel for a Shinohara hull.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Telecomms/shi.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -81,6 +90,8 @@
   suffix: TAP
   description: When powered it carries the caravan channel for a Pact hull.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Telecomms/tap.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -93,6 +104,8 @@
   suffix: SRM
   description: When powered it carries the Hunt channel for a Militia hull.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Telecomms/srm.rsi
   - type: ContainerFill
     containers:
       key_slots:
@@ -101,48 +114,14 @@
 
 - type: entity
   parent: TelecomServer
-  id: TelecomServerATH
-  suffix: ATH
-  description: When powered it carries the Crown expeditionary channel.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyAuthority
-      - EncryptionKeyCommon
-
-- type: entity
-  parent: TelecomServer
-  id: TelecomServerTSP
-  suffix: TSP
+  id: TelecomServerCMM
+  suffix: CMM
   description: When powered it carries the Minutemen channel for a Gliess Santo hull.
   components:
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Telecomms/cmm.rsi
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyMinutemen
-      - EncryptionKeyCommon
-
-- type: entity
-  parent: TelecomServer
-  id: TelecomServerClarizian
-  suffix: Aurevienne
-  description: When powered it carries the Aurevienne expatriate channel.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyClarizian
-      - EncryptionKeyCommon
-
-- type: entity
-  parent: TelecomServer
-  id: TelecomServerNAP
-  suffix: NAP
-  description: When powered it carries the Protectorate channel.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeyAmerican
       - EncryptionKeyCommon

@@ -63,6 +63,7 @@
 - type: startingGear
   id: AcolyteGear
   equipment:
+    eyes: ClothingEyesHudFactionSRM
     id: AcolytePDA
     ears: ClothingHeadsetHunter
     jumpsuit: ClothingUniformJumpsuitHunterAcolyte

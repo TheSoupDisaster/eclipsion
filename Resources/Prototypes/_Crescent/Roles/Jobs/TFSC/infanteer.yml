@@ -57,6 +57,7 @@
 - type: startingGear
   id: InfanteerGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicate
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHelmetSyndicateBasic

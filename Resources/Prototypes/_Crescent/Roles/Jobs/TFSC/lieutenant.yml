@@ -93,6 +93,7 @@
 - type: startingGear
   id: LieutenantGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicateOfficer
     back: ClothingBackpackSatchelLeather
     shoes: ClothingShoesBootsCombat

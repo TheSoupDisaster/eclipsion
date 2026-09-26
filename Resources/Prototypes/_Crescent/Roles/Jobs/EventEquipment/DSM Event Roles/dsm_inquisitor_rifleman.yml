@@ -93,6 +93,7 @@
 - type: startingGear
   id: ReinforcementDSMSpecopsRiflemanGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: KnightPDA
     ears: ClothingHeadsetEmpire
     jumpsuit: ClothingUniformJumpsuitImperialCombat

@@ -62,6 +62,7 @@
 - type: startingGear
   id: ForemanImpGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: ForemanImpPDA
     ears: ClothingHeadsetEmpireCiv
     head: ClothingHeadHelmetImperialWorkerHelmet

@@ -892,11 +892,6 @@
   suffix: Tabletop, Alseik
 
 - type: entity
-  parent: [BaseMothershipComputerTabletop, RatAuthorityMothershipComputer]
-  id: RatAuthorityMothershipComputerTabletop
-  suffix: Tabletop, Authority
-
-- type: entity
   parent: [BaseMothershipComputerTabletop, RatThukkerMothershipComputer]
   id: RatThukkerMothershipComputerTabletop
   suffix: Tabletop, Thukker
@@ -910,11 +905,6 @@
   parent: [BaseMothershipComputerTabletop, RatOuroborosMothershipComputer]
   id: RatOuroborosMothershipComputerTabletop
   suffix: Tabletop, Ouroboros
-
-- type: entity
-  parent: [BaseMothershipComputerTabletop, RatNAPMothershipComputer]
-  id: RatNAPMothershipComputerTabletop
-  suffix: Tabletop, NAP
 
 - type: entity
   parent: [BaseMothershipComputerTabletop, RatTrashcanMothershipComputer]

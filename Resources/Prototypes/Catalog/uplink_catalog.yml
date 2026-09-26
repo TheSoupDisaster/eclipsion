@@ -219,7 +219,7 @@
   id: UplinkFPA90Bundle
   name: uplink-fpa-90-bundle-name
   description: uplink-fpa-90-bundle-desc
-  icon: { sprite: /Textures/_EE/Objects/Weapons/Guns/SMGs/FPA90.rsi, state: icon }
+  icon: { sprite: /Textures/_Crescent/Objects/Weapons/Guns/SMGs/FPA90.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledFPA90
   discountCategory: veryRareDiscounts
   discountDownTo:

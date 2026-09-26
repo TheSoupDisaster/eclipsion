@@ -20570,7 +20570,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -12.5,6.5
       parent: 1
-- proto: TelecomServerTSP
+- proto: TelecomServerCMM
   entities:
   - uid: 1567
     components:
@@ -20860,7 +20860,7 @@ entities:
     - type: Transform
       pos: 8.551696,-16.15384
       parent: 1
-- proto: TSPBountyTerminal
+- proto: CMMBountyTerminal
   entities:
   - uid: 897
     components:
@@ -20967,7 +20967,7 @@ entities:
     - type: Transform
       pos: 11.5,7.5
       parent: 1
-- proto: VendingMachineSec
+- proto: VendingMachineSecCMM
   entities:
   - uid: 931
     components:

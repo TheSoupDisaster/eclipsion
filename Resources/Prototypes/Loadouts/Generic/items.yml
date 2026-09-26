@@ -405,31 +405,6 @@
     - WhiteCane
 
 - type: loadout
-  id: LoadoutItemBlackDeck
-  category: Items
-  cost: 0
-  canBeHeirloom: false
-  items:
-    - CardBoxBlack
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCards
-
-- type: loadout
-  id: LoadoutItemNTDeck
-  category: Items
-  cost: 0
-  canBeHeirloom: false
-  items:
-    - CardBoxNanotrasen
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutCards
-    - !type:CharacterDepartmentRequirement
-       departments:
-         - Command
-
-- type: loadout
   id: LuxuryPen
   category: Items
   cost: 0

@@ -1129,6 +1129,7 @@
 - type: entity
   id: WallInvisible
   name: Invisible Wall
+  categories: [ HideSpawnMenu ] # spawned by the mime's spell, despawns after 15s
   components:
   - type: TimedDespawn
     lifetime: 15

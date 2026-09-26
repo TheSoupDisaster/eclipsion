@@ -1,0 +1,105 @@
+# Diplomatic standing icons drawn by faction HUDs (ShowFactionRelationIcons). The target's side is read from the ID
+# worn in their ID slot, so these describe the credential, not necessarily the person wearing it.
+
+- type: factionIcon
+  id: FactionRelationIcon
+  abstract: true
+  # Takes the mindshield icon's old slot: right after the job icon (1), so it sits directly beneath it.
+  priority: 2
+  locationPreference: Right
+  isShaded: true
+
+- type: factionIcon
+  parent: FactionRelationIcon
+  id: FactionRelationIconOwn
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_relation_icons.rsi
+    state: own
+
+- type: factionIcon
+  parent: FactionRelationIcon
+  id: FactionRelationIconAllied
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_relation_icons.rsi
+    state: allied
+
+- type: factionIcon
+  parent: FactionRelationIcon
+  id: FactionRelationIconNeutral
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_relation_icons.rsi
+    state: neutral
+
+- type: factionIcon
+  parent: FactionRelationIcon
+  id: FactionRelationIconHostile
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_relation_icons.rsi
+    state: hostile
+
+- type: factionIcon
+  parent: FactionRelationIcon
+  id: FactionRelationIconUnknown
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_relation_icons.rsi
+    state: unknown
+
+# Faction badges drawn by the neutral civilian HUD (ShowFactionAffiliationIcons). Looked up by name as
+# FactionAffiliationIcon<FactionId>; a faction with no entry here shows as FactionRelationIconUnknown.
+
+- type: factionIcon
+  id: FactionAffiliationIcon
+  abstract: true
+  # Takes the mindshield icon's old slot: right after the job icon (1), so it sits directly beneath it.
+  priority: 2
+  locationPreference: Right
+  isShaded: true
+
+- type: factionIcon
+  parent: FactionAffiliationIcon
+  id: FactionAffiliationIconDSM
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_affiliation_icons.rsi
+    state: dsm
+
+- type: factionIcon
+  parent: FactionAffiliationIcon
+  id: FactionAffiliationIconNCWL
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_affiliation_icons.rsi
+    state: ncwl
+
+- type: factionIcon
+  parent: FactionAffiliationIcon
+  id: FactionAffiliationIconSHI
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_affiliation_icons.rsi
+    state: shi
+
+- type: factionIcon
+  parent: FactionAffiliationIcon
+  id: FactionAffiliationIconSRM
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_affiliation_icons.rsi
+    state: srm
+
+- type: factionIcon
+  parent: FactionAffiliationIcon
+  id: FactionAffiliationIconTAP
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_affiliation_icons.rsi
+    state: tap
+
+- type: factionIcon
+  parent: FactionAffiliationIcon
+  id: FactionAffiliationIconTFSC
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_affiliation_icons.rsi
+    state: tfsc
+
+- type: factionIcon
+  parent: FactionAffiliationIcon
+  id: FactionAffiliationIconCMM
+  icon:
+    sprite: /Textures/_Crescent/Interface/Misc/faction_affiliation_icons.rsi
+    state: cmm

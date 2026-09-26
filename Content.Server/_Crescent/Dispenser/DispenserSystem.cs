@@ -2,7 +2,7 @@ using System.Text;
 using Content.Server.Body.Components;
 using Content.Server.Paper;
 using Content.Server.Power.EntitySystems;
-using Content.Shared._EE.Contractors.Components;
+using Content.Shared._Crescent.Contractors.Components;
 using Content.Shared._Crescent.Mind;
 using Content.Shared.Body.Part;
 using Content.Shared.Crescent.Dispenser;

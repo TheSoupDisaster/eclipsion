@@ -68,6 +68,7 @@
     - UnionfallNCWLCadetNote
   storage:
     back:
+    - ClothingEyesHudFactionNCWL
     - DefibrillatorCompact
     - MedkitCombatFilled
     - OmnizineChemistryBottle

@@ -55,6 +55,7 @@
 - type: startingGear
   id: PretorianKnightGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: PretorianKnightPDA
     ears: ClothingHeadsetEmpire
     jumpsuit: ClothingUniformJumpsuitImperialCombat

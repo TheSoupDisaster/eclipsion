@@ -1957,57 +1957,6 @@
 
 - type: entity
   parent: BaseItem
-  id: ShipVoucherArchon
-  name: ATH 'Archon' pattern LPC fabprint disk
-  description: An LPC fabprint disk loaded with a Crown expeditionary Archon-class light frigate pattern. Has to be redeemed at a shipyard console.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Crescent/Objects/Misc/lpcchip.rsi
-    layers:
-    - state: icon
-  - type: StaticPrice
-    price: 2500
-  - type: ShipVoucher
-    ship: Archon
-
-- type: entity
-  parent: BaseItem
-  id: ShipVoucherLictor
-  name: ATH 'Lictor' pattern LPC fabprint disk
-  description: An LPC fabprint disk loaded with a Crown expeditionary Lictor-class strike frigate pattern. Has to be redeemed at a shipyard console.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Crescent/Objects/Misc/lpcchip.rsi
-    layers:
-    - state: icon
-  - type: StaticPrice
-    price: 2500
-  - type: ShipVoucher
-    ship: Lictor
-
-- type: entity
-  parent: BaseItem
-  id: ShipVoucherKhorkoi
-  name: ATH 'Khorkoi' pattern LPC fabprint disk
-  description: An LPC fabprint disk loaded with a Crown expeditionary Khorkoi-class light fighter pattern. Has to be redeemed at a shipyard console.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Crescent/Objects/Misc/lpcchip.rsi
-    layers:
-    - state: icon
-  - type: StaticPrice
-    price: 2500
-  - type: ShipVoucher
-    ship: Khorkoi
-
-- type: entity
-  parent: BaseItem
   id: ShipVoucherAntiquarianWarthog
   name: Kourindou Limited GNSY Edition
   description: A hideously mistreated tech-voucher granting you to the right to ride one of the sector's finest Meatmobiles. Your meatmobile. It's crusted with odd stains which smell of things better left unremembered.
@@ -2023,23 +1972,6 @@
   - type: ShipVoucher
     ship: Warthog
 
-
-- type: entity
-  parent: BaseItem
-  id: ShipVoucherCarrum
-  name: Carrum pattern LPC fabprint disk
-  description: An LPC fabprint disk loaded with the ATH Carrum.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Crescent/Objects/Misc/lpcchip.rsi
-    layers:
-    - state: icon
-  - type: StaticPrice
-    price: 2500 # change later
-  - type: ShipVoucher
-    ship: Carrum
 
 - type: entity
   parent: BaseItem
@@ -2435,54 +2367,3 @@
     price: 2500
   - type: ShipVoucher
     ship: Lungspot
-
-- type: entity
-  parent: BaseItem
-  id: ShipVoucherMojave
-  name: Nap 'Mojave' pattern LPC fabprint disk
-  description: An LPC fabprint disk loaded with an American Mojave-class medical shuttle. Has to be redeemed at a shipyard console.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Crescent/Objects/Misc/lpcchip.rsi
-    layers:
-    - state: icon
-  - type: StaticPrice
-    price: 200000
-  - type: ShipVoucher
-    ship: Mojave
-
-- type: entity
-  parent: BaseItem
-  id: ShipVoucherPhantom
-  name: Nap 'Phantom' pattern LPC fabprint disk
-  description: LPC fabprint disk with an American ultra-light strike shuttle. Redeem at shipyard console. Fast, agile, hit-and-run ready.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Crescent/Objects/Misc/lpcchip.rsi
-    layers:
-    - state: icon
-  - type: StaticPrice
-    price: 20000
-  - type: ShipVoucher
-    ship: Phantom
-
-- type: entity
-  parent: BaseItem
-  id: ShipVoucherFalcon
-  name: Nap 'Falcon' pattern LPC fabprint disk
-  description: LPC fabprint disk with an American ultra-light strike shuttle. Redeem at shipyard console. Fast, agile, hit-and-run ready.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Crescent/Objects/Misc/lpcchip.rsi
-    layers:
-    - state: icon
-  - type: StaticPrice
-    price: 20000
-  - type: ShipVoucher
-    ship: Falcon

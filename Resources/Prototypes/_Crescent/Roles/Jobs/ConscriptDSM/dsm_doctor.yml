@@ -59,6 +59,7 @@
     - CartridgePuncturase
   storage:
     back:
+      - ClothingEyesHudFactionDSM
       - DefibrillatorCompact
       - VoidsuitKitDSM
       - BoxFlare

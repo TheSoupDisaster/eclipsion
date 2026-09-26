@@ -579,7 +579,7 @@
     Boop:
       path: /Audio/Voice/IPC/beep_500.ogg
     Buzz:
-      path: /Audio/Machines/buzz-sigh.ogg
+      path: /Audio/Effects/Cargo/buzz_sigh.ogg
     Honk:
       path: /Audio/Items/bikehorn.ogg
       params:
@@ -587,7 +587,7 @@
     Chime:
       path: /Audio/Effects/Cargo/ping.ogg
     Buzz-Two:
-      path: /Audio/Machines/buzz-two.ogg
+      path: /Audio/Effects/Cargo/buzz_two.ogg
     Ping:
       path: /Audio/Effects/beep1.ogg
       params: # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
@@ -633,9 +633,9 @@
     Chime:
       path: /Audio/Machines/chime.ogg
     Buzz:
-      path: /Audio/Machines/buzz-sigh.ogg
+      path: /Audio/Effects/Cargo/buzz_sigh.ogg
     Buzz-Two:
-      path: /Audio/Machines/buzz-two.ogg
+      path: /Audio/Effects/Cargo/buzz_two.ogg
     Honk:
       path: /Audio/Items/bikehorn.ogg
     Ping:
@@ -675,9 +675,9 @@
     Chime:
       path: /Audio/Machines/chime.ogg
     Buzz:
-      path: /Audio/Machines/buzz-sigh.ogg
+      path: /Audio/Effects/Cargo/buzz_sigh.ogg
     Buzz-Two:
-      path: /Audio/Machines/buzz-two.ogg
+      path: /Audio/Effects/Cargo/buzz_two.ogg
     Honk:
       path: /Audio/Items/bikehorn.ogg
     Ping:

@@ -70,7 +70,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly IPrototypeManager _manager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly _Lavaland.Shuttles.Systems.DockingConsoleSystem _dockingConsole = default!; // Lavaland Change: FTL
+    [Dependency] private readonly _Crescent.Shuttles.Systems.DockingConsoleSystem _dockingConsole = default!; // Lavaland Change: FTL
     [Dependency] private readonly IConfigurationManager _cfg = default!; // hullrot: console ratelimits
     [Dependency] private readonly IGameTiming _timing = default!; // KS14
 

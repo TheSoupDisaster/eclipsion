@@ -94,6 +94,7 @@
 - type: startingGear
   id: MVDGruntNCWLGear
   equipment:
+    eyes: ClothingEyesHudFactionNCWL
     shoes: ClothingShoesBootsMVD
     jumpsuit: ClothingUniformJumpsuitMVD
     id: NCWLMVDGruntPDA

@@ -87,7 +87,7 @@
     gloves: ClothingHandsGlovesMVD
     belt: ClothingBeltSheathNCWLKukriFilled
     ears: ClothingHeadsetNCWLCommand_Planetfall
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesHudFactionNCWL
     head: ClothingHeadHatMVDHat
     suitstorage: WeaponSubMachineGunMilitant
     pocket2: BookOfKane

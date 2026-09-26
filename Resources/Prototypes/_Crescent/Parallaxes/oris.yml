@@ -8,7 +8,7 @@
       scale: "1, 1"
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/roids.png"
+        path: "/Textures/DeltaV/Parallaxes/Asteroids.png"
       slowness: 0.968046875
       scale: "1, 1"
     - texture:

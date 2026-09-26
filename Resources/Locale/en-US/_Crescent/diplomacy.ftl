@@ -54,4 +54,4 @@ diplomacy-faction-IPM = Interdyne Pharmaceuticals
 diplomacy-faction-SAW = Shipbreaker Astronautics Workers Union
 diplomacy-faction-GSC = Gorlex Security Consulting
 diplomacy-faction-CD = Cyberdawn Technologies
-diplomacy-faction-TSP = Colonial Minutemen
+diplomacy-faction-CMM = Colonial Minutemen

@@ -1,0 +1,129 @@
+# Company vendor stock modules. Unlocked by the Franchise Stock research (Corporate for Shinohara, Cyberdawn and
+# Coalition for TFCF) and printed on the faction microforge.
+#   Level 1 (20 items):  easy   - common sheets only.
+#   Level 2 (50 items):  medium - adds copper and silver.
+#   Level 3 (100 items): hard   - precious metals, plasma and electronics.
+
+- type: latheRecipe
+  id: CompanyVendorRestockShinoharaCoffee1
+  result: CompanyVendorRestockShinoharaCoffee1
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: CompanyVendorRestockShinoharaCoffee2
+  result: CompanyVendorRestockShinoharaCoffee2
+  completetime: 8
+  materials:
+    Steel: 2500
+    Plastic: 1500
+    Copper: 1000
+    Silver: 300
+
+- type: latheRecipe
+  id: CompanyVendorRestockShinoharaCoffee3
+  result: CompanyVendorRestockShinoharaCoffee3
+  completetime: 15
+  applyMaterialDiscount: false
+  materials:
+    Steel: 5000
+    Plastic: 3000
+    Silver: 1000
+    Gold: 750
+    Plasma: 500
+    BasicElectronics: 250
+
+- type: latheRecipe
+  id: CompanyVendorRestockShinoharaCanteen1
+  result: CompanyVendorRestockShinoharaCanteen1
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: CompanyVendorRestockShinoharaCanteen2
+  result: CompanyVendorRestockShinoharaCanteen2
+  completetime: 8
+  materials:
+    Steel: 2500
+    Plastic: 1500
+    Copper: 1000
+    Silver: 300
+
+- type: latheRecipe
+  id: CompanyVendorRestockShinoharaCanteen3
+  result: CompanyVendorRestockShinoharaCanteen3
+  completetime: 15
+  applyMaterialDiscount: false
+  materials:
+    Steel: 5000
+    Plastic: 3000
+    Silver: 1000
+    Gold: 750
+    Plasma: 500
+    BasicElectronics: 250
+
+- type: latheRecipe
+  id: CompanyVendorRestockTFCFCoffee1
+  result: CompanyVendorRestockTFCFCoffee1
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: CompanyVendorRestockTFCFCoffee2
+  result: CompanyVendorRestockTFCFCoffee2
+  completetime: 8
+  materials:
+    Steel: 2500
+    Plastic: 1500
+    Copper: 1000
+    Silver: 300
+
+- type: latheRecipe
+  id: CompanyVendorRestockTFCFCoffee3
+  result: CompanyVendorRestockTFCFCoffee3
+  completetime: 15
+  applyMaterialDiscount: false
+  materials:
+    Steel: 5000
+    Plastic: 3000
+    Silver: 1000
+    Gold: 750
+    Plasma: 500
+    BasicElectronics: 250
+
+- type: latheRecipe
+  id: CompanyVendorRestockTFCFGrill1
+  result: CompanyVendorRestockTFCFGrill1
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: CompanyVendorRestockTFCFGrill2
+  result: CompanyVendorRestockTFCFGrill2
+  completetime: 8
+  materials:
+    Steel: 2500
+    Plastic: 1500
+    Copper: 1000
+    Silver: 300
+
+- type: latheRecipe
+  id: CompanyVendorRestockTFCFGrill3
+  result: CompanyVendorRestockTFCFGrill3
+  completetime: 15
+  applyMaterialDiscount: false
+  materials:
+    Steel: 5000
+    Plastic: 3000
+    Silver: 1000
+    Gold: 750
+    Plasma: 500
+    BasicElectronics: 250

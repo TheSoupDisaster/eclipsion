@@ -100,7 +100,7 @@
     wideAnimationRotation: -135
     attackRate: 0.25
     soundHit:
-      path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
+      path: /Audio/Weapons/Melee/rapierhit.ogg
     damage:
       types:
         Slash: 0 # Doesn't do damage, but...
@@ -147,8 +147,8 @@
         name: Blade
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
-        insertSound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
-        ejectSound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
         whitelist:
           tags:
           - Arayashiki

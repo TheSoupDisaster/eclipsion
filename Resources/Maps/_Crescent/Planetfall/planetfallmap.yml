@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 07/26/2026 19:18:54
-  entityCount: 18689
+  entityCount: 18688
 maps: []
 grids:
 - 1
@@ -34436,13 +34436,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingUniformJumpsuitNAPCombat
-  entities:
-  - uid: 4629
-    components:
-    - type: Transform
-      pos: 113.53206,-31.966026
-      parent: 1
 - proto: CMPlatform
   entities:
   - uid: 4630

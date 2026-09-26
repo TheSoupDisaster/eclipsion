@@ -1,0 +1,87 @@
+# Faction security vendors - replaces SecTech on faction stations.
+# Each faction stocks its own faction security HUD; everything else is shared.
+# FactionSecInventory is the generic fallback for factions without a faction HUD (e.g. Gliess Santo).
+
+- type: vendingMachineInventory
+  id: FactionSecInventory
+  startingInventory:
+    Handcuffs: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesHudSecurity: 20
+    BolaEnergy: 20
+    BreachingCharge: 20
+    RiotShield: 2
+    RiotBulletShield: 2
+    RiotLaserShield: 2
+
+- type: vendingMachineInventory
+  id: FactionSecInventoryDSM
+  startingInventory:
+    Handcuffs: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesHudFactionDSM: 20
+    BolaEnergy: 20
+    BreachingCharge: 20
+    RiotShield: 2
+    RiotBulletShield: 2
+    RiotLaserShield: 2
+
+- type: vendingMachineInventory
+  id: FactionSecInventorySHI
+  startingInventory:
+    Handcuffs: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesHudFactionSHI: 20
+    BolaEnergy: 20
+    BreachingCharge: 20
+    RiotShield: 2
+    RiotBulletShield: 2
+    RiotLaserShield: 2
+
+- type: vendingMachineInventory
+  id: FactionSecInventoryNCWL
+  startingInventory:
+    Handcuffs: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesHudFactionNCWL: 20
+    BolaEnergy: 20
+    BreachingCharge: 20
+    RiotShield: 2
+    RiotBulletShield: 2
+    RiotLaserShield: 2
+
+- type: vendingMachineInventory
+  id: FactionSecInventoryCMM
+  startingInventory:
+    Handcuffs: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesHudFactionCMM: 20
+    BolaEnergy: 20
+    BreachingCharge: 20
+    RiotShield: 2
+    RiotBulletShield: 2
+    RiotLaserShield: 2
+
+- type: vendingMachineInventory
+  id: FactionSecInventoryTAP
+  startingInventory:
+    Handcuffs: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesHudFactionTAP: 20
+    BolaEnergy: 20
+    BreachingCharge: 20
+    RiotShield: 2
+    RiotBulletShield: 2
+    RiotLaserShield: 2
+
+- type: vendingMachineInventory
+  id: FactionSecInventorySRM
+  startingInventory:
+    Handcuffs: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesHudFactionSRM: 20
+    BolaEnergy: 20
+    BreachingCharge: 20
+    RiotShield: 2
+    RiotBulletShield: 2
+    RiotLaserShield: 2

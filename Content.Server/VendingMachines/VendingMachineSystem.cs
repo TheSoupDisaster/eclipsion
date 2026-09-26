@@ -4,7 +4,6 @@ using Content.Server.Advertise;
 using Content.Server.Advertise.Components;
 using Content.Server.Bank;
 using Content.Server.Cargo.Systems;
-using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Access.Components;
@@ -16,7 +15,6 @@ using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
-using Content.Shared.Emp;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Throwing;
@@ -115,7 +113,7 @@ namespace Content.Server.VendingMachines
             UpdateVendingMachineInterfaceState(uid, component);
         }
 
-        private void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component)
+        public void UpdateVendingMachineInterfaceState(EntityUid uid, VendingMachineComponent component) // _Crescent: public for CompanyVendorSystem
         {
             var state = new VendingMachineInterfaceState(GetAllInventory(uid, component));
             foreach (var thing in state.Inventory)
@@ -524,15 +522,8 @@ namespace Content.Server.VendingMachines
                     }
                 }
             }
-            var disabled = EntityQueryEnumerator<EmpDisabledComponent, VendingMachineComponent>();
-            while (disabled.MoveNext(out var uid, out _, out var comp))
-            {
-                if (comp.NextEmpEject < _timing.CurTime)
-                {
-                    EjectRandom(uid, true, false, comp);
-                    comp.NextEmpEject += TimeSpan.FromSeconds(5 * comp.EjectDelay);
-                }
-            }
+            // _Crescent: an EMP'd vending machine no longer sprays free stock. It was an unlimited counterpart to the
+            // capped eject-wire pulse, so EMP only disables the machine now.
         }
 
         public void TryRestockInventory(EntityUid uid, VendingMachineComponent? vendComponent = null)

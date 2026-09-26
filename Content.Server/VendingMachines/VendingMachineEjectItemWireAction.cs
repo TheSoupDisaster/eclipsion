@@ -37,6 +37,17 @@ public sealed partial class VendingMachineEjectItemWireAction : ComponentWireAct
 
     public override void Pulse(EntityUid user, Wire wire, VendingMachineComponent vending)
     {
+        if (vending.WirePulseEjectCount >= vending.WirePulseEjectLimit)
+        {
+            _vendingMachineSystem.Deny(wire.Owner, vending);
+            return;
+        }
+
+        var wasEjecting = vending.Ejecting;
         _vendingMachineSystem.EjectRandom(wire.Owner, true, vendComponent: vending);
+
+        // Only count pulses that actually started an ejection
+        if (!wasEjecting && vending.Ejecting)
+            vending.WirePulseEjectCount++;
     }
 }

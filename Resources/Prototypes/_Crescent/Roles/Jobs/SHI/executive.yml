@@ -110,6 +110,7 @@
 - type: startingGear
   id: ExecutiveGear
   equipment:
+    eyes: ClothingEyesHudFactionSHI
     jumpsuit: ClothingUniformJumpsuitExecutiveShinoharaSuit
     shoes: ClothingShoesBootsLaceup
     neck: ClothingNeckTieRed

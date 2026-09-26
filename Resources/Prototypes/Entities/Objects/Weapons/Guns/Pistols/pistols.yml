@@ -37,7 +37,7 @@
       path: /Audio/_Crescent/Weapons/Guns/pistol_2/pistol_gunshot_1.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/Weapons/Guns/Cock/pistol_cock.ogg
+      path: /Audio/Items/pistol_cock.ogg
   - type: ItemSlots
     slots:
       gun_magazine:

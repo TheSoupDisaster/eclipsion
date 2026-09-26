@@ -52,9 +52,9 @@
     - /Audio/Items/ratchet.ogg
     - /Audio/Items/welder.ogg
     - /Audio/Machines/airlock_close.ogg
-    - /Audio/Machines/airlock_ext_close.ogg
+    - /Audio/Machines/airlock_close.ogg
     - /Audio/Machines/airlock_ext_open.ogg
-    - /Audio/Machines/airlock_open.ogg
+    - /Audio/Machines/airlock_ext_open.ogg
     - /Audio/Machines/disposalflush.ogg
     - /Audio/Machines/printer.ogg
     - /Audio/Machines/windoor_open.ogg
@@ -141,7 +141,7 @@
     - /Audio/Magic/staff_animation.ogg
     - /Audio/Magic/staff_change.ogg
     - /Audio/Magic/staff_chaos.ogg
-    - /Audio/Magic/staff_door.ogg
+    - /Audio/Weapons/Guns/Gunshots/Magic/staff_door.ogg
     - /Audio/Magic/staff_healing.ogg
 
 - type: soundCollection

@@ -335,48 +335,6 @@
   - type: AccessReader
     access: [["Thukker"]]
 
-#ath
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsAuthority
-  suffix: Crown Expedition
-  components:
-  - type: AccessReader
-    access: [["Authority"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsAuthorityRanking
-  suffix: Crown Expedition, Ranking
-  components:
-  - type: AccessReader
-    access: [["AuthorityRanking"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsAuthoritymed
-  suffix: Crown Expedition, Medical
-  components:
-  - type: AccessReader
-    access: [["Authoritymed"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsAuthoritySupply
-  suffix: Crown Expedition, Supply
-  components:
-  - type: AccessReader
-    access: [["AuthoritySupply"]]
-
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsAuthorityKommandant
-  suffix: Crown Expedition, Commander
-  components:
-  - type: AccessReader
-    access: [["Kommandant"]]
-
 #misc
 
 - type: entity

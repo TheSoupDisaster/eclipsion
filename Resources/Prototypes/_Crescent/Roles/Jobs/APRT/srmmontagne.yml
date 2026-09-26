@@ -38,6 +38,7 @@
 - type: startingGear
   id: APRTMontagneGear
   equipment:
+    eyes: ClothingEyesHudFactionSRM
     id: MontagnePDA
     ears: ClothingHeadsetHunter
     jumpsuit: ClothingUniformJumpsuitHunter

@@ -7,7 +7,7 @@
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/welder_pickup.ogg
   - type: EmitSoundOnDrop
-    sound: /Audio/SimpleStation14/Items/Handling/welder_drop.ogg
+    sound: /Audio/Items/welder_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/welder_drop.ogg

@@ -57,6 +57,7 @@
 - type: startingGear
   id: TechnicianGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicate
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHatSyndicateArmaments

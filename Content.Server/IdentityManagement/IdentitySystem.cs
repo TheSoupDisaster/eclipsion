@@ -14,7 +14,7 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Shared._EE.GenderChange;
+using Content.Shared._Crescent.GenderChange;
 
 namespace Content.Server.IdentityManagement;
 

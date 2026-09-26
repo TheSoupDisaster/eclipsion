@@ -46809,7 +46809,7 @@ entities:
     - type: Transform
       pos: 37.363613,-20.432041
       parent: 1
-- proto: TSPBountyTerminal
+- proto: CMMBountyTerminal
   entities:
   - uid: 3643
     components:

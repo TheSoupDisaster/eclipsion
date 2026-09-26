@@ -5184,7 +5184,7 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: 6.5,13.5
-- proto: Thruster
+- proto: ThrusterCMMFighter
   entities:
   - uid: 676
     components:

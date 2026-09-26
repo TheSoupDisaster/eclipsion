@@ -5407,7 +5407,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 6.5,-3.5
-- proto: Thruster
+- proto: ThrusterSHIWarship
   entities:
   - uid: 628
     components:

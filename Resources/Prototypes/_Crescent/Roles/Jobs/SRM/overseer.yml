@@ -74,6 +74,7 @@
 - type: startingGear
   id: OverseerGear
   equipment:
+    eyes: ClothingEyesHudFactionSRM
     id: OverseerPDA
     ears: ClothingHeadsetHunter
     jumpsuit: ClothingUniformJumpsuitOverseer

@@ -2,6 +2,48 @@
 # No ReverseEngineering: these new chassis require their faction's research progression.
 
 - type: entity
+  id: DeputyFlatpack
+  parent: BaseFlatpack
+  name: CMM M-110 'Deputy' exosuit construction kit
+  description: Parts used to build a Minutemen light scout exosuit. Includes a charged powercell; weapon systems are supplied separately. Activate with a multitool to deploy.
+  components:
+  - type: Flatpack
+    entity: MechCMMDeputyBattery
+  - type: Sprite
+    layers:
+    - state: kit
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  id: JusticiarFlatpack
+  parent: BaseFlatpack
+  name: CMM M-330 'Justiciar' exosuit construction kit
+  description: Parts used to build a Minutemen heavy siege exosuit. Includes a charged powercell; weapon systems are supplied separately. Activate with a multitool to deploy.
+  components:
+  - type: Flatpack
+    entity: MechCMMJusticiarBattery
+  - type: Sprite
+    layers:
+    - state: kit
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  id: BailiffFlatpack
+  parent: BaseFlatpack
+  name: CMM M-220 'Bailiff' exosuit construction kit
+  description: Parts used to build a Minutemen medium patrol exosuit. Includes a charged powercell; weapon systems are supplied separately. Activate with a multitool to deploy.
+  components:
+  - type: Flatpack
+    entity: MechCMMBailiffBattery
+  - type: Sprite
+    layers:
+    - state: kit
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
   id: SuzumeFlatpack
   parent: BaseFlatpack
   name: SHI mR-210 'Suzume' exosuit construction kit

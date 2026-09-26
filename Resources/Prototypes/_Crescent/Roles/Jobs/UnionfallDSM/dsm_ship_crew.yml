@@ -88,7 +88,7 @@
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: WeaponPistolNeoVolker
     ears: ClothingHeadsetEmpire
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionDSM
     outerClothing: ClothingOuterHardsuitImperialWorker
     suitstorage: JetpackBlackFilled
   inhand:

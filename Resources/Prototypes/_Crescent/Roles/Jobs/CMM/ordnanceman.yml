@@ -1,0 +1,76 @@
+- type: job
+  id: OrdnancemanCMM
+  name: job-name-ordnanceman
+  description: job-description-ordnanceman
+  playTimeTracker: JobOrdnancemanCMM
+  ranks:
+    RatRankCMMMinutemanThird:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobOrdnancemanCMM
+      min: 108000 # 30 hours
+    RatRankCMMMinutemanSrLead:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobOrdnancemanCMM
+      min: 72000 # 20 hours
+    RatRankCMMMinutemanLead:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobOrdnancemanCMM
+      min: 36000 # 10 hours
+    RatRankCMMMinutemanSenior: []
+  weight: 26
+  startingGear: OrdnancemanGear
+  alwaysUseSpawner: true
+  requireAdminNotify: false
+  icon: "JobIconMinuteman"
+  supervisors: job-supervisors-cmm-sergeant
+  canBeAntag: false
+  requirements:
+    - !type:CharacterOverallTimeRequirement
+      min: 36000 # 10 hours
+    - !type:FactionRequirement
+        factionID: "CMM"
+    - !type:CharacterTraitRequirement
+        inverted: true
+        traits:
+          - Blindness
+          - Pacifist
+          - WheelchairBound
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: HullrotFaction
+        faction: CMM
+      - type: LanguageAdder
+        addSpoken:
+          - American
+          - Tradeband
+        addUnderstood:
+          - American
+          - Tradeband
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Command
+  - Maintenance
+  - Minuteman
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - GliessSheriff
+  - GliessDockmaster
+
+- type: startingGear
+  id: OrdnancemanGear
+  equipment:
+    eyes: ClothingEyesHudFactionCMM
+    jumpsuit: ClothingUniformJumpsuitCMMOrdnanceman
+    shoes: ClothingShoesBootsCombat
+    head: ClothingHeadHatBeretCap
+    gloves: ClothingHandsGlovesCombat
+    belt: ClothingBeltMinutemanPouches
+    back: ClothingBackpackMinuteman
+    id: OrdnancemanPDA
+    ears: ClothingHeadsetCMM
+    pocket1: WeaponPistolHKUSP
+    neck: ClothingNeckScarfCMMCloak
+    outerClothing: ClothingOuterArmorCMM

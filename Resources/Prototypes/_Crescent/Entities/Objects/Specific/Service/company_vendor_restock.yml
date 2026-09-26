@@ -1,0 +1,186 @@
+# Company stock modules for the Shinohara / TFCF franchise vendors (see CompanyVendorSystem).
+# A module replaces a machine's stock with a full load at its level (1: 20, 2: 50, 3: 100 items). Used on the
+# rival company's machine of the same product line it converts the machine instead, provided the host faction
+# trades with or is allied to the company. Only company members can install them.
+# Unlocked by the Franchise Stock research (Research/company_vendors.yml) and printed on the faction microforge.
+
+- type: entity
+  parent: BaseItem
+  id: BaseCompanyVendorRestock
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+  - type: Item
+    size: Normal
+  # Worthless to cargo: the modules are printed from cheap materials and must not become a money printer.
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: BaseCompanyVendorRestock
+  id: BaseCompanyVendorRestockShinoharaCoffee
+  abstract: true
+  name: Shinohara coffee stock module
+  description: A sealed cartridge of Shinohara hot-drink stock, keyed to the corporate coffee machines.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: refill_joe
+
+- type: entity
+  parent: BaseCompanyVendorRestockShinoharaCoffee
+  id: CompanyVendorRestockShinoharaCoffee1
+  name: Shinohara coffee stock module (level 1)
+  components:
+  - type: CompanyVendorRestock
+    company: SHI
+    product: Coffee
+    level: 1
+
+- type: entity
+  parent: BaseCompanyVendorRestockShinoharaCoffee
+  id: CompanyVendorRestockShinoharaCoffee2
+  name: Shinohara coffee stock module (level 2)
+  components:
+  - type: CompanyVendorRestock
+    company: SHI
+    product: Coffee
+    level: 2
+
+- type: entity
+  parent: BaseCompanyVendorRestockShinoharaCoffee
+  id: CompanyVendorRestockShinoharaCoffee3
+  name: Shinohara coffee stock module (level 3)
+  components:
+  - type: CompanyVendorRestock
+    company: SHI
+    product: Coffee
+    level: 3
+
+- type: entity
+  parent: BaseCompanyVendorRestock
+  id: BaseCompanyVendorRestockShinoharaCanteen
+  abstract: true
+  name: Shinohara ration stock module
+  description: A sealed cartridge of Shinohara compact rations, keyed to the SHI compact ration vendors.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: refill_snack
+
+- type: entity
+  parent: BaseCompanyVendorRestockShinoharaCanteen
+  id: CompanyVendorRestockShinoharaCanteen1
+  name: Shinohara ration stock module (level 1)
+  components:
+  - type: CompanyVendorRestock
+    company: SHI
+    product: Food
+    level: 1
+
+- type: entity
+  parent: BaseCompanyVendorRestockShinoharaCanteen
+  id: CompanyVendorRestockShinoharaCanteen2
+  name: Shinohara ration stock module (level 2)
+  components:
+  - type: CompanyVendorRestock
+    company: SHI
+    product: Food
+    level: 2
+
+- type: entity
+  parent: BaseCompanyVendorRestockShinoharaCanteen
+  id: CompanyVendorRestockShinoharaCanteen3
+  name: Shinohara ration stock module (level 3)
+  components:
+  - type: CompanyVendorRestock
+    company: SHI
+    product: Food
+    level: 3
+
+- type: entity
+  parent: BaseCompanyVendorRestock
+  id: BaseCompanyVendorRestockTFCFCoffee
+  abstract: true
+  name: Federation energy drink stock module
+  description: A crate of Federation energy drinks. Refills TFCF energy drink vendors or replaces a Shinohara coffee machine with one.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: refill_cola
+
+- type: entity
+  parent: BaseCompanyVendorRestockTFCFCoffee
+  id: CompanyVendorRestockTFCFCoffee1
+  name: Federation energy drink stock module (level 1)
+  components:
+  - type: CompanyVendorRestock
+    company: TFSC
+    product: Coffee
+    level: 1
+
+- type: entity
+  parent: BaseCompanyVendorRestockTFCFCoffee
+  id: CompanyVendorRestockTFCFCoffee2
+  name: Federation energy drink stock module (level 2)
+  components:
+  - type: CompanyVendorRestock
+    company: TFSC
+    product: Coffee
+    level: 2
+
+- type: entity
+  parent: BaseCompanyVendorRestockTFCFCoffee
+  id: CompanyVendorRestockTFCFCoffee3
+  name: Federation energy drink stock module (level 3)
+  components:
+  - type: CompanyVendorRestock
+    company: TFSC
+    product: Coffee
+    level: 3
+
+- type: entity
+  parent: BaseCompanyVendorRestock
+  id: BaseCompanyVendorRestockTFCFGrill
+  abstract: true
+  name: Federation grill stock module
+  description: A greasy crate of Grill-O-Mat stock, keyed to TFCF grill machines.
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: refill_snack
+
+- type: entity
+  parent: BaseCompanyVendorRestockTFCFGrill
+  id: CompanyVendorRestockTFCFGrill1
+  name: Federation grill stock module (level 1)
+  components:
+  - type: CompanyVendorRestock
+    company: TFSC
+    product: Food
+    level: 1
+
+- type: entity
+  parent: BaseCompanyVendorRestockTFCFGrill
+  id: CompanyVendorRestockTFCFGrill2
+  name: Federation grill stock module (level 2)
+  components:
+  - type: CompanyVendorRestock
+    company: TFSC
+    product: Food
+    level: 2
+
+- type: entity
+  parent: BaseCompanyVendorRestockTFCFGrill
+  id: CompanyVendorRestockTFCFGrill3
+  name: Federation grill stock module (level 3)
+  components:
+  - type: CompanyVendorRestock
+    company: TFSC
+    product: Food
+    level: 3

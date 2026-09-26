@@ -244,9 +244,9 @@
     soundRack:
       path: /Audio/_Crescent/Weapons/Guns/conscript/rack.ogg
     soundBoltOpened:
-      path: /Audio/_Crescent/Weapons/Guns/conscript/bolt_open.ogg
+      path: /Audio/_Crescent/Weapons/Guns/MG42/bolt_open.ogg
     soundBoltClosed:
-      path: /Audio/_Crescent/Weapons/Guns/conscript/bolt_close.ogg
+      path: /Audio/_Crescent/Weapons/Guns/MG42/bolt_close.ogg
   - type: MagazineVisuals
     magState: mag
     steps: 3

@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/26/2025 08:56:05
-  entityCount: 2461
+  entityCount: 2451
 maps: []
 grids:
 - 1
@@ -6299,26 +6299,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingBackpackNAPRangerSatchel
-  entities:
-  - uid: 126
-    components:
-    - type: Transform
-      pos: 1.4672203,-5.3194113
-      parent: 1
-  - uid: 1615
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.657207,2.5768104
-      parent: 1
-- proto: ClothingBeltNAPRangerPouches
-  entities:
-  - uid: 127
-    components:
-    - type: Transform
-      pos: 0.47292137,-6.561599
-      parent: 1
 - proto: ClothingBeltUtilityAtmos
   entities:
   - uid: 1094
@@ -6335,50 +6315,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingHeadHatNAPRangerCapsoft
-  entities:
-  - uid: 1731
-    components:
-    - type: Transform
-      pos: 1.8396969,2.68685
-      parent: 1
-- proto: ClothingHeadHelmetNAPRangerHelmetGCP
-  entities:
-  - uid: 128
-    components:
-    - type: Transform
-      pos: 0.9416714,2.4852762
-      parent: 1
-  - uid: 135
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.059481,-0.67089176
-      parent: 1
 - proto: ClothingMaskGasMerc
   entities:
   - uid: 27
-    components:
-    - type: Transform
-      parent: 24
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingOuterArmorNAPRangerBIPArmorVest
-  entities:
-  - uid: 129
-    components:
-    - type: Transform
-      pos: 6.566513,-6.2884216
-      parent: 1
-  - uid: 1614
-    components:
-    - type: Transform
-      pos: 5.3947964,-6.3975363
-      parent: 1
-- proto: ClothingOuterHardsuitNAPRangerMEPA
-  entities:
-  - uid: 25
     components:
     - type: Transform
       parent: 24
@@ -6394,13 +6333,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingUniformJumpsuitNAPCombat
-  entities:
-  - uid: 136
-    components:
-    - type: Transform
-      pos: 1.3265953,-5.999099
-      parent: 1
 - proto: ComputerBroken
   entities:
   - uid: 1095
@@ -10957,7 +10889,6 @@ entities:
           - 28
           - 27
           - 26
-          - 25
   - uid: 1090
     components:
     - type: Transform

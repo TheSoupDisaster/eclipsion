@@ -8,7 +8,7 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
-using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._Crescent.Contractors.Prototypes;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.Loadouts.Prototypes;
@@ -509,7 +509,9 @@ namespace Content.Client.Lobby.UI
 
             //#region Antags
 
-            //Antags.Orphan();
+            // The tab is disabled, but it is still declared inside CTabContainer in XAML. Left there it sits
+            // beside the tab contents as an empty expanding box and eats about half the editor's width.
+            Antags.Orphan();
             //CTabContainer.AddTab(Antags, Loc.GetString("humanoid-profile-editor-antags-tab"));
 
             //#endregion Antags

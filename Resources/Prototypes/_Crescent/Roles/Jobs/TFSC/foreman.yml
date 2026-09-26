@@ -64,6 +64,7 @@
 - type: startingGear
   id: ForemanGear
   equipment:
+    eyes: ClothingEyesHudFactionTFSC
     jumpsuit: ClothingUniformJumpsuitSyndicateSaws
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHatHardhatSyndicateForeman

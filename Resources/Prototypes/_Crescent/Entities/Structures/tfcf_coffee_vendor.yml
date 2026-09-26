@@ -1,0 +1,24 @@
+# Keep the legacy prototype ID and Coffee product slot for saved vendors and Shinohara drink takeovers.
+- type: entity
+  parent: VendingMachinePwrGame
+  id: VendingMachineCoffeeTFCF
+  name: Federation Nightshift Energy
+  description: A TFCF vending machine stocked with cold cans of energy drink. The side panel reads "Your break belongs to you." Best enjoyed with a Federation burger.
+  components:
+  - type: VendingMachine
+    pack: TFCFCoffeeInventory
+    initialStockQuality: 1
+    ejectDelay: 1.2
+  - type: CompanyVendor
+    company: TFSC
+    product: Coffee
+  - type: Advertise
+    pack: TFCFCoffeeAds
+  - type: SpeakOnUIClosed
+    pack: TFCFCoffeeGoodbyes
+  - type: Sprite
+    sprite: _Crescent/Structures/Machines/Vendors/coffee_tfsc.rsi
+  - type: PointLight
+    color: "#a0ec60"
+    energy: 1.3
+    radius: 2

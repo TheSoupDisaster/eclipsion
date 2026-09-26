@@ -10,7 +10,7 @@
       map: ["effect"]
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_animation.ogg
+      path: /Audio/Magic/staff_animation.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltCarp
     capacity: 5

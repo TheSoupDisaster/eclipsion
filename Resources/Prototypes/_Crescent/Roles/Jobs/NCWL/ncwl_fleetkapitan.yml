@@ -123,7 +123,7 @@
     head: ClothingHeadHatNCWLBeret
     mask: ClothingMaskNCWLGasmask
     ears: ClothingHeadsetNCWLCommand
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudFactionNCWL
   storage:
     back:
       - Flash

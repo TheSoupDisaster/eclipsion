@@ -57,11 +57,9 @@ FILL_Y = 17
 IMPLANTERS = {
     "dsm_command":  dict(chassis="#4A4256", accent="#9D7BE6", stripe="double",  tier="command"),
     "dsm_civilian": dict(chassis="#6E6478", accent="#CBC3E3", stripe="split",   tier="civilian"),
-    "ath":          dict(chassis="#8A8578", accent="#E0CF8A", stripe="pips",    tier="command"),
     "cmm":          dict(chassis="#3A4658", accent="#4E8FD6", stripe="chevron", tier="service"),
     "ncwl":         dict(chassis="#51533F", accent="#D9962B", stripe="hazard",  tier="service"),
     "shi":          dict(chassis="#535961", accent="#6FB0A6", stripe="solid",   tier="service"),
-    "crn":          dict(chassis="#3B5A72", accent="#7FA8C4", stripe="dash",    tier="civilian"),
     "interdyne":    dict(chassis="#7A5560", accent="#F8BABA", stripe="band",    tier="civilian"),
 }
 

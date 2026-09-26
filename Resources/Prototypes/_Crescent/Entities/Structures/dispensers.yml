@@ -753,7 +753,7 @@
 
 - type: entity
   parent: BaseDispenser
-  id: TSPBountyTerminal
+  id: CMMBountyTerminal
   name: sector bounty terminal
   description: A bounty terminal. It accepts the ID cards of the terrorist group 'New Crescent Worker's League' and proof of kills for any pirates in return for cold, hard credits.
   components:

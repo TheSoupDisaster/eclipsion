@@ -70,7 +70,7 @@
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/matchbox_pickup.ogg
   - type: EmitSoundOnDrop
-    sound: /Audio/SimpleStation14/Items/Handling/matchbox_drop.ogg
+    sound: /Audio/Items/matchbox_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/matchbox_drop.ogg

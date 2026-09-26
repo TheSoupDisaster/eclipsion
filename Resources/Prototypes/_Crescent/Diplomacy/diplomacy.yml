@@ -1,5 +1,6 @@
 - type: entity
   id: CrescentDiplomacy
+  categories: [ HideSpawnMenu ]
   components:
   - type: Diplomacy
 
@@ -8,7 +9,7 @@
   relations:
     NCWL:
       War
-    TSP:
+    CMM:
       Ally
 
 - type: diplomacy
@@ -16,7 +17,7 @@
   relations:
     DSM:
       War
-    TSP:
+    CMM:
       ColdWar
 
 - type: diplomacy
@@ -24,7 +25,7 @@
   relations:
     SHI:
       ColdWar
-    TSP:
+    CMM:
       ColdWar
 
 - type: diplomacy
@@ -34,7 +35,7 @@
       ColdWar
 
 - type: diplomacy
-  id: TSP
+  id: CMM
   relations:
     TFSC:
       ColdWar
@@ -52,5 +53,5 @@
       ColdWar
     SHI:
       ColdWar
-    TSP:
+    CMM:
       ColdWar

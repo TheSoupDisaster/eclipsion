@@ -288,6 +288,11 @@ public sealed class MappingState : GameplayStateBase
         var entities = new MappingPrototype(null, Loc.GetString("mapping-entities")) { Children = new List<MappingPrototype>() };
         foreach (var entity in _prototypeManager.EnumeratePrototypes<EntityPrototype>())
         {
+            // Actions, audio entities and the like are marked HideSpawnMenu: they have no sprite and can't be
+            // mapped. If one of them is a parent of something mappable, Register() still adds it as a folder.
+            if (entity.HideSpawnMenu)
+                continue;
+
             Register(entity, entity.ID, entities);
         }
 

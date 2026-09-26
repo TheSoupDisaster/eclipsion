@@ -21,7 +21,7 @@ public sealed partial class RatDiplomacySystem : EntitySystem
     // internal leadership, but their jobs write HullrotFaction "TFSC" so Federation relations stay unified.
     // Load() drops relations naming a faction that is no longer on this roster, so old saves are fine.
     private static readonly string[] AllFactions =
-        ["DSM", "NCWL", "SHI", "SRM", "TAP", "TFSC", "TSP"];
+        ["DSM", "NCWL", "SHI", "SRM", "TAP", "TFSC", "CMM"];
 
     /// <summary>
     /// Faction pairs locked into permanent war. They start at war and no peace, alliance or
@@ -114,14 +114,17 @@ public sealed partial class RatDiplomacySystem : EntitySystem
 
     private void SendPlayerFaction(ICommonSession session)
     {
-        var faction = GetPlayerFaction(session.AttachedEntity);
-        if (faction == null)
+        // Runs off a timer, so the player may have disconnected in the meantime; sending to a dead channel throws.
+        if (session.Status != SessionStatus.InGame)
             return;
 
-        RaiseNetworkEvent(new PlayerFactionUpdatedEvent(faction), session);
+        var faction = GetPlayerFaction(session.AttachedEntity);
+        if (faction != null)
+            RaiseNetworkEvent(new PlayerFactionUpdatedEvent(faction), session);
 
         // The HUD widget has no relations of its own to fall back on, and relations now carry between rounds —
-        // without this a joining player sees a blank board until someone happens to work a console.
+        // without this a joining player sees a blank board until someone happens to work a console. Sent even
+        // without a faction: players join in the lobby with no body, and faction HUDs need the board regardless.
         RaiseNetworkEvent(BuildRelationsEvent(), session);
     }
 

@@ -73,6 +73,7 @@
 - type: startingGear
   id: MontagneGear
   equipment:
+    eyes: ClothingEyesHudFactionSRM
     id: MontagnePDA
     ears: ClothingHeadsetHunter
     jumpsuit: ClothingUniformJumpsuitHunter

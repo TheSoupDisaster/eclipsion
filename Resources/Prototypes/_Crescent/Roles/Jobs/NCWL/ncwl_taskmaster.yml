@@ -104,3 +104,6 @@
     outerClothing: ClothingOuterArmorNCWLEngi
     belt: ClothingBeltSalvageWebbingFilledNF
     pocket2: RatRubberStampNCWLResearch
+  storage:
+    back:
+    - ClothingEyesHudFactionNCWL

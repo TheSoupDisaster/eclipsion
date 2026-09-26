@@ -304106,13 +304106,6 @@ entities:
     - type: Transform
       pos: 39.5,5.5
       parent: 1
-- proto: VendingMachineHotfood
-  entities:
-  - uid: 7943
-    components:
-    - type: Transform
-      pos: -20.5,10.5
-      parent: 1
 - proto: VendingMachineMedical
   entities:
   - uid: 7944
@@ -325401,4 +325394,11 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
+- proto: VendingMachineTFCFGrill
+  entities:
+  - uid: 7943
+    components:
+    - type: Transform
+      pos: -20.5,10.5
+      parent: 1
 ...

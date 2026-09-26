@@ -87,6 +87,7 @@
 - type: startingGear
   id: DraugrGear
   equipment:
+    eyes: ClothingEyesHudFactionTAP
     jumpsuit: ClothingUniformJumpsuitDraugr
     back: ClothingBackpackSatchelFilled
     shoes: ClothingShoesBootsJack

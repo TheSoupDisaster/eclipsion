@@ -113,19 +113,18 @@
       homeFaction: GS
 
 # The Minutemen's own colours, distinct from the Gliess Santo banner their survivors now serve under.
-# TSP is the ID jobs stamp on a mob; the CMM seen on a couple of consoles is machine-side only, so a
-# banner homed to it could never be reclaimed by anyone.
+# CMM is the ID Minutemen jobs stamp on a mob (it replaced the legacy TSP id).
 - type: entity
   parent: ConquestFlag
-  id: ConquestFlagTSP
-  suffix: TSP
+  id: ConquestFlagCMM
+  suffix: CMM
   name: Minutemen conquest banner
   components:
     - type: Sprite
       sprite: _Crescent/Structures/medieval_pole_banners.rsi
       state: azure-buff
     - type: ConquestFlag
-      homeFaction: TSP
+      homeFaction: CMM
 
 - type: entity
   parent: ConquestFlag
@@ -138,15 +137,3 @@
       state: black-bone
     - type: ConquestFlag
       homeFaction: SRM
-
-- type: entity
-  parent: ConquestFlag
-  id: ConquestFlagATH
-  suffix: ATH
-  name: Crown conquest banner
-  components:
-    - type: Sprite
-      sprite: _Crescent/Structures/medieval_pole_banners.rsi
-      state: ivory-gold
-    - type: ConquestFlag
-      homeFaction: ATH

@@ -1,0 +1,80 @@
+- type: job
+  id: MinutemanCMM
+  name: job-name-minuteman
+  description: job-description-minuteman
+  playTimeTracker: JobMinutemanCMM
+  ranks:
+    RatRankCMMMinutemanLead:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobMinutemanCMM
+      min: 144000 # 40 hours
+    RatRankCMMMinutemanSenior:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobMinutemanCMM
+      min: 108000 # 30 hours
+    RatRankCMMMinutemanMiddle:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobMinutemanCMM
+      min: 72000 # 20 hours
+    RatRankCMMMinutemanJunior:
+    - !type:CharacterPlaytimeRequirement
+      tracker: JobMinutemanCMM
+      min: 36000 # 10 hours
+    RatRankCMMMinutemanNovice: []
+  weight: 18
+  startingGear: MinutemanGear
+  alwaysUseSpawner: true
+  requireAdminNotify: false
+  icon: "JobIconOrdnanceman"
+  supervisors: job-supervisors-cmm-minuteman
+  canBeAntag: false
+  requirements:
+    - !type:FactionRequirement
+        factionID: "CMM"
+    - !type:CharacterTraitRequirement
+        inverted: true
+        traits:
+          - Muted
+          - Blindness
+          - Pacifist
+          - WheelchairBound
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: HullrotFaction
+        faction: CMM
+      - type: LanguageAdder
+        addSpoken:
+          - American
+          - Tradeband
+        addUnderstood:
+          - American
+          - Tradeband
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Command
+  - Maintenance
+  - Minuteman
+  - MinutemanPrison
+  - External
+  - Mercenary # Frontier
+  - Captain # Frontier
+  - GliessSheriff
+  - GliessDockmaster
+
+- type: startingGear
+  id: MinutemanGear
+  equipment:
+    eyes: ClothingEyesHudFactionCMM
+    jumpsuit: ClothingUniformJumpsuitCMM
+    shoes: ClothingShoesBootsCombat
+    head: ClothingHeadHatMinuteman
+    gloves: ClothingHandsGlovesCombat
+    belt: ClothingBeltMinutemanPouches
+    back: ClothingBackpackMinuteman
+    pocket1: WeaponPistolHKUSP
+    id: MinutemanPDA
+    ears: ClothingHeadsetCMM
+    neck: ClothingNeckScarfCMMCloak
+    outerClothing: ClothingOuterArmorCMM

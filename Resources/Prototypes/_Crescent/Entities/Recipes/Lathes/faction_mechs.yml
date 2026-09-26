@@ -3,6 +3,55 @@
 # Siege costs cannot be discounted by upgraded stock parts. Times are base seconds.
 
 - type: latheRecipe
+  id: DeputyFlatpack
+  category: Circuitry
+  result: DeputyFlatpack
+  icon:
+    sprite: _Crescent/Objects/Specific/Mechs/suzume.rsi
+    state: suzume
+  completetime: 30
+  materials:
+    BasicMechatronics: 2500
+    AdvancedElectronics: 1000
+    Gold: 300
+    Silver: 500
+    Steel: 3000
+    Tungsten: 3000
+
+- type: latheRecipe
+  id: JusticiarFlatpack
+  category: Circuitry
+  result: JusticiarFlatpack
+  icon:
+    sprite: _Crescent/Objects/Specific/Mechs/bastion.rsi
+    state: bastion
+  completetime: 180
+  applyMaterialDiscount: false
+  materials:
+    AdvancedMechatronics: 4500
+    NanotrasenElectronics: 2500
+    Gold: 3500
+    Silver: 6000
+    Steel: 15000
+    Tungsten: 6000
+
+- type: latheRecipe
+  id: BailiffFlatpack
+  category: Circuitry
+  result: BailiffFlatpack
+  icon:
+    sprite: _Crescent/Objects/Specific/Mechs/jaipei.rsi
+    state: jaipei
+  completetime: 60
+  materials:
+    AdvancedMechatronics: 3500
+    AdvancedElectronics: 1500
+    Gold: 1000
+    Silver: 2500
+    Steel: 3500
+    Tungsten: 3500
+
+- type: latheRecipe
   id: SuzumeFlatpack
   category: Circuitry
   result: SuzumeFlatpack

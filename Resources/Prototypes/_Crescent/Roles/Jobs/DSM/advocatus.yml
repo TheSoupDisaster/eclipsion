@@ -115,6 +115,7 @@
 - type: startingGear
   id: AdvocatusGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: AdvocatusPDA
     head:  ClothingHeadHatAdvocatus
     ears: ClothingHeadsetEmpire

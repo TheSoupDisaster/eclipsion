@@ -108,3 +108,6 @@
     eyes: ClothingEyesHudMedical
     ears: ClothingHeadsetNCWLCommand
     pocket2: RatRubberStampNCWLMedical
+  storage:
+    back:
+    - ClothingEyesHudFactionNCWL

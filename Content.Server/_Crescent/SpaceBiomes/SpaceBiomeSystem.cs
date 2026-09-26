@@ -88,11 +88,18 @@ public sealed class SpaceBiomeSystem : EntitySystem
                 }
             }
 
-            if (newSource == tracker.Source && tracker.Biome == newSource?.Biome)
+            var newBiome = newSource?.Biome ?? "default";
+
+            // Two sources can carry the same biome (Tatsumoto has a short and a long one); walking from
+            // one into the other should not replay the parallax fade and the zone banner.
+            if (tracker.Biome == newBiome)
+            {
+                tracker.Source = newSource;
                 continue;
+            }
 
             tracker.Source = newSource;
-            tracker.Biome = newSource?.Biome ?? "default";
+            tracker.Biome = newBiome;
             Dirty(session.AttachedEntity.Value, tracker);
             SwapBiome(session, session.AttachedEntity.Value, newSource);
         }

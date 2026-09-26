@@ -126,15 +126,6 @@
       id: LoadoutItemPetGoldfish
 
 - type: characterItemGroup
-  id: LoadoutCards
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutItemBlackDeck
-    - type: loadout
-      id: LoadoutItemNTDeck
-
-- type: characterItemGroup
   id: LoadoutPlushie
   maxItems: 1
   items:

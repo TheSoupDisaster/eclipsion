@@ -52,6 +52,7 @@
 - type: startingGear
   id: ReinforcementDSMConscriptRiflemanGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: LevymanPDA
     ears: ClothingHeadsetEmpire
     jumpsuit: ClothingUniformJumpsuitImperialCombat

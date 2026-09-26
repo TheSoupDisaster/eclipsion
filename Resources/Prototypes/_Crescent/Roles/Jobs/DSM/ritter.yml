@@ -74,6 +74,7 @@
 - type: startingGear
   id: RitterGear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: RitterPDA
     ears: ClothingHeadsetEmpire
     jumpsuit: ClothingUniformJumpsuitImperialCombat

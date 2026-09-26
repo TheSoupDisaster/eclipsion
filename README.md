@@ -74,7 +74,7 @@ Connect to `localhost` in the client once the server has started.
 
 This project is a downstream fork and contains code and assets from many other Space Station 14 projects.
 Content originating from another project is kept under a directory prefix (for example `_Goobstation/`, `_NF/`,
-`_EE/`) or inside a dedicated `Content.<Project>.*` assembly, and carries the original authors' copyright
+`_DV/`) or inside a dedicated `Content.<Project>.*` assembly, and carries the original authors' copyright
 notices in per-file `SPDX-FileCopyrightText` headers and in each asset's `meta.json`.
 
 Major upstreams include:
@@ -83,7 +83,7 @@ Major upstreams include:
 | --- | --- |
 | [Space Station 14](https://github.com/space-wizards/space-station-14) | Base game |
 | [Robust Toolbox](https://github.com/space-wizards/RobustToolbox) | Engine (submodule) |
-| [Einstein Engines](https://github.com/Simple-Station/Einstein-Engines) | `_EE`, `_SimpleStation`, `SimpleStation14` |
+| [Einstein Engines](https://github.com/Simple-Station/Einstein-Engines) | `_SimpleStation`, `SimpleStation14`; former `_EE` content merged into `_Crescent` |
 | [Goob-Station](https://github.com/Goob-Station/Goob-Station) | `_Goobstation`, `Content.Goobstation.*` |
 | [Frontier Station 14](https://github.com/new-frontiers-14/frontier-station-14) | `_NF` |
 | [Delta-v](https://github.com/DeltaV-Station/Delta-v) | `_DV`, `DeltaV` |
@@ -94,8 +94,10 @@ Major upstreams include:
 | [HULLROT](https://github.com/Sector-Crescent/Hullrot) | `_Crescent` — the fork this project continues |
 
 Additional upstreams are present under the prefixes `_ADT`, `_Arcadis`, `_CS4875`, `_Corvax`, `_DEN`,
-`_Funkystation`, `_Harmony`, `_Imp`, `_Impstation`, `_Lavaland`, `_Mono`, `_Nuclear14`, `_Shitmed`,
-`_Starlight`, `_White`, `_ds14`, `Corvax`, `EstacaoPirata` and `WhiteDream`.
+`_Funkystation`, `_Harmony`, `_Imp`, `_Impstation`, `_Mono`, `_Nuclear14`, `_Shitmed`,
+`_Starlight`, `_White`, `_ds14`, `Corvax` and `WhiteDream`.
+Content formerly kept under `_EE` (Einstein Engines) and `_Lavaland` has been merged into `_Crescent`;
+its origin is recorded in the git history.
 Refer to the per-file headers and `meta.json` metadata for the authoritative copyright and licensing of any
 individual file.
 

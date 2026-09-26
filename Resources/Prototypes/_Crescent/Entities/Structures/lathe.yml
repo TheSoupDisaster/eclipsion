@@ -365,6 +365,9 @@
       - M14IncendiaryHandgrenade
       - M18SmokeHandgrenade
       #Minutemen
+      - DeputyFlatpack
+      - BailiffFlatpack
+      - JusticiarFlatpack
       - MinutemanLPC
       - CorsairLPC
       - ArbiterLPC
@@ -710,6 +713,13 @@
       - CaracalLPC
       - RokhLPC
       - AmadeusLPC
+      # Franchise stock modules (Cyberdawn/Coalition Franchise Stock research)
+      - CompanyVendorRestockTFCFCoffee1
+      - CompanyVendorRestockTFCFCoffee2
+      - CompanyVendorRestockTFCFCoffee3
+      - CompanyVendorRestockTFCFGrill1
+      - CompanyVendorRestockTFCFGrill2
+      - CompanyVendorRestockTFCFGrill3
       # TFSC end
       # TAP start
       - ClothingUniformJumpsuitBeltrunner
@@ -1015,6 +1025,13 @@
       - MetempsychoticMachineCircuitboard
       - HardlinerFlatpack
       - PowerCageHardliner
+      # Franchise stock modules (Corporate Franchise Stock research)
+      - CompanyVendorRestockShinoharaCoffee1
+      - CompanyVendorRestockShinoharaCoffee2
+      - CompanyVendorRestockShinoharaCoffee3
+      - CompanyVendorRestockShinoharaCanteen1
+      - CompanyVendorRestockShinoharaCanteen2
+      - CompanyVendorRestockShinoharaCanteen3
       #fabdisk recipies
       - WeaponRifleM90GrenadeLauncherNT
       - WeaponSubMachineGunMP5NT

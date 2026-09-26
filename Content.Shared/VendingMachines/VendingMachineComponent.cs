@@ -121,6 +121,18 @@ namespace Content.Shared.VendingMachines
         public float DispenseOnHitAccumulator = 0f;
 
         /// <summary>
+        ///     Maximum number of items that can be ejected by pulsing the eject wire.
+        /// </summary>
+        [DataField]
+        public int WirePulseEjectLimit = 2;
+
+        /// <summary>
+        ///     How many items have been ejected by pulsing the eject wire so far.
+        /// </summary>
+        [DataField]
+        public int WirePulseEjectCount = 0;
+
+        /// <summary>
         /// The quality of the stock in the vending machine on spawn.
         /// Represents the percentage chance (0.0f = 0%, 1.0f = 100%) each set of items in the machine is fully-stocked.
         /// If not fully stocked, the stock will have a random value between 0 (inclusive) and max stock (exclusive).

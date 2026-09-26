@@ -197,7 +197,7 @@
     access:
     - [ "Minuteman" ]
   - type: Sprite
-    sprite: _Crescent/Structures/Machines/Vendors/armory_tsp.rsi
+    sprite: _Crescent/Structures/Machines/Vendors/armory_cmm.rsi
   - type: CMAutomatedVendor
     jobs:
     - OrdnancemanCMM
@@ -276,7 +276,7 @@
     access:
     - [ "GliessSheriff" ]
   - type: Sprite
-    sprite: _Crescent/Structures/Machines/Vendors/armory_tsp.rsi
+    sprite: _Crescent/Structures/Machines/Vendors/armory_cmm.rsi
   - type: CMAutomatedVendor
     jobs:
     - GliessianDeputy

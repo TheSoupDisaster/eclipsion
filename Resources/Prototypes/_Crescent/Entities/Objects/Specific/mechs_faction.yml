@@ -4,6 +4,118 @@
 # Tier stats and equipment whitelists inherit from Lancer, Bogatyr, and Gilgamesh.
 # TFCF retains the legacy TFSC faction ID.
 
+# CMM refits surplus hulls; only the armor layer is tinted, leaving power indicators readable.
+- type: entity
+  id: MechCMMDeputy
+  parent: MechSHISuzume
+  name: CMM M-110 Deputy scout mechsuit
+  suffix: T1
+  description: A surplus Suzume light exosuit refitted for Colonial Minutemen reconnaissance and rapid patrol response. Blue armor and a compact sensor mast distinguish its agile frame, which accepts scout weapons and light industrial equipment.
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: suzume
+      color: "#729bd6"
+    - map: [ "enum.MechVisualLayers.Power" ]
+      sprite: _Crescent/Objects/Specific/Mechs/suzume.rsi
+      state: suzume-open-power-off
+      shader: unshaded
+    - map: [ "enum.PaperLabelVisuals.Layer" ]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: ProjectileIFF
+    color: "#4e8fd6"
+  - type: HullrotFaction
+    faction: CMM
+  - type: NpcFactionMember
+    factions:
+    - CMMFighter
+
+- type: entity
+  id: MechCMMDeputyBattery
+  parent: MechCMMDeputy
+  suffix: T1, Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCageUraniumCell
+
+- type: entity
+  id: MechCMMBailiff
+  parent: MechSHIJaipei
+  name: CMM M-220 Bailiff patrol mechsuit
+  suffix: T2
+  description: A surplus Jaipei medium exosuit refitted for Colonial Minutemen boarding actions and convoy patrols. Blue armor surrounds a reinforced cockpit, with hardpoints for scout and medium weapon systems.
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: jaipei
+      color: "#729bd6"
+    - map: [ "enum.MechVisualLayers.Power" ]
+      sprite: _Crescent/Objects/Specific/Mechs/jaipei.rsi
+      state: jaipei-open-power-off
+      shader: unshaded
+    - map: [ "enum.PaperLabelVisuals.Layer" ]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: ProjectileIFF
+    color: "#4e8fd6"
+  - type: HullrotFaction
+    faction: CMM
+  - type: NpcFactionMember
+    factions:
+    - CMMFighter
+
+- type: entity
+  id: MechCMMBailiffBattery
+  parent: MechCMMBailiff
+  suffix: T2, Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCagePlasmaCell
+
+- type: entity
+  id: MechCMMJusticiar
+  parent: MechDSMBastion
+  name: CMM M-330 Justiciar siege mechsuit
+  suffix: T3
+  description: A salvaged Bastion siege exosuit rebuilt for Colonial Minutemen heavy boarding operations. Blue armor plates protect its massive frame, trading mobility for sustained protection and siege-class weapon hardpoints.
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: bastion
+      color: "#729bd6"
+    - map: [ "enum.MechVisualLayers.Power" ]
+      sprite: _Crescent/Objects/Specific/Mechs/bastion.rsi
+      state: bastion-open-power-off
+      shader: unshaded
+    - map: [ "enum.PaperLabelVisuals.Layer" ]
+      sprite: Structures/Storage/Crates/labels.rsi
+      state: paper
+  - type: ProjectileIFF
+    color: "#4e8fd6"
+  - type: HullrotFaction
+    faction: CMM
+  - type: NpcFactionMember
+    factions:
+    - CMMFighter
+
+- type: entity
+  id: MechCMMJusticiarBattery
+  parent: MechCMMJusticiar
+  suffix: T3, Battery
+  components:
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCageBananiumCell
+
 - type: entity
   id: MechSHISuzume
   parent: MechNCWLLancer

@@ -48,6 +48,7 @@
 - type: startingGear
   id: planetfall_levyman_gear
   equipment:
+    eyes: ClothingEyesHudFactionDSM
     id: LevymanPDA
     ears: ClothingHeadsetEmpireCiv_Planetfall
     shoes: ClothingShoesBootsImperialJackboots
